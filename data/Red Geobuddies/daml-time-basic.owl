@@ -1,0 +1,471 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY time-basic "http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#" >
+    <!ENTITY cal "http://daml.umbc.edu/ontologies/cobra/0.4/calendarclock#" >
+]>
+
+
+<rdf:RDF xmlns="http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#"
+     xml:base="http://daml.umbc.edu/ontologies/cobra/0.4/time-basic"
+     xmlns:cal="http://daml.umbc.edu/ontologies/cobra/0.4/calendarclock#"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:time-basic="http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:label
+            >COBRA-ONT Time Ontology</rdfs:label>
+        <rdfs:comment
+            >This ontology defines concepts for describing time. The basic
+      constructs are time instant and time interval. Both time
+      instant and time interval are type of temporal entity, which
+      can be described using the calendar/clock ontology.
+
+      Parts of this ontology are adopted from the time-entry
+      ontology (developed by Feng Pan and Jerry R. Hobbs (USC/ISI))
+      and the DAML-Time ontology.</rdfs:comment>
+        <owl:versionInfo>0.4</owl:versionInfo>
+        <owl:imports rdf:resource="http://daml.umbc.edu/ontologies/cobra/0.4/calendarclock"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#after -->
+
+    <owl:ObjectProperty rdf:about="#after">
+        <rdfs:label>after</rdfs:label>
+        <owl:inverseOf rdf:resource="#before"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#before -->
+
+    <owl:ObjectProperty rdf:about="#before">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:label>before</rdfs:label>
+        <rdfs:domain rdf:resource="#TemporalThing"/>
+        <rdfs:range rdf:resource="#TemporalThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#begins -->
+
+    <owl:ObjectProperty rdf:about="#begins">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>begins</rdfs:label>
+        <rdfs:range rdf:resource="#InstantThing"/>
+        <rdfs:domain rdf:resource="#TemporalThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#definedByCalendar -->
+
+    <owl:ObjectProperty rdf:about="#definedByCalendar">
+        <rdfs:label
+            >definedByCalendar</rdfs:label>
+        <rdfs:range rdf:resource="&cal;CalendarDescription"/>
+        <rdfs:domain rdf:resource="#InstantDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#definedByClock -->
+
+    <owl:ObjectProperty rdf:about="#definedByClock">
+        <rdfs:label>definedByClock</rdfs:label>
+        <rdfs:range rdf:resource="&cal;ClockDescription"/>
+        <rdfs:domain rdf:resource="#InstantDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#ends -->
+
+    <owl:ObjectProperty rdf:about="#ends">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:label>ends</rdfs:label>
+        <rdfs:range rdf:resource="#InstantThing"/>
+        <rdfs:domain rdf:resource="#TemporalThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#firstInstantDescription -->
+
+    <owl:ObjectProperty rdf:about="#firstInstantDescription">
+        <rdfs:label
+            >firstInstantDescription</rdfs:label>
+        <rdfs:range rdf:resource="#InstantDescription"/>
+        <rdfs:domain rdf:resource="#IntervalDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#hasInstantDescription -->
+
+    <owl:ObjectProperty rdf:about="#hasInstantDescription">
+        <rdfs:label
+            >hasInstantDescription</rdfs:label>
+        <rdfs:range rdf:resource="#InstantDescription"/>
+        <rdfs:domain rdf:resource="#InstantThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#hasIntervalDatatypeDescription -->
+
+    <owl:ObjectProperty rdf:about="#hasIntervalDatatypeDescription">
+        <rdfs:label
+            >hasIntervalDatatypeDescription</rdfs:label>
+        <rdfs:comment
+            >Defines a datatype representation of a time interval.</rdfs:comment>
+        <rdfs:range rdf:resource="#IntervalDatatypeDescription"/>
+        <rdfs:domain rdf:resource="#IntervalThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#hasIntervalDescription -->
+
+    <owl:ObjectProperty rdf:about="#hasIntervalDescription">
+        <rdfs:label
+            >hasIntervalDescription</rdfs:label>
+        <rdfs:range rdf:resource="#IntervalDescription"/>
+        <rdfs:domain rdf:resource="#IntervalThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#inside -->
+
+    <owl:ObjectProperty rdf:about="#inside">
+        <rdfs:label>begins</rdfs:label>
+        <rdfs:range rdf:resource="#InstantThing"/>
+        <rdfs:domain rdf:resource="#IntervalThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#secondInstantDescription -->
+
+    <owl:ObjectProperty rdf:about="#secondInstantDescription">
+        <rdfs:label
+            >secondInstantDescription</rdfs:label>
+        <rdfs:range rdf:resource="#InstantDescription"/>
+        <rdfs:domain rdf:resource="#IntervalDescription"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#beginningTime -->
+
+    <owl:DatatypeProperty rdf:about="#beginningTime">
+        <rdfs:label>beginningTime</rdfs:label>
+        <rdfs:domain rdf:resource="#IntervalDatatypeDescription"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#duration -->
+
+    <owl:DatatypeProperty rdf:about="#duration">
+        <rdfs:label>duration</rdfs:label>
+        <rdfs:domain rdf:resource="#IntervalDatatypeDescription"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#hasInstantDatatypeDescription -->
+
+    <owl:DatatypeProperty rdf:about="#hasInstantDatatypeDescription">
+        <rdfs:label
+            >hasInstantDatatypeDescription</rdfs:label>
+        <rdfs:comment
+            >Defines a datatype representation of a time instant.</rdfs:comment>
+        <rdfs:domain rdf:resource="#InstantThing"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/calendarclock#CalendarDescription -->
+
+    <owl:Class rdf:about="&cal;CalendarDescription"/>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/calendarclock#ClockDescription -->
+
+    <owl:Class rdf:about="&cal;ClockDescription"/>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#Event -->
+
+    <owl:Class rdf:about="#Event">
+        <rdfs:label>Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#Instant -->
+
+    <owl:Class rdf:about="#Instant">
+        <rdfs:label>Instant</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#InstantThing"/>
+        <rdfs:subClassOf rdf:resource="#TemporalEntity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#InstantDescription -->
+
+    <owl:Class rdf:about="#InstantDescription">
+        <rdfs:label
+            >InstantDescription</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#definedByCalendar"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#definedByClock"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#InstantEvent -->
+
+    <owl:Class rdf:about="#InstantEvent">
+        <rdfs:label>InstantEvent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Event"/>
+        <rdfs:subClassOf rdf:resource="#InstantThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#InstantThing -->
+
+    <owl:Class rdf:about="#InstantThing">
+        <rdfs:label>InstantThing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TemporalThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#Interval -->
+
+    <owl:Class rdf:about="#Interval">
+        <rdfs:label>Interval</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#IntervalThing"/>
+        <rdfs:subClassOf rdf:resource="#TemporalEntity"/>
+        <owl:disjointWith rdf:resource="#Instant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#IntervalDatatypeDescription -->
+
+    <owl:Class rdf:about="#IntervalDatatypeDescription">
+        <rdfs:label
+            >IntervalDatatypeDescription</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#duration"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#beginningTime"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >When a time interval is described by using XML datatypes, the
+      beginning of the time interval is defined by the datatype
+      property &quot;beginningTime&quot;, and the end of the time interval is
+      calculated by adding the duration specification (i.e., the
+      value that is defined by the property &quot;duration&quot;) to the value
+      that is defined by &quot;beginningTime&quot;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#IntervalDescription -->
+
+    <owl:Class rdf:about="#IntervalDescription">
+        <rdfs:label
+            >IntervalDescription</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#secondInstantDescription"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#firstInstantDescription"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#IntervalEvent -->
+
+    <owl:Class rdf:about="#IntervalEvent">
+        <rdfs:label>IntervalEvent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Event"/>
+        <rdfs:subClassOf rdf:resource="#IntervalThing"/>
+        <owl:disjointWith rdf:resource="#InstantEvent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#IntervalThing -->
+
+    <owl:Class rdf:about="#IntervalThing">
+        <rdfs:label>IntervalThing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TemporalThing"/>
+        <owl:disjointWith rdf:resource="#InstantThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#ProperInterval -->
+
+    <owl:Class rdf:about="#ProperInterval">
+        <rdfs:label>ProperInterval</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Interval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#ProperIntervalEvent -->
+
+    <owl:Class rdf:about="#ProperIntervalEvent">
+        <rdfs:label>IntervalEvent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#IntervalEvent"/>
+        <rdfs:subClassOf rdf:resource="#ProperIntervalThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#ProperIntervalThing -->
+
+    <owl:Class rdf:about="#ProperIntervalThing">
+        <rdfs:label
+            >ProperIntervalThing</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#IntervalThing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#TemporalEntity -->
+
+    <owl:Class rdf:about="#TemporalEntity">
+        <rdfs:label>TemporalEntity</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Instant"/>
+                    <rdf:Description rdf:about="#Interval"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#TemporalEvent -->
+
+    <owl:Class rdf:about="#TemporalEvent">
+        <rdfs:label>TemporalEvent</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#InstantEvent"/>
+                    <rdf:Description rdf:about="#IntervalEvent"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#TemporalThing -->
+
+    <owl:Class rdf:about="#TemporalThing">
+        <rdfs:label>TemporalThing</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#IntervalThing"/>
+                    <rdf:Description rdf:about="#InstantThing"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>

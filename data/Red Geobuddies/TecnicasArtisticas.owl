@@ -1,0 +1,374 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY TecnicasArtisticas "http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:TecnicasArtisticas="http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <dc:creator rdf:datatype="&xsd;string">Maria Poveda</dc:creator>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Una ontolog&#237;a sobre las t&#233;cnicas art&#237;sticas del arte en el camino de Santiago de Compostela en Espa&#241;a.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/TecnicasArtisticas.owl#TecnicaArtistica -->
+
+    <owl:Class rdf:about="&TecnicasArtisticas;TecnicaArtistica">
+        <rdfs:label xml:lang="es"
+            >T&#233;cnicas art&#237;sticas</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#TecnicaDeEscultura -->
+
+    <owl:Class rdf:about="&TecnicasArtisticas;TecnicaDeEscultura">
+        <rdfs:label xml:lang="es"
+            >T&#233;cnica de escultura</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&TecnicasArtisticas;TecnicaArtistica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#TecnicaDeEsculturaSobreHierro -->
+
+    <owl:Class rdf:about="&TecnicasArtisticas;TecnicaDeEsculturaSobreHierro">
+        <rdfs:label xml:lang="es"
+            >T&#233;cnica de escultura sobre hierro</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&TecnicasArtisticas;TecnicaDeEscultura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#TecnicaDePintura -->
+
+    <owl:Class rdf:about="&TecnicasArtisticas;TecnicaDePintura">
+        <rdfs:label xml:lang="es"
+            >T&#233;cnica de pintura</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&TecnicasArtisticas;TecnicaArtistica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#TecnicaDeConstruccion -->
+
+    <owl:Class rdf:about="#TecnicaDeConstruccion">
+        <rdfs:subClassOf rdf:resource="&TecnicasArtisticas;TecnicaArtistica"/>
+        <rdfs:comment xml:lang="es"
+            >T&#233;cnica de construcci&#243;n</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#TecnicaDeFotografia -->
+
+    <owl:Class rdf:about="#TecnicaDeFotografia">
+        <rdfs:subClassOf rdf:resource="&TecnicasArtisticas;TecnicaArtistica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#TecnicaDeOrfebreria -->
+
+    <owl:Class rdf:about="#TecnicaDeOrfebreria">
+        <rdfs:subClassOf rdf:resource="&TecnicasArtisticas;TecnicaArtistica"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#acrilico -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;acrilico">
+        <rdfs:label rdf:datatype="&xsd;string">acr&#237;lico</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The art or practice of producing creative works with acrylic paint.</rdfs:comment>
+    </TecnicasArtisticas:TecnicaDePintura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#acuarela -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;acuarela">
+        <rdfs:label xml:lang="es">acuarela</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Use for watercolor painting done in transparent washes of color as distinguished from the opaque method using gouache.</rdfs:comment>
+    </TecnicasArtisticas:TecnicaDePintura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#caricatura -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;caricatura">
+        <rdfs:label xml:lang="es">caricatura</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The activity of creating &quot;cartoons (humorous images).&quot;</rdfs:comment>
+    </TecnicasArtisticas:TecnicaDePintura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#cera -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;cera">
+        <rdfs:label rdf:datatype="&xsd;string">encaustica</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">incaustica</rdfs:label>
+    </TecnicasArtisticas:TecnicaDePintura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#cincelado -->
+
+    <TecnicasArtisticas:TecnicaDeEscultura rdf:about="&TecnicasArtisticas;cincelado"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#collage -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;collage">
+        <rdfs:label xml:lang="en">collage</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Refers to the technique of making compositions in two dimensions or very low relief by gluing paper, fabrics, photographs, or other materials onto a flat surface. If heavy three-dimensional objects dominate, see &quot;assemblage (sculpture technique).&quot; If the constituent fragments form a somewhat unified image, see &quot;montage.&quot;</rdfs:comment>
+    </TecnicasArtisticas:TecnicaDePintura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#embutido -->
+
+    <TecnicasArtisticas:TecnicaDeEscultura rdf:about="&TecnicasArtisticas;embutido"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#esculpido -->
+
+    <TecnicasArtisticas:TecnicaDeEscultura rdf:about="&TecnicasArtisticas;esculpido"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#estampado -->
+
+    <TecnicasArtisticas:TecnicaDeEscultura rdf:about="&TecnicasArtisticas;estampado">
+        <rdfs:label rdf:datatype="&xsd;string">troquelado</rdfs:label>
+    </TecnicasArtisticas:TecnicaDeEscultura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#forjado -->
+
+    <TecnicasArtisticas:TecnicaDeEsculturaSobreHierro rdf:about="&TecnicasArtisticas;forjado"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#fotografiaEspiritual -->
+
+    <TecnicaDeFotografia rdf:about="&TecnicasArtisticas;fotografiaEspiritual">
+        <rdfs:label xml:lang="es"
+            >fotograf&#237;a espiritual</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The techniques or the activity of making spirit photographs.</rdfs:comment>
+    </TecnicaDeFotografia>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#fotografiaNatural -->
+
+    <TecnicaDeFotografia rdf:about="&TecnicasArtisticas;fotografiaNatural">
+        <rdfs:label></rdfs:label>
+    </TecnicaDeFotografia>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#fresco -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;fresco">
+        <rdfs:label rdf:datatype="&xsd;string">al fresco</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Mural painting technique in which permanent limeproof pigments, dispersed in water, are painted on freshly laid lime plaster.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >que se hace en paredes y techos con colores disueltos en agua de cal y extendidos sobre una capa de estuco fresco.</rdfs:comment>
+    </TecnicasArtisticas:TecnicaDePintura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#grabado -->
+
+    <TecnicasArtisticas:TecnicaDeEscultura rdf:about="&TecnicasArtisticas;grabado"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#mixta -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;mixta">
+        <rdfs:label xml:lang="es">mixta</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The use in painting of oil paint glazes over tempera paint, or of tempera paint glazes over oil paint. For other combinations of materials and techniques, use &quot;mixed media.&quot;</rdfs:comment>
+    </TecnicasArtisticas:TecnicaDePintura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#modelado -->
+
+    <TecnicasArtisticas:TecnicaDeEscultura rdf:about="&TecnicasArtisticas;modelado"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#montaje -->
+
+    <TecnicasArtisticas:TecnicaArtistica rdf:about="&TecnicasArtisticas;montaje">
+        <rdfs:label xml:lang="es">montaje</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >A contemporary technique of creating a three-dimensional work of art by combining various elements, especially found objects; may include elements painted, carved, or modeled by the artist. Originally coined in 1953 by artist Jean Dubuffet</rdfs:comment>
+    </TecnicasArtisticas:TecnicaArtistica>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#oleo -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;oleo">
+        <rdfs:label xml:lang="es">oleo</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The art or practice of producing creative works in oil paint, which is pigment suspended in vegetal drying oils. It dates from at least the Middle Ages in Europe, and was widely adopted for easel painting by the fifteenth century.</rdfs:comment>
+    </TecnicasArtisticas:TecnicaDePintura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#orfebreria -->
+
+    <rdf:Description rdf:about="&TecnicasArtisticas;orfebreria">
+        <rdfs:label xml:lang="es">orfebrer&#237;a</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The act or process of shaping things out of metal or of decorating with metal.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#pastel -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;pastel">
+        <rdfs:label rdf:datatype="&xsd;string">al pastel</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >que se hace sobre papel con l&#225;pices blandos, pastosos y de colores variados.</rdfs:comment>
+    </TecnicasArtisticas:TecnicaDePintura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#pulido -->
+
+    <TecnicasArtisticas:TecnicaDeEscultura rdf:about="&TecnicasArtisticas;pulido"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#replicacion -->
+
+    <TecnicasArtisticas:TecnicaArtistica rdf:about="&TecnicasArtisticas;replicacion">
+        <rdfs:label xml:lang="es">replicaci&#243;n</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The making of precise reproductions of three-dimensional objects in the same dimensions as the original; often involving casting from a mold made directly from the original.</rdfs:comment>
+    </TecnicasArtisticas:TecnicaArtistica>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#repujado -->
+
+    <TecnicasArtisticas:TecnicaDeEsculturaSobreHierro rdf:about="&TecnicasArtisticas;repujado"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#soldaduraAutogena -->
+
+    <TecnicasArtisticas:TecnicaDeEsculturaSobreHierro rdf:about="&TecnicasArtisticas;soldaduraAutogena"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#soldaduraElectrica -->
+
+    <TecnicasArtisticas:TecnicaDeEsculturaSobreHierro rdf:about="&TecnicasArtisticas;soldaduraElectrica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#tallado -->
+
+    <TecnicasArtisticas:TecnicaDeEscultura rdf:about="&TecnicasArtisticas;tallado"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#tempera -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;tempera"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#temple -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;temple">
+        <rdfs:label rdf:datatype="&xsd;string">al temple</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >hecha con colores preparados con l&#237;quidos glutinosos y calientes, como el agua de cola.</rdfs:comment>
+    </TecnicasArtisticas:TecnicaDePintura>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#tinta -->
+
+    <TecnicasArtisticas:TecnicaDePintura rdf:about="&TecnicasArtisticas;tinta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#vaciado -->
+
+    <TecnicasArtisticas:TecnicaDeEscultura rdf:about="&TecnicasArtisticas;vaciado"/>
+</rdf:RDF>

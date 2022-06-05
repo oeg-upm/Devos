@@ -1,0 +1,933 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY wordnet "http://xmlns.com/wordnet/1.6/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY personalizacion "http://delicias.dia.fi.upm.es/personalizacion.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://delicias.dia.fi.upm.es/personalizacion.owl#"
+     xml:base="http://delicias.dia.fi.upm.es/personalizacion.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:personalizacion="http://delicias.dia.fi.upm.es/personalizacion.owl#"
+     xmlns:wordnet="http://xmlns.com/wordnet/1.6/"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;source"/>
+    <owl:AnnotationProperty rdf:about="&dc;publisher"/>
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    <owl:AnnotationProperty rdf:about="&dc;title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esCaracteristicaDe -->
+
+    <owl:ObjectProperty rdf:about="#esCaracteristicaDe">
+        <rdfs:domain rdf:resource="#CaracteristicaMyersBriggs"/>
+        <owl:inverseOf rdf:resource="#tieneCaracteristica"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esCaracteristicaE-IDe -->
+
+    <owl:ObjectProperty rdf:about="#esCaracteristicaE-IDe">
+        <rdfs:domain rdf:resource="#E-I"/>
+        <rdfs:subPropertyOf rdf:resource="#esCaracteristicaDe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esCaracteristicaJ-CDe -->
+
+    <owl:ObjectProperty rdf:about="#esCaracteristicaJ-CDe">
+        <rdfs:domain rdf:resource="#J-C"/>
+        <rdfs:subPropertyOf rdf:resource="#esCaracteristicaDe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esCaracteristicaP-TDe -->
+
+    <owl:ObjectProperty rdf:about="#esCaracteristicaP-TDe">
+        <rdfs:domain rdf:resource="#P-T"/>
+        <rdfs:subPropertyOf rdf:resource="#esCaracteristicaDe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esCaracteristicaS-NDe -->
+
+    <owl:ObjectProperty rdf:about="#esCaracteristicaS-NDe">
+        <rdfs:domain rdf:resource="#S-N"/>
+        <rdfs:subPropertyOf rdf:resource="#esCaracteristicaDe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esEstacionAdecuadaPara -->
+
+    <owl:ObjectProperty rdf:about="#esEstacionAdecuadaPara">
+        <rdfs:range rdf:resource="#CaracteristicaMyersBriggs"/>
+        <rdfs:domain rdf:resource="#Estacion"/>
+        <owl:inverseOf rdf:resource="#tieneEstacionRecomendada"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneCaracteristica -->
+
+    <owl:ObjectProperty rdf:about="#tieneCaracteristica">
+        <rdfs:range rdf:resource="#CaracteristicaMyersBriggs"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneCaracteristicaE-I -->
+
+    <owl:ObjectProperty rdf:about="#tieneCaracteristicaE-I">
+        <rdfs:range rdf:resource="#E-I"/>
+        <owl:inverseOf rdf:resource="#esCaracteristicaE-IDe"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneCaracteristica"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneCaracteristicaJ-C -->
+
+    <owl:ObjectProperty rdf:about="#tieneCaracteristicaJ-C">
+        <rdfs:range rdf:resource="#J-C"/>
+        <owl:inverseOf rdf:resource="#esCaracteristicaJ-CDe"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneCaracteristica"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneCaracteristicaP-T -->
+
+    <owl:ObjectProperty rdf:about="#tieneCaracteristicaP-T">
+        <rdfs:range rdf:resource="#P-T"/>
+        <owl:inverseOf rdf:resource="#esCaracteristicaP-TDe"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneCaracteristica"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneCaracteristicaS-N -->
+
+    <owl:ObjectProperty rdf:about="#tieneCaracteristicaS-N">
+        <rdfs:range rdf:resource="#S-N"/>
+        <owl:inverseOf rdf:resource="#esCaracteristicaS-NDe"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneCaracteristica"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneEstacionRecomendada -->
+
+    <owl:ObjectProperty rdf:about="#tieneEstacionRecomendada">
+        <rdfs:domain rdf:resource="#CaracteristicaMyersBriggs"/>
+        <rdfs:range rdf:resource="#Estacion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#CaracteristicaMyersBriggs -->
+
+    <owl:Class rdf:about="#CaracteristicaMyersBriggs">
+        <rdfs:label xml:lang="es"
+            >Caracter&#237;stica Myers Briggs</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#E-I"/>
+                    <rdf:Description rdf:about="#J-C"/>
+                    <rdf:Description rdf:about="#S-N"/>
+                    <rdf:Description rdf:about="#P-T"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#E-I -->
+
+    <owl:Class rdf:about="#E-I">
+        <rdfs:label xml:lang="es">E-I</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Extroversi&#243;n - Introversi&#243;n</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#introversion"/>
+                    <rdf:Description rdf:about="#extroversion"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#CaracteristicaMyersBriggs"/>
+        <owl:disjointWith rdf:resource="#J-C"/>
+        <owl:disjointWith rdf:resource="#S-N"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#Estacion -->
+
+    <owl:Class rdf:about="#Estacion">
+        <rdfs:label xml:lang="es">Estaci&#243;n</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#primavera"/>
+                    <rdf:Description rdf:about="#invierno"/>
+                    <rdf:Description rdf:about="#verano"/>
+                    <rdf:Description rdf:about="#otonno"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#J-C -->
+
+    <owl:Class rdf:about="#J-C">
+        <rdfs:label xml:lang="es">J-C</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Juzgando - Percibiendo</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#percibiendo"/>
+                    <rdf:Description rdf:about="#juzgando"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#CaracteristicaMyersBriggs"/>
+        <owl:disjointWith rdf:resource="#S-N"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#MotivoPeregrinacion -->
+
+    <owl:Class rdf:about="#MotivoPeregrinacion">
+        <rdfs:label xml:lang="es"
+            >Motivo peregrinaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <owl:disjointWith rdf:resource="#Preferencia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#P-T -->
+
+    <owl:Class rdf:about="#P-T">
+        <rdfs:label xml:lang="es">P-T</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Pensando - Sintiendo</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#pensando"/>
+                    <rdf:Description rdf:about="#sintiendo"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#CaracteristicaMyersBriggs"/>
+        <owl:disjointWith rdf:resource="#E-I"/>
+        <owl:disjointWith rdf:resource="#J-C"/>
+        <owl:disjointWith rdf:resource="#S-N"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#Personalidad -->
+
+    <owl:Class rdf:about="#Personalidad">
+        <rdfs:label xml:lang="es">Personalidad</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ISTJ"/>
+                    <rdf:Description rdf:about="#ISPC"/>
+                    <rdf:Description rdf:about="#ISPJ"/>
+                    <rdf:Description rdf:about="#ENPC"/>
+                    <rdf:Description rdf:about="#ENPJ"/>
+                    <rdf:Description rdf:about="#INTC"/>
+                    <rdf:Description rdf:about="#ESTC"/>
+                    <rdf:Description rdf:about="#INPC"/>
+                    <rdf:Description rdf:about="#ESTJ"/>
+                    <rdf:Description rdf:about="#ENTJ"/>
+                    <rdf:Description rdf:about="#ENTC"/>
+                    <rdf:Description rdf:about="#INPJ"/>
+                    <rdf:Description rdf:about="#INTJ"/>
+                    <rdf:Description rdf:about="#ISTC"/>
+                    <rdf:Description rdf:about="#ESPC"/>
+                    <rdf:Description rdf:about="#ESPJ"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#Preferencia -->
+
+    <owl:Class rdf:about="#Preferencia">
+        <rdfs:label xml:lang="es">Preferencia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#PreferenciaAlimenticia -->
+
+    <owl:Class rdf:about="#PreferenciaAlimenticia">
+        <rdfs:label xml:lang="es"
+            >Preferencia alimenticia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Preferencia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#PreferenciaCompannia -->
+
+    <owl:Class rdf:about="#PreferenciaCompannia">
+        <rdfs:label xml:lang="es"
+            >Preferencia compa&#241;ia</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#enGrupo"/>
+                    <rdf:Description rdf:about="#solo"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Preferencia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#PreferenciaCultural -->
+
+    <owl:Class rdf:about="#PreferenciaCultural">
+        <rdfs:label xml:lang="es"
+            >Preferencia cultural</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Preferencia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#PreferenciaDeOcio -->
+
+    <owl:Class rdf:about="#PreferenciaDeOcio">
+        <rdfs:label xml:lang="es"
+            >Preferencia de ocio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Preferencia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#PreferenciaDeTransporte -->
+
+    <owl:Class rdf:about="#PreferenciaDeTransporte">
+        <rdfs:label xml:lang="es"
+            >Preferencia de transporte</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Preferencia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#PreferenciaEstacionDelAnno -->
+
+    <owl:Class rdf:about="#PreferenciaEstacionDelAnno">
+        <rdfs:label xml:lang="es"
+            >Preferencia estaci&#243;n del a&#241;o</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Preferencia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#PreferenciaTuristica -->
+
+    <owl:Class rdf:about="#PreferenciaTuristica">
+        <rdfs:label xml:lang="es"
+            >Preferencia tur&#237;stica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Preferencia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#S-N -->
+
+    <owl:Class rdf:about="#S-N">
+        <rdfs:label xml:lang="es">S-N</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Sentido - Intuici&#243;n</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#intuicion"/>
+                    <rdf:Description rdf:about="#sentidos"/>
+                </owl:oneOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#CaracteristicaMyersBriggs"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ENPC -->
+
+    <Personalidad rdf:about="#ENPC">
+        <rdfs:label xml:lang="es">Inventivo</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Quick, ingenious, stimulating, alert, and outspoken. Resourceful in solving new and challenging problems. Adept at generating conceptual possibilities and then analyzing them strategically. Good at reading other people. Bored by routine, will seldom do the same thing the same way, apt to turn to one new interest after another.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#extroversion"/>
+        <tieneCaracteristicaS-N rdf:resource="#intuicion"/>
+        <tieneCaracteristicaP-T rdf:resource="#pensando"/>
+        <tieneCaracteristicaJ-C rdf:resource="#percibiendo"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ENPJ -->
+
+    <Personalidad rdf:about="#ENPJ">
+        <rdfs:label xml:lang="es">Cominante</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Frank, decisive, assume leadership readily. Quickly see illogical and inefficient procedures and policies, develop and implement comprehensive systems to solve organizational problems. Enjoy long-term planning and goal setting. Usually well informed, well read, enjoy expanding their knowledge and passing it on to others. Forceful in presenting their ideas.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#extroversion"/>
+        <tieneCaracteristicaS-N rdf:resource="#intuicion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#juzgando"/>
+        <tieneCaracteristicaP-T rdf:resource="#pensando"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ENTC -->
+
+    <Personalidad rdf:about="#ENTC">
+        <rdfs:label xml:lang="es">Optimista</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Warmly enthusiastic and imaginative. See life as full of possibilities. Make connections between events and information very quickly, and confidently proceed based on the patterns they see. Want a lot of affirmation from others, and readily give appreciation and support. Spontaneous and flexible, often rely on their ability to improvise and their verbal fluency.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#extroversion"/>
+        <tieneCaracteristicaS-N rdf:resource="#intuicion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#percibiendo"/>
+        <tieneCaracteristicaP-T rdf:resource="#sintiendo"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ENTJ -->
+
+    <Personalidad rdf:about="#ENTJ">
+        <rdfs:label xml:lang="es">Persuasivo</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Warm, empathetic, responsive, and responsible. Highly attuned to the emotions, needs, and motivations of others. Find potential in everyone, want to help others fulfill their potential. May act as catalysts for individual and group growth. Loyal, responsive to praise and criticism. Sociable, facilitate others in a group, and provide inspiring leadership</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#extroversion"/>
+        <tieneCaracteristicaS-N rdf:resource="#intuicion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#juzgando"/>
+        <tieneCaracteristicaP-T rdf:resource="#sintiendo"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ESPC -->
+
+    <Personalidad rdf:about="#ESPC">
+        <rdfs:label xml:lang="es">Espont&#225;neo</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Flexible and tolerant, they take a pragmatic approach focused immediate results. Theories and conceptual explanations bore them &#8211; they want to act energetically to solve the problem. Focus on the here-and-now, spontaneous, enjoy each moment that they can be active with others. Enjoy material comforts and style. Learn best through doing.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#extroversion"/>
+        <tieneCaracteristicaP-T rdf:resource="#pensando"/>
+        <tieneCaracteristicaJ-C rdf:resource="#percibiendo"/>
+        <tieneCaracteristicaS-N rdf:resource="#sentidos"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ESPJ -->
+
+    <Personalidad rdf:about="#ESPJ">
+        <rdfs:label xml:lang="es"
+            >Dificil de cambiar</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Practical, realistic, matter-of-fact. Decisive, quickly move to implement decisions. Organize projects and people to get things done, focus on getting results in the most efficient way possible. Take care of routine details. Have a clear set of logical standards, systematically follow them and want others to also. Forceful in implementing their plans.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#extroversion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#juzgando"/>
+        <tieneCaracteristicaP-T rdf:resource="#pensando"/>
+        <tieneCaracteristicaS-N rdf:resource="#sentidos"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ESTC -->
+
+    <Personalidad rdf:about="#ESTC">
+        <rdfs:label xml:lang="es">Generoso</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Outgoing, friendly, and accepting. Exuberant lovers of life, people, and material comforts. Enjoy working with others to make things happen. Bring common sense and a realistic approach to their work, and make work fun. Flexible and spontaneous, adapt readily to new people and environments. Learn best by trying a new skill with other people.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#extroversion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#percibiendo"/>
+        <tieneCaracteristicaS-N rdf:resource="#sentidos"/>
+        <tieneCaracteristicaP-T rdf:resource="#sintiendo"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ESTJ -->
+
+    <Personalidad rdf:about="#ESTJ">
+        <rdfs:label xml:lang="es">Armonizante</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Warmhearted, conscientious, and cooperative. Want harmony in their environment, work with determination to establish it. Like to work with others to complete tasks accurately and on time. Loyal, follow through even in small matters. Notice what others need in their day-by-day lives and try to provide it. Want to be appreciated for who they are and for what they contribute.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#extroversion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#juzgando"/>
+        <tieneCaracteristicaS-N rdf:resource="#sentidos"/>
+        <tieneCaracteristicaP-T rdf:resource="#sintiendo"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#INPC -->
+
+    <Personalidad rdf:about="#INPC">
+        <rdfs:label xml:lang="es">Conceptual</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Seek to develop logical explanations for everything that interests them. Theoretical and abstract, interested more in ideas than in social interaction. Quiet, contained, flexible, and adaptable. Have unusual ability to focus in depth to solve problems in their area of interest. Skeptical, sometimes critical, always analytical.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#introversion"/>
+        <tieneCaracteristicaS-N rdf:resource="#intuicion"/>
+        <tieneCaracteristicaP-T rdf:resource="#pensando"/>
+        <tieneCaracteristicaJ-C rdf:resource="#percibiendo"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#INPJ -->
+
+    <Personalidad rdf:about="#INPJ">
+        <rdfs:label xml:lang="es">Independiente</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Have original minds and great drive for implementing their ideas and achieving their goals. Quickly see patterns in external events and develop long-range explanatory perspectives. When committed, organize a job and carry it through. Skeptical and independent, have high standards of competence and performance &#8211; for themselves and others.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#introversion"/>
+        <tieneCaracteristicaS-N rdf:resource="#intuicion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#juzgando"/>
+        <tieneCaracteristicaP-T rdf:resource="#pensando"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#INTC -->
+
+    <Personalidad rdf:about="#INTC">
+        <rdfs:label xml:lang="es">Idealista</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Idealistic, loyal to their values and to people who are important to them. Want an external life that is congruent with their values. Curious, quick to see possibilities, can be catalysts for implementing ideas. Seek to understand people and to help them fulfill their potential. Adaptable, flexible, and accepting unless a value is threatened.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#introversion"/>
+        <tieneCaracteristicaS-N rdf:resource="#intuicion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#percibiendo"/>
+        <tieneCaracteristicaP-T rdf:resource="#sintiendo"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#INTJ -->
+
+    <Personalidad rdf:about="#INTJ">
+        <rdfs:label xml:lang="es">Contemplativo</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Seek meaning and connection in ideas, relationships, and material possessions. Want to understand what motivates people and are insightful about others. Conscientious and committed to their firm values. Develop a clear vision about how best to serve the common good. Organized and decisive in implementing their vision.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#introversion"/>
+        <tieneCaracteristicaS-N rdf:resource="#intuicion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#juzgando"/>
+        <tieneCaracteristicaP-T rdf:resource="#sintiendo"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ISPC -->
+
+    <Personalidad rdf:about="#ISPC">
+        <rdfs:label xml:lang="es">Pragm&#225;tico</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Tolerant and flexible, quiet observers until a problem appears, then act quickly to find workable solutions. Analyze what makes things work and readily get through large amounts of data to isolate the core of practical problems. Interested in cause and effect, organize facts using logical principles, value efficiency.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#introversion"/>
+        <tieneCaracteristicaP-T rdf:resource="#pensando"/>
+        <tieneCaracteristicaJ-C rdf:resource="#percibiendo"/>
+        <tieneCaracteristicaS-N rdf:resource="#sentidos"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ISPJ -->
+
+    <Personalidad rdf:about="#ISPJ">
+        <rdfs:label xml:lang="es">Responsable</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Quiet, serious, earn success by thoroughness and dependability. Practical, matter-of-fact, realistic, and responsible. Decide logically what should be done and work toward it steadily, regardless of distractions. Take pleasure in making everything orderly and organized &#8211; their work, their home, their life. Value traditions and loyalty.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#introversion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#juzgando"/>
+        <tieneCaracteristicaP-T rdf:resource="#pensando"/>
+        <tieneCaracteristicaS-N rdf:resource="#sentidos"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ISTC -->
+
+    <Personalidad rdf:about="#ISTC">
+        <rdfs:label xml:lang="es">Artistico</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Quiet, friendly, sensitive, and kind. Enjoy the present moment, what&#8217;s going on around them. Like to have their own space and to work within their own time frame. Loyal and committed to their values and to people who are important to them. Dislike disagreements and conflicts, do not force their opinions or values on others.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#introversion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#percibiendo"/>
+        <tieneCaracteristicaS-N rdf:resource="#sentidos"/>
+        <tieneCaracteristicaP-T rdf:resource="#sintiendo"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#ISTJ -->
+
+    <Personalidad rdf:about="#ISTJ">
+        <rdfs:label xml:lang="es">Leal</rdfs:label>
+        <dc:source rdf:datatype="&xsd;anyURI"
+            >http://www.myersbriggs.org/my-mbti-personality-type/mbti-basics/the-16-mbti-types.asp</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Quiet, friendly, responsible, and conscientious. Committed and steady in meeting their obligations. Thorough, painstaking, and accurate. Loyal, considerate, notice and remember specifics about people who are important to them, concerned with how others feel. Strive to create an orderly and harmonious environment at work and at home.</rdfs:comment>
+        <tieneCaracteristicaE-I rdf:resource="#introversion"/>
+        <tieneCaracteristicaJ-C rdf:resource="#juzgando"/>
+        <tieneCaracteristicaS-N rdf:resource="#sentidos"/>
+        <tieneCaracteristicaP-T rdf:resource="#sintiendo"/>
+    </Personalidad>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#enGrupo -->
+
+    <PreferenciaCompannia rdf:about="#enGrupo"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#extroversion -->
+
+    <E-I rdf:about="#extroversion">
+        <tieneEstacionRecomendada rdf:resource="#verano"/>
+    </E-I>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#introversion -->
+
+    <E-I rdf:about="#introversion">
+        <tieneEstacionRecomendada rdf:resource="#otonno"/>
+        <tieneEstacionRecomendada rdf:resource="#primavera"/>
+    </E-I>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#intuicion -->
+
+    <S-N rdf:about="#intuicion"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#invierno -->
+
+    <Estacion rdf:about="#invierno"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#juzgando -->
+
+    <J-C rdf:about="#juzgando"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#motivoCultural -->
+
+    <MotivoPeregrinacion rdf:about="#motivoCultural"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#motivoDeportivo -->
+
+    <MotivoPeregrinacion rdf:about="#motivoDeportivo"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#motivoOcio -->
+
+    <MotivoPeregrinacion rdf:about="#motivoOcio"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#motivoReligioso -->
+
+    <MotivoPeregrinacion rdf:about="#motivoReligioso"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#otonno -->
+
+    <Estacion rdf:about="#otonno"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#pensando -->
+
+    <P-T rdf:about="#pensando"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#percibiendo -->
+
+    <J-C rdf:about="#percibiendo"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#primavera -->
+
+    <Estacion rdf:about="#primavera"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#sentidos -->
+
+    <S-N rdf:about="#sentidos"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#sintiendo -->
+
+    <P-T rdf:about="#sintiendo"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#solo -->
+
+    <PreferenciaCompannia rdf:about="#solo"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#turismoAlExtranjero -->
+
+    <PreferenciaTuristica rdf:about="#turismoAlExtranjero"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#turismoDeMasas -->
+
+    <PreferenciaTuristica rdf:about="#turismoDeMasas"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#turismoReligioso -->
+
+    <PreferenciaTuristica rdf:about="#turismoReligioso"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#turismoRural -->
+
+    <PreferenciaTuristica rdf:about="#turismoRural"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#verano -->
+
+    <Estacion rdf:about="#verano"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#introversion"/>
+            <rdf:Description rdf:about="#extroversion"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#ESPJ"/>
+            <rdf:Description rdf:about="#ESPC"/>
+            <rdf:Description rdf:about="#otonno"/>
+            <rdf:Description rdf:about="#extroversion"/>
+            <rdf:Description rdf:about="#intuicion"/>
+            <rdf:Description rdf:about="#invierno"/>
+            <rdf:Description rdf:about="#ISTJ"/>
+            <rdf:Description rdf:about="#ISPC"/>
+            <rdf:Description rdf:about="#ISTC"/>
+            <rdf:Description rdf:about="#ISPJ"/>
+            <rdf:Description rdf:about="#ENTC"/>
+            <rdf:Description rdf:about="#sentidos"/>
+            <rdf:Description rdf:about="#introversion"/>
+            <rdf:Description rdf:about="#ENPJ"/>
+            <rdf:Description rdf:about="#percibiendo"/>
+            <rdf:Description rdf:about="#ESTJ"/>
+            <rdf:Description rdf:about="#sintiendo"/>
+            <rdf:Description rdf:about="#pensando"/>
+            <rdf:Description rdf:about="#INPC"/>
+            <rdf:Description rdf:about="#verano"/>
+            <rdf:Description rdf:about="#ESTC"/>
+            <rdf:Description rdf:about="#INTC"/>
+            <rdf:Description rdf:about="#solo"/>
+            <rdf:Description rdf:about="#juzgando"/>
+            <rdf:Description rdf:about="#ENTJ"/>
+            <rdf:Description rdf:about="#primavera"/>
+            <rdf:Description rdf:about="#ENPC"/>
+            <rdf:Description rdf:about="#INPJ"/>
+            <rdf:Description rdf:about="#INTJ"/>
+            <rdf:Description rdf:about="#enGrupo"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#intuicion"/>
+            <rdf:Description rdf:about="#sentidos"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#enGrupo"/>
+            <rdf:Description rdf:about="#solo"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#percibiendo"/>
+            <rdf:Description rdf:about="#juzgando"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#pensando"/>
+            <rdf:Description rdf:about="#sintiendo"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#primavera"/>
+            <rdf:Description rdf:about="#invierno"/>
+            <rdf:Description rdf:about="#verano"/>
+            <rdf:Description rdf:about="#otonno"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,1612 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY time "http://www.w3.org/2006/time#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY OntologyEstilos "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#" >
+    <!ENTITY OntologyEstilos4 "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#100" >
+    <!ENTITY OntologyEstilos6 "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#200" >
+    <!ENTITY OntologyEstilos9 "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#900" >
+    <!ENTITY OntologyEstilos10 "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#300" >
+    <!ENTITY OntologyEstilos7 "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#1800" >
+    <!ENTITY OntologyEstilos8 "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#1900" >
+    <!ENTITY OntologyEstilos2 "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#5000" >
+    <!ENTITY OntologyEstilos3 "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#1400" >
+    <!ENTITY OntologyEstilos11 "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#2000" >
+    <!ENTITY OntologyEstilos5 "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#2100" >
+    <!ENTITY arts "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arts&amp;" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:OntologyEstilos8="&OntologyEstilos;1900"
+     xmlns:time="http://www.w3.org/2006/time#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:arts="&OntologyEstilos;arts&amp;"
+     xmlns:OntologyEstilos4="&OntologyEstilos;100"
+     xmlns:OntologyEstilos="http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#"
+     xmlns:OntologyEstilos11="&OntologyEstilos;2000"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:OntologyEstilos7="&OntologyEstilos;1800"
+     xmlns:OntologyEstilos5="&OntologyEstilos;2100"
+     xmlns:OntologyEstilos2="&OntologyEstilos;5000"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:OntologyEstilos6="&OntologyEstilos;200"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:OntologyEstilos10="&OntologyEstilos;300"
+     xmlns:OntologyEstilos3="&OntologyEstilos;1400"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:OntologyEstilos9="&OntologyEstilos;900">
+    <owl:Ontology rdf:about="">
+        <dc:creator rdf:datatype="&xsd;string">Maria Poveda</dc:creator>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#anteriorA -->
+
+    <owl:ObjectProperty rdf:about="#anteriorA">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="#Periodo"/>
+        <rdfs:domain rdf:resource="#Periodo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#anteriorADirectamente -->
+
+    <owl:ObjectProperty rdf:about="#anteriorADirectamente">
+        <rdfs:range rdf:resource="#Periodo"/>
+        <rdfs:domain rdf:resource="#Periodo"/>
+        <rdfs:subPropertyOf rdf:resource="#anteriorA"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#empiezaEn -->
+
+    <owl:ObjectProperty rdf:about="#empiezaEn">
+        <rdfs:range rdf:resource="#Anno"/>
+        <rdfs:domain rdf:resource="#Periodo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#posteriorA -->
+
+    <owl:ObjectProperty rdf:about="#posteriorA">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="#Periodo"/>
+        <rdfs:range rdf:resource="#Periodo"/>
+        <owl:inverseOf rdf:resource="#anteriorA"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#posteriorADirectamente -->
+
+    <owl:ObjectProperty rdf:about="#posteriorADirectamente">
+        <rdfs:domain rdf:resource="#Periodo"/>
+        <rdfs:range rdf:resource="#Periodo"/>
+        <owl:inverseOf rdf:resource="#anteriorADirectamente"/>
+        <rdfs:subPropertyOf rdf:resource="#posteriorA"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#seDioDurante -->
+
+    <owl:ObjectProperty rdf:about="#seDioDurante">
+        <rdfs:domain rdf:resource="#Estilo"/>
+        <rdfs:range rdf:resource="#Periodo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#terminaEn -->
+
+    <owl:ObjectProperty rdf:about="#terminaEn">
+        <rdfs:range rdf:resource="#Anno"/>
+        <rdfs:domain rdf:resource="#Periodo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#aCodC -->
+
+    <owl:DatatypeProperty rdf:about="#aCodC">
+        <rdfs:domain rdf:resource="#Anno"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#numeroAnno -->
+
+    <owl:DatatypeProperty rdf:about="#numeroAnno">
+        <rdfs:domain rdf:resource="#Anno"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#AltaEdadMedia -->
+
+    <owl:Class rdf:about="#AltaEdadMedia">
+        <rdfs:label xml:lang="es">Alta edad media</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Medieval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Anno -->
+
+    <owl:Class rdf:about="#Anno">
+        <rdfs:label xml:lang="es">A&#241;o</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Tiempo que tarda la Tierra en dar una vuelta alrededor del Sol. Equivale a 365 d&#237;as, 5 horas, 48 minutos y 46 segundos. Fuente: RAE</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Antiguo -->
+
+    <owl:Class rdf:about="#Antiguo">
+        <rdfs:label xml:lang="es">Antiguo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloNoArquitectonico"/>
+        <owl:disjointWith rdf:resource="#Clasico"/>
+        <owl:disjointWith rdf:resource="#Medieval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#ArquitecturaEdadAntigua -->
+
+    <owl:Class rdf:about="#ArquitecturaEdadAntigua">
+        <rdfs:label xml:lang="es"
+            >Arquitectura edad antigua</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloArquitectonico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#ArquitecturaEdadContemporanea -->
+
+    <owl:Class rdf:about="#ArquitecturaEdadContemporanea">
+        <rdfs:label xml:lang="es"
+            >Arquitectura edad contempor&#225;nea</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloArquitectonico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#ArquitecturaEdadMedia -->
+
+    <owl:Class rdf:about="#ArquitecturaEdadMedia">
+        <rdfs:label xml:lang="es"
+            >Arquitectura edad media</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloArquitectonico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#ArquitecturaEdadModerna -->
+
+    <owl:Class rdf:about="#ArquitecturaEdadModerna">
+        <rdfs:label xml:lang="es"
+            >Arquitectura edad moderna</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloArquitectonico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#ArquitecturaPrehistorica -->
+
+    <owl:Class rdf:about="#ArquitecturaPrehistorica">
+        <rdfs:label xml:lang="es"
+            >Arquitectura prehistorica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloArquitectonico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#ArteModerno -->
+
+    <owl:Class rdf:about="#ArteModerno">
+        <rdfs:label xml:lang="es">Arte moderno</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Contemporaneo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#ArtePostmoderno -->
+
+    <owl:Class rdf:about="#ArtePostmoderno">
+        <rdfs:label xml:lang="es"
+            >Arte postmoderno</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Contemporaneo"/>
+        <owl:disjointWith rdf:resource="#ArteModerno"/>
+        <owl:disjointWith rdf:resource="#Historicismo"/>
+        <owl:disjointWith rdf:resource="#Romanticismo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#BajaEdadMedia -->
+
+    <owl:Class rdf:about="#BajaEdadMedia">
+        <rdfs:label xml:lang="es">Baja edad media</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Medieval"/>
+        <owl:disjointWith rdf:resource="#AltaEdadMedia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Barroco -->
+
+    <owl:Class rdf:about="#Barroco">
+        <rdfs:label xml:lang="es">Barroco</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Moderno"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Clasico -->
+
+    <owl:Class rdf:about="#Clasico">
+        <rdfs:label xml:lang="es">Cl&#225;sico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloNoArquitectonico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Contemporaneo -->
+
+    <owl:Class rdf:about="#Contemporaneo">
+        <rdfs:label xml:lang="es">Contempor&#225;neo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloNoArquitectonico"/>
+        <owl:disjointWith rdf:resource="#Antiguo"/>
+        <owl:disjointWith rdf:resource="#Clasico"/>
+        <owl:disjointWith rdf:resource="#Medieval"/>
+        <owl:disjointWith rdf:resource="#Moderno"/>
+        <owl:disjointWith rdf:resource="#Prehistorico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#EdadContemporanea -->
+
+    <owl:Class rdf:about="#EdadContemporanea">
+        <rdfs:label xml:lang="es"
+            >Edad contempor&#225;nea</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Periodo"/>
+        <owl:disjointWith rdf:resource="#EdadMedia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#EdadMedia -->
+
+    <owl:Class rdf:about="#EdadMedia">
+        <rdfs:label xml:lang="es">Edad media</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Periodo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Estilo -->
+
+    <owl:Class rdf:about="#Estilo">
+        <rdfs:label xml:lang="es">Estilo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#EstiloArquitectonico -->
+
+    <owl:Class rdf:about="#EstiloArquitectonico">
+        <rdfs:label xml:lang="es"
+            >Estilos arquitectonicos</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Estilo"/>
+        <owl:disjointWith rdf:resource="#EstiloNoArquitectonico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#EstiloNoArquitectonico -->
+
+    <owl:Class rdf:about="#EstiloNoArquitectonico">
+        <rdfs:subClassOf rdf:resource="#Estilo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Expresionismo -->
+
+    <owl:Class rdf:about="#Expresionismo">
+        <rdfs:label xml:lang="es">Expresionismo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Vanguardias"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Historicismo -->
+
+    <owl:Class rdf:about="#Historicismo">
+        <rdfs:label xml:lang="es">Historicismo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Contemporaneo"/>
+        <owl:disjointWith rdf:resource="#ArteModerno"/>
+        <owl:disjointWith rdf:resource="#Romanticismo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Medieval -->
+
+    <owl:Class rdf:about="#Medieval">
+        <rdfs:label xml:lang="es">Medieval</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloNoArquitectonico"/>
+        <owl:disjointWith rdf:resource="#Clasico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Modernismo -->
+
+    <owl:Class rdf:about="#Modernismo">
+        <rdfs:label xml:lang="es">Modernismo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Contemporaneo"/>
+        <owl:disjointWith rdf:resource="#ArteModerno"/>
+        <owl:disjointWith rdf:resource="#ArtePostmoderno"/>
+        <owl:disjointWith rdf:resource="#Historicismo"/>
+        <owl:disjointWith rdf:resource="#Romanticismo"/>
+        <owl:disjointWith rdf:resource="#Vanguardias"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Moderno -->
+
+    <owl:Class rdf:about="#Moderno">
+        <rdfs:label xml:lang="es">Moderno</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloNoArquitectonico"/>
+        <owl:disjointWith rdf:resource="#Antiguo"/>
+        <owl:disjointWith rdf:resource="#Clasico"/>
+        <owl:disjointWith rdf:resource="#Medieval"/>
+        <owl:disjointWith rdf:resource="#Prehistorico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Periodo -->
+
+    <owl:Class rdf:about="#Periodo">
+        <rdfs:label xml:lang="es">Periodo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Espacio de tiempo que incluye toda la duraci&#243;n de algo.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Use to mean a distinct historical or cultural portion or division of time.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Prehistorico -->
+
+    <owl:Class rdf:about="#Prehistorico">
+        <rdfs:label xml:lang="es">Prehist&#243;rico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EstiloNoArquitectonico"/>
+        <owl:disjointWith rdf:resource="#Antiguo"/>
+        <owl:disjointWith rdf:resource="#Clasico"/>
+        <owl:disjointWith rdf:resource="#Medieval"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Prerromanico -->
+
+    <owl:Class rdf:about="#Prerromanico">
+        <rdfs:label xml:lang="es">Prerrom&#225;nico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AltaEdadMedia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Romanticismo -->
+
+    <owl:Class rdf:about="#Romanticismo">
+        <rdfs:label xml:lang="es">Romanticismo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Contemporaneo"/>
+        <owl:disjointWith rdf:resource="#ArteModerno"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Vanguardias -->
+
+    <owl:Class rdf:about="#Vanguardias">
+        <rdfs:label xml:lang="es">Vanguardias</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Contemporaneo"/>
+        <owl:disjointWith rdf:resource="#ArteModerno"/>
+        <owl:disjointWith rdf:resource="#ArtePostmoderno"/>
+        <owl:disjointWith rdf:resource="#Historicismo"/>
+        <owl:disjointWith rdf:resource="#Romanticismo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#100aC -->
+
+    <Anno rdf:about="#100aC">
+        <numeroAnno rdf:datatype="&xsd;positiveInteger">100</numeroAnno>
+        <aCodC rdf:datatype="&xsd;string">aC</aCodC>
+    </Anno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#1400dC -->
+
+    <Anno rdf:about="#1400dC">
+        <numeroAnno rdf:datatype="&xsd;positiveInteger">1400</numeroAnno>
+        <aCodC rdf:datatype="&xsd;string">dC</aCodC>
+    </Anno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#1800dC -->
+
+    <Anno rdf:about="#1800dC">
+        <numeroAnno rdf:datatype="&xsd;positiveInteger">1800</numeroAnno>
+        <aCodC rdf:datatype="&xsd;string">dC</aCodC>
+    </Anno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#1900dC -->
+
+    <Anno rdf:about="#1900dC">
+        <numeroAnno rdf:datatype="&xsd;positiveInteger">1900</numeroAnno>
+        <aCodC rdf:datatype="&xsd;string">dC</aCodC>
+    </Anno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#2000dC -->
+
+    <Anno rdf:about="#2000dC">
+        <numeroAnno rdf:datatype="&xsd;positiveInteger">2000</numeroAnno>
+        <aCodC rdf:datatype="&xsd;string">dC</aCodC>
+    </Anno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#200dC -->
+
+    <Anno rdf:about="#200dC">
+        <numeroAnno rdf:datatype="&xsd;positiveInteger">200</numeroAnno>
+        <aCodC rdf:datatype="&xsd;string">dC</aCodC>
+    </Anno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#2100dC -->
+
+    <Anno rdf:about="#2100dC">
+        <numeroAnno rdf:datatype="&xsd;positiveInteger">2100</numeroAnno>
+        <aCodC rdf:datatype="&xsd;string">dC</aCodC>
+    </Anno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#300dC -->
+
+    <Anno rdf:about="#300dC">
+        <numeroAnno rdf:datatype="&xsd;positiveInteger">300</numeroAnno>
+        <aCodC rdf:datatype="&xsd;string">dC</aCodC>
+    </Anno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#5000aC -->
+
+    <Anno rdf:about="#5000aC">
+        <numeroAnno rdf:datatype="&xsd;positiveInteger">5000</numeroAnno>
+        <aCodC rdf:datatype="&xsd;string">aC</aCodC>
+    </Anno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#900dC -->
+
+    <Anno rdf:about="#900dC">
+        <numeroAnno rdf:datatype="&xsd;positiveInteger">900</numeroAnno>
+        <aCodC rdf:datatype="&xsd;string">dC</aCodC>
+    </Anno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#abstraccionPostpictorica -->
+
+    <ArteModerno rdf:about="#abstraccionPostpictorica">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#altaEdadMedia -->
+
+    <EdadMedia rdf:about="#altaEdadMedia">
+        <empiezaEn rdf:resource="#300dC"/>
+        <terminaEn rdf:resource="#900dC"/>
+        <anteriorADirectamente rdf:resource="#bajaEdadMedia"/>
+        <posteriorADirectamente rdf:resource="#periodoClasico"/>
+    </EdadMedia>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaArabiga -->
+
+    <ArquitecturaEdadMedia rdf:about="#arquitecturaArabiga"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaAsiria -->
+
+    <ArquitecturaEdadAntigua rdf:about="#arquitecturaAsiria"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaBarroca -->
+
+    <ArquitecturaEdadModerna rdf:about="#arquitecturaBarroca"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaBizantina -->
+
+    <ArquitecturaEdadMedia rdf:about="#arquitecturaBizantina"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaCaldea -->
+
+    <ArquitecturaEdadAntigua rdf:about="#arquitecturaCaldea"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaCisterciense -->
+
+    <ArquitecturaEdadMedia rdf:about="#arquitecturaCisterciense"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaContemporanea -->
+
+    <ArquitecturaEdadContemporanea rdf:about="#arquitecturaContemporanea"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaDeconstructivista -->
+
+    <ArquitecturaEdadContemporanea rdf:about="#arquitecturaDeconstructivista"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaDelHierro -->
+
+    <ArquitecturaEdadContemporanea rdf:about="#arquitecturaDelHierro"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaDelModernismo -->
+
+    <ArquitecturaEdadContemporanea rdf:about="#arquitecturaDelModernismo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaEclectica -->
+
+    <ArquitecturaEdadContemporanea rdf:about="#arquitecturaEclectica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaEgea -->
+
+    <ArquitecturaEdadAntigua rdf:about="#arquitecturaEgea"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaEgipcia -->
+
+    <ArquitecturaEdadAntigua rdf:about="#arquitecturaEgipcia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaEtrusca -->
+
+    <ArquitecturaEdadAntigua rdf:about="#arquitecturaEtrusca"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaGotica -->
+
+    <ArquitecturaEdadMedia rdf:about="#arquitecturaGotica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaGriegaClasica -->
+
+    <ArquitecturaEdadAntigua rdf:about="#arquitecturaGriegaClasica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaHighTech -->
+
+    <ArquitecturaEdadContemporanea rdf:about="#arquitecturaHighTech"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaHistoricista -->
+
+    <ArquitecturaEdadContemporanea rdf:about="#arquitecturaHistoricista"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaMedoPersa -->
+
+    <ArquitecturaEdadAntigua rdf:about="#arquitecturaMedoPersa"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaMerovingia -->
+
+    <ArquitecturaEdadMedia rdf:about="#arquitecturaMerovingia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaMesopotamica -->
+
+    <ArquitecturaEdadAntigua rdf:about="#arquitecturaMesopotamica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaModerna -->
+
+    <ArquitecturaEdadContemporanea rdf:about="#arquitecturaModerna"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaNeoclasica -->
+
+    <ArquitecturaEdadModerna rdf:about="#arquitecturaNeoclasica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaPostmoderna -->
+
+    <ArquitecturaEdadContemporanea rdf:about="#arquitecturaPostmoderna"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaPrehistorica -->
+
+    <ArquitecturaPrehistorica rdf:about="#arquitecturaPrehistorica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaRenacentista -->
+
+    <ArquitecturaEdadModerna rdf:about="#arquitecturaRenacentista"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaRomana -->
+
+    <ArquitecturaEdadAntigua rdf:about="#arquitecturaRomana"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaRomanica -->
+
+    <ArquitecturaEdadMedia rdf:about="#arquitecturaRomanica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaSustentable -->
+
+    <ArquitecturaEdadContemporanea rdf:about="#arquitecturaSustentable"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arquitecturaVisigoda -->
+
+    <ArquitecturaEdadMedia rdf:about="#arquitecturaVisigoda"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#artBrut -->
+
+    <ArteModerno rdf:about="#artBrut">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#artDeco -->
+
+    <Modernismo rdf:about="#artDeco">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Modernismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#artNouveau -->
+
+    <Modernismo rdf:about="#artNouveau">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Modernismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteAbstracto -->
+
+    <Vanguardias rdf:about="#arteAbstracto">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteAmbiental -->
+
+    <ArteModerno rdf:about="#arteAmbiental">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteAntiguo -->
+
+    <Antiguo rdf:about="#arteAntiguo">
+        <seDioDurante rdf:resource="#edadAntigua"/>
+    </Antiguo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteBarroco -->
+
+    <Barroco rdf:about="#arteBarroco">
+        <seDioDurante rdf:resource="#edadModerna"/>
+    </Barroco>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteBizantino -->
+
+    <AltaEdadMedia rdf:about="#arteBizantino">
+        <seDioDurante rdf:resource="#altaEdadMedia"/>
+    </AltaEdadMedia>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteCarolingio -->
+
+    <Prerromanico rdf:about="#arteCarolingio">
+        <seDioDurante rdf:resource="#altaEdadMedia"/>
+    </Prerromanico>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteCinetico -->
+
+    <ArteModerno rdf:about="#arteCinetico">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteClasico -->
+
+    <Clasico rdf:about="#arteClasico">
+        <seDioDurante rdf:resource="#periodoClasico"/>
+    </Clasico>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteConceptual -->
+
+    <ArteModerno rdf:about="#arteConceptual">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteContemporaneo -->
+
+    <Contemporaneo rdf:about="#arteContemporaneo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteDelRenacimiento -->
+
+    <Moderno rdf:about="#arteDelRenacimiento">
+        <seDioDurante rdf:resource="#edadModerna"/>
+    </Moderno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteEgipcio -->
+
+    <Antiguo rdf:about="#arteEgipcio">
+        <seDioDurante rdf:resource="#edadAntigua"/>
+    </Antiguo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteGotico -->
+
+    <BajaEdadMedia rdf:about="#arteGotico">
+        <seDioDurante rdf:resource="#bajaEdadMedia"/>
+    </BajaEdadMedia>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteGriego -->
+
+    <Clasico rdf:about="#arteGriego">
+        <seDioDurante rdf:resource="#periodoClasico"/>
+    </Clasico>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteMesopotamico -->
+
+    <Antiguo rdf:about="#arteMesopotamico">
+        <seDioDurante rdf:resource="#edadAntigua"/>
+    </Antiguo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteModerno -->
+
+    <ArteModerno rdf:about="#arteModerno">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteMozarabe -->
+
+    <Prerromanico rdf:about="#arteMozarabe">
+        <seDioDurante rdf:resource="#altaEdadMedia"/>
+    </Prerromanico>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteMudejar -->
+
+    <BajaEdadMedia rdf:about="#arteMudejar">
+        <seDioDurante rdf:resource="#bajaEdadMedia"/>
+    </BajaEdadMedia>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteNaif -->
+
+    <Contemporaneo rdf:about="#arteNaif">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Contemporaneo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteOtoniano -->
+
+    <Prerromanico rdf:about="#arteOtoniano">
+        <seDioDurante rdf:resource="#altaEdadMedia"/>
+    </Prerromanico>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#artePaleocristiano -->
+
+    <AltaEdadMedia rdf:about="#artePaleocristiano">
+        <seDioDurante rdf:resource="#altaEdadMedia"/>
+    </AltaEdadMedia>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#artePostmoderno -->
+
+    <ArtePostmoderno rdf:about="#artePostmoderno">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArtePostmoderno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#artePovera -->
+
+    <ArteModerno rdf:about="#artePovera">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#artePrehistorico -->
+
+    <Prehistorico rdf:about="#artePrehistorico">
+        <seDioDurante rdf:resource="#prehistoria"/>
+    </Prehistorico>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#artePrerromanico -->
+
+    <Prerromanico rdf:about="#artePrerromanico">
+        <seDioDurante rdf:resource="#altaEdadMedia"/>
+    </Prerromanico>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteRomanico -->
+
+    <BajaEdadMedia rdf:about="#arteRomanico">
+        <seDioDurante rdf:resource="#bajaEdadMedia"/>
+    </BajaEdadMedia>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteRomano -->
+
+    <Clasico rdf:about="#arteRomano">
+        <seDioDurante rdf:resource="#periodoClasico"/>
+    </Clasico>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arteVisigodo -->
+
+    <AltaEdadMedia rdf:about="#arteVisigodo">
+        <seDioDurante rdf:resource="#altaEdadMedia"/>
+    </AltaEdadMedia>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#arts&amp;Crafts -->
+
+    <Modernismo rdf:about="#arts&amp;Crafts">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Modernismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#bajaEdadMedia -->
+
+    <EdadMedia rdf:about="#bajaEdadMedia">
+        <terminaEn rdf:resource="#1400dC"/>
+        <empiezaEn rdf:resource="#900dC"/>
+        <posteriorADirectamente rdf:resource="#altaEdadMedia"/>
+        <anteriorADirectamente rdf:resource="#edadModerna"/>
+    </EdadMedia>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#bioArt -->
+
+    <ArteModerno rdf:about="#bioArt">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#bodyArt -->
+
+    <ArteModerno rdf:about="#bodyArt">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#clasicismo -->
+
+    <Barroco rdf:about="#clasicismo">
+        <seDioDurante rdf:resource="#edadModerna"/>
+    </Barroco>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#constructivismo -->
+
+    <Vanguardias rdf:about="#constructivismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#cubismo -->
+
+    <Vanguardias rdf:about="#cubismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#dadaismo -->
+
+    <Vanguardias rdf:about="#dadaismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#derBlaueReiter -->
+
+    <Expresionismo rdf:about="#derBlaueReiter">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Expresionismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#dieBr&#252;cke -->
+
+    <Expresionismo rdf:about="#dieBr&#252;cke">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Expresionismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#edadAntigua -->
+
+    <Periodo rdf:about="#edadAntigua">
+        <terminaEn rdf:resource="#100aC"/>
+        <empiezaEn rdf:resource="#5000aC"/>
+        <anteriorADirectamente rdf:resource="#periodoClasico"/>
+        <posteriorADirectamente rdf:resource="#prehistoria"/>
+    </Periodo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#edadModerna -->
+
+    <Periodo rdf:about="#edadModerna">
+        <empiezaEn rdf:resource="#1400dC"/>
+        <terminaEn rdf:resource="#1800dC"/>
+        <posteriorADirectamente rdf:resource="#bajaEdadMedia"/>
+        <anteriorADirectamente rdf:resource="#sigloXIX"/>
+    </Periodo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#expresionismo -->
+
+    <Expresionismo rdf:about="#expresionismo">
+        <rdf:type rdf:resource="#Vanguardias"/>
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Expresionismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#expresionismoAbstracto -->
+
+    <ArteModerno rdf:about="#expresionismoAbstracto">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#fauvismo -->
+
+    <Vanguardias rdf:about="#fauvismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#figuracionLibre -->
+
+    <ArtePostmoderno rdf:about="#figuracionLibre">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArtePostmoderno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#futurismo -->
+
+    <Vanguardias rdf:about="#futurismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#happening -->
+
+    <ArteModerno rdf:about="#happening">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#hiperrealismo -->
+
+    <ArteModerno rdf:about="#hiperrealismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#historicismo -->
+
+    <Historicismo rdf:about="#historicismo">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Historicismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#impresionismo -->
+
+    <Contemporaneo rdf:about="#impresionismo">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Contemporaneo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#informalismo -->
+
+    <ArteModerno rdf:about="#informalismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#instalacion -->
+
+    <ArteModerno rdf:about="#instalacion">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#jugendstil -->
+
+    <Modernismo rdf:about="#jugendstil">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Modernismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#landArt -->
+
+    <ArteModerno rdf:about="#landArt">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#liberty -->
+
+    <Modernismo rdf:about="#liberty">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Modernismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#manierismo -->
+
+    <Moderno rdf:about="#manierismo">
+        <seDioDurante rdf:resource="#edadModerna"/>
+    </Moderno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#minimalismo -->
+
+    <ArteModerno rdf:about="#minimalismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#modernStyle -->
+
+    <Modernismo rdf:about="#modernStyle">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Modernismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#modernismo -->
+
+    <Modernismo rdf:about="#modernismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Modernismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#naturalismo -->
+
+    <Barroco rdf:about="#naturalismo">
+        <seDioDurante rdf:resource="#edadModerna"/>
+    </Barroco>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#nazareno -->
+
+    <Romanticismo rdf:about="#nazareno">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Romanticismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#neobarroco -->
+
+    <Historicismo rdf:about="#neobarroco">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Historicismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#neoclasicismo -->
+
+    <Contemporaneo rdf:about="#neoclasicismo">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Contemporaneo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#neoexpresionismo -->
+
+    <ArtePostmoderno rdf:about="#neoexpresionismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArtePostmoderno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#neogotico -->
+
+    <Historicismo rdf:about="#neogotico">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Historicismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#neoimpresionismo -->
+
+    <Contemporaneo rdf:about="#neoimpresionismo">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Contemporaneo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#neomanierismo -->
+
+    <ArtePostmoderno rdf:about="#neomanierismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArtePostmoderno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#neoplasticismo -->
+
+    <Vanguardias rdf:about="#neoplasticismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#neorromanico -->
+
+    <Historicismo rdf:about="#neorromanico">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Historicismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#nuevaAbstraccion -->
+
+    <ArteModerno rdf:about="#nuevaAbstraccion">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#nuevaObjetividad -->
+
+    <Expresionismo rdf:about="#nuevaObjetividad">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Expresionismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#nuevoRealismo -->
+
+    <ArteModerno rdf:about="#nuevoRealismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#opArt -->
+
+    <ArteModerno rdf:about="#opArt">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#orfismo -->
+
+    <Vanguardias rdf:about="#orfismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#performance -->
+
+    <ArteModerno rdf:about="#performance">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#periodoClasico -->
+
+    <Periodo rdf:about="#periodoClasico">
+        <empiezaEn rdf:resource="#200dC"/>
+        <terminaEn rdf:resource="#300dC"/>
+        <anteriorADirectamente rdf:resource="#altaEdadMedia"/>
+        <posteriorADirectamente rdf:resource="#edadAntigua"/>
+    </Periodo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#pinturaMaterica -->
+
+    <ArteModerno rdf:about="#pinturaMaterica">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#pinturaMetafisica -->
+
+    <Vanguardias rdf:about="#pinturaMetafisica">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#popArt -->
+
+    <ArteModerno rdf:about="#popArt">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#postimpresionismo -->
+
+    <Contemporaneo rdf:about="#postimpresionismo">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Contemporaneo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#prehistoria -->
+
+    <Periodo rdf:about="#prehistoria">
+        <terminaEn rdf:resource="#5000aC"/>
+        <anteriorADirectamente rdf:resource="#edadAntigua"/>
+    </Periodo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#prerrafaelismo -->
+
+    <Romanticismo rdf:about="#prerrafaelismo">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Romanticismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#racionalismo -->
+
+    <Vanguardias rdf:about="#racionalismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#rayonismo -->
+
+    <Vanguardias rdf:about="#rayonismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#realismo -->
+
+    <Contemporaneo rdf:about="#realismo">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Contemporaneo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#rococo -->
+
+    <Moderno rdf:about="#rococo">
+        <seDioDurante rdf:resource="#edadModerna"/>
+    </Moderno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#romanticismo -->
+
+    <Romanticismo rdf:about="#romanticismo">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Romanticismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#sezession -->
+
+    <Modernismo rdf:about="#sezession">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Modernismo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#sigloXIX -->
+
+    <EdadContemporanea rdf:about="#sigloXIX">
+        <empiezaEn rdf:resource="#1800dC"/>
+        <terminaEn rdf:resource="#1900dC"/>
+        <posteriorADirectamente rdf:resource="#edadModerna"/>
+        <anteriorADirectamente rdf:resource="#sigloXX"/>
+    </EdadContemporanea>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#sigloXX -->
+
+    <EdadContemporanea rdf:about="#sigloXX">
+        <empiezaEn rdf:resource="#1900dC"/>
+        <terminaEn rdf:resource="#2000dC"/>
+        <posteriorADirectamente rdf:resource="#sigloXIX"/>
+        <anteriorADirectamente rdf:resource="#sigloXXI"/>
+    </EdadContemporanea>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#sigloXXI -->
+
+    <EdadContemporanea rdf:about="#sigloXXI">
+        <empiezaEn rdf:resource="#2000dC"/>
+        <terminaEn rdf:resource="#2100dC"/>
+        <posteriorADirectamente rdf:resource="#sigloXX"/>
+    </EdadContemporanea>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#simbolismo -->
+
+    <Contemporaneo rdf:about="#simbolismo">
+        <seDioDurante rdf:resource="#sigloXIX"/>
+    </Contemporaneo>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#suprematismo -->
+
+    <Vanguardias rdf:about="#suprematismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#surrealismo -->
+
+    <Vanguardias rdf:about="#surrealismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#tachismo -->
+
+    <ArteModerno rdf:about="#tachismo">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArteModerno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#transvanguardia -->
+
+    <ArtePostmoderno rdf:about="#transvanguardia">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </ArtePostmoderno>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#vanguardias -->
+
+    <Vanguardias rdf:about="#vanguardias">
+        <seDioDurante rdf:resource="#sigloXX"/>
+    </Vanguardias>
+</rdf:RDF>

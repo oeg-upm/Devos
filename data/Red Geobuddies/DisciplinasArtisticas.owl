@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY DisciplinasArtisticas "http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:DisciplinasArtisticas="http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <dc:creator rdf:datatype="&xsd;string">Maria Poveda</dc:creator>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#ArteEscenica -->
+
+    <owl:Class rdf:about="#ArteEscenica">
+        <rdfs:label xml:lang="es">Arte esc&#233;nica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DisciplinaArtistica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#ArteVisual -->
+
+    <owl:Class rdf:about="#ArteVisual">
+        <rdfs:label xml:lang="es">Arte visual</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Tradicional"/>
+                    <rdf:Description rdf:about="#NoTradicional"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#DisciplinaArtistica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#BellasArtes -->
+
+    <owl:Class rdf:about="#BellasArtes">
+        <rdfs:label xml:lang="es">Bellas artes</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#Didactico -->
+
+    <owl:Class rdf:about="#Didactico">
+        <rdfs:label xml:lang="es"
+            >Literatura did&#225;ctica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#GeneroLiterario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#DisciplinaArtistica -->
+
+    <owl:Class rdf:about="#DisciplinaArtistica">
+        <rdfs:label xml:lang="es"
+            >Disciplina art&#237;stica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#Dramatico -->
+
+    <owl:Class rdf:about="#Dramatico">
+        <rdfs:label xml:lang="es"
+            >Literatura dram&#225;tica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#GeneroLiterario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#Epico -->
+
+    <owl:Class rdf:about="#Epico">
+        <rdfs:label xml:lang="es"
+            >Literatura &#233;pica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#GeneroLiterario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#GeneroLiterario -->
+
+    <owl:Class rdf:about="#GeneroLiterario">
+        <rdfs:label xml:lang="es"
+            >G&#233;nero Literario</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#Lirico -->
+
+    <owl:Class rdf:about="#Lirico">
+        <rdfs:label xml:lang="es"
+            >Literatura l&#237;rica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#GeneroLiterario"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#NoTradicional -->
+
+    <owl:Class rdf:about="#NoTradicional">
+        <rdfs:label xml:lang="es">No tradicional</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ArteVisual"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#Tradicional -->
+
+    <owl:Class rdf:about="#Tradicional">
+        <rdfs:label xml:lang="es">Tradicional</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ArteVisual"/>
+        <owl:disjointWith rdf:resource="#NoTradicional"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#arquitectura -->
+
+    <DisciplinaArtistica rdf:about="#arquitectura">
+        <rdf:type rdf:resource="#BellasArtes"/>
+    </DisciplinaArtistica>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#cancion -->
+
+    <Lirico rdf:about="#cancion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#cine -->
+
+    <ArteEscenica rdf:about="#cine">
+        <rdf:type rdf:resource="#BellasArtes"/>
+    </ArteEscenica>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#comedia -->
+
+    <Dramatico rdf:about="#comedia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#critica -->
+
+    <Didactico rdf:about="#critica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#cuento -->
+
+    <Epico rdf:about="#cuento"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#danza -->
+
+    <ArteEscenica rdf:about="#danza"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#dibujo -->
+
+    <Tradicional rdf:about="#dibujo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#didactico -->
+
+    <Didactico rdf:about="#didactico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#drama -->
+
+    <Dramatico rdf:about="#drama"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#dramatico -->
+
+    <Dramatico rdf:about="#dramatico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#egloga -->
+
+    <Lirico rdf:about="#egloga"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#elegia -->
+
+    <Lirico rdf:about="#elegia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#ensayo -->
+
+    <Didactico rdf:about="#ensayo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#epico -->
+
+    <Epico rdf:about="#epico">
+        <rdf:type rdf:resource="#Lirico"/>
+    </Epico>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#epistola -->
+
+    <Didactico rdf:about="#epistola"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#epopeya -->
+
+    <Epico rdf:about="#epopeya"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#escultura -->
+
+    <Tradicional rdf:about="#escultura">
+        <rdf:type rdf:resource="#BellasArtes"/>
+    </Tradicional>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#fabula -->
+
+    <Didactico rdf:about="#fabula"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#fotografia -->
+
+    <NoTradicional rdf:about="#fotografia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#historieta -->
+
+    <NoTradicional rdf:about="#historieta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#lirico -->
+
+    <Lirico rdf:about="#lirico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#literatura -->
+
+    <DisciplinaArtistica rdf:about="#literatura">
+        <rdf:type rdf:resource="#BellasArtes"/>
+    </DisciplinaArtistica>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#musica -->
+
+    <BellasArtes rdf:about="#musica">
+        <rdf:type rdf:resource="#ArteEscenica"/>
+    </BellasArtes>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#novela -->
+
+    <Epico rdf:about="#novela"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#oda -->
+
+    <Lirico rdf:about="#oda"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#opera -->
+
+    <Dramatico rdf:about="#opera"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#oratoria -->
+
+    <GeneroLiterario rdf:about="#oratoria"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#pintura -->
+
+    <BellasArtes rdf:about="#pintura">
+        <rdf:type rdf:resource="#Tradicional"/>
+    </BellasArtes>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#poemaEpico -->
+
+    <Epico rdf:about="#poemaEpico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#romance -->
+
+    <Epico rdf:about="#romance"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#satira -->
+
+    <Lirico rdf:about="#satira"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#soneto -->
+
+    <Lirico rdf:about="#soneto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#teatro -->
+
+    <BellasArtes rdf:about="#teatro">
+        <rdf:type rdf:resource="#ArteEscenica"/>
+    </BellasArtes>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#tragedia -->
+
+    <Dramatico rdf:about="#tragedia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#zarzuela -->
+
+    <Dramatico rdf:about="#zarzuela"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="#historieta"/>
+            <rdf:Description rdf:about="#ensayo"/>
+            <rdf:Description rdf:about="#escultura"/>
+            <rdf:Description rdf:about="#soneto"/>
+            <rdf:Description rdf:about="#elegia"/>
+            <rdf:Description rdf:about="#novela"/>
+            <rdf:Description rdf:about="#tragedia"/>
+            <rdf:Description rdf:about="#cine"/>
+            <rdf:Description rdf:about="#egloga"/>
+            <rdf:Description rdf:about="#comedia"/>
+            <rdf:Description rdf:about="#fotografia"/>
+            <rdf:Description rdf:about="#pintura"/>
+            <rdf:Description rdf:about="#fabula"/>
+            <rdf:Description rdf:about="#teatro"/>
+            <rdf:Description rdf:about="#danza"/>
+            <rdf:Description rdf:about="#epopeya"/>
+            <rdf:Description rdf:about="#musica"/>
+            <rdf:Description rdf:about="#epistola"/>
+            <rdf:Description rdf:about="#arquitectura"/>
+            <rdf:Description rdf:about="#satira"/>
+            <rdf:Description rdf:about="#opera"/>
+            <rdf:Description rdf:about="#critica"/>
+            <rdf:Description rdf:about="#cuento"/>
+            <rdf:Description rdf:about="#cancion"/>
+            <rdf:Description rdf:about="#poemaEpico"/>
+            <rdf:Description rdf:about="#romance"/>
+            <rdf:Description rdf:about="#dibujo"/>
+            <rdf:Description rdf:about="#oda"/>
+            <rdf:Description rdf:about="#oratoria"/>
+            <rdf:Description rdf:about="#drama"/>
+            <rdf:Description rdf:about="#zarzuela"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,2104 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY space "http://212.119.9.180/Ontologies/0.3/space.owl#" >
+    <!ENTITY Servicios "http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/2/Servicios.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:Servicios="http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:space="http://212.119.9.180/Ontologies/0.3/space.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#contact -->
+
+    <owl:ObjectProperty rdf:about="#contact">
+        <rdfs:range rdf:resource="#Vcard"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#deTipoHabitacion -->
+
+    <owl:ObjectProperty rdf:about="#deTipoHabitacion">
+        <rdfs:domain rdf:resource="#RelacionFormadoPorTipoHabitacion"/>
+        <rdfs:range rdf:resource="#TipoHabitacion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#formadoPorTipoHabitacion -->
+
+    <owl:ObjectProperty rdf:about="#formadoPorTipoHabitacion">
+        <rdfs:domain rdf:resource="#ProveedorServicioAlojamiento"/>
+        <rdfs:range rdf:resource="#RelacionFormadoPorTipoHabitacion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ofrece -->
+
+    <owl:ObjectProperty rdf:about="#ofrece"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ofreceProducto -->
+
+    <owl:ObjectProperty rdf:about="#ofreceProducto">
+        <rdfs:range rdf:resource="#Producto"/>
+        <rdfs:domain rdf:resource="#ProveedorServicio"/>
+        <rdfs:subPropertyOf rdf:resource="#ofrece"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ofreceServicio -->
+
+    <owl:ObjectProperty rdf:about="#ofreceServicio">
+        <rdfs:domain rdf:resource="#ProveedorServicio"/>
+        <rdfs:range rdf:resource="#Servicio"/>
+        <rdfs:subPropertyOf rdf:resource="#ofrece"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ofreceServicioDeTransporteMediante -->
+
+    <owl:ObjectProperty rdf:about="#ofreceServicioDeTransporteMediante">
+        <rdfs:range rdf:resource="#MedioDeTransporte"/>
+        <rdfs:domain rdf:resource="#ProveedorServicioTransporte"/>
+        <rdfs:subPropertyOf rdf:resource="#ofrece"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ofrecidoPor -->
+
+    <owl:ObjectProperty rdf:about="#ofrecidoPor">
+        <owl:inverseOf rdf:resource="#ofrece"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#productoOfrecidoPor -->
+
+    <owl:ObjectProperty rdf:about="#productoOfrecidoPor">
+        <rdfs:domain rdf:resource="#Producto"/>
+        <rdfs:range rdf:resource="#ProveedorServicio"/>
+        <owl:inverseOf rdf:resource="#ofreceProducto"/>
+        <rdfs:subPropertyOf rdf:resource="#ofrecidoPor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#servicioOfrecidoPor -->
+
+    <owl:ObjectProperty rdf:about="#servicioOfrecidoPor">
+        <rdfs:range rdf:resource="#ProveedorServicio"/>
+        <rdfs:domain rdf:resource="#Servicio"/>
+        <owl:inverseOf rdf:resource="#ofreceServicio"/>
+        <rdfs:subPropertyOf rdf:resource="#ofrecidoPor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://212.119.9.180/Ontologies/0.3/space.owl#longitude -->
+
+    <owl:DatatypeProperty rdf:about="&space;longitude">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:comment>GPS longitude</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#additional-name -->
+
+    <owl:DatatypeProperty rdf:about="#additional-name">
+        <rdfs:subPropertyOf rdf:resource="#vcard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#aireAcondicionado -->
+
+    <owl:DatatypeProperty rdf:about="#aireAcondicionado">
+        <rdfs:domain rdf:resource="#TipoHabitacion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#bannoIndependietne -->
+
+    <owl:DatatypeProperty rdf:about="#bannoIndependietne">
+        <rdfs:domain rdf:resource="#TipoHabitacion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#family-name -->
+
+    <owl:DatatypeProperty rdf:about="#family-name">
+        <rdfs:subPropertyOf rdf:resource="#vcard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#habitacionFumadores -->
+
+    <owl:DatatypeProperty rdf:about="#habitacionFumadores">
+        <rdfs:domain rdf:resource="#TipoHabitacion"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#hospitalPublico -->
+
+    <owl:DatatypeProperty rdf:about="#hospitalPublico">
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Hospital"/>
+                    <rdf:Description rdf:about="#Urgencias"/>
+                    <rdf:Description rdf:about="#Medico"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#mailer -->
+
+    <owl:DatatypeProperty rdf:about="#mailer">
+        <rdfs:subPropertyOf rdf:resource="#vcard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#numeroHabitaciones -->
+
+    <owl:DatatypeProperty rdf:about="#numeroHabitaciones">
+        <rdfs:domain rdf:resource="#RelacionFormadoPorTipoHabitacion"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#organization-name -->
+
+    <owl:DatatypeProperty rdf:about="#organization-name">
+        <rdfs:subPropertyOf rdf:resource="#vcard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#plazasPorHabitacion -->
+
+    <owl:DatatypeProperty rdf:about="#plazasPorHabitacion">
+        <rdfs:domain rdf:resource="#TipoHabitacion"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#postal-code -->
+
+    <owl:DatatypeProperty rdf:about="#postal-code">
+        <rdfs:subPropertyOf rdf:resource="#vcard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#role -->
+
+    <owl:DatatypeProperty rdf:about="#role">
+        <rdfs:subPropertyOf rdf:resource="#vcard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#soloPeregrinos -->
+
+    <owl:DatatypeProperty rdf:about="#soloPeregrinos">
+        <rdfs:domain rdf:resource="#ProveedorServicioAlojamiento"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#street-address -->
+
+    <owl:DatatypeProperty rdf:about="#street-address">
+        <rdfs:subPropertyOf rdf:resource="#vcard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#telefono -->
+
+    <owl:DatatypeProperty rdf:about="#telefono">
+        <rdfs:subPropertyOf rdf:resource="#vcard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#tienAforoClientes -->
+
+    <owl:DatatypeProperty rdf:about="#tienAforoClientes">
+        <rdfs:subPropertyOf rdf:resource="#tieneAforo"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ProveedorServicioOcio"/>
+                    <rdf:Description rdf:about="#ProveedorServicioCultural"/>
+                    <rdf:Description rdf:about="#Bar"/>
+                    <rdf:Description rdf:about="#CasaDeComidas"/>
+                    <rdf:Description rdf:about="#Restaurante"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#tieneAforo -->
+
+    <owl:DatatypeProperty rdf:about="#tieneAforo">
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#tieneEstrellas -->
+
+    <owl:DatatypeProperty rdf:about="#tieneEstrellas">
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#tieneTenedores -->
+
+    <owl:DatatypeProperty rdf:about="#tieneTenedores">
+        <rdfs:domain rdf:resource="#Restaurante"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#timezone -->
+
+    <owl:DatatypeProperty rdf:about="#timezone">
+        <rdfs:subPropertyOf rdf:resource="#vcard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#vcard -->
+
+    <owl:DatatypeProperty rdf:about="#vcard">
+        <rdfs:domain rdf:resource="#Vcard"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#zonaFumadores -->
+
+    <owl:DatatypeProperty rdf:about="#zonaFumadores">
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Restaurante"/>
+                    <rdf:Description rdf:about="#Bar"/>
+                    <rdf:Description rdf:about="#ProveedorServicioAlojamiento"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Acogida -->
+
+    <owl:Class rdf:about="#Acogida">
+        <rdfs:label xml:lang="es">Acogida</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlojamiento"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#TipoDeEspacio"/>
+                            <owl:Class>
+                                <owl:complementOf rdf:resource="#ServicioDeAlimentacion"/>
+                            </owl:Class>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#TipoDeEspacio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Albergue"/>
+        <owl:disjointWith rdf:resource="#Hostal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#AgenciaTuristica -->
+
+    <owl:Class rdf:about="#AgenciaTuristica">
+        <rdfs:label xml:lang="es"
+            >Agencia tur&#237;stica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioInformacion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#InformacionTuristica"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:allValuesFrom rdf:resource="#InformacionTuristica"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#AsociacionDeAmigosDelCaminoDeSantiago"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Albergue -->
+
+    <owl:Class rdf:about="#Albergue">
+        <rdfs:label xml:lang="es">Albergue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlojamiento"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioHabitacion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#InformacionAlPeregrino"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#TipoDeEspacio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Hostal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#AlimentacionBasica -->
+
+    <owl:Class rdf:about="#AlimentacionBasica">
+        <rdfs:label xml:lang="es"
+            >Alimentaci&#243;n b&#225;sica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TipoServicioAlimentacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#AreaDeDescanso -->
+
+    <owl:Class rdf:about="#AreaDeDescanso">
+        <rdfs:label xml:lang="es"
+            >&#193;rea de descanso</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AreaDeInteres"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#AreaDeInteres -->
+
+    <owl:Class rdf:about="#AreaDeInteres">
+        <rdfs:label xml:lang="es">&#193;rea de inter&#233;s</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#AreaDeInteresCultural -->
+
+    <owl:Class rdf:about="#AreaDeInteresCultural">
+        <rdfs:label xml:lang="es"
+            >&#193;rea de inter&#233;s cultural</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AreaDeInteres"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#AreaDeInteresPaisajistico -->
+
+    <owl:Class rdf:about="#AreaDeInteresPaisajistico">
+        <rdfs:label xml:lang="es"
+            >&#193;rea de inter&#233;s paisaj&#237;stico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AreaDeInteres"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#AreaDeInteresTuristico -->
+
+    <owl:Class rdf:about="#AreaDeInteresTuristico">
+        <rdfs:label xml:lang="es"
+            >&#193;rea de inter&#233;s tur&#237;stico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AreaDeInteres"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ArticuloEspecializado -->
+
+    <owl:Class rdf:about="#ArticuloEspecializado">
+        <rdfs:label xml:lang="es"
+            >Art&#237;culo de lujo</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Art&#237;culo especializado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#BienDeConsumoFinal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ArticuloSujetoAProcesoDeCompra -->
+
+    <owl:Class rdf:about="#ArticuloSujetoAProcesoDeCompra">
+        <rdfs:label xml:lang="es"
+            >Art&#237;culo sujeto a proceso de compra</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#BienDeConsumoFinal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ArticuloUnitario -->
+
+    <owl:Class rdf:about="#ArticuloUnitario">
+        <rdfs:label xml:lang="es"
+            >Art&#237;culo unitario</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#BienDeConsumoFinal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#AsociacionDeAmigosDelCaminoDeSantiago -->
+
+    <owl:Class rdf:about="#AsociacionDeAmigosDelCaminoDeSantiago">
+        <rdfs:label xml:lang="es"
+            >Asociaci&#243;n de amigos del camino de Santiago</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioInformacion"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#ofreceServicio"/>
+                        <owl:hasValue rdf:resource="#laCredencial"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#ofreceServicio"/>
+                        <owl:someValuesFrom rdf:resource="#InformacionAlPeregrino"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#AtencionEspecializada -->
+
+    <owl:Class rdf:about="#AtencionEspecializada">
+        <rdfs:label xml:lang="es"
+            >Atenci&#243;n especializada</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeSanidad"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Autoservicio -->
+
+    <owl:Class rdf:about="#Autoservicio">
+        <rdfs:label xml:lang="es">Autoservicio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TipoServicioAlimentacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Bar -->
+
+    <owl:Class rdf:about="#Bar">
+        <rdfs:label xml:lang="es">Bar</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlimentacion"/>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioOcio"/>
+        <owl:disjointWith rdf:resource="#Mercado"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#BienDeConsumoFinal -->
+
+    <owl:Class rdf:about="#BienDeConsumoFinal">
+        <rdfs:label xml:lang="es"
+            >Bien de consumo final</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Producto"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#BienDeConsumoIntermedio -->
+
+    <owl:Class rdf:about="#BienDeConsumoIntermedio">
+        <rdfs:label xml:lang="es"
+            >Bien de consumo intermedio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Producto"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Bolera -->
+
+    <owl:Class rdf:about="#Bolera">
+        <rdfs:label xml:lang="es">Bolera</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioOcio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Bomberos -->
+
+    <owl:Class rdf:about="#Bomberos">
+        <rdfs:label xml:lang="es">Bomberos</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioSeguridad"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Buffet -->
+
+    <owl:Class rdf:about="#Buffet">
+        <rdfs:label xml:lang="es">Buffet</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TipoServicioAlimentacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#CasaDeComidas -->
+
+    <owl:Class rdf:about="#CasaDeComidas">
+        <rdfs:label xml:lang="es">Casa de comidas</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlimentacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Casino -->
+
+    <owl:Class rdf:about="#Casino">
+        <rdfs:label xml:lang="es">Casino</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioOcio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Cine -->
+
+    <owl:Class rdf:about="#Cine">
+        <rdfs:label xml:lang="es">Cine</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Espectaculo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ClaseTransporte -->
+
+    <owl:Class rdf:about="#ClaseTransporte">
+        <rdfs:label xml:lang="es"
+            >Clase transporte</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Concierto -->
+
+    <owl:Class rdf:about="#Concierto">
+        <rdfs:label xml:lang="es">Concierto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Espectaculo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Discoteca -->
+
+    <owl:Class rdf:about="#Discoteca">
+        <rdfs:label xml:lang="es">Discoteca</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioOcio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Espectaculo -->
+
+    <owl:Class rdf:about="#Espectaculo">
+        <rdfs:label xml:lang="es">Espect&#225;culo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioOcio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ExpedicionCredenciales -->
+
+    <owl:Class rdf:about="#ExpedicionCredenciales">
+        <rdfs:label xml:lang="es"
+            >Expedici&#243;n de credenciales</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioDeExpedicionDeCredenciales"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de entidad a los proveedores de servicio. En concreto por expedici&#243;n de creedenciales</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Farmacia -->
+
+    <owl:Class rdf:about="#Farmacia">
+        <rdfs:label xml:lang="es">Farmacia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioSanitarios"/>
+        <rdfs:subClassOf rdf:resource="#Tienda"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#GrandesAlmacenes -->
+
+    <owl:Class rdf:about="#GrandesAlmacenes">
+        <rdfs:label xml:lang="es"
+            >Grandes almacenes</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Tienda"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#GuardiaCivil -->
+
+    <owl:Class rdf:about="#GuardiaCivil">
+        <rdfs:label xml:lang="es">Guardia Civil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioSeguridad"/>
+        <owl:disjointWith rdf:resource="#PoliciaNacional"/>
+        <owl:disjointWith rdf:resource="#ProteccionCivil"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Hospital -->
+
+    <owl:Class rdf:about="#Hospital">
+        <rdfs:label xml:lang="es">Hospital</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioSanitarios"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioDeSanidad"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:allValuesFrom rdf:resource="#ServicioDeSanidad"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Farmacia"/>
+        <owl:disjointWith rdf:resource="#Urgencias"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Hostal -->
+
+    <owl:Class rdf:about="#Hostal">
+        <rdfs:label xml:lang="es">Hostal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlojamiento"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:allValuesFrom rdf:resource="#ServicioHabitacion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioHabitacion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Hotel -->
+
+    <owl:Class rdf:about="#Hotel">
+        <rdfs:label xml:lang="es">Hotel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlojamiento"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioHabitacion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#InformacionTuristica"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Acogida"/>
+        <owl:disjointWith rdf:resource="#Albergue"/>
+        <owl:disjointWith rdf:resource="#Hostal"/>
+        <owl:disjointWith rdf:resource="#Refugio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#InformacionAdministrativa -->
+
+    <owl:Class rdf:about="#InformacionAdministrativa">
+        <rdfs:label xml:lang="es"
+            >Informaci&#243;n administrativa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeInformacion"/>
+        <owl:disjointWith rdf:resource="#InformacionSeguridad"/>
+        <owl:disjointWith rdf:resource="#InformacionTuristica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#InformacionAlPeregrino -->
+
+    <owl:Class rdf:about="#InformacionAlPeregrino">
+        <rdfs:label xml:lang="es"
+            >Informaci&#243;n al peregrino</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeInformacion"/>
+        <owl:disjointWith rdf:resource="#InformacionAdministrativa"/>
+        <owl:disjointWith rdf:resource="#InformacionSeguridad"/>
+        <owl:disjointWith rdf:resource="#InformacionTuristica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#InformacionSeguridad -->
+
+    <owl:Class rdf:about="#InformacionSeguridad">
+        <rdfs:label xml:lang="es"
+            >Informaci&#243;n seguridad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeInformacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#InformacionTuristica -->
+
+    <owl:Class rdf:about="#InformacionTuristica">
+        <rdfs:label xml:lang="es"
+            >Informaci&#243;n tur&#237;stica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeInformacion"/>
+        <owl:disjointWith rdf:resource="#InformacionSeguridad"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Medico -->
+
+    <owl:Class rdf:about="#Medico">
+        <rdfs:label xml:lang="es">M&#233;dico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioSanitarios"/>
+        <owl:disjointWith rdf:resource="#Farmacia"/>
+        <owl:disjointWith rdf:resource="#Hospital"/>
+        <owl:disjointWith rdf:resource="#Urgencias"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#MedioDeTransporte -->
+
+    <owl:Class rdf:about="#MedioDeTransporte">
+        <rdfs:label xml:lang="es"
+            >Medio de transporte</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#MedioDeTransporteAcuatico"/>
+                    <rdf:Description rdf:about="#MedioDeTransporteAereo"/>
+                    <rdf:Description rdf:about="#MedioDeTransporteTerrestre"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment
+            >Clase que agrupa todos los medios de transporte utilizados en la aplicaci&#243;n</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#MedioDeTransporteAcuatico -->
+
+    <owl:Class rdf:about="#MedioDeTransporteAcuatico">
+        <rdfs:label xml:lang="es"
+            >Medio de transporte acu&#225;tico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MedioDeTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#MedioDeTransporteAereo -->
+
+    <owl:Class rdf:about="#MedioDeTransporteAereo">
+        <rdfs:label xml:lang="es"
+            >Medio de transporte a&#233;reo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MedioDeTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#MedioDeTransporteTerrestre -->
+
+    <owl:Class rdf:about="#MedioDeTransporteTerrestre">
+        <rdfs:label xml:lang="es"
+            >Medio de transporte terrestre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MedioDeTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Menu -->
+
+    <owl:Class rdf:about="#Menu">
+        <rdfs:label xml:lang="es">Men&#250;</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#TipoServicioAlimentacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Mercadillo -->
+
+    <owl:Class rdf:about="#Mercadillo">
+        <rdfs:label xml:lang="es">Mercadillo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlimentacion"/>
+        <rdfs:subClassOf rdf:resource="#TiendaDeAlimentacion"/>
+        <rdfs:subClassOf rdf:resource="#TiendaDeCalzado"/>
+        <rdfs:subClassOf rdf:resource="#TiendaDeRopa"/>
+        <owl:disjointWith rdf:resource="#Bar"/>
+        <owl:disjointWith rdf:resource="#Mercado"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Mercado -->
+
+    <owl:Class rdf:about="#Mercado">
+        <rdfs:label xml:lang="es">Mercado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlimentacion"/>
+        <rdfs:subClassOf rdf:resource="#TiendaDeAlimentacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Museo -->
+
+    <owl:Class rdf:about="#Museo">
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioCultural"/>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioOcio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Musical -->
+
+    <owl:Class rdf:about="#Musical">
+        <rdfs:label xml:lang="es">Musical</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Espectaculo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Opera -->
+
+    <owl:Class rdf:about="#Opera">
+        <rdfs:label xml:lang="es">Opera</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Espectaculo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Pension -->
+
+    <owl:Class rdf:about="#Pension">
+        <rdfs:label xml:lang="es">Pensi&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlojamiento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#PoliciaLocal -->
+
+    <owl:Class rdf:about="#PoliciaLocal">
+        <rdfs:label xml:lang="es">Policia local</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioSeguridad"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#PoliciaNacional -->
+
+    <owl:Class rdf:about="#PoliciaNacional">
+        <rdfs:label xml:lang="es"
+            >Policia nacional</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioSeguridad"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#InformacionSeguridad"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#InformacionAdministrativa"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#ProteccionCivil"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#PrestamoDeBicicleta -->
+
+    <owl:Class rdf:about="#PrestamoDeBicicleta">
+        <rdfs:label xml:lang="es"
+            >Pr&#233;stamo de bicicleta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporteAlquiler"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:hasValue rdf:resource="#bicicleta"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Producto -->
+
+    <owl:Class rdf:about="#Producto">
+        <rdfs:label xml:lang="es">Producto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProteccionCivil -->
+
+    <owl:Class rdf:about="#ProteccionCivil">
+        <rdfs:label xml:lang="es"
+            >Protecci&#243;n civil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioSanitarios"/>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioSeguridad"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#InformacionSeguridad"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicio -->
+
+    <owl:Class rdf:about="#ProveedorServicio">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofrece"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Servicio"/>
+                            <rdf:Description rdf:about="#Producto"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment
+            >Clase que representa en nuestro dominio a las entidades que pueden ofrecer alg&#250;n servicio de utilidad a las personas que realicen o vayan a ralizar el Camino de Santiago</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioAeroportuario -->
+
+    <owl:Class rdf:about="#ProveedorServicioAeroportuario">
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio aeroportuario</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:oneOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#avion"/>
+                            <rdf:Description rdf:about="#avioneta"/>
+                        </owl:oneOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioAlimentacion -->
+
+    <owl:Class rdf:about="#ProveedorServicioAlimentacion">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de alimentaci&#243;n</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioDeAlimentacion"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de entidad a los proveedores de servicio. En concreto por alimentacion</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioAlojamiento -->
+
+    <owl:Class rdf:about="#ProveedorServicioAlojamiento">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de alojamiento</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioDeAlojamiento"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de entidad a los proveedores de servicio. En concreto por alojamiento</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioCultural -->
+
+    <owl:Class rdf:about="#ProveedorServicioCultural">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio cultural</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioCultural"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de entidad a los proveedores de servicio. En concreto por cultural</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioDeAutobus -->
+
+    <owl:Class rdf:about="#ProveedorServicioDeAutobus">
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio de autob&#250;s</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:hasValue rdf:resource="#autobus"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioDeAutocar -->
+
+    <owl:Class rdf:about="#ProveedorServicioDeAutocar">
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio de autocar</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:hasValue rdf:resource="#autocar"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioDeFerrocarril -->
+
+    <owl:Class rdf:about="#ProveedorServicioDeFerrocarril">
+        <rdfs:label xml:lang="es"
+            >Proveedor de servico de ferrocarril</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:hasValue rdf:resource="#ferrocarril"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioDeHelipuerto -->
+
+    <owl:Class rdf:about="#ProveedorServicioDeHelipuerto">
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio de helipuerto</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:hasValue rdf:resource="#helicoptero"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioDeTaxi -->
+
+    <owl:Class rdf:about="#ProveedorServicioDeTaxi">
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio de taxi</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:hasValue rdf:resource="#taxi"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioDeTren -->
+
+    <owl:Class rdf:about="#ProveedorServicioDeTren">
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio de tren</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:hasValue rdf:resource="#tren"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioDeportivo -->
+
+    <owl:Class rdf:about="#ProveedorServicioDeportivo">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio deportivo</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioDeportivo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioEcuestre -->
+
+    <owl:Class rdf:about="#ProveedorServicioEcuestre">
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio ecuestre</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:hasValue rdf:resource="#caballo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioInformacion -->
+
+    <owl:Class rdf:about="#ProveedorServicioInformacion">
+        <rdfs:label xml:lang="es">Informaci&#243;n</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioDeInformacion"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de entidad a los proveedores de servicio. En concreto por informaci&#243;n</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioOcio -->
+
+    <owl:Class rdf:about="#ProveedorServicioOcio">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de ocio</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioDeOcio"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioPortuario -->
+
+    <owl:Class rdf:about="#ProveedorServicioPortuario">
+        <rdfs:label xml:lang="es"
+            >Proveedor de servicio portuario</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:someValuesFrom rdf:resource="#MedioDeTransporteAcuatico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioReligioso -->
+
+    <owl:Class rdf:about="#ProveedorServicioReligioso">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio religioso</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioReligioso"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioSanitarios -->
+
+    <owl:Class rdf:about="#ProveedorServicioSanitarios">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicios santiarios</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioDeSanidad"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de entidad a los proveedores de servicio. En concreto por sanidad</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioSeguridad -->
+
+    <owl:Class rdf:about="#ProveedorServicioSeguridad">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de seguridad</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#ServicioDeSeguridad"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de entidad a los proveedores de servicio. En concreto por seguridad</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioTransporte -->
+
+    <owl:Class rdf:about="#ProveedorServicioTransporte">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de transporte</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicioDeTransporteMediante"/>
+                <owl:someValuesFrom rdf:resource="#MedioDeTransporte"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de entidad a los proveedores de servicio. En concreto por transporte</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioTransporteAlquiler -->
+
+    <owl:Class rdf:about="#ProveedorServicioTransporteAlquiler">
+        <rdfs:label xml:lang="es"
+            >Proveedor servicio de transporte en alquiler</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioTransporte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Pub -->
+
+    <owl:Class rdf:about="#Pub">
+        <rdfs:label xml:lang="es">Pub</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioOcio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Refugio -->
+
+    <owl:Class rdf:about="#Refugio">
+        <rdfs:label xml:lang="es">Refugio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlojamiento"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#TipoDeEspacio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Acogida"/>
+        <owl:disjointWith rdf:resource="#Albergue"/>
+        <owl:disjointWith rdf:resource="#Hostal"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#RelacionFormadoPorTipoHabitacion -->
+
+    <owl:Class rdf:about="#RelacionFormadoPorTipoHabitacion">
+        <rdfs:label rdf:datatype="&xsd;string"
+            >RelacionFormadoPortipoHabitacion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Esta clase se a&#241;ade para formar el patr&#243;n N-ary. Se utiliza para representar que un proveedor de servicios de alojamiento tiene un n&#250;mero determinado de cada tipo de habitaci&#243;n.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Restaurante -->
+
+    <owl:Class rdf:about="#Restaurante">
+        <rdfs:label xml:lang="es">Restaurante</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlimentacion"/>
+        <owl:disjointWith rdf:resource="#Mercadillo"/>
+        <owl:disjointWith rdf:resource="#Mercado"/>
+        <owl:disjointWith rdf:resource="#Supermercado"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Servicio -->
+
+    <owl:Class rdf:about="#Servicio">
+        <rdfs:label xml:lang="es">Servicio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="es"
+            >Clase que representa los servicios que puede ofrece un proveedor de servicio</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioComidaInternacional -->
+
+    <owl:Class rdf:about="#ServicioComidaInternacional">
+        <rdfs:label xml:lang="es"
+            >Servicio de comida internacional</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeAlimentacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioCultural -->
+
+    <owl:Class rdf:about="#ServicioCultural">
+        <rdfs:label xml:lang="es"
+            >Servicio cultural</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de servicio a los servicios. En concreto por servicios de cultural</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioDeAlimentacion -->
+
+    <owl:Class rdf:about="#ServicioDeAlimentacion">
+        <rdfs:label xml:lang="es"
+            >Servicio de alimentaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de servicio a los servicios. En concreto por servicios de alimentacion</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioDeAlojamiento -->
+
+    <owl:Class rdf:about="#ServicioDeAlojamiento">
+        <rdfs:label xml:lang="es"
+            >Servicio alojamiento</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de servicio a los servicios. En concreto por servicios de alojamiento</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioDeExpedicionDeCredenciales -->
+
+    <owl:Class rdf:about="#ServicioDeExpedicionDeCredenciales">
+        <rdfs:label xml:lang="es"
+            >Servicio de espedici&#243;n de credenciales</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de servicio a los servicios. En concreto por servicios de expedici&#243;n de credenciales</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioDeInformacion -->
+
+    <owl:Class rdf:about="#ServicioDeInformacion">
+        <rdfs:label xml:lang="es"
+            >Servicio de informaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de servicio a los servicios. En concreto por servicios de informaci&#243;n</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioDeOcio -->
+
+    <owl:Class rdf:about="#ServicioDeOcio">
+        <rdfs:label xml:lang="es"
+            >Servicio de ocio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioDeSanidad -->
+
+    <owl:Class rdf:about="#ServicioDeSanidad">
+        <rdfs:label xml:lang="es"
+            >Servicio de sanidad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de servicio a los servicios. En concreto por servicios de sanidad</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioDeSeguridad -->
+
+    <owl:Class rdf:about="#ServicioDeSeguridad">
+        <rdfs:label xml:lang="es"
+            >Servicio de seguridad</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+        <rdfs:comment
+            >Clase que agrupa por el tipo de servicio a los servicios. En concreto por servicios de seguridad</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioDeTransporte -->
+
+    <owl:Class rdf:about="#ServicioDeTransporte">
+        <rdfs:label xml:lang="es"
+            >Servicio de transporte</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioDeportivo -->
+
+    <owl:Class rdf:about="#ServicioDeportivo">
+        <rdfs:label xml:lang="es"
+            >Servicio deportivo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioHabitacion -->
+
+    <owl:Class rdf:about="#ServicioHabitacion">
+        <rdfs:label xml:lang="es"
+            >Servicio habitaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeAlojamiento"/>
+        <owl:disjointWith rdf:resource="#TipoDeEspacio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioIngesta -->
+
+    <owl:Class rdf:about="#ServicioIngesta">
+        <rdfs:label xml:lang="es"
+            >Servicio ingesta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeAlimentacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioReligioso -->
+
+    <owl:Class rdf:about="#ServicioReligioso">
+        <rdfs:label xml:lang="es"
+            >Servicio religioso</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Servicio"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Supermercado -->
+
+    <owl:Class rdf:about="#Supermercado">
+        <rdfs:label xml:lang="es">Supermercado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlimentacion"/>
+        <rdfs:subClassOf rdf:resource="#TiendaDeAlimentacion"/>
+        <owl:disjointWith rdf:resource="#Bar"/>
+        <owl:disjointWith rdf:resource="#Mercadillo"/>
+        <owl:disjointWith rdf:resource="#Mercado"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Teatro -->
+
+    <owl:Class rdf:about="#Teatro">
+        <rdfs:label xml:lang="es">Teatro</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Espectaculo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Tienda -->
+
+    <owl:Class rdf:about="#Tienda">
+        <rdfs:label xml:lang="es">Tienda</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicio"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceProducto"/>
+                <owl:someValuesFrom rdf:resource="#Producto"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#TiendaDeAlimentacion -->
+
+    <owl:Class rdf:about="#TiendaDeAlimentacion">
+        <rdfs:label xml:lang="es"
+            >Tienda de alimentaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioAlimentacion"/>
+        <rdfs:subClassOf rdf:resource="#Tienda"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#TiendaDeCalzado -->
+
+    <owl:Class rdf:about="#TiendaDeCalzado">
+        <rdfs:label xml:lang="es"
+            >Tienda de calzado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Tienda"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#TiendaDePrensa -->
+
+    <owl:Class rdf:about="#TiendaDePrensa">
+        <rdfs:label xml:lang="es"
+            >Tienda de prensa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Tienda"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#TiendaDeRopa -->
+
+    <owl:Class rdf:about="#TiendaDeRopa">
+        <rdfs:label xml:lang="es">Tienda de ropa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Tienda"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#TipoDeEspacio -->
+
+    <owl:Class rdf:about="#TipoDeEspacio">
+        <rdfs:label xml:lang="es">Tipo de espacio</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeAlojamiento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#TipoHabitacion -->
+
+    <owl:Class rdf:about="#TipoHabitacion">
+        <rdfs:label rdf:datatype="&xsd;string">Tipo Habitaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#TipoServicioAlimentacion -->
+
+    <owl:Class rdf:about="#TipoServicioAlimentacion">
+        <rdfs:label xml:lang="es"
+            >Tipo servicio alimentaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeAlimentacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#TransporteSanitario -->
+
+    <owl:Class rdf:about="#TransporteSanitario">
+        <rdfs:label xml:lang="es"
+            >Transporte sanitario</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ServicioDeSanidad"/>
+        <owl:disjointWith rdf:resource="#AtencionEspecializada"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Urgencias -->
+
+    <owl:Class rdf:about="#Urgencias">
+        <rdfs:label xml:lang="es">Urgencias</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ProveedorServicioSanitarios"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#ofreceServicio"/>
+                <owl:someValuesFrom rdf:resource="#TransporteSanitario"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Farmacia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Vcard -->
+
+    <owl:Class rdf:about="#Vcard">
+        <rdfs:label xml:lang="es"
+            >Tarjeta de visita</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >Resources that are vCards.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#aPie -->
+
+    <MedioDeTransporteTerrestre rdf:about="#aPie"/>
+    
+
+
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#almuerzo -->
+
+    <ServicioIngesta rdf:about="#almuerzo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#aperitivo -->
+
+    <ServicioIngesta rdf:about="#aperitivo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#apoyoAlCiudadano -->
+
+    <ServicioDeSeguridad rdf:about="#apoyoAlCiudadano"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#atencionSanitariaFarmaceutica -->
+
+    <ServicioDeSanidad rdf:about="#atencionSanitariaFarmaceutica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#atencionSanitariaPrimaria -->
+
+    <ServicioDeSanidad rdf:about="#atencionSanitariaPrimaria"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#atencionSanitariaUrgente -->
+
+    <ServicioDeSanidad rdf:about="#atencionSanitariaUrgente"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#autobus -->
+
+    <MedioDeTransporteTerrestre rdf:about="#autobus"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#autocar -->
+
+    <MedioDeTransporteTerrestre rdf:about="#autocar"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#avion -->
+
+    <MedioDeTransporteAereo rdf:about="#avion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#avioneta -->
+
+    <MedioDeTransporteAereo rdf:about="#avioneta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#barca -->
+
+    <MedioDeTransporteAcuatico rdf:about="#barca"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#barco -->
+
+    <MedioDeTransporteAcuatico rdf:about="#barco"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#bicicleta -->
+
+    <MedioDeTransporteTerrestre rdf:about="#bicicleta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#bote -->
+
+    <MedioDeTransporteAcuatico rdf:about="#bote"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#buque -->
+
+    <MedioDeTransporteAcuatico rdf:about="#buque"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#busquedaRescate -->
+
+    <ServicioDeSeguridad rdf:about="#busquedaRescate"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#caballo -->
+
+    <MedioDeTransporteTerrestre rdf:about="#caballo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#cajaFuerte -->
+
+    <ServicioHabitacion rdf:about="#cajaFuerte"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#calefaccion -->
+
+    <ServicioHabitacion rdf:about="#calefaccion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#camion -->
+
+    <MedioDeTransporteTerrestre rdf:about="#camion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#cena -->
+
+    <ServicioIngesta rdf:about="#cena"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#clasePrimera -->
+
+    <ClaseTransporte rdf:about="#clasePrimera"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#claseTurista -->
+
+    <ClaseTransporte rdf:about="#claseTurista"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#coche -->
+
+    <MedioDeTransporteTerrestre rdf:about="#coche"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#denuncia -->
+
+    <ServicioDeSeguridad rdf:about="#denuncia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#desayuno -->
+
+    <ServicioIngesta rdf:about="#desayuno"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#espacioCompartido -->
+
+    <TipoDeEspacio rdf:about="#espacioCompartido"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#espacioPrivado -->
+
+    <TipoDeEspacio rdf:about="#espacioPrivado"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ferrocarril -->
+
+    <MedioDeTransporteTerrestre rdf:about="#ferrocarril"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#garaje -->
+
+    <ServicioHabitacion rdf:about="#garaje"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#helicoptero -->
+
+    <MedioDeTransporteAereo rdf:about="#helicoptero"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#laCompostela -->
+
+    <ServicioDeExpedicionDeCredenciales rdf:about="#laCompostela"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#laCredencial -->
+
+    <ServicioDeExpedicionDeCredenciales rdf:about="#laCredencial"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#lavanderia -->
+
+    <ServicioHabitacion rdf:about="#lavanderia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#merienda -->
+
+    <ServicioIngesta rdf:about="#merienda"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#piscina -->
+
+    <ServicioHabitacion rdf:about="#piscina"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#primerosAuxilios -->
+
+    <ServicioDeSanidad rdf:about="#primerosAuxilios"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#proteccion -->
+
+    <ServicioDeSeguridad rdf:about="#proteccion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#servicioDeHabitaciones -->
+
+    <ServicioHabitacion rdf:about="#servicioDeHabitaciones"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#taxi -->
+
+    <MedioDeTransporteTerrestre rdf:about="#taxi"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#television -->
+
+    <ServicioHabitacion rdf:about="#television"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#tentempie -->
+
+    <ServicioIngesta rdf:about="#tentempie"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#transporteSanitarioPorAire -->
+
+    <TransporteSanitario rdf:about="#transporteSanitarioPorAire"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#transporteSanitarioPorCarretera -->
+
+    <TransporteSanitario rdf:about="#transporteSanitarioPorCarretera"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#tren -->
+
+    <MedioDeTransporteTerrestre rdf:about="#tren"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#velero -->
+
+    <MedioDeTransporteAcuatico rdf:about="#velero"/>
+</rdf:RDF>

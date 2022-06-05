@@ -1,0 +1,589 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY PersonasArte "http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:PersonasArte="http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#esDelSiglo -->
+
+    <owl:DatatypeProperty rdf:about="#esDelSiglo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#tieneTitulo -->
+
+    <owl:DatatypeProperty rdf:about="#tieneTitulo"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Actor -->
+
+    <owl:Class rdf:about="#Actor">
+        <rdfs:label xml:lang="en">Actor</rdfs:label>
+        <rdfs:label xml:lang="es">Actor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >Persons who use movement, gesture, facial expressions, speaking, and intonation to create a fictional character for the stage, motion pictures, or television. This persons are mans.
+
+Related concepts:
+activity performed is ....  acting
+distinguished from ....  players</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Hombre que interpreta un papel en el teatro, el cine, la radio o la televisi&#243;n.
+Personaje de una acci&#243;n o de una obra literaria.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Alfarero -->
+
+    <owl:Class rdf:about="#Alfarero">
+        <rdfs:label xml:lang="en">Potter</rdfs:label>
+        <rdfs:label xml:lang="es">Alfarero</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artesano"/>
+        <rdfs:comment xml:lang="en"
+            >Makers of vessels, tableware, vases and other ware out of ceramic.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Fabricantes de vasijas, de art&#237;culos de mesa, de floreros y de otras mercanc&#237;as fuera de la cer&#225;mica.
+
+Los alfareros y afines (barro, arcilla y abrasivos) fabrican ladrillos, tejas, objetos de cer&#225;mica y porcelana y muelas abrasivas. (CIUO-08)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Artesano -->
+
+    <owl:Class rdf:about="#Artesano">
+        <rdfs:label xml:lang="en">Craftsman</rdfs:label>
+        <rdfs:label xml:lang="es">Artesano</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Persona"/>
+        <rdfs:comment xml:lang="en"
+            >Refers to those who practice an occupation, trade, or pursuit requiring manual dexterity or artistic skill, typically excluding those who produce painting, sculpture, drawing, or architecture. Generally distinguished from &quot;artists&quot; and &quot;architects,&quot; based on the media of their creations. For a more general term for those who create or construct artifacts directly by their own labor, especially as their profession or primary occupation, use &quot;makers.&quot; (AAT)</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >&#218;sese para aquellos que practican una ocupaci&#243;n u oficio, o profesi&#243;n que requiere destreza manual o talento art&#237;stico. Para aquellos que crean o construyen artefactos directamente por su propia labor, especialmente como su profesi&#243;n u oaupaci&#243;n primaria, use &quot;art&#237;fice&quot;. (AAT)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Artista -->
+
+    <owl:Class rdf:about="#Artista">
+        <rdfs:label xml:lang="en">Artist</rdfs:label>
+        <rdfs:label xml:lang="es">Artista</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Persona"/>
+        <rdfs:comment xml:lang="en"
+            >Refers specifically to people who produce work in the visual arts. For those in the performing arts, see &quot;performing artists.&quot;</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >&#218;sese especificamente para gente que produce obras en las artes visuales. Para aquellos en las artes interpretativas, use &quot;artistas de interpretaci&#243;n&#8221;. (ATT)
+
+Persona que ejercita alguna arte bella. Persona dotada de la virtud y disposici&#243;n necesarias para alguna de las bellas artes. Persona que act&#250;a profesionalmente en un espect&#225;culo teatral, cinematogr&#225;fico, circense, etc., interpretando ante el p&#250;blico. (RAE)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#ArtistaAnonimo -->
+
+    <owl:Class rdf:about="#ArtistaAnonimo">
+        <rdfs:label xml:lang="en"
+            >Anonymous author</rdfs:label>
+        <rdfs:label xml:lang="es">Artista an&#243;nimo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >having no known name or identity or known source; &quot;anonymous authors&quot;; &quot;anonymous donors&quot;; &quot;an anonymous gift&quot;</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Dicho de un autor: Cuyo nombre se desconoce.
+artista an&#243;nimo o artista desconocido</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Autor -->
+
+    <owl:Class rdf:about="#Autor">
+        <rdfs:label xml:lang="en">Author</rdfs:label>
+        <rdfs:label xml:lang="es">Autor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >Persons who write or otherwise compose books, articles, poems, plays, or other works which involve literary composition and are intended for publication. (AAT)
+writes (books or stories or articles or the like) professionally (for pay). (WordNet)</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Persona que ha hecho alguna obra cient&#237;fica, literaria o art&#237;stica. (RAE)
+Personas que escriben o que redactan libros, atr&#237;culos, poemas, obras tetrales u otras obras que involucran composici&#243;n literaria y cuyo objetivo es ser publicado. (AAT espa&#241;ol)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Bailarin -->
+
+    <owl:Class rdf:about="#Bailarin">
+        <rdfs:label xml:lang="en">Dancer</rdfs:label>
+        <rdfs:label xml:lang="es">Bailar&#237;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Persona que ejercita o profesa el arte de bailar.</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Those who engage in the activity of dancing or who practice the art of dance, especially as a profession.
+
+Related concepts: 
+activity performed is ....  dance</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Cantante -->
+
+    <owl:Class rdf:about="#Cantante">
+        <rdfs:label xml:lang="en">Singer</rdfs:label>
+        <rdfs:label xml:lang="es">Cantante</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Musico"/>
+        <rdfs:comment xml:lang="en"
+            >People who perform vocal music. (AAT)</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Que canta.
+Persona que canta por profesi&#243;n.
+(RAE)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Ceramista -->
+
+    <owl:Class rdf:about="#Ceramista">
+        <rdfs:label xml:lang="en">ceramicist</rdfs:label>
+        <rdfs:label xml:lang="es">Ceramista</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artesano"/>
+        <rdfs:comment xml:lang="en"
+            >Persons who engage in ceramic arts, manufacturing, or technology.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Personas ocupadas en el arte, manufactura o tecnolog&#237;a cer&#225;mica.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Compositor -->
+
+    <owl:Class rdf:about="#Compositor">
+        <rdfs:label xml:lang="en">Composer</rdfs:label>
+        <rdfs:label xml:lang="es">Compositor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Musico"/>
+        <rdfs:comment xml:lang="en"
+            >Those who create musical pieces. (AAT)</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Que hace composiciones musicales. (RAE)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Coreografo -->
+
+    <owl:Class rdf:about="#Coreografo">
+        <rdfs:label xml:lang="en">Choreographer</rdfs:label>
+        <rdfs:label xml:lang="es">Core&#243;grafo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Dibujante -->
+
+    <owl:Class rdf:about="#Dibujante">
+        <rdfs:label xml:lang="en">Draftsman</rdfs:label>
+        <rdfs:label xml:lang="es">Dibujante</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >Artists who specialize in making drawings, which are designs formed by lines on a surface, often paper, by using a pencil, pen, chalk, or some other tracing instrument to focus on the delineation of form rather than the application of color.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Que dibuja.
+Persona que tiene como profesi&#243;n el dibujo.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#DirectorDeCine -->
+
+    <owl:Class rdf:about="#DirectorDeCine">
+        <rdfs:label xml:lang="en">Director</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Director de cine</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Makers of personal, independently produced films and videos, who are responsible for the conception, sponsorship, and execution of all aspects of the project.
+
+Related concepts:
+activity performed is ....  filmmaking
+creation/product(s) are ....  motion pictures (visual works)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Escriba -->
+
+    <owl:Class rdf:about="#Escriba">
+        <rdfs:label xml:lang="en">Scribe</rdfs:label>
+        <rdfs:label xml:lang="es">Escriba</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artesano"/>
+        <rdfs:comment xml:lang="en"
+            >Persons who inscribe or copy texts, especially those who transcribed, copied, and edited manuscripts before mechanical printing technology was developed.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Personas que apuntan o copian textos, especialmente aquellos que transcriben, copian, y editan manuscritos en la &#233;poca anterior de la impresi&#243;n mec&#225;nica.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Escritor -->
+
+    <owl:Class rdf:about="#Escritor">
+        <rdfs:label xml:lang="en">Writer</rdfs:label>
+        <rdfs:label xml:lang="es">Escritor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >a person who is able to write and has written something. (WordNet)</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Persona que escribe. Autor de obras escritas o impresas. (RAE)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Fotografo -->
+
+    <owl:Class rdf:about="#Fotografo">
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >Individuals who specialize in creating photographs, which are still images produced from radiation-sensitive materials, typically by means of the chemical action of light on a sensitive film, paper, glass, or metal.</rdfs:comment>
+        <rdfs:comment xml:lang="en">photographer</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Individuos especializados en crear fotograf&#237;as, que son im&#225;genes fijas producidas a partir de materiales sensibles a la radiaci&#243;n, tipicamente por medio de la acci&#243;n qu&#237;mica de la luz sobre una pel&#237;cula, papel, vidrio o metal sensible.</rdfs:comment>
+        <rdfs:comment xml:lang="es">fot&#243;grafo</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Grabador -->
+
+    <owl:Class rdf:about="#Grabador">
+        <rdfs:label xml:lang="en">Engraver</rdfs:label>
+        <rdfs:label xml:lang="es">Grabador</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artesano"/>
+        <rdfs:comment xml:lang="en"
+            >Refers to those skilled or practiced in incising marks on the surface of a hard material, such as glass or metal, with a sharp tool, when the designs or images created are for their own sake and not to be printed from. For those who practice the printing process of engraving, see &quot;engravers (printmakers).&quot;
+
+Those who practice the printing process of engraving. For those who incise marks on the surface of a hard material, not to be printed from, use &quot;engravers (incisers).&quot;</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Que graba.
+Perteneciente o relativo al arte del grabado.
+Persona que profesa este arte.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Ilustrador -->
+
+    <owl:Class rdf:about="#Ilustrador">
+        <rdfs:label xml:lang="en">Illustrator</rdfs:label>
+        <rdfs:label xml:lang="es">Ilustrador</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >Artists who specialize in creating drawings, prints, or other pictures intended to elucidate a description, story, or other written material, usually in a book or periodical.</rdfs:comment>
+        <rdfs:comment xml:lang="es">Que ilustra</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Joyero -->
+
+    <owl:Class rdf:about="#Joyero">
+        <rdfs:label xml:lang="en">Jeweler</rdfs:label>
+        <rdfs:label xml:lang="es">Joyero</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artesano"/>
+        <rdfs:comment xml:lang="en"
+            >People whose occupation is to design, make, and repair jewelry.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Personas cuya ocupaci&#243;n es dise&#241;ar, fabricar y reparar joyas.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Maestro -->
+
+    <owl:Class rdf:about="#Maestro">
+        <rdfs:label xml:lang="en">Master</rdfs:label>
+        <rdfs:label xml:lang="es">Maestro</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Persona"/>
+        <rdfs:comment xml:lang="en"
+            >an artist of consummate skill; &quot;a master of the violin&quot;; &quot;one of the old masters&quot;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Metalista -->
+
+    <owl:Class rdf:about="#Metalista">
+        <rdfs:label xml:lang="en">Metalworker</rdfs:label>
+        <rdfs:label xml:lang="es">Metalista</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artesano"/>
+        <rdfs:comment xml:lang="en"
+            >Those skilled or trained in the craft of working metal, whether practical or decorative.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Aquellos expertos o que se dedican al trabajo en metal, en forma pr&#225;ctica o decorativa.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Mosaiquista -->
+
+    <owl:Class rdf:about="#Mosaiquista">
+        <rdfs:label xml:lang="en">Mosaicist</rdfs:label>
+        <rdfs:label xml:lang="es">Mosaiquista</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artesano"/>
+        <rdfs:comment xml:lang="en"
+            >Craftsmen or artists who decorate surfaces with patterns or pictures composed of small, regularly-shaped pieces of colored durable material, such as stone or glass.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Fabricante de mosaicos.
+Persona que tiene por oficio revestir superficies con mosaicos.
+Artesanos o artistas que decoran superficies con dise&#241;os o im&#225;genes compuestas por trozos peque&#241;os y de forma regular, de material coloreado y durable como la piedra o el vidrio.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Muralista -->
+
+    <owl:Class rdf:about="#Muralista">
+        <rdfs:label xml:lang="en">Muralist</rdfs:label>
+        <rdfs:label xml:lang="es">Muralista</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >Artists who execute paintings on a wall or ceiling as part of a scheme of decoration, as distinguished from &quot;painters (tradespeople),&quot; who paint for the primary purpose of protecting the surface or applying simple color.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Se refiere a artistas que ejecutan pinturas en paredes o cielos rasos como parte de un esquema de decoraci&#243;n, se distingue de &quot;pintor (comerciante)&quot;, que pintan con el prop&#243;sito principal de proteger la superficie o aplicar simplemente color.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Musico -->
+
+    <owl:Class rdf:about="#Musico">
+        <rdfs:label xml:lang="en">Musician</rdfs:label>
+        <rdfs:label xml:lang="es">M&#250;sico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >Those skilled or specializing in the art or practice of music, such as composers, conductors, and performers. (AAT)</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Los compositores, m&#250;sicos y cantantes componen, adaptan, dirigen o interpretan obras musicales. (CIUO-08)
+Persona que conoce el arte de la m&#250;sica o lo ejerce, especialmente como instrumentista o compositor. (RAE)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Orfebre -->
+
+    <owl:Class rdf:about="#Orfebre">
+        <rdfs:label xml:lang="en">Goldsmith</rdfs:label>
+        <rdfs:label xml:lang="es">Orf&#233;bre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Metalista"/>
+        <rdfs:comment xml:lang="en"
+            >Those skilled or trained in the craft of working metal, whether practical or decorative.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Los joyeros, orfebres y plateros confeccionan y reparan joyas y objetos de metales preciosos, tallan y engastan piedras preciosas y graban motivos decorativos en joyas y objetos de metales preciosos. (CIUO-08)
+People whose occupation is to design, make, and repair jewelry.(AAT)</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Persona -->
+
+    <owl:Class rdf:about="#Persona">
+        <rdfs:label xml:lang="en">Person</rdfs:label>
+        <rdfs:label xml:lang="es">Persona</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >The People hierarchy contains descriptors for individual people and for groups of people that do not constitute organizations. Included are people defined by occupations or activities they pursue, such as conservators, by biological or social roles such as parents, and by other characteristics such as adherence to a particular belief (e.g., pacifists) or social or physical condition (e.g., homeless persons). Also included are descriptors for groups of people defined by activity ( e.g., steel bands) and social, mental, or physical condition (e.g., poor).Relation to Other Hierarchies: Descriptors for organized groups of people (e.g., associations, nations) are found in the Organizations hierarchy. Descriptors for branches of learning, areas of specialization, and professional fields are found in the Disciplines hierarchy (e.g., mathematics, zoning law, museology).</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Pintor -->
+
+    <owl:Class rdf:about="#Pintor">
+        <rdfs:label xml:lang="en">Painter</rdfs:label>
+        <rdfs:label xml:lang="en"
+            >Painter (artist)</rdfs:label>
+        <rdfs:label xml:lang="en"
+            >Painter (tradespeople)</rdfs:label>
+        <rdfs:label xml:lang="es">Pintor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >People who coat the surfaces of walls, furniture, vehicles, or other things with paint, which is pigment suspended in liquid, with the primary goal of protecting or giving simple color to the surface. For people who apply paint to a surface to create an expressive or communicative image, see &quot;painters (artists).&quot;
+
+distinguished from painters (artists)</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >People who practice the art of painting, which is applying pigments suspended in liquid to a surface to create an expressive or communicative image. For people who apply paint primarily to protect or give simple color to a surface, use &quot;painters (tradespeople).&quot;</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Los pintores decoradores de vidrio, cer&#225;mica y otros materiales pintan y decoran joyas y art&#237;culos de madera, metal, fibras textiles, vidrio, cer&#225;mica y otros materiales, y proyectan, trazan y pintan letras y motivos decorativos para confeccionar r&#243;tulos.
+referencia: CIUO-08</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Persona que profesa o ejercita el arte de la pintura.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Platero -->
+
+    <owl:Class rdf:about="#Platero">
+        <rdfs:label xml:lang="en">Silversmith</rdfs:label>
+        <rdfs:label xml:lang="es">Platero</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Metalworkers who specialize in working with silver, especially in the making of jewelry, flatware, and tableware.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Trabajadores en metal que se especializan en el trabajo en plata, especialmente en la fabricaci&#243;n de joyas, vajilla y menaje.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Poeta -->
+
+    <owl:Class rdf:about="#Poeta">
+        <rdfs:label xml:lang="en">Poet</rdfs:label>
+        <rdfs:label xml:lang="es">Poeta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >Authors ol compositions characterized by condensed language chosen for sound and suggestive power as well as meaning.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Persona que compone obras po&#233;ticas y est&#225; dotada de las facultades necesarias para componerlas.
+Persona que escribe obras po&#233;ticas.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Productor -->
+
+    <owl:Class rdf:about="#Productor">
+        <rdfs:label xml:lang="en">Producer</rdfs:label>
+        <rdfs:label xml:lang="es">Productor</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Persona"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Persona que con responsabilidad financiera y comercial organiza la realizaci&#243;n de una obra cinematogr&#225;fica, discogr&#225;fica, televisiva, etc., y aporta el capital necesario.</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Persons who oversee all the aspects of photography in a television, video, or filmmaking project, especially the lighting; they are particularly charged with achieving the photographic images and effects desired by the director. For operators of motion picture, video, or television cameras, use &quot;cameramen.&quot;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#ProductorCinematografico -->
+
+    <owl:Class rdf:about="#ProductorCinematografico">
+        <rdfs:label xml:lang="en">Film producer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Productor cinematogr&#225;fico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Productor"/>
+        <rdfs:comment xml:lang="es"
+            >&#218;sese para realizadores de pel&#237;culas y videos producidos personal e independientemente, que son responsables por la concepci&#243;n, patrocinio y ejecuci&#243;n en todos los aspectos del proyecto.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#ProductorDeTelevision -->
+
+    <owl:Class rdf:about="#ProductorDeTelevision">
+        <rdfs:label xml:lang="en"
+            >Television producer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Productor de televisi&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Productor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#ProductorDiscografico -->
+
+    <owl:Class rdf:about="#ProductorDiscografico">
+        <rdfs:label xml:lang="en">Record producer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Productor discogr&#225;fico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Productor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#ProductorTeatral -->
+
+    <owl:Class rdf:about="#ProductorTeatral">
+        <rdfs:label xml:lang="en"
+            >Theatrical producer</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Productor teatral</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Productor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Retratista -->
+
+    <owl:Class rdf:about="#Retratista">
+        <rdfs:label xml:lang="en">Portraitist</rdfs:label>
+        <rdfs:label xml:lang="es">Retratista</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artista"/>
+        <rdfs:comment xml:lang="en"
+            >Those who make portraits in any medium</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Persona que hace retratos.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Tallador -->
+
+    <owl:Class rdf:about="#Tallador">
+        <rdfs:label xml:lang="en">Carver</rdfs:label>
+        <rdfs:label xml:lang="es">Tallador</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Artesano"/>
+        <rdfs:comment xml:lang="en"
+            >Persons who engage in carving or cutting a figure, design, or shape out of a solid material such as stone or wood. For persons who create create large or medium-sized three-dimensional works that are considered art, see &quot;sculptors.&quot;</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Persona que talla. (RAE)
+Personas ocupadas en tallar y labrar una figura o dise&#241;o de un material s&#243;lido tal como piedra o madera. Para las personas que realizan obras de mediano o gran tama&#241;o tridimensional que son considerado arte, &#250;se &quot;escultor&quot;. (AAT)</rdfs:comment>
+    </owl:Class>
+</rdf:RDF>

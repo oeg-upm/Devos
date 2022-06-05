@@ -1,0 +1,4545 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY daml "http://www.daml.org/2001/03/daml+oil#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY protege "http://protege.stanford.edu/plugins/owl/protege#" >
+    <!ENTITY ogc-gml2 "http://loki.cae.drexel.edu/~ontology/2004/09/ogc-gml#" >
+    <!ENTITY ogc-gml "http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#" >
+]>
+
+
+<rdf:RDF xmlns="http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#"
+     xml:base="http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:ogc-gml2="http://loki.cae.drexel.edu/~ontology/2004/09/ogc-gml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+     xmlns:ogc-gml="http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment
+            >title- Ontology for Geography Markup Language (GML3.0)
+    creator- Zafer Defne, Akm Saiful Islam and Michael Piasecki. description- Ontology for Geography Markup Language (GML3.0) of Open GIS Consortium (OGC). The Geography Markup Language (GML) is an RDF encoding for the transport and storage of geographic information, including both the geometry and properties of geographic features. Vocabulary terms are declared using OWL language to support RDF applications. publisher- Drexel University . date- 2004-09-22. format - text/xml. language - English</rdfs:comment>
+        <owl:versionInfo>version 1.0</owl:versionInfo>
+        <dc:contributor>Mar&#237;a Poveda</dc:contributor>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="#defaultValue"/>
+    <owl:AnnotationProperty rdf:about="#stereoTypes"/>
+    <owl:AnnotationProperty rdf:about="#conditions"/>
+    <owl:AnnotationProperty rdf:about="&dc;contributor"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_duration -->
+
+    <owl:ObjectProperty rdf:about="#_duration">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#TimeDuration"/>
+        <rdfs:domain rdf:resource="#TimePeriod"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#baseCurve -->
+
+    <owl:ObjectProperty rdf:about="#baseCurve">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#OrientableCurve"/>
+        <rdfs:range rdf:resource="#_Curve"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#baseSurface -->
+
+    <owl:ObjectProperty rdf:about="#baseSurface">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#OrientableSurface"/>
+        <rdfs:range rdf:resource="#_Surface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#begin -->
+
+    <owl:ObjectProperty rdf:about="#begin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#TimeInstant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#boundedBy -->
+
+    <owl:ObjectProperty rdf:about="#boundedBy">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#BoundedByChoice"/>
+        <rdfs:domain rdf:resource="#_Feature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#catalogSymbol -->
+
+    <owl:ObjectProperty rdf:about="#catalogSymbol">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Code"/>
+        <rdfs:domain rdf:resource="#UnitDefinition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#complex -->
+
+    <owl:ObjectProperty rdf:about="#complex">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#GeometricComplex"/>
+        <rdfs:domain rdf:resource="#GeometricComplexProperty_complex"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#component -->
+
+    <owl:ObjectProperty rdf:about="#component">
+        <rdfs:range rdf:resource="#TimeOrdinalEra"/>
+        <rdfs:domain rdf:resource="#TimeOrdinalReferenceSystem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#componentValue -->
+
+    <owl:ObjectProperty rdf:about="#componentValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#CompositeValue"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#container -->
+
+    <owl:ObjectProperty rdf:about="#container">
+        <rdfs:range rdf:resource="#ContainerChoice"/>
+        <rdfs:domain rdf:resource="#_TopoPrimitive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#coord -->
+
+    <owl:ObjectProperty rdf:about="#coord">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Coord"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#curve -->
+
+    <owl:ObjectProperty rdf:about="#curve">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#CompositeCurve"/>
+        <rdfs:domain rdf:resource="#GeometricComplexProperty_curve"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#curveMember -->
+
+    <owl:ObjectProperty rdf:about="#curveMember">
+        <rdfs:range rdf:resource="#_Curve"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#curveMembers -->
+
+    <owl:ObjectProperty rdf:about="#curveMembers">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#MultiCurve"/>
+        <rdfs:range rdf:resource="#_Curve"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#curveProperty -->
+
+    <owl:ObjectProperty rdf:about="#curveProperty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Edge"/>
+        <rdfs:range rdf:resource="#_Curve"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#description -->
+
+    <owl:ObjectProperty rdf:about="#description">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#StringOrRef"/>
+        <rdfs:domain rdf:resource="#_GML"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#dictionaryEntry -->
+
+    <owl:ObjectProperty rdf:about="#dictionaryEntry">
+        <rdfs:range rdf:resource="#Definition"/>
+        <rdfs:domain rdf:resource="#Dictionary"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#directedEdge -->
+
+    <owl:ObjectProperty rdf:about="#directedEdge">
+        <owl:versionInfo xml:lang="en">conditions??</owl:versionInfo>
+        <rdfs:range rdf:resource="#Edge"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#directedFace -->
+
+    <owl:ObjectProperty rdf:about="#directedFace">
+        <owl:versionInfo xml:lang="en">conditions??</owl:versionInfo>
+        <rdfs:range rdf:resource="#Face"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#directedNode -->
+
+    <owl:ObjectProperty rdf:about="#directedNode">
+        <owl:versionInfo xml:lang="en">condition??</owl:versionInfo>
+        <rdfs:range rdf:resource="#Node"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#directedTopoSolid -->
+
+    <owl:ObjectProperty rdf:about="#directedTopoSolid">
+        <owl:versionInfo xml:lang="en">condition??</owl:versionInfo>
+        <rdfs:range rdf:resource="#TopoSolid"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#domain -->
+
+    <owl:ObjectProperty rdf:about="#domain">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#AbstractCoverage"/>
+        <rdfs:range rdf:resource="#DomainSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#element -->
+
+    <owl:ObjectProperty rdf:about="#element">
+        <rdfs:domain rdf:resource="#GeometricComplex"/>
+        <rdfs:range rdf:resource="#_GeometricPrimitive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#end -->
+
+    <owl:ObjectProperty rdf:about="#end">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#TimeInstant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#endAngle -->
+
+    <owl:ObjectProperty rdf:about="#endAngle">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Angle"/>
+        <rdfs:domain rdf:resource="#ArcByCenterPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#exterior_Ring -->
+
+    <owl:ObjectProperty rdf:about="#exterior_Ring">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#_Ring"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#exterior_Surface -->
+
+    <owl:ObjectProperty rdf:about="#exterior_Surface">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Solid"/>
+        <rdfs:range rdf:resource="#_Surface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#frame -->
+
+    <owl:ObjectProperty rdf:about="#frame">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#TimeReferenceSystem"/>
+        <rdfs:domain rdf:resource="#_TimeObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#geometryMember -->
+
+    <owl:ObjectProperty rdf:about="#geometryMember">
+        <rdfs:domain rdf:resource="#MultiGeometry"/>
+        <rdfs:range rdf:resource="#_Geometry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#geometryMembers -->
+
+    <owl:ObjectProperty rdf:about="#geometryMembers">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#MultiGeometry"/>
+        <rdfs:range rdf:resource="#_Geometry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#has_Geometry -->
+
+    <owl:ObjectProperty rdf:about="#has_Geometry">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#DomainSet"/>
+        <rdfs:range rdf:resource="#_Geometry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#has_TimeObject -->
+
+    <owl:ObjectProperty rdf:about="#has_TimeObject">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#DomainSet"/>
+        <rdfs:range rdf:resource="#_TimeObject"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#high -->
+
+    <owl:ObjectProperty rdf:about="#high">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Value"/>
+        <rdfs:domain rdf:resource="#ValueExtent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#incrementDirection -->
+
+    <owl:ObjectProperty rdf:about="#incrementDirection">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Sign"/>
+        <rdfs:domain rdf:resource="#TimeCoordinateSystem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#indeterminatePosition -->
+
+    <owl:ObjectProperty rdf:about="#indeterminatePosition">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#TimeIndeterminateValue"/>
+        <rdfs:domain rdf:resource="#TimePosition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#indirectEntry -->
+
+    <owl:ObjectProperty rdf:about="#indirectEntry">
+        <rdfs:range rdf:resource="#DefinitionProxy"/>
+        <rdfs:domain rdf:resource="#Dictionary"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#interior_Ring -->
+
+    <owl:ObjectProperty rdf:about="#interior_Ring">
+        <rdfs:range rdf:resource="#_Ring"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#interior_Surface -->
+
+    <owl:ObjectProperty rdf:about="#interior_Surface">
+        <rdfs:domain rdf:resource="#Solid"/>
+        <rdfs:range rdf:resource="#_Surface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#interpolation -->
+
+    <owl:ObjectProperty rdf:about="#interpolation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Interpolation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#isolated -->
+
+    <owl:ObjectProperty rdf:about="#isolated">
+        <rdfs:range rdf:resource="#IsolatedChoice"/>
+        <rdfs:domain rdf:resource="#_TopoPrimitive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#knot -->
+
+    <owl:ObjectProperty rdf:about="#knot">
+        <rdfs:range rdf:resource="#Knot"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#knotType -->
+
+    <owl:ObjectProperty rdf:about="#knotType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#KnotType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#lineStringMember -->
+
+    <owl:ObjectProperty rdf:about="#lineStringMember">
+        <rdfs:range rdf:resource="#LineString"/>
+        <rdfs:domain rdf:resource="#MultiLineString"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#location -->
+
+    <owl:ObjectProperty rdf:about="#location">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#LocationChoice"/>
+        <rdfs:domain rdf:resource="#_Feature"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#low -->
+
+    <owl:ObjectProperty rdf:about="#low">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Value"/>
+        <rdfs:domain rdf:resource="#ValueExtent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#maximalComplex -->
+
+    <owl:ObjectProperty rdf:about="#maximalComplex">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#TopoComplex"/>
+        <rdfs:domain rdf:resource="#TopoComplex"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#member -->
+
+    <owl:ObjectProperty rdf:about="#member">
+        <rdfs:range rdf:resource="#TimeOrdinalEra"/>
+        <rdfs:domain rdf:resource="#TimeOrdinalEra"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#metadataProperty -->
+
+    <owl:ObjectProperty rdf:about="#metadataProperty">
+        <rdfs:range rdf:resource="#MetadataPropertyChoice"/>
+        <rdfs:domain rdf:resource="#_GML"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#name -->
+
+    <owl:ObjectProperty rdf:about="#name">
+        <rdfs:range rdf:resource="#Code"/>
+        <rdfs:domain rdf:resource="#_GML"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#normal -->
+
+    <owl:ObjectProperty rdf:about="#normal">
+        <rdfs:domain rdf:resource="#ArcStringByBulge"/>
+        <rdfs:range rdf:resource="#Vector"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#orientation -->
+
+    <owl:ObjectProperty rdf:about="#orientation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Sign"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#origin -->
+
+    <owl:ObjectProperty rdf:about="#origin">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TimeCoordinateSystem"/>
+        <rdfs:range rdf:resource="#TimeInstant"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#patches -->
+
+    <owl:ObjectProperty rdf:about="#patches">
+        <rdfs:domain rdf:resource="#Surface"/>
+        <rdfs:range rdf:resource="#SurfacePatch"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#pointMember -->
+
+    <owl:ObjectProperty rdf:about="#pointMember">
+        <rdfs:domain rdf:resource="#MultiPoint"/>
+        <rdfs:range rdf:resource="#Point"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#pointMembers -->
+
+    <owl:ObjectProperty rdf:about="#pointMembers">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#MultiPoint"/>
+        <rdfs:range rdf:resource="#Point"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#pointProperty -->
+
+    <owl:ObjectProperty rdf:about="#pointProperty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Node"/>
+        <rdfs:range rdf:resource="#Point"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#pointRep -->
+
+    <owl:ObjectProperty rdf:about="#pointRep">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Point"/>
+        <rdfs:domain rdf:resource="#Position"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#polygonMember -->
+
+    <owl:ObjectProperty rdf:about="#polygonMember">
+        <rdfs:domain rdf:resource="#MultiPolygon"/>
+        <rdfs:range rdf:resource="#Polygon"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#pos -->
+
+    <owl:ObjectProperty rdf:about="#pos">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#DirectPosition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#position -->
+
+    <owl:ObjectProperty rdf:about="#position">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#DirectPositionChoice"/>
+        <rdfs:domain rdf:resource="#Point"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#positions -->
+
+    <owl:ObjectProperty rdf:about="#positions">
+        <rdfs:range rdf:resource="#Position"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#range -->
+
+    <owl:ObjectProperty rdf:about="#range">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#AbstractCoverage"/>
+        <rdfs:range rdf:resource="#RangeSet"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#segments -->
+
+    <owl:ObjectProperty rdf:about="#segments">
+        <rdfs:domain rdf:resource="#Curve"/>
+        <rdfs:range rdf:resource="#_CurveSegment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#solid -->
+
+    <owl:ObjectProperty rdf:about="#solid">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#CompositeSolid"/>
+        <rdfs:domain rdf:resource="#GeometricComplexProperty_solid"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#solidMembers -->
+
+    <owl:ObjectProperty rdf:about="#solidMembers">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#MultiSolid"/>
+        <rdfs:range rdf:resource="#_Solid"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#solideMember -->
+
+    <owl:ObjectProperty rdf:about="#solideMember">
+        <rdfs:range rdf:resource="#_Solid"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#srsName -->
+
+    <owl:ObjectProperty rdf:about="#srsName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#_CoordinateReferenceSystem"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#startAngle -->
+
+    <owl:ObjectProperty rdf:about="#startAngle">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#Angle"/>
+        <rdfs:domain rdf:resource="#ArcByCenterPoint"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#subComplex -->
+
+    <owl:ObjectProperty rdf:about="#subComplex">
+        <rdfs:domain rdf:resource="#TopoComplex"/>
+        <rdfs:range rdf:resource="#TopoComplex"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#superComplex -->
+
+    <owl:ObjectProperty rdf:about="#superComplex">
+        <rdfs:domain rdf:resource="#TopoComplex"/>
+        <rdfs:range rdf:resource="#TopoComplex"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#surface -->
+
+    <owl:ObjectProperty rdf:about="#surface">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="#CompositeSurface"/>
+        <rdfs:domain rdf:resource="#GeometricComplexProperty_surface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#surfaceMember -->
+
+    <owl:ObjectProperty rdf:about="#surfaceMember">
+        <rdfs:range rdf:resource="#_Surface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#surfaceMembers -->
+
+    <owl:ObjectProperty rdf:about="#surfaceMembers">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#MultiSurface"/>
+        <rdfs:range rdf:resource="#_Surface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#surfaceProperty -->
+
+    <owl:ObjectProperty rdf:about="#surfaceProperty">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Face"/>
+        <rdfs:range rdf:resource="#_Surface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#timePosition -->
+
+    <owl:ObjectProperty rdf:about="#timePosition">
+        <rdfs:domain rdf:resource="#EnvelopeWithTimePeriod"/>
+        <rdfs:range rdf:resource="#TimePosition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#topoPrimitiveMember -->
+
+    <owl:ObjectProperty rdf:about="#topoPrimitiveMember">
+        <rdfs:domain rdf:resource="#TopoComplex"/>
+        <rdfs:range rdf:resource="#_TopoPrimitive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#topoPrimitiveMembers -->
+
+    <owl:ObjectProperty rdf:about="#topoPrimitiveMembers">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TopoComplex"/>
+        <rdfs:range rdf:resource="#_TopoPrimitive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#unit -->
+
+    <owl:ObjectProperty rdf:about="#unit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TimeIntervalLength"/>
+        <rdfs:range rdf:resource="#TimeUnitType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#vectorAtStart -->
+
+    <owl:ObjectProperty rdf:about="#vectorAtStart">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#CubicSpline"/>
+        <rdfs:range rdf:resource="#Vector"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#verctorAtEnd -->
+
+    <owl:ObjectProperty rdf:about="#verctorAtEnd">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#CubicSpline"/>
+        <rdfs:range rdf:resource="#Vector"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~ontology/2004/09/ogc-gml#conditions -->
+
+    <owl:DatatypeProperty rdf:about="&ogc-gml2;conditions"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~ontology/2004/09/ogc-gml#defaultValue -->
+
+    <owl:DatatypeProperty rdf:about="&ogc-gml2;defaultValue"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~ontology/2004/09/ogc-gml#stereoTypes -->
+
+    <owl:DatatypeProperty rdf:about="&ogc-gml2;stereoTypes"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#X -->
+
+    <owl:DatatypeProperty rdf:about="#X">
+        <rdfs:domain rdf:resource="#Coord"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Y -->
+
+    <owl:DatatypeProperty rdf:about="#Y">
+        <rdfs:domain rdf:resource="#Coord"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Z -->
+
+    <owl:DatatypeProperty rdf:about="#Z">
+        <rdfs:domain rdf:resource="#Coord"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#anyURI -->
+
+    <owl:DatatypeProperty rdf:about="#anyURI">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#bulge -->
+
+    <owl:DatatypeProperty rdf:about="#bulge">
+        <rdfs:domain rdf:resource="#ArcStringByBulge"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#calendarEraName -->
+
+    <owl:DatatypeProperty rdf:about="#calendarEraName">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TimePosition"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#code -->
+
+    <owl:DatatypeProperty rdf:about="#code">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Code"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#codeSpace -->
+
+    <owl:DatatypeProperty rdf:about="#codeSpace">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Code"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#conversionToPreferredUnit -->
+
+    <owl:DatatypeProperty rdf:about="#conversionToPreferredUnit">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ConventionalUnit"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#coordinates -->
+
+    <owl:DatatypeProperty rdf:about="#coordinates">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#DirectPositionChoice_coordinates"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#date -->
+
+    <owl:DatatypeProperty rdf:about="#date">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TemporalPosition_date"/>
+        <rdfs:range rdf:resource="&xsd;date"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#dateTime -->
+
+    <owl:DatatypeProperty rdf:about="#dateTime">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TemporalPosition_dateTime"/>
+        <rdfs:range rdf:resource="&xsd;dateTime"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#decimal -->
+
+    <owl:DatatypeProperty rdf:about="#decimal">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;decimal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#degree -->
+
+    <owl:DatatypeProperty rdf:about="#degree">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#dimension -->
+
+    <owl:DatatypeProperty rdf:about="#dimension">
+        <rdfs:domain rdf:resource="#DirectPosition"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#domainOfValidity -->
+
+    <owl:DatatypeProperty rdf:about="#domainOfValidity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TimeReferenceSystem"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#duration -->
+
+    <owl:DatatypeProperty rdf:about="#duration">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TimeDuration_duration"/>
+        <rdfs:range rdf:resource="&xsd;duration"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#factor -->
+
+    <owl:DatatypeProperty rdf:about="#factor">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TimeIntervalLength"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#fid -->
+
+    <owl:DatatypeProperty rdf:about="#fid">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#_Feature"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#gYear -->
+
+    <owl:DatatypeProperty rdf:about="#gYear">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TemporalPosition_gYear"/>
+        <rdfs:range rdf:resource="&xsd;gYear"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#gYearMonth -->
+
+    <owl:DatatypeProperty rdf:about="#gYearMonth">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TemporalPosition_gYearMonth"/>
+        <rdfs:range rdf:resource="&xsd;gYearMonth"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#gid -->
+
+    <owl:DatatypeProperty rdf:about="#gid">
+        <rdfs:domain rdf:resource="#_Geometry"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#id -->
+
+    <owl:DatatypeProperty rdf:about="#id">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#isPolynomial -->
+
+    <owl:DatatypeProperty rdf:about="#isPolynomial">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#BSpline"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#multiplicity -->
+
+    <owl:DatatypeProperty rdf:about="#multiplicity">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Knot"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#nullEnumeration -->
+
+    <owl:DatatypeProperty rdf:about="#nullEnumeration">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >YOU MAY DELETE IT. IT IS AN EXAMPLE</rdfs:comment>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">missing</rdf:first>
+                        <rdf:rest rdf:resource="&rdf;nil"/>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#numArc -->
+
+    <owl:DatatypeProperty rdf:about="#numArc">
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#numDerivativeInterior -->
+
+    <owl:DatatypeProperty rdf:about="#numDerivativeInterior">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#_CurveSegment"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#numDerivativesAtEnd -->
+
+    <owl:DatatypeProperty rdf:about="#numDerivativesAtEnd">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#_CurveSegment"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#numDerivativesAtStart -->
+
+    <owl:DatatypeProperty rdf:about="#numDerivativesAtStart">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#_CurveSegment"/>
+        <rdfs:range rdf:resource="&xsd;int"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#quantityType -->
+
+    <owl:DatatypeProperty rdf:about="#quantityType">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#UnitDefinition"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#radius -->
+
+    <owl:DatatypeProperty rdf:about="#radius">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#ArcByCenterPoint"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#radix -->
+
+    <owl:DatatypeProperty rdf:about="#radix">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#TimeIntervalLength"/>
+        <rdfs:range rdf:resource="&xsd;positiveInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#test -->
+
+    <owl:DatatypeProperty rdf:about="#test">
+        <rdfs:comment rdf:datatype="&xsd;string">DELETE IT!</rdfs:comment>
+        <rdfs:range>
+            <rdf:Description>
+                <rdf:type rdf:resource="&owl;DataRange"/>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="&rdf;List"/>
+                        <rdf:first rdf:datatype="&xsd;string">missing</rdf:first>
+                        <rdf:rest rdf:resource="&rdf;nil"/>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdf:Description>
+        </rdfs:range>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#unitDerivation -->
+
+    <owl:DatatypeProperty rdf:about="#unitDerivation">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#unitsSystem -->
+
+    <owl:DatatypeProperty rdf:about="#unitsSystem">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#BaseUnit"/>
+        <rdfs:range rdf:resource="&xsd;anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#value -->
+
+    <owl:DatatypeProperty rdf:about="#value">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#weight -->
+
+    <owl:DatatypeProperty rdf:about="#weight">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Knot"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~ontology/2004/09/ogc-gml#CurveInterpolation -->
+
+    <owl:Class rdf:about="&ogc-gml2;CurveInterpolation"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~ontology/2004/09/ogc-gml#SurfaceInterpolation -->
+
+    <owl:Class rdf:about="&ogc-gml2;SurfaceInterpolation"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#AbstractCoverage -->
+
+    <owl:Class rdf:about="#AbstractCoverage">
+        <rdfs:subClassOf rdf:resource="#AbstractFeature"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#range"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#domain"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#AbstractFeature -->
+
+    <owl:Class rdf:about="#AbstractFeature"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Angle -->
+
+    <owl:Class rdf:about="#Angle"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Arc -->
+
+    <owl:Class rdf:about="#Arc">
+        <rdfs:subClassOf rdf:resource="#ArcString"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#positions"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numArc"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numArc"/>
+                <owl:hasValue rdf:datatype="&xsd;int">1</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#ArcByBulge -->
+
+    <owl:Class rdf:about="#ArcByBulge">
+        <rdfs:subClassOf rdf:resource="#ArcStringByBulge"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#positions"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numArc"/>
+                <owl:hasValue rdf:datatype="&xsd;int">1</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numArc"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#ArcByCenterPoint -->
+
+    <owl:Class rdf:about="#ArcByCenterPoint">
+        <rdfs:subClassOf rdf:resource="#_CurveSegment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#startAngle"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numArc"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#startAngle"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numArc"/>
+                <owl:hasValue rdf:datatype="&xsd;int">1</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#positions"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:allValuesFrom rdf:resource="#CurveInterpolation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:hasValue rdf:resource="#circularArcCenterPointWithRadius"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#endAngle"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#radius"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#endAngle"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#ArcString -->
+
+    <owl:Class rdf:about="#ArcString">
+        <rdfs:subClassOf rdf:resource="#_CurveSegment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numArc"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numArc"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:allValuesFrom rdf:resource="#CurveInterpolation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#positions"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:hasValue rdf:resource="#circularArc3Points"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#ArcStringByBulge -->
+
+    <owl:Class rdf:about="#ArcStringByBulge">
+        <rdfs:subClassOf rdf:resource="#_CurveSegment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#positions"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#normal"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numArc"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numArc"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#bulge"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:hasValue rdf:resource="#circularArc2PointWithBulge"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:allValuesFrom rdf:resource="#CurveInterpolation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#BSpline -->
+
+    <owl:Class rdf:about="#BSpline">
+        <rdfs:subClassOf rdf:resource="#_CurveSegment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPolynomial"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#degree"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#knot"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#knotType"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#knotType"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#positions"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:allValuesFrom rdf:resource="#CurveInterpolation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPolynomial"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#BaseUnit -->
+
+    <owl:Class rdf:about="#BaseUnit">
+        <rdfs:subClassOf rdf:resource="#UnitDefinition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#unitsSystem"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Bezier -->
+
+    <owl:Class rdf:about="#Bezier">
+        <rdfs:subClassOf rdf:resource="#BSpline"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPolynomial"/>
+                <owl:hasValue rdf:datatype="&xsd;boolean">true</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:allValuesFrom rdf:resource="#CurveInterpolation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#knotType"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isPolynomial"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:hasValue rdf:resource="#polynomialSpline"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#knot"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Boolean -->
+
+    <owl:Class rdf:about="#Boolean">
+        <rdfs:subClassOf rdf:resource="#_ScalarValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#BooleanList -->
+
+    <owl:Class rdf:about="#BooleanList">
+        <rdfs:subClassOf rdf:resource="#_ScalarValueList"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#BoundedByChoice -->
+
+    <owl:Class rdf:about="#BoundedByChoice"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Category -->
+
+    <owl:Class rdf:about="#Category">
+        <rdfs:subClassOf rdf:resource="#_ScalarValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CategoryExtent -->
+
+    <owl:Class rdf:about="#CategoryExtent">
+        <rdfs:subClassOf rdf:resource="#_Value"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CategoryList -->
+
+    <owl:Class rdf:about="#CategoryList">
+        <rdfs:subClassOf rdf:resource="#_ScalarValueList"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Circle -->
+
+    <owl:Class rdf:about="#Circle">
+        <rdfs:subClassOf rdf:resource="#Arc"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CircleByCenterPoint -->
+
+    <owl:Class rdf:about="#CircleByCenterPoint">
+        <rdfs:subClassOf rdf:resource="#ArcByCenterPoint"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Code -->
+
+    <owl:Class rdf:about="#Code">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#codeSpace"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#codeSpace"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#code"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CompositeCurve -->
+
+    <owl:Class rdf:about="#CompositeCurve">
+        <rdfs:subClassOf rdf:resource="#_Curve"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curveMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CompositeSolid -->
+
+    <owl:Class rdf:about="#CompositeSolid">
+        <rdfs:subClassOf rdf:resource="#_Solid"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#solideMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CompositeSurface -->
+
+    <owl:Class rdf:about="#CompositeSurface">
+        <rdfs:subClassOf rdf:resource="#_Surface"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#surfaceMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CompositeValue -->
+
+    <owl:Class rdf:about="#CompositeValue">
+        <rdfs:subClassOf rdf:resource="#_Value"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#componentValue"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#ContainerChoice -->
+
+    <owl:Class rdf:about="#ContainerChoice"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#ContinuousCoverage -->
+
+    <owl:Class rdf:about="#ContinuousCoverage">
+        <rdfs:subClassOf rdf:resource="#AbstractCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#ConventionalUnit -->
+
+    <owl:Class rdf:about="#ConventionalUnit">
+        <rdfs:subClassOf rdf:resource="#UnitDefinition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#unitDerivation"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#conversionToPreferredUnit"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#unitDerivation"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Coord -->
+
+    <owl:Class rdf:about="#Coord">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#X"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Z"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Y"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Y"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#Z"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Count -->
+
+    <owl:Class rdf:about="#Count">
+        <rdfs:subClassOf rdf:resource="#_ScalarValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CountExtent -->
+
+    <owl:Class rdf:about="#CountExtent">
+        <rdfs:subClassOf rdf:resource="#_Value"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CountList -->
+
+    <owl:Class rdf:about="#CountList">
+        <rdfs:subClassOf rdf:resource="#_ScalarValueList"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CubicSpline -->
+
+    <owl:Class rdf:about="#CubicSpline">
+        <rdfs:subClassOf rdf:resource="#_CurveSegment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#positions"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">3</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#vectorAtStart"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:allValuesFrom rdf:resource="#CurveInterpolation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#degree"/>
+                <owl:hasValue rdf:datatype="&xsd;int">3</owl:hasValue>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#degree"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#verctorAtEnd"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:hasValue rdf:resource="#cubicSpline"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Curve -->
+
+    <owl:Class rdf:about="#Curve">
+        <rdfs:subClassOf rdf:resource="#_Curve"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#segments"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#CurveInterpolation -->
+
+    <owl:Class rdf:about="#CurveInterpolation">
+        <rdfs:subClassOf rdf:resource="#Interpolation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#circularArcCenterPointWithRadius"/>
+                    <rdf:Description rdf:about="#circularArc2PointWithBulge"/>
+                    <rdf:Description rdf:about="#cubicSpline"/>
+                    <rdf:Description rdf:about="#circularArc3Points"/>
+                    <rdf:Description rdf:about="#rationalSpline"/>
+                    <rdf:Description rdf:about="#polynomialSpline"/>
+                    <rdf:Description rdf:about="#linear"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#SurfaceInterpolation"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Definition -->
+
+    <owl:Class rdf:about="#Definition">
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#id"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DefinitionCollection -->
+
+    <owl:Class rdf:about="#DefinitionCollection">
+        <rdfs:subClassOf rdf:resource="#Dictionary"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DefinitionProxy -->
+
+    <owl:Class rdf:about="#DefinitionProxy">
+        <rdfs:subClassOf rdf:resource="#Definition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DerivedUnit -->
+
+    <owl:Class rdf:about="#DerivedUnit">
+        <rdfs:subClassOf rdf:resource="#UnitDefinition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#unitDerivation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Dictionary -->
+
+    <owl:Class rdf:about="#Dictionary">
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+        <rdfs:subClassOf rdf:resource="#_Metadata"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#indirectEntry"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#dictionaryEntry"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DirectPosition -->
+
+    <owl:Class rdf:about="#DirectPosition">
+        <rdfs:subClassOf rdf:resource="#DoubleList"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#dimension"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#srsName"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#dimension"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#srsName"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DirectPositionChoice -->
+
+    <owl:Class rdf:about="#DirectPositionChoice"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DirectPositionChoice_coord -->
+
+    <owl:Class rdf:about="#DirectPositionChoice_coord">
+        <rdfs:subClassOf rdf:resource="#DirectPositionChoice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#coord"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#DirectPositionChoice_coordinates"/>
+        <owl:disjointWith rdf:resource="#DirectPositionChoice_pos"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DirectPositionChoice_coordinates -->
+
+    <owl:Class rdf:about="#DirectPositionChoice_coordinates">
+        <rdfs:subClassOf rdf:resource="#DirectPositionChoice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#coordinates"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#DirectPositionChoice_pos"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DirectPositionChoice_pos -->
+
+    <owl:Class rdf:about="#DirectPositionChoice_pos">
+        <rdfs:subClassOf rdf:resource="#DirectPositionChoice"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#pos"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DiscreteCoverage -->
+
+    <owl:Class rdf:about="#DiscreteCoverage">
+        <rdfs:subClassOf rdf:resource="#AbstractCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DomainSet -->
+
+    <owl:Class rdf:about="#DomainSet">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_TimeObject"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#has_Geometry"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#DoubleList -->
+
+    <owl:Class rdf:about="#DoubleList"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Edge -->
+
+    <owl:Class rdf:about="#Edge">
+        <rdfs:subClassOf rdf:resource="#IsolatedChoice"/>
+        <rdfs:subClassOf rdf:resource="#_TopoPrimitive"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedNode"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curveProperty"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curveProperty"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedFace"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Envelope -->
+
+    <owl:Class rdf:about="#Envelope">
+        <rdfs:subClassOf rdf:resource="#BoundedByChoice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#EnvelopeWithTimePeriod -->
+
+    <owl:Class rdf:about="#EnvelopeWithTimePeriod">
+        <rdfs:subClassOf rdf:resource="#Envelope"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#timePosition"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >from Basic Types</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Face -->
+
+    <owl:Class rdf:about="#Face">
+        <rdfs:subClassOf rdf:resource="#ContainerChoice"/>
+        <rdfs:subClassOf rdf:resource="#_TopoPrimitive"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#surfaceProperty"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedEdge"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedTopoSolid"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#surfaceProperty"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedTopoSolid"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#GeometricComplex -->
+
+    <owl:Class rdf:about="#GeometricComplex">
+        <rdfs:subClassOf rdf:resource="#_Geometry"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#element"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#GeometricComplexProperty -->
+
+    <owl:Class rdf:about="#GeometricComplexProperty"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#GeometricComplexProperty_complex -->
+
+    <owl:Class rdf:about="#GeometricComplexProperty_complex">
+        <rdfs:subClassOf rdf:resource="#GeometricComplexProperty"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#complex"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#GeometricComplexProperty_curve"/>
+        <owl:disjointWith rdf:resource="#GeometricComplexProperty_solid"/>
+        <owl:disjointWith rdf:resource="#GeometricComplexProperty_surface"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#GeometricComplexProperty_curve -->
+
+    <owl:Class rdf:about="#GeometricComplexProperty_curve">
+        <rdfs:subClassOf rdf:resource="#GeometricComplexProperty"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curve"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#GeometricComplexProperty_solid"/>
+        <owl:disjointWith rdf:resource="#GeometricComplexProperty_surface"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#GeometricComplexProperty_solid -->
+
+    <owl:Class rdf:about="#GeometricComplexProperty_solid">
+        <rdfs:subClassOf rdf:resource="#GeometricComplexProperty"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#solid"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#GeometricComplexProperty_surface"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#GeometricComplexProperty_surface -->
+
+    <owl:Class rdf:about="#GeometricComplexProperty_surface">
+        <rdfs:subClassOf rdf:resource="#GeometricComplexProperty"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#surface"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#GriddedCoverage -->
+
+    <owl:Class rdf:about="#GriddedCoverage">
+        <rdfs:subClassOf rdf:resource="#DiscreteCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Interpolation -->
+
+    <owl:Class rdf:about="#Interpolation"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#IsolatedChoice -->
+
+    <owl:Class rdf:about="#IsolatedChoice"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Knot -->
+
+    <owl:Class rdf:about="#Knot">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#value"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#multiplicity"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#weight"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#KnotType -->
+
+    <owl:Class rdf:about="#KnotType">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#quasiUniform"/>
+                    <rdf:Description rdf:about="#piecewiseBezier"/>
+                    <rdf:Description rdf:about="#uniform"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#LineString -->
+
+    <owl:Class rdf:about="#LineString">
+        <rdfs:subClassOf rdf:resource="#_Curve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#LineStringSegment -->
+
+    <owl:Class rdf:about="#LineStringSegment">
+        <rdfs:subClassOf rdf:resource="#_CurveSegment"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:allValuesFrom rdf:resource="#CurveInterpolation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#positions"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:hasValue rdf:resource="#linear"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#LinearRing -->
+
+    <owl:Class rdf:about="#LinearRing">
+        <rdfs:subClassOf rdf:resource="#_Ring"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#positions"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">4</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#LocationChoice -->
+
+    <owl:Class rdf:about="#LocationChoice"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#LocationKeyWord -->
+
+    <owl:Class rdf:about="#LocationKeyWord">
+        <rdfs:subClassOf rdf:resource="#Code"/>
+        <rdfs:subClassOf rdf:resource="#LocationChoice"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#LocationString -->
+
+    <owl:Class rdf:about="#LocationString">
+        <rdfs:subClassOf rdf:resource="#LocationChoice"/>
+        <rdfs:subClassOf rdf:resource="#StringOrRef"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MetadataPropertyChoice -->
+
+    <owl:Class rdf:about="#MetadataPropertyChoice"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MultiCurve -->
+
+    <owl:Class rdf:about="#MultiCurve">
+        <rdfs:subClassOf rdf:resource="#_GeometricAggregate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curveMembers"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curveMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curveMembers"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MultiGeometry -->
+
+    <owl:Class rdf:about="#MultiGeometry">
+        <rdfs:subClassOf rdf:resource="#_GeometricAggregate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#geometryMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#geometryMembers"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#geometryMembers"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MultiLineString -->
+
+    <owl:Class rdf:about="#MultiLineString">
+        <rdfs:subClassOf rdf:resource="#_GeometricAggregate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#lineStringMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MultiPoint -->
+
+    <owl:Class rdf:about="#MultiPoint">
+        <rdfs:subClassOf rdf:resource="#_GeometricAggregate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#pointMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#pointMembers"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#pointMembers"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MultiPointCoverage -->
+
+    <owl:Class rdf:about="#MultiPointCoverage">
+        <rdfs:subClassOf rdf:resource="#DiscreteCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MultiPolygon -->
+
+    <owl:Class rdf:about="#MultiPolygon">
+        <rdfs:subClassOf rdf:resource="#_GeometricAggregate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#polygonMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MultiSolid -->
+
+    <owl:Class rdf:about="#MultiSolid">
+        <rdfs:subClassOf rdf:resource="#_GeometricAggregate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#solideMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#solidMembers"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#solidMembers"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MultiSurface -->
+
+    <owl:Class rdf:about="#MultiSurface">
+        <rdfs:subClassOf rdf:resource="#_GeometricAggregate"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#surfaceMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#surfaceMembers"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#surfaceMembers"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MultiSurfaceCoverage -->
+
+    <owl:Class rdf:about="#MultiSurfaceCoverage">
+        <rdfs:subClassOf rdf:resource="#DiscreteCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Node -->
+
+    <owl:Class rdf:about="#Node">
+        <rdfs:subClassOf rdf:resource="#IsolatedChoice"/>
+        <rdfs:subClassOf rdf:resource="#_TopoPrimitive"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#pointProperty"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedEdge"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#pointProperty"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Null -->
+
+    <owl:Class rdf:about="#Null">
+        <rdfs:subClassOf rdf:resource="#BoundedByChoice"/>
+        <rdfs:subClassOf rdf:resource="#Value"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#NullEnumeration -->
+
+    <owl:Class rdf:about="#NullEnumeration">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#nullEnumeration"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#OrientableCurve -->
+
+    <owl:Class rdf:about="#OrientableCurve">
+        <rdfs:subClassOf rdf:resource="#_Curve"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#orientation"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#baseCurve"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#orientation"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#OrientableSurface -->
+
+    <owl:Class rdf:about="#OrientableSurface">
+        <rdfs:subClassOf rdf:resource="#_Surface"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#orientation"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#baseSurface"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#orientation"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Point -->
+
+    <owl:Class rdf:about="#Point">
+        <rdfs:subClassOf rdf:resource="#_GeometricPrimitive"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#position"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#PointArray -->
+
+    <owl:Class rdf:about="#PointArray"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#PointArray_coordinates -->
+
+    <owl:Class rdf:about="#PointArray_coordinates">
+        <rdfs:subClassOf rdf:resource="#PointArray"/>
+        <owl:disjointWith rdf:resource="#PointArray_positions"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#PointArray_positions -->
+
+    <owl:Class rdf:about="#PointArray_positions">
+        <rdfs:subClassOf rdf:resource="#PointArray"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#positions"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Polygon -->
+
+    <owl:Class rdf:about="#Polygon">
+        <rdfs:subClassOf rdf:resource="#_Surface"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#exterior_Ring"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interior_Ring"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#exterior_Ring"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#PolygonPatch -->
+
+    <owl:Class rdf:about="#PolygonPatch">
+        <rdfs:subClassOf rdf:resource="#SurfacePatch"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#exterior_Ring"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#exterior_Ring"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:hasValue rdf:resource="#planar"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interior_Ring"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:allValuesFrom rdf:resource="#SurfaceInterpolation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Position -->
+
+    <owl:Class rdf:about="#Position">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#pointRep"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">pos
+coord</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Position_coord -->
+
+    <owl:Class rdf:about="#Position_coord">
+        <rdfs:subClassOf rdf:resource="#Position"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#coord"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#Position_pos"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Position_pos -->
+
+    <owl:Class rdf:about="#Position_pos">
+        <rdfs:subClassOf rdf:resource="#Position"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#pos"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Quantity -->
+
+    <owl:Class rdf:about="#Quantity">
+        <rdfs:subClassOf rdf:resource="#_ScalarValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#QuantityExtent -->
+
+    <owl:Class rdf:about="#QuantityExtent">
+        <rdfs:subClassOf rdf:resource="#_Value"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#QuantityList -->
+
+    <owl:Class rdf:about="#QuantityList">
+        <rdfs:subClassOf rdf:resource="#_ScalarValueList"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#RangeSet -->
+
+    <owl:Class rdf:about="#RangeSet"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Rectangle -->
+
+    <owl:Class rdf:about="#Rectangle">
+        <rdfs:subClassOf rdf:resource="#SurfacePatch"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#exterior_Ring"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:hasValue rdf:resource="#planar"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:allValuesFrom rdf:resource="#SurfaceInterpolation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#RectifiedCoverage -->
+
+    <owl:Class rdf:about="#RectifiedCoverage">
+        <rdfs:subClassOf rdf:resource="#DiscreteCoverage"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Ring -->
+
+    <owl:Class rdf:about="#Ring">
+        <rdfs:subClassOf rdf:resource="#_Ring"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#curveMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Sign -->
+
+    <owl:Class rdf:about="#Sign">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#positive"/>
+                    <rdf:Description rdf:about="#negative"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment rdf:datatype="&xsd;string">from basicTypes</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Solid -->
+
+    <owl:Class rdf:about="#Solid">
+        <rdfs:subClassOf rdf:resource="#_Solid"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#exterior_Surface"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#exterior_Surface"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interior_Surface"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#StringOrRef -->
+
+    <owl:Class rdf:about="#StringOrRef"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Surface -->
+
+    <owl:Class rdf:about="#Surface">
+        <rdfs:subClassOf rdf:resource="#_Surface"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#patches"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#SurfaceInterpolation -->
+
+    <owl:Class rdf:about="#SurfaceInterpolation">
+        <rdfs:subClassOf rdf:resource="#Interpolation"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#planar"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#SurfacePatch -->
+
+    <owl:Class rdf:about="#SurfacePatch"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TemporalPosition -->
+
+    <owl:Class rdf:about="#TemporalPosition"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TemporalPosition_anyURI -->
+
+    <owl:Class rdf:about="#TemporalPosition_anyURI">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#anyURI"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#TemporalPosition_date"/>
+        <owl:disjointWith rdf:resource="#TemporalPosition_dateTime"/>
+        <owl:disjointWith rdf:resource="#TemporalPosition_decimal"/>
+        <owl:disjointWith rdf:resource="#TemporalPosition_gYear"/>
+        <owl:disjointWith rdf:resource="#TemporalPosition_gYearMonth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TemporalPosition_date -->
+
+    <owl:Class rdf:about="#TemporalPosition_date">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#date"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#TemporalPosition_dateTime"/>
+        <owl:disjointWith rdf:resource="#TemporalPosition_decimal"/>
+        <owl:disjointWith rdf:resource="#TemporalPosition_gYear"/>
+        <owl:disjointWith rdf:resource="#TemporalPosition_gYearMonth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TemporalPosition_dateTime -->
+
+    <owl:Class rdf:about="#TemporalPosition_dateTime">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#dateTime"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#TemporalPosition_decimal"/>
+        <owl:disjointWith rdf:resource="#TemporalPosition_gYear"/>
+        <owl:disjointWith rdf:resource="#TemporalPosition_gYearMonth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TemporalPosition_decimal -->
+
+    <owl:Class rdf:about="#TemporalPosition_decimal">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#decimal"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#TemporalPosition_gYear"/>
+        <owl:disjointWith rdf:resource="#TemporalPosition_gYearMonth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TemporalPosition_gYear -->
+
+    <owl:Class rdf:about="#TemporalPosition_gYear">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#gYear"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#TemporalPosition_gYearMonth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TemporalPosition_gYearMonth -->
+
+    <owl:Class rdf:about="#TemporalPosition_gYearMonth">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#gYearMonth"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeCoordinateSystem -->
+
+    <owl:Class rdf:about="#TimeCoordinateSystem">
+        <rdfs:subClassOf rdf:resource="#TimeReferenceSystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#incrementDirection"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#origin"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#incrementDirection"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeDuration -->
+
+    <owl:Class rdf:about="#TimeDuration"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeDuration_decimal -->
+
+    <owl:Class rdf:about="#TimeDuration_decimal">
+        <rdfs:subClassOf rdf:resource="#TimeDuration"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#decimal"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#TimeDuration_duration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeDuration_duration -->
+
+    <owl:Class rdf:about="#TimeDuration_duration">
+        <rdfs:subClassOf rdf:resource="#TimeDuration"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#duration"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeIndeterminateValue -->
+
+    <owl:Class rdf:about="#TimeIndeterminateValue">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#before"/>
+                    <rdf:Description rdf:about="#now"/>
+                    <rdf:Description rdf:about="#unknown"/>
+                    <rdf:Description rdf:about="#after"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeInstant -->
+
+    <owl:Class rdf:about="#TimeInstant">
+        <rdfs:subClassOf rdf:resource="#TimePrimitive"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeIntervalLength -->
+
+    <owl:Class rdf:about="#TimeIntervalLength">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#factor"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#factor"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#value"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#radix"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#unit"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#radix"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeIntervalLength_decimal -->
+
+    <owl:Class rdf:about="#TimeIntervalLength_decimal">
+        <rdfs:subClassOf rdf:resource="#TimeDuration_decimal"/>
+        <rdfs:subClassOf rdf:resource="#TimeIntervalLength"/>
+        <owl:disjointWith rdf:resource="#TimeIntervalLength_duration"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeIntervalLength_duration -->
+
+    <owl:Class rdf:about="#TimeIntervalLength_duration">
+        <rdfs:subClassOf rdf:resource="#TimeDuration_duration"/>
+        <rdfs:subClassOf rdf:resource="#TimeIntervalLength"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeOrdinalEra -->
+
+    <owl:Class rdf:about="#TimeOrdinalEra">
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#end"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#member"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#begin"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#end"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#begin"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeOrdinalReferenceSystem -->
+
+    <owl:Class rdf:about="#TimeOrdinalReferenceSystem">
+        <rdfs:subClassOf rdf:resource="#TimeReferenceSystem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#component"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimePeriod -->
+
+    <owl:Class rdf:about="#TimePeriod">
+        <rdfs:subClassOf rdf:resource="#TimePrimitive"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#_duration"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#end"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#begin"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#_duration"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimePosition -->
+
+    <owl:Class rdf:about="#TimePosition">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#indeterminatePosition"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#calendarEraName"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#calendarEraName"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#indeterminatePosition"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimePosition_anyURI -->
+
+    <owl:Class rdf:about="#TimePosition_anyURI">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition_anyURI"/>
+        <rdfs:subClassOf rdf:resource="#TimePosition"/>
+        <owl:disjointWith rdf:resource="#TimePosition_date"/>
+        <owl:disjointWith rdf:resource="#TimePosition_dateTime"/>
+        <owl:disjointWith rdf:resource="#TimePosition_decimal"/>
+        <owl:disjointWith rdf:resource="#TimePosition_gYear"/>
+        <owl:disjointWith rdf:resource="#TimePosition_gYearMonth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimePosition_date -->
+
+    <owl:Class rdf:about="#TimePosition_date">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition_date"/>
+        <rdfs:subClassOf rdf:resource="#TimePosition"/>
+        <owl:disjointWith rdf:resource="#TimePosition_dateTime"/>
+        <owl:disjointWith rdf:resource="#TimePosition_decimal"/>
+        <owl:disjointWith rdf:resource="#TimePosition_gYear"/>
+        <owl:disjointWith rdf:resource="#TimePosition_gYearMonth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimePosition_dateTime -->
+
+    <owl:Class rdf:about="#TimePosition_dateTime">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition_dateTime"/>
+        <rdfs:subClassOf rdf:resource="#TimePosition"/>
+        <owl:disjointWith rdf:resource="#TimePosition_decimal"/>
+        <owl:disjointWith rdf:resource="#TimePosition_gYear"/>
+        <owl:disjointWith rdf:resource="#TimePosition_gYearMonth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimePosition_decimal -->
+
+    <owl:Class rdf:about="#TimePosition_decimal">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition_decimal"/>
+        <rdfs:subClassOf rdf:resource="#TimePosition"/>
+        <owl:disjointWith rdf:resource="#TimePosition_gYear"/>
+        <owl:disjointWith rdf:resource="#TimePosition_gYearMonth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimePosition_gYear -->
+
+    <owl:Class rdf:about="#TimePosition_gYear">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition_gYear"/>
+        <rdfs:subClassOf rdf:resource="#TimePosition"/>
+        <owl:disjointWith rdf:resource="#TimePosition_gYearMonth"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimePosition_gYearMonth -->
+
+    <owl:Class rdf:about="#TimePosition_gYearMonth">
+        <rdfs:subClassOf rdf:resource="#TemporalPosition_gYearMonth"/>
+        <rdfs:subClassOf rdf:resource="#TimePosition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimePrimitive -->
+
+    <owl:Class rdf:about="#TimePrimitive">
+        <rdfs:subClassOf rdf:resource="#_TimeObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeReferenceSystem -->
+
+    <owl:Class rdf:about="#TimeReferenceSystem">
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#domainOfValidity"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeUnitType -->
+
+    <owl:Class rdf:about="#TimeUnitType">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#second"/>
+                    <rdf:Description rdf:about="#minute"/>
+                    <rdf:Description rdf:about="#year"/>
+                    <rdf:Description rdf:about="#month"/>
+                    <rdf:Description rdf:about="#hour"/>
+                    <rdf:Description rdf:about="#day"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TopoComplex -->
+
+    <owl:Class rdf:about="#TopoComplex">
+        <rdfs:subClassOf rdf:resource="#_Topology"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#topoPrimitiveMember"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#superComplex"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#subComplex"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#maximalComplex"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#topoPrimitiveMembers"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TopoCurve -->
+
+    <owl:Class rdf:about="#TopoCurve">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedEdge"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TopoPoint -->
+
+    <owl:Class rdf:about="#TopoPoint">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedNode"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TopoSolid -->
+
+    <owl:Class rdf:about="#TopoSolid">
+        <rdfs:subClassOf rdf:resource="#ContainerChoice"/>
+        <rdfs:subClassOf rdf:resource="#_TopoPrimitive"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedFace"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TopoSurface -->
+
+    <owl:Class rdf:about="#TopoSurface">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedFace"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TopoVolume -->
+
+    <owl:Class rdf:about="#TopoVolume">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#directedTopoSolid"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Triangle -->
+
+    <owl:Class rdf:about="#Triangle">
+        <rdfs:subClassOf rdf:resource="#SurfacePatch"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#exterior_Ring"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:allValuesFrom rdf:resource="#SurfaceInterpolation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:hasValue rdf:resource="#planar"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#interpolation"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#UnitDefinition -->
+
+    <owl:Class rdf:about="#UnitDefinition">
+        <rdfs:subClassOf rdf:resource="#Definition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#quantityType"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#catalogSymbol"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Value -->
+
+    <owl:Class rdf:about="#Value"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#ValueArray -->
+
+    <owl:Class rdf:about="#ValueArray">
+        <rdfs:subClassOf rdf:resource="#CompositeValue"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#ValueExtent -->
+
+    <owl:Class rdf:about="#ValueExtent">
+        <rdfs:subClassOf rdf:resource="#_Value"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#high"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#low"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Vector -->
+
+    <owl:Class rdf:about="#Vector"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_CoordinateReferenceSystem -->
+
+    <owl:Class rdf:about="#_CoordinateReferenceSystem">
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Coverage -->
+
+    <owl:Class rdf:about="#_Coverage">
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Curve -->
+
+    <owl:Class rdf:about="#_Curve">
+        <rdfs:subClassOf rdf:resource="#_GeometricPrimitive"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_CurveSegment -->
+
+    <owl:Class rdf:about="#_CurveSegment">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numDerivativesAtEnd"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numDerivativeInterior"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numDerivativesAtStart"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numDerivativeInterior"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numDerivativesAtEnd"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#numDerivativesAtStart"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:versionInfo rdf:datatype="&xsd;string">DataType</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Derived element. ?
+sub class of Curve?</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Feature -->
+
+    <owl:Class rdf:about="#_Feature">
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#boundedBy"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#fid"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#location"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#boundedBy"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#fid"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#location"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_GML -->
+
+    <owl:Class rdf:about="#_GML">
+        <rdfs:subClassOf rdf:resource="#_Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#id"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#description"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#description"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#id"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#metadataProperty"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#name"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_GeometricAggregate -->
+
+    <owl:Class rdf:about="#_GeometricAggregate">
+        <rdfs:subClassOf rdf:resource="#_Geometry"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_GeometricPrimitive -->
+
+    <owl:Class rdf:about="#_GeometricPrimitive">
+        <rdfs:subClassOf rdf:resource="#_Geometry"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Geometry -->
+
+    <owl:Class rdf:about="#_Geometry">
+        <rdfs:subClassOf rdf:resource="#LocationChoice"/>
+        <rdfs:subClassOf rdf:resource="#Value"/>
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#srsName"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#gid"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#gid"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#srsName"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Metadata -->
+
+    <owl:Class rdf:about="#_Metadata">
+        <rdfs:subClassOf rdf:resource="#MetadataPropertyChoice"/>
+        <rdfs:subClassOf rdf:resource="#_Object"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#id"/>
+                <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#id"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Object -->
+
+    <owl:Class rdf:about="#_Object"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Ring -->
+
+    <owl:Class rdf:about="#_Ring"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_ScalarValue -->
+
+    <owl:Class rdf:about="#_ScalarValue">
+        <rdfs:subClassOf rdf:resource="#_Value"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_ScalarValueList -->
+
+    <owl:Class rdf:about="#_ScalarValueList">
+        <rdfs:subClassOf rdf:resource="#_Value"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Solid -->
+
+    <owl:Class rdf:about="#_Solid">
+        <rdfs:subClassOf rdf:resource="#_GeometricPrimitive"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Surface -->
+
+    <owl:Class rdf:about="#_Surface">
+        <rdfs:subClassOf rdf:resource="#_GeometricPrimitive"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_TimeObject -->
+
+    <owl:Class rdf:about="#_TimeObject">
+        <rdfs:subClassOf rdf:resource="#Value"/>
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#frame"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_TopoPrimitive -->
+
+    <owl:Class rdf:about="#_TopoPrimitive">
+        <rdfs:subClassOf rdf:resource="#_Topology"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#container"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isolated"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Topology -->
+
+    <owl:Class rdf:about="#_Topology">
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Value -->
+
+    <owl:Class rdf:about="#_Value">
+        <rdfs:subClassOf rdf:resource="#Value"/>
+        <rdfs:subClassOf rdf:resource="#_GML"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_directedEdge -->
+
+    <owl:Thing rdf:about="#_directedEdge">
+        <ogc-gml2:conditions xml:lang="en"></ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en">Positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_directedFace -->
+
+    <owl:Thing rdf:about="#_directedFace">
+        <ogc-gml2:conditions xml:lang="en"></ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en">Positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_directedNode -->
+
+    <owl:Thing rdf:about="#_directedNode">
+        <ogc-gml2:conditions xml:lang="en"></ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en">Positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_directedTopoSolid -->
+
+    <owl:Thing rdf:about="#_directedTopoSolid">
+        <ogc-gml2:conditions xml:lang="en"></ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en">Positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_interpolation -->
+
+    <owl:Thing rdf:about="#_interpolation">
+        <ogc-gml2:stereoTypes xml:lang="en">Union</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_knotType -->
+
+    <owl:Thing rdf:about="#_knotType">
+        <ogc-gml2:stereoTypes xml:lang="en">Enumeration</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_numDerivativeInterior -->
+
+    <owl:Thing rdf:about="#_numDerivativeInterior">
+        <ogc-gml2:defaultValue xml:lang="en">0</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_numDerivativesAtEnd -->
+
+    <owl:Thing rdf:about="#_numDerivativesAtEnd">
+        <ogc-gml2:defaultValue xml:lang="en">0</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_numDerivativesAtStart -->
+
+    <owl:Thing rdf:about="#_numDerivativesAtStart">
+        <ogc-gml2:defaultValue xml:lang="en">0</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_value -->
+
+    <owl:Thing rdf:about="#_value">
+        <ogc-gml2:stereoTypes xml:lang="en">XSDchoice</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#after -->
+
+    <owl:Thing rdf:about="#after">
+        <rdf:type rdf:resource="#TimeIndeterminateValue"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#before -->
+
+    <TimeIndeterminateValue rdf:about="#before">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </TimeIndeterminateValue>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#circularArc2PointWithBulge -->
+
+    <owl:Thing rdf:about="#circularArc2PointWithBulge">
+        <rdf:type rdf:resource="&ogc-gml2;CurveInterpolation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#circularArc3Points -->
+
+    <owl:Thing rdf:about="#circularArc3Points">
+        <rdf:type rdf:resource="&ogc-gml2;CurveInterpolation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#circularArcCenterPointWithRadius -->
+
+    <ogc-gml2:CurveInterpolation rdf:about="#circularArcCenterPointWithRadius">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </ogc-gml2:CurveInterpolation>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#cubicSpline -->
+
+    <owl:Thing rdf:about="#cubicSpline">
+        <rdf:type rdf:resource="&ogc-gml2;CurveInterpolation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#curveInterpolation -->
+
+    <owl:Thing rdf:about="#curveInterpolation">
+        <ogc-gml2:stereoTypes xml:lang="en">Enumeration</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#day -->
+
+    <owl:Thing rdf:about="#day">
+        <rdf:type rdf:resource="#TimeUnitType"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#doubleList -->
+
+    <owl:Thing rdf:about="#doubleList">
+        <ogc-gml2:stereoTypes xml:lang="en">simpleTypes</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#edge -->
+
+    <owl:Thing rdf:about="#edge">
+        <ogc-gml2:conditions xml:lang="en"
+            >orientation for directeNode shoul be stated.</ogc-gml2:conditions>
+        <ogc-gml2:conditions xml:lang="en"
+            >orientation for directedFace shoul be stated.</ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en"
+            >orientation= positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#face -->
+
+    <owl:Thing rdf:about="#face">
+        <ogc-gml2:conditions xml:lang="en"
+            >orientation for directedEdge shoul be stated.</ogc-gml2:conditions>
+        <ogc-gml2:conditions xml:lang="en"
+            >orientation for directedTopoSolid shoul be stated.</ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en"
+            >orientation= positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#geometricComplexProperty -->
+
+    <owl:Thing rdf:about="#geometricComplexProperty">
+        <ogc-gml2:stereoTypes xml:lang="en">Union</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#hour -->
+
+    <owl:Thing rdf:about="#hour">
+        <rdf:type rdf:resource="#TimeUnitType"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#linear -->
+
+    <owl:Thing rdf:about="#linear">
+        <rdf:type rdf:resource="&ogc-gml2;CurveInterpolation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#minute -->
+
+    <TimeUnitType rdf:about="#minute">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </TimeUnitType>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#month -->
+
+    <TimeUnitType rdf:about="#month">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </TimeUnitType>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#negative -->
+
+    <owl:Thing rdf:about="#negative">
+        <rdf:type rdf:resource="#Sign"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#node -->
+
+    <owl:Thing rdf:about="#node">
+        <ogc-gml2:conditions xml:lang="en"
+            >orientation for directedEdge shoul be stated.</ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en"
+            >orientation= positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#now -->
+
+    <owl:Thing rdf:about="#now">
+        <rdf:type rdf:resource="#TimeIndeterminateValue"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#piecewiseBezier -->
+
+    <KnotType rdf:about="#piecewiseBezier">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </KnotType>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#planar -->
+
+    <ogc-gml2:SurfaceInterpolation rdf:about="#planar">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </ogc-gml2:SurfaceInterpolation>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#polynomialSpline -->
+
+    <owl:Thing rdf:about="#polynomialSpline">
+        <rdf:type rdf:resource="&ogc-gml2;CurveInterpolation"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#positive -->
+
+    <owl:Thing rdf:about="#positive">
+        <rdf:type rdf:resource="#Sign"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#quasiUniform -->
+
+    <owl:Thing rdf:about="#quasiUniform">
+        <rdf:type rdf:resource="#KnotType"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#rationalSpline -->
+
+    <ogc-gml2:CurveInterpolation rdf:about="#rationalSpline">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </ogc-gml2:CurveInterpolation>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#second -->
+
+    <TimeUnitType rdf:about="#second">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </TimeUnitType>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#sign -->
+
+    <owl:Thing rdf:about="#sign">
+        <ogc-gml2:stereoTypes xml:lang="en">Enumeration</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#surfaceInterpolation -->
+
+    <owl:Thing rdf:about="#surfaceInterpolation">
+        <ogc-gml2:stereoTypes xml:lang="en">Enumeration</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#surfacePatch -->
+
+    <owl:Thing rdf:about="#surfacePatch">
+        <ogc-gml2:stereoTypes xml:lang="en">DataType</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#temporalPosition -->
+
+    <owl:Thing rdf:about="#temporalPosition">
+        <ogc-gml2:stereoTypes xml:lang="en">Union</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#timeDuration -->
+
+    <owl:Thing rdf:about="#timeDuration">
+        <ogc-gml2:stereoTypes xml:lang="en">Union</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#timeIndeterminateValue -->
+
+    <owl:Thing rdf:about="#timeIndeterminateValue">
+        <ogc-gml2:stereoTypes xml:lang="en">Enumeration</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#timeUnitType -->
+
+    <owl:Thing rdf:about="#timeUnitType">
+        <ogc-gml2:stereoTypes xml:lang="en">Enumeration</ogc-gml2:stereoTypes>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#topoCurve -->
+
+    <owl:Thing rdf:about="#topoCurve">
+        <ogc-gml2:stereoTypes xml:lang="en">DataType</ogc-gml2:stereoTypes>
+        <ogc-gml2:conditions xml:lang="en"
+            >orientation for directedEdge shoul be stated.</ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en"
+            >orientation= positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#topoPoint -->
+
+    <owl:Thing rdf:about="#topoPoint">
+        <ogc-gml2:stereoTypes xml:lang="en">DataType</ogc-gml2:stereoTypes>
+        <ogc-gml2:conditions xml:lang="en"
+            >orientation for directedNode shoul be stated.</ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en"
+            >orientation= positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#topoSolid -->
+
+    <owl:Thing rdf:about="#topoSolid">
+        <ogc-gml2:conditions xml:lang="en"
+            >orientation for directedFace shoul be stated.</ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en"
+            >orientation= positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#topoSurface -->
+
+    <owl:Thing rdf:about="#topoSurface">
+        <ogc-gml2:stereoTypes xml:lang="en">DataType</ogc-gml2:stereoTypes>
+        <ogc-gml2:conditions xml:lang="en"
+            >orientation for directedFace shoul be stated.</ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en"
+            >orientation= positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#topoVolume -->
+
+    <owl:Thing rdf:about="#topoVolume">
+        <ogc-gml2:stereoTypes xml:lang="en">DataType</ogc-gml2:stereoTypes>
+        <ogc-gml2:conditions xml:lang="en"
+            >orientation for directedTopoSolid shoul be stated.</ogc-gml2:conditions>
+        <ogc-gml2:defaultValue xml:lang="en"
+            >orientation= positive</ogc-gml2:defaultValue>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#uniform -->
+
+    <owl:Thing rdf:about="#uniform">
+        <rdf:type rdf:resource="#KnotType"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#unknown -->
+
+    <owl:Thing rdf:about="#unknown">
+        <rdf:type rdf:resource="#TimeIndeterminateValue"/>
+    </owl:Thing>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#year -->
+
+    <TimeUnitType rdf:about="#year">
+        <rdf:type rdf:resource="&owl;Thing"/>
+    </TimeUnitType>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1138) http://owlapi.sourceforge.net -->
+

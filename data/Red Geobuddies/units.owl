@@ -1,0 +1,1212 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY units "http://sweet.jpl.nasa.gov/ontology/units.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://sweet.jpl.nasa.gov/ontology/units.owl#"
+     xml:base="http://sweet.jpl.nasa.gov/ontology/units.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:units="http://sweet.jpl.nasa.gov/ontology/units.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo>1.0</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#derivedFromUnit -->
+
+    <owl:ObjectProperty rdf:about="#derivedFromUnit">
+        <rdfs:range rdf:resource="#BaseUnitOrUnitDerivedtWithoutChangingOfDimension"/>
+        <rdfs:domain rdf:resource="#SimpleUnit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#hasPrefix -->
+
+    <owl:ObjectProperty rdf:about="#hasPrefix">
+        <rdfs:range rdf:resource="#Prefix"/>
+        <rdfs:domain rdf:resource="#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#productOf -->
+
+    <owl:ObjectProperty rdf:about="#productOf">
+        <rdfs:domain rdf:resource="#ComplexUnit"/>
+        <rdfs:range rdf:resource="#Unit"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#hasPower -->
+
+    <owl:DatatypeProperty rdf:about="#hasPower">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#UnitDerivedByRaisingToPower"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#hasScalingNumber -->
+
+    <owl:DatatypeProperty rdf:about="#hasScalingNumber">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#UnitDerivedByScaling"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#hasShiftingNumber -->
+
+    <owl:DatatypeProperty rdf:about="#hasShiftingNumber">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#UnitDerivedByShifting"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#hasSymbol -->
+
+    <owl:DatatypeProperty rdf:about="#hasSymbol">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#PrefixOrUnit"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="#hasValue">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="#Prefix"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#BaseUnit -->
+
+    <owl:Class rdf:about="#BaseUnit">
+        <rdfs:subClassOf rdf:resource="#Unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#BaseUnitOrUnitDerivedtWithoutChangingOfDimension -->
+
+    <owl:Class rdf:about="#BaseUnitOrUnitDerivedtWithoutChangingOfDimension">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#BaseUnit"/>
+                    <rdf:Description rdf:about="#UnitDerivedWithoutChangingOfDimension"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment
+            >Class created for convenience</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#ComplexUnit -->
+
+    <owl:Class rdf:about="#ComplexUnit">
+        <rdfs:subClassOf rdf:resource="#DerivedUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#DerivedUnit -->
+
+    <owl:Class rdf:about="#DerivedUnit">
+        <rdfs:subClassOf rdf:resource="#Unit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#Prefix -->
+
+    <owl:Class rdf:about="#Prefix">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasValue"/>
+                <owl:allValuesFrom rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasSymbol"/>
+                <owl:allValuesFrom rdf:resource="&xsd;string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#PrefixOrUnit -->
+
+    <owl:Class rdf:about="#PrefixOrUnit">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Prefix"/>
+                    <rdf:Description rdf:about="#Unit"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#SimpleUnit -->
+
+    <owl:Class rdf:about="#SimpleUnit">
+        <rdfs:subClassOf rdf:resource="#DerivedUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#Unit -->
+
+    <owl:Class rdf:about="#Unit"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#UnitDerivedByRaisingToPower -->
+
+    <owl:Class rdf:about="#UnitDerivedByRaisingToPower">
+        <rdfs:subClassOf rdf:resource="#SimpleUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#UnitDerivedByScaling -->
+
+    <owl:Class rdf:about="#UnitDerivedByScaling">
+        <rdfs:subClassOf rdf:resource="#UnitDerivedWithoutChangingOfDimension"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasPrefix"/>
+                <owl:allValuesFrom rdf:resource="#Prefix"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasScalingNumber"/>
+                <owl:allValuesFrom rdf:resource="&xsd;double"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#UnitDerivedByShifting -->
+
+    <owl:Class rdf:about="#UnitDerivedByShifting">
+        <rdfs:subClassOf rdf:resource="#UnitDerivedWithoutChangingOfDimension"/>
+    </owl:Class>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#UnitDerivedWithoutChangingOfDimension -->
+
+    <owl:Class rdf:about="#UnitDerivedWithoutChangingOfDimension">
+        <rdfs:subClassOf rdf:resource="#SimpleUnit"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#NoPrefix -->
+
+    <Prefix rdf:about="#NoPrefix">
+        <hasValue rdf:datatype="&xsd;double">1</hasValue>
+    </Prefix>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#amperSquare -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#amperSquare">
+        <hasPower rdf:datatype="&xsd;double">2</hasPower>
+        <derivedFromUnit rdf:resource="#ampere"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#amper_perMeter -->
+
+    <ComplexUnit rdf:about="#amper_perMeter">
+        <productOf rdf:resource="#ampere"/>
+        <productOf rdf:resource="#perMeter"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#ampere -->
+
+    <BaseUnit rdf:about="#ampere">
+        <hasSymbol rdf:datatype="&xsd;string">a</hasSymbol>
+    </BaseUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#candela -->
+
+    <BaseUnit rdf:about="#candela">
+        <hasSymbol rdf:datatype="&xsd;string">cd</hasSymbol>
+    </BaseUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#century -->
+
+    <UnitDerivedByScaling rdf:about="#century">
+        <hasScalingNumber rdf:datatype="&xsd;double">3.1556926E09</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#coulomb -->
+
+    <ComplexUnit rdf:about="#coulomb">
+        <hasSymbol rdf:datatype="&xsd;string">C</hasSymbol>
+        <productOf rdf:resource="#ampere"/>
+        <productOf rdf:resource="#second"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#decade -->
+
+    <UnitDerivedByScaling rdf:about="#decade">
+        <hasScalingNumber rdf:datatype="&xsd;double">315569260</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#deco -->
+
+    <Prefix rdf:about="#deco">
+        <hasValue rdf:datatype="&xsd;double">10</hasValue>
+        <hasSymbol rdf:datatype="&xsd;string">da</hasSymbol>
+    </Prefix>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#degreeC -->
+
+    <UnitDerivedByShifting rdf:about="#degreeC">
+        <hasShiftingNumber rdf:datatype="&xsd;double">-273</hasShiftingNumber>
+        <derivedFromUnit rdf:resource="#kelvin"/>
+    </UnitDerivedByShifting>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#degreeCby1.8_interimInstance -->
+
+    <UnitDerivedByScaling rdf:about="#degreeCby1.8_interimInstance">
+        <hasScalingNumber rdf:datatype="&xsd;double">1.8</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#degreeC"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#degreeF -->
+
+    <UnitDerivedByShifting rdf:about="#degreeF">
+        <hasShiftingNumber rdf:datatype="&xsd;double">32</hasShiftingNumber>
+        <derivedFromUnit rdf:resource="#degreeCby1.8_interimInstance"/>
+    </UnitDerivedByShifting>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#dimensionlessUnit -->
+
+    <BaseUnit rdf:about="#dimensionlessUnit"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#dimensonlessUnit_perMeterSquare -->
+
+    <ComplexUnit rdf:about="#dimensonlessUnit_perMeterSquare">
+        <productOf rdf:resource="#dimensionlessUnit"/>
+        <productOf rdf:resource="#perMeterSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#farad -->
+
+    <ComplexUnit rdf:about="#farad">
+        <hasSymbol rdf:datatype="&xsd;string">F</hasSymbol>
+        <productOf rdf:resource="#amperSquare"/>
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#perMeterSquare"/>
+        <productOf rdf:resource="#secondToPower4"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#giga -->
+
+    <Prefix rdf:about="#giga">
+        <hasValue rdf:datatype="&xsd;double">10e9</hasValue>
+        <hasSymbol rdf:datatype="&xsd;string">G</hasSymbol>
+    </Prefix>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#gray -->
+
+    <ComplexUnit rdf:about="#gray">
+        <hasSymbol rdf:datatype="&xsd;string">Gy</hasSymbol>
+        <productOf rdf:resource="#meterSquare"/>
+        <productOf rdf:resource="#perSecondSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#hecto -->
+
+    <Prefix rdf:about="#hecto">
+        <hasValue rdf:datatype="&xsd;double">10e2</hasValue>
+        <hasSymbol rdf:datatype="&xsd;string">h</hasSymbol>
+    </Prefix>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#henry -->
+
+    <ComplexUnit rdf:about="#henry">
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#meterSquare"/>
+        <productOf rdf:resource="#perAmperSquare"/>
+        <productOf rdf:resource="#perSecondSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#hertz -->
+
+    <ComplexUnit rdf:about="#hertz">
+        <hasSymbol rdf:datatype="&xsd;string">Hz</hasSymbol>
+        <productOf rdf:resource="#dimensionlessUnit"/>
+        <productOf rdf:resource="#perSecond"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#hour -->
+
+    <UnitDerivedByScaling rdf:about="#hour">
+        <hasScalingNumber rdf:datatype="&xsd;double">3600</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#joul_perMeterSquare_perSecond -->
+
+    <ComplexUnit rdf:about="#joul_perMeterSquare_perSecond">
+        <productOf rdf:resource="#joule"/>
+        <productOf rdf:resource="#perMeterSquare"/>
+        <productOf rdf:resource="#perSecond"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#joule -->
+
+    <ComplexUnit rdf:about="#joule">
+        <hasSymbol rdf:datatype="&xsd;string">J</hasSymbol>
+        <productOf rdf:resource="#kilogram"/>
+        <owl:sameAs rdf:resource="#kilogram_meterSquare_perSecondSquare"/>
+        <productOf rdf:resource="#meterSquare"/>
+        <productOf rdf:resource="#perSecondSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#joule_perKilogram -->
+
+    <ComplexUnit rdf:about="#joule_perKilogram">
+        <productOf rdf:resource="#joule"/>
+        <productOf rdf:resource="#perKilogram"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#joule_perKilogram_perKelvin -->
+
+    <ComplexUnit rdf:about="#joule_perKilogram_perKelvin">
+        <productOf rdf:resource="#joule"/>
+        <productOf rdf:resource="#perKelvin"/>
+        <productOf rdf:resource="#perKilogram"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kelvin -->
+
+    <BaseUnit rdf:about="#kelvin"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilo -->
+
+    <Prefix rdf:about="#kilo">
+        <hasValue rdf:datatype="&xsd;double">10e3</hasValue>
+        <hasSymbol rdf:datatype="&xsd;string">k</hasSymbol>
+    </Prefix>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilo_meter -->
+
+    <UnitDerivedByScaling rdf:about="#kilo_meter">
+        <hasPrefix rdf:resource="#kilo"/>
+        <derivedFromUnit rdf:resource="#meter"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilo_meter_perHour -->
+
+    <ComplexUnit rdf:about="#kilo_meter_perHour">
+        <hasPrefix rdf:resource="#kilo"/>
+        <productOf rdf:resource="#meter"/>
+        <productOf rdf:resource="#perHour"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilogram -->
+
+    <BaseUnit rdf:about="#kilogram">
+        <hasSymbol rdf:datatype="&xsd;string">kg</hasSymbol>
+    </BaseUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilogram_meterSquare_perSecondSquare -->
+
+    <ComplexUnit rdf:about="#kilogram_meterSquare_perSecondSquare"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilogram_meter_perSecond -->
+
+    <ComplexUnit rdf:about="#kilogram_meter_perSecond">
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#meter"/>
+        <productOf rdf:resource="#perSecond"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilogram_meter_perSecondSquare -->
+
+    <ComplexUnit rdf:about="#kilogram_meter_perSecondSquare">
+        <owl:sameAs rdf:resource="#newton"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilogram_perMeterSquare -->
+
+    <ComplexUnit rdf:about="#kilogram_perMeterSquare">
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#perMeterSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilogram_perMeterToPower3 -->
+
+    <ComplexUnit rdf:about="#kilogram_perMeterToPower3">
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#perMeterToPower3"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilogram_perMeter_perSecondSquare -->
+
+    <ComplexUnit rdf:about="#kilogram_perMeter_perSecondSquare">
+        <owl:sameAs rdf:resource="#pascal"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#lux -->
+
+    <ComplexUnit rdf:about="#lux">
+        <hasSymbol rdf:datatype="&xsd;string">Lx</hasSymbol>
+        <productOf rdf:resource="#candela"/>
+        <productOf rdf:resource="#meterSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#massPercent -->
+
+    <ComplexUnit rdf:about="#massPercent">
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#perKilogram"/>
+        <productOf rdf:resource="#percent"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#mega -->
+
+    <Prefix rdf:about="#mega">
+        <hasValue rdf:datatype="&xsd;double">10e6</hasValue>
+        <hasSymbol rdf:datatype="&xsd;string">M</hasSymbol>
+    </Prefix>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#meter -->
+
+    <BaseUnit rdf:about="#meter">
+        <hasSymbol rdf:datatype="&xsd;string">m</hasSymbol>
+        <owl:sameAs rdf:resource="#metre"/>
+    </BaseUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#meterSquare -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#meterSquare">
+        <hasPower rdf:datatype="&xsd;double">2</hasPower>
+        <derivedFromUnit rdf:resource="#meter"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#meterSquare_perSecond -->
+
+    <ComplexUnit rdf:about="#meterSquare_perSecond">
+        <productOf rdf:resource="#meterSquare"/>
+        <productOf rdf:resource="#perSecond"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#meterSquare_perSecondSquare -->
+
+    <ComplexUnit rdf:about="#meterSquare_perSecondSquare">
+        <productOf rdf:resource="#meterSquare"/>
+        <productOf rdf:resource="#perSecondSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#meterToPower3 -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#meterToPower3">
+        <hasPower rdf:datatype="&xsd;double">3</hasPower>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#meterToPower3_perSecond -->
+
+    <ComplexUnit rdf:about="#meterToPower3_perSecond">
+        <productOf rdf:resource="#meterToPower3"/>
+        <productOf rdf:resource="#perSecond"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#meter_perSecond -->
+
+    <ComplexUnit rdf:about="#meter_perSecond">
+        <productOf rdf:resource="#meter"/>
+        <productOf rdf:resource="#perSecond"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#meter_perSecondSquare -->
+
+    <ComplexUnit rdf:about="#meter_perSecondSquare">
+        <productOf rdf:resource="#meter"/>
+        <productOf rdf:resource="#perSecondSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#metre -->
+
+    <BaseUnit rdf:about="#metre"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#micro -->
+
+    <Prefix rdf:about="#micro">
+        <hasValue rdf:datatype="&xsd;double">10E-6</hasValue>
+    </Prefix>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#micro_meter -->
+
+    <UnitDerivedByScaling rdf:about="#micro_meter">
+        <derivedFromUnit rdf:resource="#meter"/>
+        <hasPrefix rdf:resource="#micro"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#millenium -->
+
+    <UnitDerivedByScaling rdf:about="#millenium">
+        <hasScalingNumber rdf:datatype="&xsd;double">3.1556926E10</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#milli -->
+
+    <Prefix rdf:about="#milli">
+        <hasValue rdf:datatype="&xsd;double">10E-3</hasValue>
+        <hasSymbol rdf:datatype="&xsd;string">m</hasSymbol>
+    </Prefix>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#milli_meter -->
+
+    <UnitDerivedByScaling rdf:about="#milli_meter">
+        <derivedFromUnit rdf:resource="#meter"/>
+        <hasPrefix rdf:resource="#milli"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#minute -->
+
+    <UnitDerivedByScaling rdf:about="#minute">
+        <hasScalingNumber rdf:datatype="&xsd;double">60</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#mole -->
+
+    <BaseUnit rdf:about="#mole">
+        <hasSymbol rdf:datatype="&xsd;string">mol</hasSymbol>
+    </BaseUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#nano -->
+
+    <Prefix rdf:about="#nano">
+        <hasValue rdf:datatype="&xsd;double">10E-9</hasValue>
+        <hasSymbol rdf:datatype="&xsd;string">n</hasSymbol>
+    </Prefix>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#nano_meter -->
+
+    <UnitDerivedByScaling rdf:about="#nano_meter">
+        <derivedFromUnit rdf:resource="#meter"/>
+        <hasPrefix rdf:resource="#nano"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#newton -->
+
+    <ComplexUnit rdf:about="#newton">
+        <hasSymbol rdf:datatype="&xsd;string">N</hasSymbol>
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#meter"/>
+        <productOf rdf:resource="#perSecondSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#ohm -->
+
+    <ComplexUnit rdf:about="#ohm">
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#meterSquare"/>
+        <productOf rdf:resource="#perAmperSquare"/>
+        <productOf rdf:resource="#perSecondToPower3"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#pascal -->
+
+    <ComplexUnit rdf:about="#pascal">
+        <hasSymbol rdf:datatype="&xsd;string">Pa</hasSymbol>
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#perMeter"/>
+        <productOf rdf:resource="#perSecondSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#pascal_perSecond -->
+
+    <ComplexUnit rdf:about="#pascal_perSecond">
+        <hasSymbol rdf:datatype="&xsd;string">pa/s</hasSymbol>
+        <productOf rdf:resource="#pascal"/>
+        <productOf rdf:resource="#perSecond"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#pascal_second -->
+
+    <ComplexUnit rdf:about="#pascal_second">
+        <productOf rdf:resource="#pascal"/>
+        <productOf rdf:resource="#second"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perAmper -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perAmper">
+        <hasPower rdf:datatype="&xsd;double">-1</hasPower>
+        <derivedFromUnit rdf:resource="#ampere"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perAmperSquare -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perAmperSquare">
+        <hasPower rdf:datatype="&xsd;double">-2</hasPower>
+        <derivedFromUnit rdf:resource="#ampere"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perCandela -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perCandela">
+        <hasPower rdf:datatype="&xsd;double">-1</hasPower>
+        <derivedFromUnit rdf:resource="#candela"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perHour -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perHour">
+        <hasPower rdf:datatype="&xsd;double">-1</hasPower>
+        <derivedFromUnit rdf:resource="#hour"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perKelvin -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perKelvin">
+        <hasPower rdf:datatype="&xsd;double">-1</hasPower>
+        <derivedFromUnit rdf:resource="#kelvin"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perKilogram -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perKilogram">
+        <derivedFromUnit rdf:resource="#kilogram"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perKilogram_meterSquare_perSecond_kelvin -->
+
+    <ComplexUnit rdf:about="#perKilogram_meterSquare_perSecond_kelvin">
+        <productOf rdf:resource="#kelvin"/>
+        <productOf rdf:resource="#meterSquare"/>
+        <productOf rdf:resource="#perKilogram"/>
+        <productOf rdf:resource="#perSecond"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perKilogram_mole -->
+
+    <ComplexUnit rdf:about="#perKilogram_mole">
+        <productOf rdf:resource="#mole"/>
+        <productOf rdf:resource="#perKilogram"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perMeter -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perMeter">
+        <hasPower rdf:datatype="&xsd;double">-1</hasPower>
+        <hasSymbol rdf:datatype="&xsd;string">1/m</hasSymbol>
+        <derivedFromUnit rdf:resource="#meter"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perMeterSquare -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perMeterSquare">
+        <hasPower rdf:datatype="&xsd;double">-2</hasPower>
+        <derivedFromUnit rdf:resource="#meter"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perMeterToPower3 -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perMeterToPower3">
+        <hasPower rdf:datatype="&xsd;double">-3</hasPower>
+        <derivedFromUnit rdf:resource="#meter"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perMole -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perMole">
+        <hasPower rdf:datatype="&xsd;double">-1</hasPower>
+        <derivedFromUnit rdf:resource="#mole"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perRadian -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perRadian">
+        <hasPower rdf:datatype="&xsd;double">-1</hasPower>
+        <derivedFromUnit rdf:resource="#radian"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perSecond -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perSecond">
+        <hasPower rdf:datatype="&xsd;double">-1</hasPower>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perSecondSquare -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perSecondSquare">
+        <hasPower rdf:datatype="&xsd;double">-2</hasPower>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perSecondToPower3 -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perSecondToPower3">
+        <hasPower rdf:datatype="&xsd;double">-3</hasPower>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#perSteradian -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#perSteradian">
+        <hasPower rdf:datatype="&xsd;double">-1</hasPower>
+        <derivedFromUnit rdf:resource="#steradian"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#percent -->
+
+    <UnitDerivedByScaling rdf:about="#percent">
+        <hasScalingNumber rdf:datatype="&xsd;double">0.01</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#ratio"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#permil -->
+
+    <UnitDerivedByScaling rdf:about="#permil">
+        <hasScalingNumber rdf:datatype="&xsd;double">0.001</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#ratio"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#ppb -->
+
+    <UnitDerivedByScaling rdf:about="#ppb">
+        <hasScalingNumber rdf:datatype="&xsd;double">0.000000001</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#ratio"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#ppm -->
+
+    <UnitDerivedByScaling rdf:about="#ppm">
+        <hasScalingNumber rdf:datatype="&xsd;double">0.000001</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#ratio"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#ppt -->
+
+    <UnitDerivedByScaling rdf:about="#ppt">
+        <hasScalingNumber rdf:datatype="&xsd;double">0.000000000001</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#ratio"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#radian -->
+
+    <BaseUnit rdf:about="#radian">
+        <hasSymbol rdf:datatype="&xsd;string">rad</hasSymbol>
+    </BaseUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#ratio -->
+
+    <BaseUnit rdf:about="#ratio"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#second -->
+
+    <BaseUnit rdf:about="#second">
+        <hasSymbol rdf:datatype="&xsd;string">s</hasSymbol>
+    </BaseUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#secondSquare -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#secondSquare">
+        <hasPower rdf:datatype="&xsd;double">2</hasPower>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#secondToPower3 -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#secondToPower3">
+        <hasPower rdf:datatype="&xsd;double">3</hasPower>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#secondToPower4 -->
+
+    <UnitDerivedByRaisingToPower rdf:about="#secondToPower4">
+        <hasPower rdf:datatype="&xsd;double">4</hasPower>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByRaisingToPower>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#siemence_perMeter -->
+
+    <ComplexUnit rdf:about="#siemence_perMeter">
+        <productOf rdf:resource="#perMeter"/>
+        <productOf rdf:resource="#siemens"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#siemens -->
+
+    <ComplexUnit rdf:about="#siemens">
+        <productOf rdf:resource="#amperSquare"/>
+        <productOf rdf:resource="#perKilogram"/>
+        <productOf rdf:resource="#perMeterSquare"/>
+        <productOf rdf:resource="#secondToPower3"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#steradian -->
+
+    <BaseUnit rdf:about="#steradian">
+        <hasSymbol rdf:datatype="&xsd;string">sr</hasSymbol>
+    </BaseUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#tesla -->
+
+    <ComplexUnit rdf:about="#tesla">
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#perAmper"/>
+        <productOf rdf:resource="#perSecondSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#volt -->
+
+    <ComplexUnit rdf:about="#volt">
+        <hasSymbol rdf:datatype="&xsd;string">V</hasSymbol>
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#meterSquare"/>
+        <productOf rdf:resource="#perAmper"/>
+        <productOf rdf:resource="#perSecondToPower3"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#watt -->
+
+    <ComplexUnit rdf:about="#watt">
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#meterSquare"/>
+        <productOf rdf:resource="#perSecondToPower3"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#watt_perMeterSquare -->
+
+    <ComplexUnit rdf:about="#watt_perMeterSquare">
+        <owl:sameAs rdf:resource="#joul_perMeterSquare_perSecond"/>
+        <productOf rdf:resource="#perMeterSquare"/>
+        <productOf rdf:resource="#watt"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#watt_perMeterSquare_perSteradian -->
+
+    <ComplexUnit rdf:about="#watt_perMeterSquare_perSteradian">
+        <productOf rdf:resource="#perMeterSquare"/>
+        <productOf rdf:resource="#perSteradian"/>
+        <productOf rdf:resource="#watt"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#watt_perMeter_perKelvin -->
+
+    <ComplexUnit rdf:about="#watt_perMeter_perKelvin">
+        <productOf rdf:resource="#perKelvin"/>
+        <productOf rdf:resource="#perMeter"/>
+        <productOf rdf:resource="#watt"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#weber -->
+
+    <ComplexUnit rdf:about="#weber">
+        <productOf rdf:resource="#kilogram"/>
+        <productOf rdf:resource="#meterSquare"/>
+        <productOf rdf:resource="#perAmper"/>
+        <productOf rdf:resource="#perSecondSquare"/>
+    </ComplexUnit>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#week -->
+
+    <UnitDerivedByScaling rdf:about="#week">
+        <hasScalingNumber rdf:datatype="&xsd;double">604800</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByScaling>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#year -->
+
+    <UnitDerivedByScaling rdf:about="#year">
+        <hasScalingNumber rdf:datatype="&xsd;double">31556926</hasScalingNumber>
+        <derivedFromUnit rdf:resource="#second"/>
+    </UnitDerivedByScaling>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.810) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,888 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY SUMO "http://reliant.teknowledge.com/DAML/SUMO.owl#" >
+    <!ENTITY Arquitectura "http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:Arquitectura="http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:SUMO="http://reliant.teknowledge.com/DAML/SUMO.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#">
+    <owl:Ontology rdf:about=""/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;source"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://reliant.teknowledge.com/DAML/SUMO.owl#crosses -->
+
+    <owl:ObjectProperty rdf:about="&SUMO;crosses">
+        <rdfs:comment
+            >(crosses ?OBJ1 ?OBJ2) means that 
+
+Object ?OBJ1 traverses Object ?OBJ2, without being connected 
+
+to it.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="&SUMO;traverses"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://reliant.teknowledge.com/DAML/SUMO.owl#traverses -->
+
+    <owl:ObjectProperty rdf:about="&SUMO;traverses">
+        <rdfs:comment
+            >(traverses ?OBJ1 ?OBJ2) means that ?OBJ1 
+
+crosses or extends across ?OBJ2.  Note that crosses and 
+
+penetrates are subrelations of traverses.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#componeArquitectonicamente -->
+
+    <owl:ObjectProperty rdf:about="#componeArquitectonicamente">
+        <rdfs:domain rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ElementoArquitectonico"/>
+                    <rdf:Description rdf:about="#Construccion"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#compuestoAquitectonicamentePor -->
+
+    <owl:ObjectProperty rdf:about="#compuestoAquitectonicamentePor">
+        <rdfs:range rdf:resource="#ElementoArquitectonico"/>
+        <owl:inverseOf rdf:resource="#componeArquitectonicamente"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ElementoArquitectonico"/>
+                    <rdf:Description rdf:about="#Construccion"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Aeropuerto -->
+
+    <owl:Class rdf:about="#Aeropuerto">
+        <rdfs:label xml:lang="en">Airport</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Arcada -->
+
+    <owl:Class rdf:about="#Arcada">
+        <rdfs:label xml:lang="en">Arcade</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment xml:lang="en"
+            >A series of arches supported by columns or piers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Arco -->
+
+    <owl:Class rdf:about="#Arco">
+        <rdfs:label xml:lang="en">Arch</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment xml:lang="en"
+            >A curved structural member spanning an opening or recess. The wedge shaped elements that make up an arch keep one another in palce and transform the vertical pressure of the structure above into lateral pressure.</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Structural elements, typically curved, spanning openings and transmitting vertical loads to either side of the opening; also, structural elements or freestanding structures that resemble arches or act structurally like arches.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#ArcoApuntado -->
+
+    <owl:Class rdf:about="#ArcoApuntado">
+        <rdfs:subClassOf rdf:resource="#Arco"/>
+        <rdfs:comment xml:lang="en"
+            >Arches composed of arcs struck from an even number of centers, usually two, so that the apex of the arch is a point.</rdfs:comment>
+        <dc:source xml:lang="en">Pointed arch</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#ArcoCiego -->
+
+    <owl:Class rdf:about="#ArcoCiego">
+        <rdfs:label xml:lang="en">Blind arch</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Arco"/>
+        <rdfs:comment xml:lang="en"
+            >An arch applied to a wall.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#ArcoDeDescarga -->
+
+    <owl:Class rdf:about="#ArcoDeDescarga">
+        <rdfs:label xml:lang="en">Relieving arch</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Arco"/>
+        <rdfs:comment xml:lang="en"
+            >an arch which encloses an arch or a window or other opening. It helps relieve some of the weight on the arch of the opening.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#ArcoDeHerradura -->
+
+    <owl:Class rdf:about="#ArcoDeHerradura">
+        <rdfs:subClassOf rdf:resource="#ArcoApuntado"/>
+        <dc:source xml:lang="en">Horseshoe arch</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#ArcoDeMedioPunto -->
+
+    <owl:Class rdf:about="#ArcoDeMedioPunto">
+        <rdfs:label xml:lang="en">Round arch</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Arco"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#ArcoOjival -->
+
+    <owl:Class rdf:about="#ArcoOjival">
+        <rdfs:subClassOf rdf:resource="#ArcoApuntado"/>
+        <dc:source xml:lang="en">Ogee arch</dc:source>
+        <rdfs:comment xml:lang="en"
+            >Pointed arches composed of two reversed curves.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#ArcoTudor -->
+
+    <owl:Class rdf:about="#ArcoTudor">
+        <rdfs:label xml:lang="en">Depressed arch</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ArcoApuntado"/>
+        <rdfs:comment xml:lang="en"
+            >A flattened arch, slightly pointed on top. It appears in Late Gothic of the fifteenth and sixteenth centuries.</rdfs:comment>
+        <dc:source xml:lang="en"
+            >Glossary of Medieval Art and Architecture</dc:source>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Ayuntamiento -->
+
+    <owl:Class rdf:about="#Ayuntamiento">
+        <rdfs:label xml:lang="en">City halls</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Basa -->
+
+    <owl:Class rdf:about="#Basa">
+        <rdfs:label xml:lang="en">Base</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#componeArquitectonicamente"/>
+                <owl:someValuesFrom rdf:resource="#Columna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >The architectural element on which a column or pier rests.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Basilica -->
+
+    <owl:Class rdf:about="#Basilica">
+        <rdfs:label xml:lang="en">Basilica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Iglesia"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Biblioteca -->
+
+    <owl:Class rdf:about="#Biblioteca">
+        <rdfs:label xml:lang="en">Library</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Boveda -->
+
+    <owl:Class rdf:about="#Boveda">
+        <rdfs:label xml:lang="en">Vault</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment xml:lang="en"
+            >Arched structures, usually of masonry and forming a ceiling or roof.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Techo en forma de curva que cubre el espacio comprendido entre dos muros o varias columnas.
+Obra de f&#225;brica curvada, que sirve para cubrir el espacio comprendido entre dos muros o varios pilares.
+Cubierta arqueada que cubre un espacio.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#BovedaDeCannon -->
+
+    <owl:Class rdf:about="#BovedaDeCannon">
+        <rdfs:subClassOf rdf:resource="#Boveda"/>
+        <rdfs:comment xml:lang="es">Barrel vault</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#BovedaDeCruceria -->
+
+    <owl:Class rdf:about="#BovedaDeCruceria">
+        <rdfs:subClassOf rdf:resource="#Boveda"/>
+        <rdfs:comment xml:lang="es">Rib vault</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Bovedilla -->
+
+    <owl:Class rdf:about="#Bovedilla">
+        <rdfs:label xml:lang="en">Squinch</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >The lowest voussoir on each side of an arch. It is where the vertical support for the arch terminates and the curve of the arch begins.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Capilla -->
+
+    <owl:Class rdf:about="#Capilla">
+        <rdfs:label xml:lang="en">Chapel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EdificioReligioso"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Capitel -->
+
+    <owl:Class rdf:about="#Capitel">
+        <rdfs:label xml:lang="en">Capital</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#componeArquitectonicamente"/>
+                <owl:someValuesFrom rdf:resource="#Columna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >The uppermost members of columns, piers, or pilasters.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Casa -->
+
+    <owl:Class rdf:about="#Casa">
+        <rdfs:label xml:lang="en">House</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Castillo -->
+
+    <owl:Class rdf:about="#Castillo">
+        <rdfs:label xml:lang="en">Castle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Catedral -->
+
+    <owl:Class rdf:about="#Catedral">
+        <rdfs:label xml:lang="en">Cathedral</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Iglesia"/>
+        <rdfs:comment xml:lang="en"
+            >Churches in a Christian system that have an episcopal form of government, where the church is the primary church in a diocese or the seat of a diocesan bishop, archbishop, primate, patriarch, or pope. They are generally grandiose structures and house the &quot;cathedra&quot; or throne of the bishop.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Columna -->
+
+    <owl:Class rdf:about="#Columna">
+        <rdfs:label xml:lang="en">Column</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment xml:lang="en"
+            >In the discipline of architecture, refers to cylindrical or slightly tapering, vertical members made to either give support or to appear to give support. They usually comprise three sections: base, capital, and shaft. The term also refers to all uprights in steel frame or concrete frame structures. Columns may occasionally stand alone as a monument, for example in Trajan&apos;s Column in Rome or Nelson&apos;s Column in London. Columns may be used as decorative elements on furniture. For square or rectangular members, either in masonry construction or classically treated, and for massive uprights in Medieval architecture, see &quot;piers (supporting elements)&quot;; for wooden square uprights, see &quot;posts.&quot;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#CommercialBuilding -->
+
+    <owl:Class rdf:about="#CommercialBuilding">
+        <rdfs:label xml:lang="en"
+            >Commercial building</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Construccion -->
+
+    <owl:Class rdf:about="#Construccion">
+        <rdfs:label xml:lang="en">Building</rdfs:label>
+        <rdfs:label xml:lang="es">Construccion</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#componeArquitectonicamente"/>
+                <owl:allValuesFrom rdf:resource="#Construccion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#compuestoAquitectonicamentePor"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#ElementoArquitectonico"/>
+                            <rdf:Description rdf:about="#Construccion"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Convento -->
+
+    <owl:Class rdf:about="#Convento">
+        <rdfs:label xml:lang="en">Convent</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EdificioReligioso"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Cupula -->
+
+    <owl:Class rdf:about="#Cupula">
+        <rdfs:label xml:lang="en">Dome</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Boveda"/>
+        <rdfs:comment xml:lang="en"
+            >A hemispherical vault.
+Structural elements, usually resembling spheres or portions of spheres, constructed such that they exert equal thrust in all directions.</rdfs:comment>
+        <rdfs:comment xml:lang="es"
+            >Techo en forma de media esfera que cubre un edificio.
+Boveda en forma de una media esfera u otra aproximada, con que suele cubrirse todo un edificio o parte de &#233;l.
+Boveda en forma de semiesfera que frecuentemente cubre un espacio de planta cuadrada o rectangular.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Dovela -->
+
+    <owl:Class rdf:about="#Dovela">
+        <rdfs:label xml:lang="en">Voussoir</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#componeArquitectonicamente"/>
+                <owl:someValuesFrom rdf:resource="#Arco"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >One of the wedge-shaped stones used in constructing an arch.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#DovelaBasal -->
+
+    <owl:Class rdf:about="#DovelaBasal">
+        <rdfs:label xml:lang="en">Springer</rdfs:label>
+        <rdfs:label xml:lang="es">Salmer</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Dovela"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#componeArquitectonicamente"/>
+                <owl:someValuesFrom rdf:resource="#Arco"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >The lowest voussoir on each side of an arch. It is where the vertical support for the arch terminates and the curve of the arch begins.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#DovelaCentral -->
+
+    <owl:Class rdf:about="#DovelaCentral">
+        <rdfs:label xml:lang="en">Keystone</rdfs:label>
+        <rdfs:label xml:lang="es">Clave</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Dovela"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#componeArquitectonicamente"/>
+                <owl:someValuesFrom rdf:resource="#Arco"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >The voussoir at the top of an arch; in vaulting it occurs at the intersection of the ribs of a rib vault. It is important structurally since it marks the apex of the vault</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#EdificioGubernamental -->
+
+    <owl:Class rdf:about="#EdificioGubernamental">
+        <rdfs:label xml:lang="en"
+            >Government building</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#EdificioMilitar -->
+
+    <owl:Class rdf:about="#EdificioMilitar">
+        <rdfs:label xml:lang="es"
+            >Military building</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#EdificioReligioso -->
+
+    <owl:Class rdf:about="#EdificioReligioso">
+        <rdfs:label xml:lang="es"
+            >Religious building</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#ElementoArquitectonico -->
+
+    <owl:Class rdf:about="#ElementoArquitectonico">
+        <rdfs:label xml:lang="en"
+            >Architectural element</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#compuestoAquitectonicamentePor"/>
+                <owl:allValuesFrom rdf:resource="#ElementoArquitectonico"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#componeArquitectonicamente"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#ElementoArquitectonico"/>
+                            <rdf:Description rdf:about="#Construccion"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >Forms, structural or decorative, developed originally or primarily as components of architecture, often adapted to other habitable spaces, such as in large vehicles, and often borrowed or imitated for structural or decorative use on other objects.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Enjuta -->
+
+    <owl:Class rdf:about="#Enjuta">
+        <rdfs:label xml:lang="en">Spandrel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment xml:lang="en"
+            >The roughly triangular wall space between two adjacent arches.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Ermita -->
+
+    <owl:Class rdf:about="#Ermita">
+        <rdfs:label xml:lang="en">Hermitage</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EdificioReligioso"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Establo -->
+
+    <owl:Class rdf:about="#Establo">
+        <rdfs:label xml:lang="en">Stable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#EstacionDeAutobus -->
+
+    <owl:Class rdf:about="#EstacionDeAutobus">
+        <rdfs:label xml:lang="en">Bus station</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#EstacionDeFerrocarril -->
+
+    <owl:Class rdf:about="#EstacionDeFerrocarril">
+        <rdfs:label xml:lang="en">Railway station</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#EstacionDeTren -->
+
+    <owl:Class rdf:about="#EstacionDeTren">
+        <rdfs:label xml:lang="en">Train station</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Fuste -->
+
+    <owl:Class rdf:about="#Fuste">
+        <rdfs:label xml:lang="en">Shaft</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#componeArquitectonicamente"/>
+                <owl:someValuesFrom rdf:resource="#Columna"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >The portions of columns, colonettes, or pilasters between the base and the capital.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Helipuerto -->
+
+    <owl:Class rdf:about="#Helipuerto">
+        <rdfs:label xml:lang="en">Heliport</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#HoodMoulding -->
+
+    <owl:Class rdf:about="#HoodMoulding">
+        <rdfs:label xml:lang="en">Hood moulding</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment xml:lang="en"
+            >a projecting molding on the wall above an arch.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Hotel -->
+
+    <owl:Class rdf:about="#Hotel">
+        <rdfs:label xml:lang="en">Hotel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Iglesia -->
+
+    <owl:Class rdf:about="#Iglesia">
+        <rdfs:label xml:lang="en">Church</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EdificioReligioso"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#IntersectingArch -->
+
+    <owl:Class rdf:about="#IntersectingArch">
+        <rdfs:subClassOf rdf:resource="#Arco"/>
+        <dc:source xml:lang="en"
+            >Intersecting arch</dc:source>
+        <rdfs:comment xml:lang="en"
+            >arches which cross over each other in an arcade</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Mezquita -->
+
+    <owl:Class rdf:about="#Mezquita">
+        <rdfs:label xml:lang="en">Mosque</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EdificioReligioso"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Monasterio -->
+
+    <owl:Class rdf:about="#Monasterio">
+        <rdfs:label xml:lang="en">Monastery</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EdificioReligioso"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Museo -->
+
+    <owl:Class rdf:about="#Museo">
+        <rdfs:label xml:lang="en">Museum</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Palacio -->
+
+    <owl:Class rdf:about="#Palacio">
+        <rdfs:label xml:lang="en">Palace</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#ParadaDeTaxi -->
+
+    <owl:Class rdf:about="#ParadaDeTaxi">
+        <rdfs:label xml:lang="en">Taxi stand</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Pilar -->
+
+    <owl:Class rdf:about="#Pilar">
+        <rdfs:label xml:lang="en">Pier</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >An upright support, generally square, rectangular, or composite. In medieval architecture there are massive circular supports called drum piers.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Pilastra -->
+
+    <owl:Class rdf:about="#Pilastra">
+        <rdfs:label xml:lang="en">Drum</rdfs:label>
+        <rdfs:label xml:lang="en">Pilaster</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A cylindrical wall which supports a dome.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Pinacoteca -->
+
+    <owl:Class rdf:about="#Pinacoteca">
+        <rdfs:label xml:lang="en">Art gallery</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Museo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Puente -->
+
+    <owl:Class rdf:about="#Puente">
+        <rdfs:label xml:lang="en">Bridge</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Puerto -->
+
+    <owl:Class rdf:about="#Puerto">
+        <rdfs:label xml:lang="en">Port</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Rascacielos -->
+
+    <owl:Class rdf:about="#Rascacielos">
+        <rdfs:label xml:lang="en">Skyscraper</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#SemiCupula -->
+
+    <owl:Class rdf:about="#SemiCupula">
+        <rdfs:label xml:lang="en">Semi dome</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cupula"/>
+        <rdfs:comment rdf:datatype="&xsd;string">a half dome.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Sinagoga -->
+
+    <owl:Class rdf:about="#Sinagoga">
+        <rdfs:label xml:lang="en">Synagogue</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EdificioReligioso"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Teatro -->
+
+    <owl:Class rdf:about="#Teatro">
+        <rdfs:label xml:lang="en">Theatre</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Templo -->
+
+    <owl:Class rdf:about="#Templo">
+        <rdfs:label xml:lang="en">Temple</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Timpano -->
+
+    <owl:Class rdf:about="#Timpano">
+        <rdfs:label xml:lang="en">Tympanum</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment xml:lang="en"
+            >The basically semicircular area enclosed by the arch above the lintel of an arched entranceway. This area is often decorated with sculpture in the Romanesque and Gothic periods.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Vertice -->
+
+    <owl:Class rdf:about="#Vertice">
+        <rdfs:label xml:lang="en">Cusp</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoArquitectonico"/>
+        <rdfs:comment xml:lang="en"
+            >A curved, triangular-shaped projection from the inner curve of an arch or circle.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#CatedralDeLeon -->
+
+    <Catedral rdf:about="#CatedralDeLeon"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#CatedralDeSantiago -->
+
+    <Catedral rdf:about="#CatedralDeSantiago"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#FachadaDelObradoiro -->
+
+    <ElementoArquitectonico rdf:about="#FachadaDelObradoiro">
+        <componeArquitectonicamente rdf:resource="#CatedralDeSantiago"/>
+    </ElementoArquitectonico>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#PorticoDeLaGloria -->
+
+    <ElementoArquitectonico rdf:about="#PorticoDeLaGloria">
+        <componeArquitectonicamente rdf:resource="#CatedralDeSantiago"/>
+    </ElementoArquitectonico>
+</rdf:RDF>

@@ -1,0 +1,2481 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY wordnet "http://xmlns.com/wordnet/1.6/" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY geografica "http://dia.fi.upm.es/geografica.owl#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY units "http://sweet.jpl.nasa.gov/ontology/units.owl#" >
+    <!ENTITY languagecode "http://www.fao.org/aims/aos/languagecode.owl#" >
+    <!ENTITY personalizacion "http://delicias.dia.fi.upm.es/personalizacion.owl#" >
+    <!ENTITY time-basic "http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#" >
+    <!ENTITY ogc-gml "http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#" >
+    <!ENTITY price "http://www.ontologydesignpatterns.org/codeps/owl/price.owl#" >
+    <!ENTITY Servicios "http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#" >
+    <!ENTITY ObjetoArte "http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#" >
+    <!ENTITY PersonasArte "http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#" >
+    <!ENTITY OntologyArte "http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#" >
+    <!ENTITY Arquitectura "http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#" >
+    <!ENTITY OntologyEstilos "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#" >
+    <!ENTITY CaminoDeSantiago "http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:Arquitectura="http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:CaminoDeSantiago="http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#"
+     xmlns:Servicios="http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#"
+     xmlns:OntologyArte="http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#"
+     xmlns:units="http://sweet.jpl.nasa.gov/ontology/units.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:PersonasArte="http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:price="http://www.ontologydesignpatterns.org/codeps/owl/price.owl#"
+     xmlns:time-basic="http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#"
+     xmlns:ObjetoArte="http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:geografica="http://dia.fi.upm.es/geografica.owl#"
+     xmlns:wordnet="http://xmlns.com/wordnet/1.6/"
+     xmlns:languagecode="http://www.fao.org/aims/aos/languagecode.owl#"
+     xmlns:ogc-gml="http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#"
+     xmlns:OntologyEstilos="http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#"
+     xmlns:personalizacion="http://delicias.dia.fi.upm.es/personalizacion.owl#">
+    <owl:Ontology rdf:about="">
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Red de ontolog&#237;as sobre el Camino de Santiago.</rdfs:comment>
+        <dc:creator>Mar&#237;a Poveda</dc:creator>
+        <owl:imports rdf:resource="http://daml.umbc.edu/ontologies/cobra/0.4/time-basic"/>
+        <owl:imports rdf:resource="http://delicias.dia.fi.upm.es/personalizacion.owl"/>
+        <owl:imports rdf:resource="http://dia.fi.upm.es/geografica.owl"/>
+        <owl:imports rdf:resource="http://sweet.jpl.nasa.gov/ontology/units.owl"/>
+        <owl:imports rdf:resource="http://www.fao.org/aims/aos/languagecode.owl"/>
+        <owl:imports rdf:resource="http://www.mindswap.org/2003/owl/foaf"/>
+        <owl:imports rdf:resource="http://www.ontologydesignpatterns.org/codeps/owl/price.owl"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2008/2/Servicios.owl"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esCaracteristicaDe -->
+
+    <owl:ObjectProperty rdf:about="&personalizacion;esCaracteristicaDe">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personalizacion;Personalidad"/>
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esCaracteristicaE-IDe -->
+
+    <owl:ObjectProperty rdf:about="&personalizacion;esCaracteristicaE-IDe">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personalizacion;Personalidad"/>
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esCaracteristicaJ-CDe -->
+
+    <owl:ObjectProperty rdf:about="&personalizacion;esCaracteristicaJ-CDe">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personalizacion;Personalidad"/>
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esCaracteristicaP-TDe -->
+
+    <owl:ObjectProperty rdf:about="&personalizacion;esCaracteristicaP-TDe">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personalizacion;Personalidad"/>
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#esCaracteristicaS-NDe -->
+
+    <owl:ObjectProperty rdf:about="&personalizacion;esCaracteristicaS-NDe">
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personalizacion;Personalidad"/>
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneCaracteristica -->
+
+    <owl:ObjectProperty rdf:about="&personalizacion;tieneCaracteristica">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personalizacion;Personalidad"/>
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneCaracteristicaE-I -->
+
+    <owl:ObjectProperty rdf:about="&personalizacion;tieneCaracteristicaE-I">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personalizacion;Personalidad"/>
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneCaracteristicaJ-C -->
+
+    <owl:ObjectProperty rdf:about="&personalizacion;tieneCaracteristicaJ-C">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personalizacion;Personalidad"/>
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneCaracteristicaP-T -->
+
+    <owl:ObjectProperty rdf:about="&personalizacion;tieneCaracteristicaP-T">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personalizacion;Personalidad"/>
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#tieneCaracteristicaS-N -->
+
+    <owl:ObjectProperty rdf:about="&personalizacion;tieneCaracteristicaS-N">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&personalizacion;Personalidad"/>
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#endsAt -->
+
+    <owl:ObjectProperty rdf:about="&geografica;endsAt"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#locatedAt -->
+
+    <owl:ObjectProperty rdf:about="&geografica;locatedAt"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#seMueveEn -->
+
+    <owl:ObjectProperty rdf:about="&geografica;seMueveEn">
+        <rdfs:domain rdf:resource="&Servicios;MedioDeTransporte"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#startsAt -->
+
+    <owl:ObjectProperty rdf:about="&geografica;startsAt"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/codeps/owl/price.owl#hasPrice -->
+
+    <owl:ObjectProperty rdf:about="&price;hasPrice">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Servicios;Producto"/>
+                    <rdf:Description rdf:about="&Servicios;Servicio"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/codeps/owl/price.owl#isPriceOf -->
+
+    <owl:ObjectProperty rdf:about="&price;isPriceOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ofreceProducto -->
+
+    <owl:ObjectProperty rdf:about="&Servicios;ofreceProducto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#SeComponeDe -->
+
+    <owl:ObjectProperty rdf:about="#SeComponeDe">
+        <rdfs:domain rdf:resource="#CaminoPeregrinacion"/>
+        <rdfs:range rdf:resource="#Etapa"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#caminoRecorridoPor -->
+
+    <owl:ObjectProperty rdf:about="#caminoRecorridoPor">
+        <rdfs:domain rdf:resource="#CaminoPeregrinacion"/>
+        <rdfs:range rdf:resource="#Peregrino"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#componeCamino -->
+
+    <owl:ObjectProperty rdf:about="#componeCamino">
+        <rdfs:range rdf:resource="#CaminoPeregrinacion"/>
+        <rdfs:domain rdf:resource="#Etapa"/>
+        <owl:inverseOf rdf:resource="#SeComponeDe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#construidoEn -->
+
+    <owl:ObjectProperty rdf:about="#construidoEn">
+        <rdfs:domain rdf:resource="&Arquitectura;Construccion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#dataDe -->
+
+    <owl:ObjectProperty rdf:about="#dataDe">
+        <rdfs:range rdf:resource="&time-basic;TemporalThing"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esArquitectoDe -->
+
+    <owl:ObjectProperty rdf:about="#esArquitectoDe">
+        <rdfs:range rdf:resource="&Arquitectura;Construccion"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Persona"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esDeInteresEnEtapa -->
+
+    <owl:ObjectProperty rdf:about="#esDeInteresEnEtapa">
+        <rdfs:range rdf:resource="#Etapa"/>
+        <owl:inverseOf rdf:resource="#tieneIntersante"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&geografica;Fenomeno"/>
+                    <rdf:Description rdf:about="&Servicios;AreaDeInteres"/>
+                    <rdf:Description rdf:about="&OntologyArte;ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esHorarioDe -->
+
+    <owl:ObjectProperty rdf:about="#esHorarioDe">
+        <rdfs:domain rdf:resource="&time-basic;TemporalThing"/>
+        <rdfs:range rdf:resource="&Servicios;ProveedorServicio"/>
+        <owl:inverseOf rdf:resource="#tieneHorario"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esLenguaDe -->
+
+    <owl:ObjectProperty rdf:about="#esLenguaDe">
+        <rdfs:range rdf:resource="&geografica;LimiteAdministrativo"/>
+        <rdfs:domain rdf:resource="&languagecode;Language"/>
+        <owl:inverseOf rdf:resource="#tieneLengua"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esLugarDeEvento -->
+
+    <owl:ObjectProperty rdf:about="#esLugarDeEvento">
+        <rdfs:range rdf:resource="#EventoSocial"/>
+        <owl:inverseOf rdf:resource="#ocurreEn"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ogc-gml;Point"/>
+                    <rdf:Description rdf:about="&Arquitectura;Construccion"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esMotivoPeregrinacionDe -->
+
+    <owl:ObjectProperty rdf:about="#esMotivoPeregrinacionDe">
+        <rdfs:domain rdf:resource="&personalizacion;MotivoPeregrinacion"/>
+        <rdfs:range rdf:resource="&PersonasArte;Persona"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esOrganizadorDe -->
+
+    <owl:ObjectProperty rdf:about="#esOrganizadorDe">
+        <rdfs:range rdf:resource="#EventoSocial"/>
+        <owl:inverseOf rdf:resource="#tieneOrganizador"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Servicios;ProveedorServicio"/>
+                    <rdf:Description rdf:about="&foaf;Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esParaMedioTransporte -->
+
+    <owl:ObjectProperty rdf:about="#esParaMedioTransporte">
+        <rdfs:domain rdf:resource="#Equipamiento"/>
+        <rdfs:range rdf:resource="#MedioTransporteParaElCamino"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esPersonalidadDe -->
+
+    <owl:ObjectProperty rdf:about="#esPersonalidadDe">
+        <rdfs:domain rdf:resource="&personalizacion;Personalidad"/>
+        <rdfs:range rdf:resource="&PersonasArte;Persona"/>
+        <owl:inverseOf rdf:resource="#tienePersonalidad"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esPrecioAlojamientoDe -->
+
+    <owl:ObjectProperty rdf:about="#esPrecioAlojamientoDe">
+        <rdfs:subPropertyOf rdf:resource="&price;isPriceOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esPrecioAlquilerDe -->
+
+    <owl:ObjectProperty rdf:about="#esPrecioAlquilerDe">
+        <rdfs:subPropertyOf rdf:resource="&price;isPriceOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esPrecioMenuDe -->
+
+    <owl:ObjectProperty rdf:about="#esPrecioMenuDe">
+        <rdfs:subPropertyOf rdf:resource="&price;isPriceOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esPrecioOcupanteDe -->
+
+    <owl:ObjectProperty rdf:about="#esPrecioOcupanteDe">
+        <rdfs:subPropertyOf rdf:resource="&price;isPriceOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esPreferenciaDe -->
+
+    <owl:ObjectProperty rdf:about="#esPreferenciaDe">
+        <rdfs:domain rdf:resource="&personalizacion;Preferencia"/>
+        <rdfs:range rdf:resource="&PersonasArte;Persona"/>
+        <owl:inverseOf rdf:resource="#tienePreferencia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esSatisfechaPor -->
+
+    <owl:ObjectProperty rdf:about="#esSatisfechaPor">
+        <rdfs:domain rdf:resource="&personalizacion;Preferencia"/>
+        <rdfs:range rdf:resource="&Servicios;ProveedorServicio"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esServicioNecesitadoPor -->
+
+    <owl:ObjectProperty rdf:about="#esServicioNecesitadoPor">
+        <rdfs:domain rdf:resource="&Servicios;Servicio"/>
+        <owl:inverseOf rdf:resource="#necesitaServicio"/>
+        <rdfs:range rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#expone -->
+
+    <owl:ObjectProperty rdf:about="#expone">
+        <rdfs:domain rdf:resource="&Arquitectura;Construccion"/>
+        <rdfs:range rdf:resource="&OntologyArte;ObraDeArte"/>
+        <owl:inverseOf rdf:resource="#seExponeEn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#fechaDeConstruccionDe -->
+
+    <owl:ObjectProperty rdf:about="#fechaDeConstruccionDe">
+        <rdfs:range rdf:resource="&Arquitectura;Construccion"/>
+        <owl:inverseOf rdf:resource="#construidoEn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#fechaDeRealizacionDe -->
+
+    <owl:ObjectProperty rdf:about="#fechaDeRealizacionDe">
+        <rdfs:domain rdf:resource="&time-basic;TemporalThing"/>
+        <owl:inverseOf rdf:resource="#dataDe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#medidoEn -->
+
+    <owl:ObjectProperty rdf:about="#medidoEn">
+        <rdfs:domain rdf:resource="#RelacionDistancia"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:oneOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&units;meter"/>
+                    <rdf:Description rdf:about="&units;milli_meter"/>
+                    <rdf:Description rdf:about="&units;kilo_meter"/>
+                </owl:oneOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#necesitaServicio -->
+
+    <owl:ObjectProperty rdf:about="#necesitaServicio">
+        <rdfs:range rdf:resource="&Servicios;Servicio"/>
+        <rdfs:domain rdf:resource="&foaf;Agent"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#nodoDistancia -->
+
+    <owl:ObjectProperty rdf:about="#nodoDistancia">
+        <rdfs:range rdf:resource="&geografica;FenomenoGeografico"/>
+        <rdfs:domain rdf:resource="#RelacionDistancia"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#ocurreEn -->
+
+    <owl:ObjectProperty rdf:about="#ocurreEn">
+        <rdfs:range rdf:resource="&time-basic;Event"/>
+        <rdfs:domain rdf:resource="#EventoSocial"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#orientadoAPublico -->
+
+    <owl:ObjectProperty rdf:about="#orientadoAPublico">
+        <rdfs:domain rdf:resource="#EventoSocial"/>
+        <rdfs:range rdf:resource="#Publico"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#pasaPor -->
+
+    <owl:ObjectProperty rdf:about="#pasaPor">
+        <rdfs:range rdf:resource="&geografica;LimiteAdministrativo"/>
+        <rdfs:domain rdf:resource="#CaminoPeregrinacion"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#precedeA -->
+
+    <owl:ObjectProperty rdf:about="#precedeA">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="#Etapa"/>
+        <rdfs:range rdf:resource="#Etapa"/>
+        <owl:inverseOf rdf:resource="#sigueA"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#precedeADirectamente -->
+
+    <owl:ObjectProperty rdf:about="#precedeADirectamente">
+        <rdfs:range rdf:resource="#Etapa"/>
+        <rdfs:domain rdf:resource="#Etapa"/>
+        <rdfs:subPropertyOf rdf:resource="#precedeA"/>
+        <owl:inverseOf rdf:resource="#sigueADirectamente"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#publicoObjetivoDe -->
+
+    <owl:ObjectProperty rdf:about="#publicoObjetivoDe">
+        <rdfs:range rdf:resource="#EventoSocial"/>
+        <rdfs:domain rdf:resource="#Publico"/>
+        <owl:inverseOf rdf:resource="#orientadoAPublico"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#recorreCamino -->
+
+    <owl:ObjectProperty rdf:about="#recorreCamino">
+        <rdfs:range rdf:resource="#CaminoPeregrinacion"/>
+        <rdfs:domain rdf:resource="#Peregrino"/>
+        <owl:inverseOf rdf:resource="#caminoRecorridoPor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#satisface -->
+
+    <owl:ObjectProperty rdf:about="#satisface">
+        <rdfs:range rdf:resource="&personalizacion;Preferencia"/>
+        <rdfs:domain rdf:resource="&Servicios;ProveedorServicio"/>
+        <owl:inverseOf rdf:resource="#esSatisfechaPor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#seExponeEn -->
+
+    <owl:ObjectProperty rdf:about="#seExponeEn">
+        <rdfs:range rdf:resource="&Arquitectura;Construccion"/>
+        <rdfs:domain rdf:resource="&OntologyArte;ObraDeArte"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#seRepresentaEn -->
+
+    <owl:ObjectProperty rdf:about="#seRepresentaEn">
+        <rdfs:range rdf:resource="&Servicios;Espectaculo"/>
+        <rdfs:domain rdf:resource="&OntologyArte;ObraEscenica"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#servicioCercanoAEtapa -->
+
+    <owl:ObjectProperty rdf:about="#servicioCercanoAEtapa">
+        <rdfs:domain rdf:resource="&Servicios;ProveedorServicio"/>
+        <rdfs:range rdf:resource="#Etapa"/>
+        <owl:inverseOf rdf:resource="#tieneServicioCercano"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#sigueA -->
+
+    <owl:ObjectProperty rdf:about="#sigueA">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:domain rdf:resource="#Etapa"/>
+        <rdfs:range rdf:resource="#Etapa"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#sigueADirectamente -->
+
+    <owl:ObjectProperty rdf:about="#sigueADirectamente">
+        <rdfs:range rdf:resource="#Etapa"/>
+        <rdfs:domain rdf:resource="#Etapa"/>
+        <rdfs:subPropertyOf rdf:resource="#sigueA"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneArquitecto -->
+
+    <owl:ObjectProperty rdf:about="#tieneArquitecto">
+        <rdfs:domain rdf:resource="&Arquitectura;Construccion"/>
+        <rdfs:range rdf:resource="&PersonasArte;Persona"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneCompanniaRecomendada -->
+
+    <owl:ObjectProperty rdf:about="#tieneCompanniaRecomendada">
+        <rdfs:range rdf:resource="&personalizacion;PreferenciaCompannia"/>
+        <rdfs:domain rdf:resource="#MedioTransporteParaElCamino"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneEquipamiento -->
+
+    <owl:ObjectProperty rdf:about="#tieneEquipamiento">
+        <rdfs:range rdf:resource="#Equipamiento"/>
+        <rdfs:domain rdf:resource="#MedioTransporteParaElCamino"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneFinEtapa -->
+
+    <owl:ObjectProperty rdf:about="#tieneFinEtapa">
+        <rdfs:comment xml:lang="es"
+            >Indica el final de una ruta, tramo o segmento.</rdfs:comment>
+        <rdfs:range rdf:resource="&geografica;LimiteAdministrativo"/>
+        <rdfs:subPropertyOf rdf:resource="&geografica;endsAt"/>
+        <rdfs:domain rdf:resource="#Etapa"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneHorario -->
+
+    <owl:ObjectProperty rdf:about="#tieneHorario">
+        <rdfs:range rdf:resource="&time-basic;TemporalThing"/>
+        <rdfs:domain rdf:resource="&Servicios;ProveedorServicio"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneIntersante -->
+
+    <owl:ObjectProperty rdf:about="#tieneIntersante">
+        <rdfs:domain rdf:resource="#Etapa"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&geografica;Fenomeno"/>
+                    <rdf:Description rdf:about="&Servicios;AreaDeInteres"/>
+                    <rdf:Description rdf:about="&OntologyArte;ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneLengua -->
+
+    <owl:ObjectProperty rdf:about="#tieneLengua">
+        <rdfs:domain rdf:resource="&geografica;LimiteAdministrativo"/>
+        <rdfs:range rdf:resource="&languagecode;Language"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneLugarEn -->
+
+    <owl:ObjectProperty rdf:about="#tieneLugarEn">
+        <rdfs:domain rdf:resource="#EventoSocial"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ogc-gml;Point"/>
+                    <rdf:Description rdf:about="&Arquitectura;Construccion"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneMedioTransporteRecomendado -->
+
+    <owl:ObjectProperty rdf:about="#tieneMedioTransporteRecomendado">
+        <rdfs:domain rdf:resource="&personalizacion;PreferenciaCompannia"/>
+        <rdfs:range rdf:resource="#MedioTransporteParaElCamino"/>
+        <owl:inverseOf rdf:resource="#tieneCompanniaRecomendada"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneMotivoPeregrinacion -->
+
+    <owl:ObjectProperty rdf:about="#tieneMotivoPeregrinacion">
+        <rdfs:range rdf:resource="&personalizacion;MotivoPeregrinacion"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Persona"/>
+        <owl:inverseOf rdf:resource="#esMotivoPeregrinacionDe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneOrganizador -->
+
+    <owl:ObjectProperty rdf:about="#tieneOrganizador">
+        <rdfs:domain rdf:resource="#EventoSocial"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Servicios;ProveedorServicio"/>
+                    <rdf:Description rdf:about="&foaf;Person"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneOrigenEtapa -->
+
+    <owl:ObjectProperty rdf:about="#tieneOrigenEtapa">
+        <rdfs:comment xml:lang="es"
+            >Indica el inicio de una ruta, tramo o segmento.</rdfs:comment>
+        <rdfs:range rdf:resource="&geografica;LimiteAdministrativo"/>
+        <rdfs:subPropertyOf rdf:resource="&geografica;startsAt"/>
+        <rdfs:domain rdf:resource="#Etapa"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tienePersonalidad -->
+
+    <owl:ObjectProperty rdf:about="#tienePersonalidad">
+        <rdfs:range rdf:resource="&personalizacion;Personalidad"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Persona"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tienePrecioAlojamiento -->
+
+    <owl:ObjectProperty rdf:about="#tienePrecioAlojamiento">
+        <rdfs:subPropertyOf rdf:resource="&price;hasPrice"/>
+        <rdfs:domain rdf:resource="&Servicios;ProveedorServicioAlojamiento"/>
+        <owl:inverseOf rdf:resource="#esPrecioAlojamientoDe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tienePrecioAlquiler -->
+
+    <owl:ObjectProperty rdf:about="#tienePrecioAlquiler">
+        <rdfs:subPropertyOf rdf:resource="&price;hasPrice"/>
+        <owl:inverseOf rdf:resource="#esPrecioAlquilerDe"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Servicios;Producto"/>
+                    <rdf:Description rdf:about="&Servicios;ProveedorServicio"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tienePrecioMenu -->
+
+    <owl:ObjectProperty rdf:about="#tienePrecioMenu">
+        <rdfs:subPropertyOf rdf:resource="&price;hasPrice"/>
+        <owl:inverseOf rdf:resource="#esPrecioMenuDe"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Servicios;Bar"/>
+                    <rdf:Description rdf:about="&Servicios;CasaDeComidas"/>
+                    <rdf:Description rdf:about="&Servicios;Restaurante"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tienePrecioOcupante -->
+
+    <owl:ObjectProperty rdf:about="#tienePrecioOcupante">
+        <rdfs:subPropertyOf rdf:resource="&price;hasPrice"/>
+        <rdfs:domain rdf:resource="&Servicios;ServicioDeTransporte"/>
+        <owl:inverseOf rdf:resource="#esPrecioOcupanteDe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tienePreferencia -->
+
+    <owl:ObjectProperty rdf:about="#tienePreferencia">
+        <rdfs:range rdf:resource="&personalizacion;Preferencia"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Persona"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tieneServicioCercano -->
+
+    <owl:ObjectProperty rdf:about="#tieneServicioCercano">
+        <rdfs:range rdf:resource="&Servicios;ProveedorServicio"/>
+        <rdfs:domain rdf:resource="#Etapa"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#distancia -->
+
+    <owl:DatatypeProperty rdf:about="#distancia">
+        <rdfs:domain rdf:resource="#RelacionDistancia"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esAnnoXacobeo -->
+
+    <owl:DatatypeProperty rdf:about="#esAnnoXacobeo">
+        <rdfs:domain rdf:resource="&OntologyEstilos;Anno"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#Event -->
+
+    <owl:Class rdf:about="&time-basic;Event"/>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#Instant -->
+
+    <owl:Class rdf:about="&time-basic;Instant">
+        <owl:equivalentClass rdf:resource="&ogc-gml;TimeInstant"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#Interval -->
+
+    <owl:Class rdf:about="&time-basic;Interval">
+        <owl:equivalentClass rdf:resource="&ogc-gml;TimePeriod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://daml.umbc.edu/ontologies/cobra/0.4/time-basic#TemporalThing -->
+
+    <owl:Class rdf:about="&time-basic;TemporalThing"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#MotivoPeregrinacion -->
+
+    <owl:Class rdf:about="&personalizacion;MotivoPeregrinacion"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#Personalidad -->
+
+    <owl:Class rdf:about="&personalizacion;Personalidad"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#Preferencia -->
+
+    <owl:Class rdf:about="&personalizacion;Preferencia"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#PreferenciaCompannia -->
+
+    <owl:Class rdf:about="&personalizacion;PreferenciaCompannia"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Agua -->
+
+    <owl:Class rdf:about="&geografica;Agua"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Aire -->
+
+    <owl:Class rdf:about="&geografica;Aire"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Camino -->
+
+    <owl:Class rdf:about="&geografica;Camino"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Fenomeno -->
+
+    <owl:Class rdf:about="&geografica;Fenomeno"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#FenomenoArtificial -->
+
+    <owl:Class rdf:about="&geografica;FenomenoArtificial"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#FenomenoGeografico -->
+
+    <owl:Class rdf:about="&geografica;FenomenoGeografico"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#LimiteAdministrativo -->
+
+    <owl:Class rdf:about="&geografica;LimiteAdministrativo"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#LocalizedObject -->
+
+    <owl:Class rdf:about="&geografica;LocalizedObject">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geografica;locatedAt"/>
+                <owl:someValuesFrom rdf:resource="&ogc-gml;Point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Tierra -->
+
+    <owl:Class rdf:about="&geografica;Tierra"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Point -->
+
+    <owl:Class rdf:about="&ogc-gml;Point"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimeInstant -->
+
+    <owl:Class rdf:about="&ogc-gml;TimeInstant"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#TimePeriod -->
+
+    <owl:Class rdf:about="&ogc-gml;TimePeriod"/>
+    
+
+
+    <!-- http://www.fao.org/aims/aos/languagecode.owl#Language -->
+
+    <owl:Class rdf:about="&languagecode;Language"/>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/codeps/owl/price.owl#Price -->
+
+    <owl:Class rdf:about="&price;Price"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Construccion -->
+
+    <owl:Class rdf:about="&Arquitectura;Construccion">
+        <rdfs:subClassOf rdf:resource="&geografica;FenomenoArtificial"/>
+        <rdfs:subClassOf rdf:resource="&geografica;LocalizedObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#ElementoArquitectonico -->
+
+    <owl:Class rdf:about="&Arquitectura;ElementoArquitectonico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Hotel -->
+
+    <owl:Class rdf:about="&Arquitectura;Hotel">
+        <rdfs:subClassOf rdf:resource="&Arquitectura;Construccion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/0/Arquitectura.owl#Pinacoteca -->
+
+    <owl:Class rdf:about="&Arquitectura;Pinacoteca">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Arquitectura;Construccion"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#expone"/>
+                        <owl:someValuesFrom rdf:resource="&OntologyArte;ObraDeArteDePintura"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#ObjetoDeArte -->
+
+    <owl:Class rdf:about="&ObjetoArte;ObjetoDeArte">
+        <rdfs:subClassOf rdf:resource="&geografica;LocalizedObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#AreaDeInteres -->
+
+    <owl:Class rdf:about="&Servicios;AreaDeInteres"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Bar -->
+
+    <owl:Class rdf:about="&Servicios;Bar"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#CasaDeComidas -->
+
+    <owl:Class rdf:about="&Servicios;CasaDeComidas"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Espectaculo -->
+
+    <owl:Class rdf:about="&Servicios;Espectaculo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Hotel -->
+
+    <owl:Class rdf:about="&Servicios;Hotel">
+        <rdfs:subClassOf rdf:resource="&Servicios;ProveedorServicioAlojamiento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#MedioDeTransporte -->
+
+    <owl:Class rdf:about="&Servicios;MedioDeTransporte"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#MedioDeTransporteAcuatico -->
+
+    <owl:Class rdf:about="&Servicios;MedioDeTransporteAcuatico">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geografica;seMueveEn"/>
+                <owl:someValuesFrom rdf:resource="&geografica;Agua"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#MedioDeTransporteAereo -->
+
+    <owl:Class rdf:about="&Servicios;MedioDeTransporteAereo">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geografica;seMueveEn"/>
+                <owl:someValuesFrom rdf:resource="&geografica;Aire"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#MedioDeTransporteTerrestre -->
+
+    <owl:Class rdf:about="&Servicios;MedioDeTransporteTerrestre">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&geografica;seMueveEn"/>
+                <owl:someValuesFrom rdf:resource="&geografica;Tierra"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Producto -->
+
+    <owl:Class rdf:about="&Servicios;Producto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicio -->
+
+    <owl:Class rdf:about="&Servicios;ProveedorServicio">
+        <rdfs:subClassOf rdf:resource="&geografica;LocalizedObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioAlojamiento -->
+
+    <owl:Class rdf:about="&Servicios;ProveedorServicioAlojamiento"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioTransporte -->
+
+    <owl:Class rdf:about="&Servicios;ProveedorServicioTransporte"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ProveedorServicioTransporteAlquiler -->
+
+    <owl:Class rdf:about="&Servicios;ProveedorServicioTransporteAlquiler">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Servicios;ProveedorServicioTransporte"/>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#tienePrecioAlquiler"/>
+                                        <owl:someValuesFrom rdf:resource="&price;Price"/>
+                                    </owl:Restriction>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#tienePrecioAlquiler"/>
+                                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="&Servicios;ofreceProducto"/>
+                                <owl:someValuesFrom>
+                                    <owl:Class>
+                                        <owl:intersectionOf rdf:parseType="Collection">
+                                            <rdf:Description rdf:about="&Servicios;Producto"/>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#tienePrecioAlquiler"/>
+                                                <owl:someValuesFrom rdf:resource="&price;Price"/>
+                                            </owl:Restriction>
+                                            <owl:Restriction>
+                                                <owl:onProperty rdf:resource="#tienePrecioAlquiler"/>
+                                                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                                            </owl:Restriction>
+                                        </owl:intersectionOf>
+                                    </owl:Class>
+                                </owl:someValuesFrom>
+                            </owl:Restriction>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Restaurante -->
+
+    <owl:Class rdf:about="&Servicios;Restaurante"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#Servicio -->
+
+    <owl:Class rdf:about="&Servicios;Servicio"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#ServicioDeTransporte -->
+
+    <owl:Class rdf:about="&Servicios;ServicioDeTransporte"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraArquitectonica -->
+
+    <owl:Class rdf:about="&OntologyArte;ObraArquitectonica">
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&Arquitectura;Construccion"/>
+                    <rdf:Description rdf:about="&Arquitectura;ElementoArquitectonico"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraDeArte -->
+
+    <owl:Class rdf:about="&OntologyArte;ObraDeArte">
+        <rdfs:subClassOf rdf:resource="&geografica;LocalizedObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraDeArteDePintura -->
+
+    <owl:Class rdf:about="&OntologyArte;ObraDeArteDePintura"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraEscenica -->
+
+    <owl:Class rdf:about="&OntologyArte;ObraEscenica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Anno -->
+
+    <owl:Class rdf:about="&OntologyEstilos;Anno"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Persona -->
+
+    <owl:Class rdf:about="&PersonasArte;Persona">
+        <owl:equivalentClass rdf:resource="&foaf;Person"/>
+        <rdfs:subClassOf rdf:resource="&geografica;LocalizedObject"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Alimentacion -->
+
+    <owl:Class rdf:about="#Alimentacion">
+        <rdfs:label xml:lang="es">Alimentacion</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Equipamiento"/>
+        <owl:disjointWith rdf:resource="#ElementoBotiquin"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#AlimentacionCaballo -->
+
+    <owl:Class rdf:about="#AlimentacionCaballo">
+        <rdfs:label xml:lang="es"
+            >Alimentaci&#243;n caballo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Alimentacion"/>
+        <rdfs:subClassOf rdf:resource="#EquipamientoParaCaballo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#AlimentacionPersona -->
+
+    <owl:Class rdf:about="#AlimentacionPersona">
+        <rdfs:label xml:lang="es"
+            >Alimentaci&#243;n persona</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Alimentacion"/>
+        <rdfs:subClassOf rdf:resource="#EquipamientoParaPersona"/>
+        <owl:disjointWith rdf:resource="#Calzado"/>
+        <owl:disjointWith rdf:resource="#ElementoBotiquinPersona"/>
+        <owl:disjointWith rdf:resource="#EquipamientoDescanso"/>
+        <owl:disjointWith rdf:resource="#Publicacion"/>
+        <owl:disjointWith rdf:resource="#Ropa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Calcetines -->
+
+    <owl:Class rdf:about="#Calcetines">
+        <rdfs:label xml:lang="es">Calcetines</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ropa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Calzado -->
+
+    <owl:Class rdf:about="#Calzado">
+        <rdfs:label xml:lang="es">Calzado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EquipamientoParaPersona"/>
+        <owl:disjointWith rdf:resource="#ElementoBotiquinPersona"/>
+        <owl:disjointWith rdf:resource="#EquipamientoDescanso"/>
+        <owl:disjointWith rdf:resource="#Publicacion"/>
+        <owl:disjointWith rdf:resource="#Ropa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#CaminoPeregrinacion -->
+
+    <owl:Class rdf:about="#CaminoPeregrinacion">
+        <rdfs:label xml:lang="es"
+            >Camino de peregrinaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&geografica;Camino"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#SeComponeDe"/>
+                        <owl:allValuesFrom rdf:resource="#Etapa"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#SeComponeDe"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Camiseta -->
+
+    <owl:Class rdf:about="#Camiseta">
+        <rdfs:label xml:lang="es">Camiseta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ropa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Concierto -->
+
+    <owl:Class rdf:about="#Concierto">
+        <rdfs:label xml:lang="es">Concierto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EventoSocial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Conferencia -->
+
+    <owl:Class rdf:about="#Conferencia">
+        <rdfs:label xml:lang="es">Conferencia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EventoSocial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Desfile -->
+
+    <owl:Class rdf:about="#Desfile">
+        <rdfs:label xml:lang="es">Desfile</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EventoSocial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#ElementoBotiquin -->
+
+    <owl:Class rdf:about="#ElementoBotiquin">
+        <rdfs:label xml:lang="es"
+            >Elemento botiqu&#237;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Equipamiento"/>
+        <owl:disjointWith rdf:resource="#EquipamientoParaBicicleta"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#ElementoBotiquinCaballo -->
+
+    <owl:Class rdf:about="#ElementoBotiquinCaballo">
+        <rdfs:label xml:lang="es"
+            >Elemento botiqu&#237;n caballo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EquipamientoParaCaballo"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ElementoBotiquin"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#esParaMedioTransporte"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&Servicios;caballo"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#ElementoBotiquinPersona -->
+
+    <owl:Class rdf:about="#ElementoBotiquinPersona">
+        <rdfs:label xml:lang="es"
+            >Elemento botiqu&#237;n persona</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ElementoBotiquin"/>
+        <rdfs:subClassOf rdf:resource="#EquipamientoParaPersona"/>
+        <owl:disjointWith rdf:resource="#EquipamientoDescanso"/>
+        <owl:disjointWith rdf:resource="#Publicacion"/>
+        <owl:disjointWith rdf:resource="#Ropa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Encuentro -->
+
+    <owl:Class rdf:about="#Encuentro">
+        <rdfs:label xml:lang="es">Encuentro</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EventoSocial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Equipamiento -->
+
+    <owl:Class rdf:about="#Equipamiento">
+        <rdfs:label xml:lang="es">Equipamiento</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#EquipamientoDescanso -->
+
+    <owl:Class rdf:about="#EquipamientoDescanso">
+        <rdfs:label xml:lang="es"
+            >Equipamiento descanso</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EquipamientoParaPersona"/>
+        <owl:disjointWith rdf:resource="#Publicacion"/>
+        <owl:disjointWith rdf:resource="#Ropa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#EquipamientoParaBicicleta -->
+
+    <owl:Class rdf:about="#EquipamientoParaBicicleta">
+        <rdfs:label xml:lang="es"
+            >Equipamiento para bicicleta</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Equipamiento"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#esParaMedioTransporte"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&Servicios;bicicleta"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="#EquipamientoParaCaballo"/>
+        <owl:disjointWith rdf:resource="#EquipamientoParaPersona"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#EquipamientoParaCaballo -->
+
+    <owl:Class rdf:about="#EquipamientoParaCaballo">
+        <rdfs:label xml:lang="es"
+            >Equipamiento para caballo</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Equipamiento"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#esParaMedioTransporte"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:oneOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="&Servicios;caballo"/>
+                                </owl:oneOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#EquipamientoParaPersona -->
+
+    <owl:Class rdf:about="#EquipamientoParaPersona">
+        <rdfs:label xml:lang="es"
+            >Equipamiento para persona</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Equipamiento"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Etapa -->
+
+    <owl:Class rdf:about="#Etapa">
+        <rdfs:label xml:lang="es">Etapa</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#tieneFinEtapa"/>
+                        <owl:allValuesFrom rdf:resource="&geografica;LimiteAdministrativo"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#tieneOrigenEtapa"/>
+                        <owl:allValuesFrom rdf:resource="&geografica;LimiteAdministrativo"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#tieneFinEtapa"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#tieneOrigenEtapa"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#componeCamino"/>
+                        <owl:allValuesFrom rdf:resource="#CaminoPeregrinacion"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#componeCamino"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#EventoEducativo -->
+
+    <owl:Class rdf:about="#EventoEducativo">
+        <rdfs:label xml:lang="es"
+            >Evento educativo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EventoSocial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#EventoReligioso -->
+
+    <owl:Class rdf:about="#EventoReligioso">
+        <rdfs:label xml:lang="es"
+            >Evento religioso</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EventoSocial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#EventoSocial -->
+
+    <owl:Class rdf:about="#EventoSocial">
+        <rdfs:label xml:lang="es">Evento</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Exposicion -->
+
+    <owl:Class rdf:about="#Exposicion">
+        <rdfs:label xml:lang="es">Exposici&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EventoSocial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Guia -->
+
+    <owl:Class rdf:about="#Guia">
+        <rdfs:label xml:lang="es">Gu&#237;a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Publicacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Libro -->
+
+    <owl:Class rdf:about="#Libro">
+        <rdfs:label xml:lang="es">Libro</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Publicacion"/>
+        <owl:disjointWith rdf:resource="#Revista"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#MedioTransporteParaElCamino -->
+
+    <owl:Class rdf:about="#MedioTransporteParaElCamino"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Muestra -->
+
+    <owl:Class rdf:about="#Muestra">
+        <rdfs:label xml:lang="es">Muestra</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EventoSocial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Pantalon -->
+
+    <owl:Class rdf:about="#Pantalon">
+        <rdfs:label xml:lang="es">Pantal&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ropa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#PaseCinematografico -->
+
+    <owl:Class rdf:about="#PaseCinematografico">
+        <rdfs:label xml:lang="es"
+            >Pase cinematogr&#225;fico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EventoSocial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Peregrino -->
+
+    <owl:Class rdf:about="#Peregrino">
+        <rdfs:label xml:lang="en">Pilgrim</rdfs:label>
+        <rdfs:label xml:lang="es">Peregrino</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#recorreCamino"/>
+                        <owl:someValuesFrom rdf:resource="#CaminoPeregrinacion"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#recorreCamino"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&PersonasArte;Persona"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#tieneMotivoPeregrinacion"/>
+                        <owl:allValuesFrom rdf:resource="&personalizacion;MotivoPeregrinacion"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#tieneMotivoPeregrinacion"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#ProductoAseo -->
+
+    <owl:Class rdf:about="#ProductoAseo">
+        <rdfs:label xml:lang="es">Producto aseo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EquipamientoParaPersona"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Publicacion -->
+
+    <owl:Class rdf:about="#Publicacion">
+        <rdfs:label xml:lang="es">Publicaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EquipamientoParaPersona"/>
+        <rdfs:subClassOf rdf:resource="&wordnet;Document"/>
+        <owl:disjointWith rdf:resource="#Ropa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Publico -->
+
+    <owl:Class rdf:about="#Publico">
+        <rdfs:label xml:lang="es">Publico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#RelacionDistancia -->
+
+    <owl:Class rdf:about="#RelacionDistancia">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#nodoDistancia"/>
+                        <owl:allValuesFrom rdf:resource="&geografica;FenomenoGeografico"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#nodoDistancia"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment xml:lang="es"
+            >Adapataci&#243;n del patr&#243;n N-ary que sirve para representar la distancia entre dos fen&#243;menos geogr&#225;ficos.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#RepresentacionTeatral -->
+
+    <owl:Class rdf:about="#RepresentacionTeatral">
+        <rdfs:label xml:lang="es"
+            >Representaci&#243;n teatral</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EventoSocial"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Revista -->
+
+    <owl:Class rdf:about="#Revista">
+        <rdfs:label xml:lang="es">Revista</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Publicacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Ropa -->
+
+    <owl:Class rdf:about="#Ropa">
+        <rdfs:label xml:lang="es">Ropa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EquipamientoParaPersona"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#Utensilios -->
+
+    <owl:Class rdf:about="#Utensilios">
+        <rdfs:label xml:lang="es">Utensilios</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#EquipamientoParaPersona"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Agent -->
+
+    <owl:Class rdf:about="&foaf;Agent"/>
+    
+
+
+    <!-- http://xmlns.com/foaf/0.1/Person -->
+
+    <owl:Class rdf:about="&foaf;Person">
+        <rdfs:subClassOf rdf:resource="&foaf;Agent"/>
+    </owl:Class>
+    
+
+
+    <!-- http://xmlns.com/wordnet/1.6/Document -->
+
+    <owl:Class rdf:about="&wordnet;Document"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#enGrupo -->
+
+    <rdf:Description rdf:about="&personalizacion;enGrupo"/>
+    
+
+
+    <!-- http://delicias.dia.fi.upm.es/personalizacion.owl#solo -->
+
+    <rdf:Description rdf:about="&personalizacion;solo"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#kilo_meter -->
+
+    <rdf:Description rdf:about="&units;kilo_meter"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#meter -->
+
+    <rdf:Description rdf:about="&units;meter"/>
+    
+
+
+    <!-- http://sweet.jpl.nasa.gov/ontology/units.owl#milli_meter -->
+
+    <rdf:Description rdf:about="&units;milli_meter"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#aPie -->
+
+    <MedioTransporteParaElCamino rdf:about="&Servicios;aPie">
+        <tieneCompanniaRecomendada rdf:resource="&personalizacion;solo"/>
+    </MedioTransporteParaElCamino>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#bicicleta -->
+
+    <MedioTransporteParaElCamino rdf:about="&Servicios;bicicleta">
+        <tieneCompanniaRecomendada rdf:resource="&personalizacion;enGrupo"/>
+    </MedioTransporteParaElCamino>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#caballo -->
+
+    <MedioTransporteParaElCamino rdf:about="&Servicios;caballo">
+        <tieneCompanniaRecomendada rdf:resource="&personalizacion;enGrupo"/>
+    </MedioTransporteParaElCamino>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#D.N.I -->
+
+    <Utensilios rdf:about="#D.N.I"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#abrelatas -->
+
+    <Utensilios rdf:about="#abrelatas"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#adulto -->
+
+    <Publico rdf:about="#adulto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#aguja -->
+
+    <ElementoBotiquinPersona rdf:about="#aguja"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#alforjas -->
+
+    <EquipamientoParaBicicleta rdf:about="#alforjas"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#balsamoBebe -->
+
+    <ElementoBotiquinPersona rdf:about="#balsamoBebe"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#boligrafo -->
+
+    <Utensilios rdf:about="#boligrafo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#botas -->
+
+    <Calzado rdf:about="#botas"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#botellaAgua -->
+
+    <AlimentacionPersona rdf:about="#botellaAgua"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#botellinDeAgua -->
+
+    <EquipamientoParaBicicleta rdf:about="#botellinDeAgua"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#cabezadaCompleta -->
+
+    <EquipamientoParaCaballo rdf:about="#cabezadaCompleta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#calcetinesFinos -->
+
+    <Calcetines rdf:about="#calcetinesFinos"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#calcetinesGruesos -->
+
+    <Calcetines rdf:about="#calcetinesGruesos"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#camaraBicicleta -->
+
+    <EquipamientoParaBicicleta rdf:about="#camaraBicicleta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#caminoSantiagoEstudio -->
+
+    <Libro rdf:about="#caminoSantiagoEstudio"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#caminoSantiagoGuiaPeregrino -->
+
+    <Guia rdf:about="#caminoSantiagoGuiaPeregrino"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#camisetaMangaCorta -->
+
+    <Camiseta rdf:about="#camisetaMangaCorta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#camisetaMangaLarga -->
+
+    <Camiseta rdf:about="#camisetaMangaLarga"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#candado -->
+
+    <EquipamientoParaBicicleta rdf:about="#candado"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#capaParaLluvia -->
+
+    <Ropa rdf:about="#capaParaLluvia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#cartillaSeguroEnfermedad -->
+
+    <Utensilios rdf:about="#cartillaSeguroEnfermedad"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#casco -->
+
+    <EquipamientoParaBicicleta rdf:about="#casco"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#cepilloDedientes -->
+
+    <ProductoAseo rdf:about="#cepilloDedientes"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#cerillas -->
+
+    <Utensilios rdf:about="#cerillas"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#chancletas -->
+
+    <Calzado rdf:about="#chancletas"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#chubasquero -->
+
+    <Ropa rdf:about="#chubasquero"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#cincha -->
+
+    <EquipamientoParaCaballo rdf:about="#cincha"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#codexCalixtinus -->
+
+    <Libro rdf:about="#codexCalixtinus"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#conchaDePeregrino -->
+
+    <Utensilios rdf:about="#conchaDePeregrino"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#cremaSaltatros -->
+
+    <ElementoBotiquinPersona rdf:about="#cremaSaltatros"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#cuaderno -->
+
+    <Utensilios rdf:about="#cuaderno"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#cubiertaBicicleta -->
+
+    <EquipamientoParaBicicleta rdf:about="#cubiertaBicicleta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#cucharilla -->
+
+    <Utensilios rdf:about="#cucharilla"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#culote -->
+
+    <EquipamientoParaBicicleta rdf:about="#culote"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#dineroEnEfectivo -->
+
+    <Utensilios rdf:about="#dineroEnEfectivo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esparadrapo -->
+
+    <ElementoBotiquinPersona rdf:about="#esparadrapo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#espuelas -->
+
+    <EquipamientoParaCaballo rdf:about="#espuelas"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#esterilla -->
+
+    <EquipamientoDescanso rdf:about="#esterilla"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#estribo -->
+
+    <EquipamientoParaCaballo rdf:about="#estribo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#filete -->
+
+    <EquipamientoParaCaballo rdf:about="#filete"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#fusta -->
+
+    <EquipamientoParaCaballo rdf:about="#fusta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#gafas -->
+
+    <EquipamientoParaBicicleta rdf:about="#gafas"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#gasa -->
+
+    <ElementoBotiquinPersona rdf:about="#gasa"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#gorra -->
+
+    <EquipamientoParaBicicleta rdf:about="#gorra"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#guantes -->
+
+    <EquipamientoParaBicicleta rdf:about="#guantes"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#guindaleta -->
+
+    <EquipamientoParaCaballo rdf:about="#guindaleta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#hilo -->
+
+    <ElementoBotiquinPersona rdf:about="#hilo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#infantil -->
+
+    <Publico rdf:about="#infantil"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#jabonDeLavarLaRopa -->
+
+    <ProductoAseo rdf:about="#jabonDeLavarLaRopa"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#jabonDeTocador -->
+
+    <ProductoAseo rdf:about="#jabonDeTocador"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#joven -->
+
+    <Publico rdf:about="#joven"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#kleenex -->
+
+    <ProductoAseo rdf:about="#kleenex"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#linterna -->
+
+    <Utensilios rdf:about="#linterna"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#maillot -->
+
+    <EquipamientoParaBicicleta rdf:about="#maillot"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#mochilaAnatomica -->
+
+    <Utensilios rdf:about="#mochilaAnatomica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#montura -->
+
+    <EquipamientoParaCaballo rdf:about="#montura"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#navaja -->
+
+    <Utensilios rdf:about="#navaja"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#nikiMangaCorta -->
+
+    <Camiseta rdf:about="#nikiMangaCorta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#nikiMangaLarga -->
+
+    <Camiseta rdf:about="#nikiMangaLarga"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#pantalonCorto -->
+
+    <Pantalon rdf:about="#pantalonCorto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#pantalonDeChubasquero -->
+
+    <Pantalon rdf:about="#pantalonDeChubasquero"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#pantalonDeDeporte -->
+
+    <Pantalon rdf:about="#pantalonDeDeporte"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#pantalonLargo -->
+
+    <Pantalon rdf:about="#pantalonLargo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#papelHigienico -->
+
+    <ProductoAseo rdf:about="#papelHigienico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#parches -->
+
+    <EquipamientoParaBicicleta rdf:about="#parches"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#pastaDeDientes -->
+
+    <ProductoAseo rdf:about="#pastaDeDientes"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#peine -->
+
+    <ProductoAseo rdf:about="#peine"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#personasMayores -->
+
+    <Publico rdf:about="#personasMayores"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#piensos -->
+
+    <AlimentacionCaballo rdf:about="#piensos"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#pinzarDeTenderLaRopa -->
+
+    <Utensilios rdf:about="#pinzarDeTenderLaRopa"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#protectorSolar -->
+
+    <ProductoAseo rdf:about="#protectorSolar"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#sacoDormir -->
+
+    <EquipamientoDescanso rdf:about="#sacoDormir"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#seguroDelCaballo -->
+
+    <EquipamientoParaCaballo rdf:about="#seguroDelCaballo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#sombrero -->
+
+    <Utensilios rdf:about="#sombrero"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tarjetaDeCredito -->
+
+    <Utensilios rdf:about="#tarjetaDeCredito"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#tijeras -->
+
+    <ElementoBotiquinPersona rdf:about="#tijeras"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#toallaPeque&#241;a -->
+
+    <ProductoAseo rdf:about="#toallaPeque&#241;a"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#vaselina -->
+
+    <ElementoBotiquinPersona rdf:about="#vaselina"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#vasoDePlastico -->
+
+    <Utensilios rdf:about="#vasoDePlastico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#vieira -->
+
+    <Utensilios rdf:about="#vieira"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/7/CaminoDeSantiago.owl#zapatilas -->
+
+    <Calzado rdf:about="#zapatilas"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+

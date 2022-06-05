@@ -1,0 +1,2343 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ObjetoArte "http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#" >
+    <!ENTITY PersonasArte "http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#" >
+    <!ENTITY OntologyArte "http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#" >
+    <!ENTITY OntologyArt "http://www.semanticweb.org/ontologies/2007/10/OntologyArt.owl#" >
+    <!ENTITY TemaArtistico "http://www.semanticweb.org/ontologies/2008/3/TemaArtistico.owl#" >
+    <!ENTITY OntologyEstilos "http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#" >
+    <!ENTITY OntologyBuilding "http://www.semanticweb.org/ontologies/2008/03/OntologyBuilding.owl#" >
+    <!ENTITY OntologyMaterial "http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#" >
+    <!ENTITY TecnicasArtisticas "http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#" >
+    <!ENTITY DisciplinasArtisticas "http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:TemaArtistico="http://www.semanticweb.org/ontologies/2008/3/TemaArtistico.owl#"
+     xmlns:OntologyArt="http://www.semanticweb.org/ontologies/2007/10/OntologyArt.owl#"
+     xmlns:OntologyMaterial="http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#"
+     xmlns:OntologyBuilding="http://www.semanticweb.org/ontologies/2008/03/OntologyBuilding.owl#"
+     xmlns:TecnicasArtisticas="http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#"
+     xmlns:OntologyArte="http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#"
+     xmlns:DisciplinasArtisticas="http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:PersonasArte="http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:ObjetoArte="http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:OntologyEstilos="http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#">
+    <owl:Ontology rdf:about="">
+        <dc:creator rdf:datatype="&xsd;string">Maria Poveda</dc:creator>
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl"/>
+        <owl:imports rdf:resource="http://www.semanticweb.org/ontologies/2008/3/TemaArtistico.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#actuaEnObra -->
+
+    <owl:ObjectProperty rdf:about="#actuaEnObra">
+        <rdfs:subPropertyOf rdf:resource="#participaEn"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Actor"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Cine"/>
+                    <rdf:Description rdf:about="#Teatro"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#baila -->
+
+    <owl:ObjectProperty rdf:about="#baila">
+        <rdfs:range rdf:resource="#Danza"/>
+        <rdfs:subPropertyOf rdf:resource="#participaEn"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Bailarin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#dirigidaPor -->
+
+    <owl:ObjectProperty rdf:about="#dirigidaPor">
+        <owl:inverseOf rdf:resource="#esDirectorDe"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneParticipacionDe"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DirectorDeTeatro"/>
+                    <rdf:Description rdf:about="&PersonasArte;DirectorDeCine"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Cine"/>
+                    <rdf:Description rdf:about="#Teatro"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#esAutorDe -->
+
+    <owl:ObjectProperty rdf:about="#esAutorDe">
+        <rdfs:range rdf:resource="#ObraDeArte"/>
+        <rdfs:subPropertyOf rdf:resource="#participaEn"/>
+        <owl:inverseOf rdf:resource="#tieneAutor"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Artista"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#esBailadaPor -->
+
+    <owl:ObjectProperty rdf:about="#esBailadaPor">
+        <rdfs:domain rdf:resource="#Danza"/>
+        <owl:inverseOf rdf:resource="#baila"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneParticipacionDe"/>
+        <rdfs:range rdf:resource="&PersonasArte;Bailarin"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#esDeEstilo -->
+
+    <owl:ObjectProperty rdf:about="#esDeEstilo">
+        <rdfs:range rdf:resource="&OntologyEstilos;Estilo"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#esDirectorDe -->
+
+    <owl:ObjectProperty rdf:about="#esDirectorDe">
+        <rdfs:subPropertyOf rdf:resource="#participaEn"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Cine"/>
+                    <rdf:Description rdf:about="#Teatro"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#DirectorDeTeatro"/>
+                    <rdf:Description rdf:about="&PersonasArte;DirectorDeCine"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#esDisciplinaDe -->
+
+    <owl:ObjectProperty rdf:about="#esDisciplinaDe">
+        <rdfs:domain rdf:resource="&DisciplinasArtisticas;DisciplinaArtistica"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#esEstiloDe -->
+
+    <owl:ObjectProperty rdf:about="#esEstiloDe">
+        <owl:inverseOf rdf:resource="#esDeEstilo"/>
+        <rdfs:domain rdf:resource="&OntologyEstilos;Estilo"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#esGeneroDe -->
+
+    <owl:ObjectProperty rdf:about="#esGeneroDe">
+        <rdfs:domain rdf:resource="&TemaArtistico;TemaArtistico"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#esGeneroLiterarioDe -->
+
+    <owl:ObjectProperty rdf:about="#esGeneroLiterarioDe">
+        <rdfs:domain rdf:resource="&DisciplinasArtisticas;GeneroLiterario"/>
+        <rdfs:range rdf:resource="#ObraLiteraria"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#esInterpretadaPor -->
+
+    <owl:ObjectProperty rdf:about="#esInterpretadaPor">
+        <rdfs:domain rdf:resource="#Musica"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneParticipacionDe"/>
+        <rdfs:range rdf:resource="&PersonasArte;Musico"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#esTecnicaDe -->
+
+    <owl:ObjectProperty rdf:about="#esTecnicaDe">
+        <rdfs:domain rdf:resource="&TecnicasArtisticas;TecnicaArtistica"/>
+        <owl:inverseOf rdf:resource="#hechoConTecnica"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#escritoPor -->
+
+    <owl:ObjectProperty rdf:about="#escritoPor">
+        <rdfs:domain rdf:resource="#ObraLiteraria"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneParticipacionDe"/>
+        <rdfs:range rdf:resource="&PersonasArte;Escritor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#hechoConTecnica -->
+
+    <owl:ObjectProperty rdf:about="#hechoConTecnica">
+        <rdfs:range rdf:resource="&TecnicasArtisticas;TecnicaArtistica"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#hechoDe -->
+
+    <owl:ObjectProperty rdf:about="#hechoDe">
+        <rdfs:range rdf:resource="&OntologyMaterial;Material"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ilustraTexto -->
+
+    <owl:ObjectProperty rdf:about="#ilustraTexto">
+        <rdfs:domain rdf:resource="#Ilustracion"/>
+        <rdfs:range rdf:resource="#ObraLiteraria"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#participaEn -->
+
+    <owl:ObjectProperty rdf:about="#participaEn">
+        <rdfs:range rdf:resource="#ObraDeArte"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Artista"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#perteneceADisciplina -->
+
+    <owl:ObjectProperty rdf:about="#perteneceADisciplina">
+        <rdfs:range rdf:resource="&DisciplinasArtisticas;DisciplinaArtistica"/>
+        <owl:inverseOf rdf:resource="#esDisciplinaDe"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#perteneceAGeneroLiterario -->
+
+    <owl:ObjectProperty rdf:about="#perteneceAGeneroLiterario">
+        <rdfs:range rdf:resource="&DisciplinasArtisticas;GeneroLiterario"/>
+        <rdfs:domain rdf:resource="#ObraLiteraria"/>
+        <owl:inverseOf rdf:resource="#esGeneroLiterarioDe"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#perteneceAPeriodo -->
+
+    <owl:ObjectProperty rdf:about="#perteneceAPeriodo">
+        <rdfs:range rdf:resource="&OntologyEstilos;Periodo"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#produceArtesanalmente -->
+
+    <owl:ObjectProperty rdf:about="#produceArtesanalmente">
+        <rdfs:range rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <owl:inverseOf rdf:resource="#producidoArtesanalmentePor"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Artesano"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#producidoArtesanalmentePor -->
+
+    <owl:ObjectProperty rdf:about="#producidoArtesanalmentePor">
+        <rdfs:domain rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:range rdf:resource="&PersonasArte;Artesano"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#seUtilizaEn -->
+
+    <owl:ObjectProperty rdf:about="#seUtilizaEn">
+        <rdfs:domain rdf:resource="&OntologyMaterial;Material"/>
+        <owl:inverseOf rdf:resource="#hechoDe"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#tieneActuacionDe -->
+
+    <owl:ObjectProperty rdf:about="#tieneActuacionDe">
+        <owl:inverseOf rdf:resource="#actuaEnObra"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneParticipacionDe"/>
+        <rdfs:range rdf:resource="&PersonasArte;Actor"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Cine"/>
+                    <rdf:Description rdf:about="#Teatro"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#tieneAutor -->
+
+    <owl:ObjectProperty rdf:about="#tieneAutor">
+        <rdfs:domain rdf:resource="#ObraDeArte"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneParticipacionDe"/>
+        <rdfs:range rdf:resource="&PersonasArte;Artista"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#tieneGenero -->
+
+    <owl:ObjectProperty rdf:about="#tieneGenero">
+        <owl:inverseOf rdf:resource="#esGeneroDe"/>
+        <rdfs:range rdf:resource="&TemaArtistico;TemaArtistico"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&ObjetoArte;ObjetoDeArte"/>
+                    <rdf:Description rdf:about="#ObraDeArte"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#tieneParticipacionDe -->
+
+    <owl:ObjectProperty rdf:about="#tieneParticipacionDe">
+        <rdfs:domain rdf:resource="#ObraDeArte"/>
+        <owl:inverseOf rdf:resource="#participaEn"/>
+        <rdfs:range rdf:resource="&PersonasArte;Artista"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#trabajaEl -->
+
+    <owl:ObjectProperty rdf:about="#trabajaEl">
+        <rdfs:range rdf:resource="&OntologyMaterial;Material"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Artesano"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#trabajadoPor -->
+
+    <owl:ObjectProperty rdf:about="#trabajadoPor">
+        <rdfs:domain rdf:resource="&OntologyMaterial;Material"/>
+        <owl:inverseOf rdf:resource="#trabajaEl"/>
+        <rdfs:range rdf:resource="&PersonasArte;Artesano"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#esProductorDe -->
+
+    <owl:ObjectProperty rdf:about="&PersonasArte;esProductorDe">
+        <rdfs:range rdf:resource="#ObraEscenica"/>
+        <rdfs:subPropertyOf rdf:resource="#participaEn"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Productor"/>
+        <owl:inverseOf rdf:resource="&PersonasArte;tieneProductor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#haEscrito -->
+
+    <owl:ObjectProperty rdf:about="&PersonasArte;haEscrito">
+        <rdfs:range rdf:resource="#ObraLiteraria"/>
+        <rdfs:subPropertyOf rdf:resource="#participaEn"/>
+        <rdfs:domain rdf:resource="&PersonasArte;Escritor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#interpreta -->
+
+    <owl:ObjectProperty rdf:about="&PersonasArte;interpreta">
+        <rdfs:range rdf:resource="#Musica"/>
+        <rdfs:subPropertyOf rdf:resource="#participaEn"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#tieneProductor -->
+
+    <owl:ObjectProperty rdf:about="&PersonasArte;tieneProductor">
+        <rdfs:domain rdf:resource="#ObraEscenica"/>
+        <rdfs:subPropertyOf rdf:resource="#tieneParticipacionDe"/>
+        <rdfs:range rdf:resource="&PersonasArte;Productor"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#nombre -->
+
+    <owl:DatatypeProperty rdf:about="#nombre">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#tieneDuracion -->
+
+    <owl:DatatypeProperty rdf:about="#tieneDuracion">
+        <rdfs:domain rdf:resource="#ObraEscenica"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#tieneNombre -->
+
+    <owl:DatatypeProperty rdf:about="#tieneNombre">
+        <rdfs:domain rdf:resource="#ObraDeArte"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#Ceramica -->
+
+    <owl:Class rdf:about="&ObjetoArte;Ceramica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#ObjetoDeArte -->
+
+    <owl:Class rdf:about="&ObjetoArte;ObjetoDeArte">
+        <owl:disjointWith rdf:resource="&OntologyMaterial;Material"/>
+        <owl:disjointWith rdf:resource="&TecnicasArtisticas;TecnicaArtistica"/>
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;BellasArtes"/>
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;DisciplinaArtistica"/>
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;GeneroLiterario"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Anno"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Estilo"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Periodo"/>
+        <owl:disjointWith rdf:resource="&PersonasArte;Persona"/>
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#Barro -->
+
+    <owl:Class rdf:about="&OntologyMaterial;Barro"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#Material -->
+
+    <owl:Class rdf:about="&OntologyMaterial;Material">
+        <owl:disjointWith rdf:resource="&TecnicasArtisticas;TecnicaArtistica"/>
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;BellasArtes"/>
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;DisciplinaArtistica"/>
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;GeneroLiterario"/>
+        <owl:disjointWith rdf:resource="#ObraDeArte"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Anno"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Estilo"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Periodo"/>
+        <owl:disjointWith rdf:resource="&PersonasArte;Persona"/>
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#Metal -->
+
+    <owl:Class rdf:about="&OntologyMaterial;Metal"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#MetalPrecioso -->
+
+    <owl:Class rdf:about="&OntologyMaterial;MetalPrecioso"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#TecnicaArtistica -->
+
+    <owl:Class rdf:about="&TecnicasArtisticas;TecnicaArtistica">
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;BellasArtes"/>
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;DisciplinaArtistica"/>
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;GeneroLiterario"/>
+        <owl:disjointWith rdf:resource="#ObraDeArte"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Anno"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Estilo"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Periodo"/>
+        <owl:disjointWith rdf:resource="&PersonasArte;Persona"/>
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/TecnicasArtisticas.owl#TecnicaDePintura -->
+
+    <owl:Class rdf:about="&TecnicasArtisticas;TecnicaDePintura"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#BellasArtes -->
+
+    <owl:Class rdf:about="&DisciplinasArtisticas;BellasArtes">
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;GeneroLiterario"/>
+        <owl:disjointWith rdf:resource="#ObraDeArte"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Anno"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Estilo"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Periodo"/>
+        <owl:disjointWith rdf:resource="&PersonasArte;Persona"/>
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#DisciplinaArtistica -->
+
+    <owl:Class rdf:about="&DisciplinasArtisticas;DisciplinaArtistica">
+        <owl:disjointWith rdf:resource="&DisciplinasArtisticas;GeneroLiterario"/>
+        <owl:disjointWith rdf:resource="#ObraDeArte"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Anno"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Estilo"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Periodo"/>
+        <owl:disjointWith rdf:resource="&PersonasArte;Persona"/>
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#GeneroLiterario -->
+
+    <owl:Class rdf:about="&DisciplinasArtisticas;GeneroLiterario">
+        <owl:disjointWith rdf:resource="#ObraDeArte"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Anno"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Estilo"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Periodo"/>
+        <owl:disjointWith rdf:resource="&PersonasArte;Persona"/>
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#AltoRelieve -->
+
+    <owl:Class rdf:about="#AltoRelieve">
+        <rdfs:label xml:lang="es">Alto relieve</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeRelieve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Arquitecto -->
+
+    <owl:Class rdf:about="#Arquitecto">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#ObraArquitectonica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&PersonasArte;Artista"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#BajoRelieve -->
+
+    <owl:Class rdf:about="#BajoRelieve">
+        <rdfs:label xml:lang="es">Bajo relieve</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeRelieve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Busto -->
+
+    <owl:Class rdf:about="#Busto">
+        <rdfs:label xml:lang="es">Busto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeBultoRedondo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Cancion -->
+
+    <owl:Class rdf:about="#Cancion">
+        <rdfs:label xml:lang="es">Canci&#243;n</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;cancion"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Lirica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#CatacumbaCristiana -->
+
+    <owl:Class rdf:about="#CatacumbaCristiana">
+        <rdfs:label xml:lang="es"
+            >Catatumba cristiana</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Cine -->
+
+    <owl:Class rdf:about="#Cine">
+        <rdfs:label xml:lang="es">Cine</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;cine"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraEscenica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Comedia -->
+
+    <owl:Class rdf:about="#Comedia">
+        <rdfs:label xml:lang="es">Comedia</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;comedia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Dramatica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Cortometraje -->
+
+    <owl:Class rdf:about="#Cortometraje">
+        <rdfs:label xml:lang="es">Cortometraje</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cine"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >La duraci&#243;n de los cortometrajes va desde menos de un minuto hasta los 30 minutos.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Critica -->
+
+    <owl:Class rdf:about="#Critica">
+        <rdfs:label xml:lang="es">Cr&#237;tica</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;critica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Didactica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Cuadro -->
+
+    <owl:Class rdf:about="#Cuadro">
+        <rdfs:label xml:lang="es">Cuadro</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Cuento -->
+
+    <owl:Class rdf:about="#Cuento">
+        <rdfs:label xml:lang="es">Cuento</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;cuento"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Epica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Danza -->
+
+    <owl:Class rdf:about="#Danza">
+        <rdfs:label xml:lang="es">Danza</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;danza"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraEscenica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#DeBultoRedondo -->
+
+    <owl:Class rdf:about="#DeBultoRedondo">
+        <rdfs:label xml:lang="es"
+            >De bulto redondo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Estatuaria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#DeRelieve -->
+
+    <owl:Class rdf:about="#DeRelieve">
+        <rdfs:label xml:lang="es">De relieve</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Estatuaria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Dibujo -->
+
+    <owl:Class rdf:about="#Dibujo">
+        <rdfs:label xml:lang="es">Dibujo</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;dibujo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraVisualTradicional"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Didactica -->
+
+    <owl:Class rdf:about="#Didactica">
+        <rdfs:label xml:lang="es">Did&#225;ctica</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;didactico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraLiteraria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#DirectorDeTeatro -->
+
+    <owl:Class rdf:about="#DirectorDeTeatro">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esDirectorDe"/>
+                <owl:someValuesFrom rdf:resource="#Teatro"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&PersonasArte;Artista"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Drama -->
+
+    <owl:Class rdf:about="#Drama">
+        <rdfs:label xml:lang="es">Drama</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;drama"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Dramatica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Dramatica -->
+
+    <owl:Class rdf:about="#Dramatica">
+        <rdfs:label xml:lang="es">Dram&#225;tica</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;dramatico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraLiteraria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Egloga -->
+
+    <owl:Class rdf:about="#Egloga">
+        <rdfs:label xml:lang="es">&#201;gloga</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;egloga"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Lirica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Elegia -->
+
+    <owl:Class rdf:about="#Elegia">
+        <rdfs:label xml:lang="es">Eleg&#237;a</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;elegia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Lirica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Ensayo -->
+
+    <owl:Class rdf:about="#Ensayo">
+        <rdfs:label xml:lang="es">Ensayo</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;ensayo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Didactica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Epica -->
+
+    <owl:Class rdf:about="#Epica">
+        <rdfs:label xml:lang="es">&#201;pica</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;epico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraLiteraria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Epistola -->
+
+    <owl:Class rdf:about="#Epistola">
+        <rdfs:label xml:lang="es">Ep&#237;stola</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;epistola"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Didactica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Epopeya -->
+
+    <owl:Class rdf:about="#Epopeya">
+        <rdfs:label xml:lang="es">Epopeya</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;epopeya"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Epica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Escultura -->
+
+    <owl:Class rdf:about="#Escultura">
+        <rdfs:label xml:lang="es">Escultura</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;escultura"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraVisualTradicional"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Estampa -->
+
+    <owl:Class rdf:about="#Estampa">
+        <rdfs:label xml:lang="es">Estampa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Estatuaria -->
+
+    <owl:Class rdf:about="#Estatuaria">
+        <rdfs:label xml:lang="es">Estatuaria</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Escultura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Fabula -->
+
+    <owl:Class rdf:about="#Fabula">
+        <rdfs:label xml:lang="es">F&#225;bula</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;fabula"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Didactica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Fotografia -->
+
+    <owl:Class rdf:about="#Fotografia">
+        <rdfs:label xml:lang="es">Fotograf&#237;a</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;fotografia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraVisualNoTradicional"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Fresco -->
+
+    <owl:Class rdf:about="#Fresco">
+        <rdfs:label xml:lang="es">Fresco</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Grabado -->
+
+    <owl:Class rdf:about="#Grabado">
+        <rdfs:label xml:lang="es">Grabado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Estampa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Gravura -->
+
+    <owl:Class rdf:about="#Gravura">
+        <rdfs:label xml:lang="es">Gravura</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Estampa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Guionista -->
+
+    <owl:Class rdf:about="#Guionista">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PersonasArte;haEscrito"/>
+                <owl:someValuesFrom rdf:resource="#Cine"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&PersonasArte;Artista"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Historieta -->
+
+    <owl:Class rdf:about="#Historieta">
+        <rdfs:label xml:lang="es">Historieta</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;historieta"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraVisualNoTradicional"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#HuecoRelieve -->
+
+    <owl:Class rdf:about="#HuecoRelieve">
+        <rdfs:label xml:lang="es">Hueco relieve</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeRelieve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Icono -->
+
+    <owl:Class rdf:about="#Icono">
+        <rdfs:label xml:lang="es">Icono</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Ilustracion -->
+
+    <owl:Class rdf:about="#Ilustracion">
+        <rdfs:label xml:lang="es">Ilustraci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Largometraje -->
+
+    <owl:Class rdf:about="#Largometraje">
+        <rdfs:label xml:lang="es">Largometraje</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cine"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >La duraci&#243;n de los largometrajes es mayor que 60 minutos.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Lirica -->
+
+    <owl:Class rdf:about="#Lirica">
+        <rdfs:label xml:lang="es">L&#237;rica</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;lirico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraLiteraria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#MedioCuerpo -->
+
+    <owl:Class rdf:about="#MedioCuerpo">
+        <rdfs:label xml:lang="es">Medio cuerpo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeBultoRedondo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#MedioRelieve -->
+
+    <owl:Class rdf:about="#MedioRelieve">
+        <rdfs:label xml:lang="es">Medio relieve</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeRelieve"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Mediometraje -->
+
+    <owl:Class rdf:about="#Mediometraje">
+        <rdfs:label xml:lang="es">Mediometraje</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cine"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >La duraci&#243;n de los medio metrajes va desde los 30 a los 60 minutos.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Miniatura -->
+
+    <owl:Class rdf:about="#Miniatura">
+        <rdfs:label xml:lang="es">Miniatura</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Mosaico -->
+
+    <owl:Class rdf:about="#Mosaico">
+        <rdfs:label xml:lang="es">Mosaico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Mural -->
+
+    <owl:Class rdf:about="#Mural">
+        <rdfs:label xml:lang="es">Mural</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Musica -->
+
+    <owl:Class rdf:about="#Musica">
+        <rdfs:label xml:lang="es">M&#250;sica</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;musica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraEscenica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Novela -->
+
+    <owl:Class rdf:about="#Novela">
+        <rdfs:label xml:lang="es">Novela</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;novela"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Epica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraArquitectonica -->
+
+    <owl:Class rdf:about="#ObraArquitectonica">
+        <rdfs:label xml:lang="es"
+            >Obra arquitect&#243;nica</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;arquitectura"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esDeEstilo"/>
+                <owl:someValuesFrom rdf:resource="&OntologyEstilos;EstiloArquitectonico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraDeArte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraDeArte -->
+
+    <owl:Class rdf:about="#ObraDeArte">
+        <rdfs:label xml:lang="es">Obra de arte</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esDeEstilo"/>
+                <owl:someValuesFrom rdf:resource="&OntologyEstilos;Estilo"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#tieneAutor"/>
+                <owl:allValuesFrom rdf:resource="&PersonasArte;Artista"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#tieneGenero"/>
+                <owl:someValuesFrom rdf:resource="&TemaArtistico;TemaArtistico"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                        <owl:allValuesFrom rdf:resource="&DisciplinasArtisticas;DisciplinaArtistica"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Anno"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Estilo"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Periodo"/>
+        <owl:disjointWith rdf:resource="&PersonasArte;Persona"/>
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraDeArteDePintura -->
+
+    <owl:Class rdf:about="#ObraDeArteDePintura">
+        <rdfs:label xml:lang="es">Pintura</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;pintura"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraVisualTradicional"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hechoConTecnica"/>
+                <owl:someValuesFrom rdf:resource="&TecnicasArtisticas;TecnicaDePintura"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraEscenica -->
+
+    <owl:Class rdf:about="#ObraEscenica">
+        <rdfs:label xml:lang="es">Obra esc&#233;nica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraLiteraria -->
+
+    <owl:Class rdf:about="#ObraLiteraria">
+        <rdfs:label xml:lang="es">Obra literaria</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;literatura"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraDeArte"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraVisualNoTradicional -->
+
+    <owl:Class rdf:about="#ObraVisualNoTradicional">
+        <rdfs:label xml:lang="es"
+            >Obra visual no tradicional</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Obravisual"/>
+        <owl:disjointWith rdf:resource="#ObraVisualTradicional"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#ObraVisualTradicional -->
+
+    <owl:Class rdf:about="#ObraVisualTradicional">
+        <rdfs:label xml:lang="es"
+            >Obra visual tradicional</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Obravisual"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Obravisual -->
+
+    <owl:Class rdf:about="#Obravisual">
+        <rdfs:label xml:lang="es">Obra visual</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#ObraVisualNoTradicional"/>
+                    <rdf:Description rdf:about="#ObraVisualTradicional"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraDeArte"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hechoDe"/>
+                <owl:someValuesFrom rdf:resource="&OntologyMaterial;Material"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Oda -->
+
+    <owl:Class rdf:about="#Oda">
+        <rdfs:label xml:lang="es">Oda</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;oda"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Lirica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Opera -->
+
+    <owl:Class rdf:about="#Opera">
+        <rdfs:label xml:lang="es">&#211;pera</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;opera"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Dramatica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Oratoria -->
+
+    <owl:Class rdf:about="#Oratoria">
+        <rdfs:label xml:lang="es">Oratoria</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;oratoria"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraLiteraria"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Ornamental -->
+
+    <owl:Class rdf:about="#Ornamental">
+        <rdfs:label xml:lang="es">Ornamental</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Escultura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#PoemaEpico -->
+
+    <owl:Class rdf:about="#PoemaEpico">
+        <rdfs:label xml:lang="es">Poema &#233;pico</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;poemaEpico"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Epica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#RelevoMetal -->
+
+    <owl:Class rdf:about="#RelevoMetal">
+        <rdfs:label xml:lang="es">Relevo metal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Estampa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Retrato -->
+
+    <owl:Class rdf:about="#Retrato">
+        <rdfs:label xml:lang="es">Retrato</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Romance -->
+
+    <owl:Class rdf:about="#Romance">
+        <rdfs:label xml:lang="es">Romance</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;romance"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Epica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Satira -->
+
+    <owl:Class rdf:about="#Satira">
+        <rdfs:label xml:lang="es">S&#225;tira</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;satira"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Lirica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Soneto -->
+
+    <owl:Class rdf:about="#Soneto">
+        <rdfs:label xml:lang="es">Soneto</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;soneto"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Lirica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Teatro -->
+
+    <owl:Class rdf:about="#Teatro">
+        <rdfs:label xml:lang="es">Teatro</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceADisciplina"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;teatro"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#ObraEscenica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Torso -->
+
+    <owl:Class rdf:about="#Torso">
+        <rdfs:label xml:lang="es">Torso</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeBultoRedondo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Tragedia -->
+
+    <owl:Class rdf:about="#Tragedia">
+        <rdfs:label xml:lang="es">Tragedia</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;tragedia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Dramatica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#TresCuartos -->
+
+    <owl:Class rdf:about="#TresCuartos">
+        <rdfs:label xml:lang="es">Tres cuartos</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#DeBultoRedondo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#VasoGriego -->
+
+    <owl:Class rdf:about="#VasoGriego">
+        <rdfs:label xml:lang="es">Vaso griego</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#ObraDeArteDePintura"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#Zarzuela -->
+
+    <owl:Class rdf:about="#Zarzuela">
+        <rdfs:label xml:lang="es">Zarzuela</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#perteneceAGeneroLiterario"/>
+                <owl:hasValue rdf:resource="&DisciplinasArtisticas;zarzuela"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#Dramatica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Anno -->
+
+    <owl:Class rdf:about="&OntologyEstilos;Anno">
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Estilo"/>
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Periodo"/>
+        <owl:disjointWith rdf:resource="&PersonasArte;Persona"/>
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Estilo -->
+
+    <owl:Class rdf:about="&OntologyEstilos;Estilo">
+        <owl:disjointWith rdf:resource="&OntologyEstilos;Periodo"/>
+        <owl:disjointWith rdf:resource="&PersonasArte;Persona"/>
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+        <rdfs:comment xml:lang="es"
+            >Conjunto de caracter&#237;sticas que individualizan la tendencia art&#237;stica de una &#233;poca. RAE</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#EstiloArquitectonico -->
+
+    <owl:Class rdf:about="&OntologyEstilos;EstiloArquitectonico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/OntologyEstilos.owl#Periodo -->
+
+    <owl:Class rdf:about="&OntologyEstilos;Periodo">
+        <owl:disjointWith rdf:resource="&PersonasArte;Persona"/>
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Actor -->
+
+    <owl:Class rdf:about="&PersonasArte;Actor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#actuaEnObra"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#Cine"/>
+                            <rdf:Description rdf:about="#Teatro"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Alfarero -->
+
+    <owl:Class rdf:about="&PersonasArte;Alfarero">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#trabajaEl"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&ObjetoArte;Ceramica"/>
+                            <rdf:Description rdf:about="&OntologyMaterial;Barro"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Artesano -->
+
+    <owl:Class rdf:about="&PersonasArte;Artesano">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#trabajaEl"/>
+                        <owl:someValuesFrom rdf:resource="&OntologyMaterial;Material"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Artista -->
+
+    <owl:Class rdf:about="&PersonasArte;Artista">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&PersonasArte;Persona"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#participaEn"/>
+                        <owl:someValuesFrom rdf:resource="#ObraDeArte"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#ArtistaAnonimo -->
+
+    <owl:Class rdf:about="&PersonasArte;ArtistaAnonimo">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&PersonasArte;Artista"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#nombre"/>
+                        <owl:hasValue></owl:hasValue>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Autor -->
+
+    <owl:Class rdf:about="&PersonasArte;Autor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#ObraDeArte"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Bailarin -->
+
+    <owl:Class rdf:about="&PersonasArte;Bailarin">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#baila"/>
+                <owl:someValuesFrom rdf:resource="#Danza"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Cantante -->
+
+    <owl:Class rdf:about="&PersonasArte;Cantante">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PersonasArte;interpreta"/>
+                <owl:someValuesFrom rdf:resource="#Musica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Ceramista -->
+
+    <owl:Class rdf:about="&PersonasArte;Ceramista">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#trabajaEl"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="&ObjetoArte;Ceramica"/>
+                            <rdf:Description rdf:about="&OntologyMaterial;Barro"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Compositor -->
+
+    <owl:Class rdf:about="&PersonasArte;Compositor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#Musica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Coreografo -->
+
+    <owl:Class rdf:about="&PersonasArte;Coreografo">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#Danza"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Dibujante -->
+
+    <owl:Class rdf:about="&PersonasArte;Dibujante">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#Dibujo"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#DirectorDeCine -->
+
+    <owl:Class rdf:about="&PersonasArte;DirectorDeCine">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esDirectorDe"/>
+                <owl:someValuesFrom rdf:resource="#Cine"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Escritor -->
+
+    <owl:Class rdf:about="&PersonasArte;Escritor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PersonasArte;haEscrito"/>
+                <owl:someValuesFrom rdf:resource="#ObraLiteraria"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Fotografo -->
+
+    <owl:Class rdf:about="&PersonasArte;Fotografo">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#Fotografia"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&PersonasArte;Artista"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Ilustrador -->
+
+    <owl:Class rdf:about="&PersonasArte;Ilustrador">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#Ilustracion"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Metalista -->
+
+    <owl:Class rdf:about="&PersonasArte;Metalista">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#trabajaEl"/>
+                <owl:someValuesFrom rdf:resource="&OntologyMaterial;Metal"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Muralista -->
+
+    <owl:Class rdf:about="&PersonasArte;Muralista">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#Mural"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Musico -->
+
+    <owl:Class rdf:about="&PersonasArte;Musico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Orfebre -->
+
+    <owl:Class rdf:about="&PersonasArte;Orfebre">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#trabajaEl"/>
+                <owl:someValuesFrom rdf:resource="&OntologyMaterial;MetalPrecioso"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Persona -->
+
+    <owl:Class rdf:about="&PersonasArte;Persona">
+        <owl:disjointWith rdf:resource="&TemaArtistico;TemaArtistico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Pintor -->
+
+    <owl:Class rdf:about="&PersonasArte;Pintor">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#ObraDeArteDePintura"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Platero -->
+
+    <owl:Class rdf:about="&PersonasArte;Platero">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#trabajaEl"/>
+                <owl:hasValue rdf:resource="&OntologyMaterial;plata"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&PersonasArte;Orfebre"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Poeta -->
+
+    <owl:Class rdf:about="&PersonasArte;Poeta">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#Lirica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Productor -->
+
+    <owl:Class rdf:about="&PersonasArte;Productor"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#ProductorCinematografico -->
+
+    <owl:Class rdf:about="&PersonasArte;ProductorCinematografico">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PersonasArte;esProductorDe"/>
+                <owl:someValuesFrom rdf:resource="#Cine"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#ProductorDiscografico -->
+
+    <owl:Class rdf:about="&PersonasArte;ProductorDiscografico">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PersonasArte;esProductorDe"/>
+                <owl:someValuesFrom rdf:resource="#Musica"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#ProductorTeatral -->
+
+    <owl:Class rdf:about="&PersonasArte;ProductorTeatral">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&PersonasArte;esProductorDe"/>
+                <owl:someValuesFrom rdf:resource="#Teatro"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&PersonasArte;Productor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/PersonasArte.owl#Retratista -->
+
+    <owl:Class rdf:about="&PersonasArte;Retratista">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#esAutorDe"/>
+                <owl:someValuesFrom rdf:resource="#Retrato"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/TemaArtistico.owl#TemaArtistico -->
+
+    <owl:Class rdf:about="&TemaArtistico;TemaArtistico"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#plata -->
+
+    <rdf:Description rdf:about="&OntologyMaterial;plata"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#arquitectura -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;arquitectura"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#cancion -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;cancion"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#cine -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;cine"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#comedia -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;comedia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#critica -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;critica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#cuento -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;cuento"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#danza -->
+
+    <DisciplinasArtisticas:BellasArtes rdf:about="&DisciplinasArtisticas;danza"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#dibujo -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;dibujo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#didactico -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;didactico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#drama -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;drama"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#dramatico -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;dramatico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#egloga -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;egloga"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#elegia -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;elegia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#ensayo -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;ensayo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#epico -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;epico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#epistola -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;epistola"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#epopeya -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;epopeya"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#escultura -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;escultura"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#fabula -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;fabula"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#fotografia -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;fotografia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#historieta -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;historieta"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#lirico -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;lirico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#literatura -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;literatura"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#musica -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;musica"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#novela -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;novela"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#oda -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;oda"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#opera -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;opera"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#oratoria -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;oratoria"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#pintura -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;pintura"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#poemaEpico -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;poemaEpico"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#romance -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;romance"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#satira -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;satira"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#soneto -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;soneto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#teatro -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;teatro"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#tragedia -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;tragedia"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/3/DisciplinasArtisticas.owl#zarzuela -->
+
+    <rdf:Description rdf:about="&DisciplinasArtisticas;zarzuela"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+

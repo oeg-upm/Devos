@@ -1,0 +1,1598 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY geografica "http://dia.fi.upm.es/geografica.owl#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ogc-gml "http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#" >
+]>
+
+
+<rdf:RDF xmlns="http://dia.fi.upm.es/geografica.owl#"
+     xml:base="http://dia.fi.upm.es/geografica.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:geografica="http://dia.fi.upm.es/geografica.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ogc-gml="http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#">
+    <owl:Ontology rdf:about="">
+        <dc:creator rdf:datatype="&xsd;string">Mar&#237;a Poveda</dc:creator>
+        <rdfs:comment
+            >Ontolog&#237;a de conceptos geogr&#225;ficos para aplicaci&#243;n en el Camino de Santiago.</rdfs:comment>
+        <owl:imports rdf:resource="http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <owl:AnnotationProperty rdf:about="&dc;creator"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#containsMean -->
+
+    <owl:ObjectProperty rdf:about="#containsMean">
+        <rdfs:comment
+            >Indica el contenido principal de un determinado elemento. Por ejemplo, el contenido principal de un r&#237;o o de un mar es agua, el de una carretera es asfalto...</rdfs:comment>
+        <rdfs:range rdf:resource="#MedioNatural"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#endsAt -->
+
+    <owl:ObjectProperty rdf:about="#endsAt">
+        <rdfs:range rdf:resource="#Fenomeno"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#extendsAlong -->
+
+    <owl:ObjectProperty rdf:about="#extendsAlong">
+        <rdfs:comment
+            >Indica la extensi&#243;n de una entidad a lo largo de una superficie geogr&#225;fica.</rdfs:comment>
+        <rdfs:range rdf:resource="&ogc-gml;Surface"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#flowsInto -->
+
+    <owl:ObjectProperty rdf:about="#flowsInto">
+        <rdfs:comment
+            >Indica la desembocadura de un r&#237;o.</rdfs:comment>
+        <rdfs:subPropertyOf rdf:resource="#endsAt"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#has -->
+
+    <owl:ObjectProperty rdf:about="#has">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:comment
+            >Propiedad de posesi&#243;n gen&#233;rica.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#hasGeo -->
+
+    <owl:ObjectProperty rdf:about="#hasGeo">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="#LimiteAdministrativo"/>
+        <rdfs:domain rdf:resource="#LimiteAdministrativo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#hasGeoDirect -->
+
+    <owl:ObjectProperty rdf:about="#hasGeoDirect">
+        <rdfs:domain rdf:resource="#LimiteAdministrativo"/>
+        <rdfs:range rdf:resource="#LimiteAdministrativo"/>
+        <rdfs:subPropertyOf rdf:resource="#hasGeo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#hasSegment -->
+
+    <owl:ObjectProperty rdf:about="#hasSegment">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:comment
+            >Indica los tramos que pertenecen a una determinada entidad.</rdfs:comment>
+        <rdfs:range rdf:resource="#Tramo"/>
+        <rdfs:subPropertyOf rdf:resource="#has"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#isMadeOf -->
+
+    <owl:ObjectProperty rdf:about="#isMadeOf">
+        <rdfs:range rdf:resource="&ogc-gml;_Geometry"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#isNearOf -->
+
+    <owl:ObjectProperty rdf:about="#isNearOf">
+        <rdfs:comment
+            >Propiedad &quot;est&#225; cerca de&quot;.</rdfs:comment>
+        <rdfs:range rdf:resource="#Fenomeno"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#isPartOf -->
+
+    <owl:ObjectProperty rdf:about="#isPartOf">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:comment
+            >Propiedad &quot;parte de&quot; gen&#233;rica.</rdfs:comment>
+        <owl:inverseOf rdf:resource="#has"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#isPartOfGeo -->
+
+    <owl:ObjectProperty rdf:about="#isPartOfGeo">
+        <rdf:type rdf:resource="&owl;TransitiveProperty"/>
+        <rdfs:range rdf:resource="#LimiteAdministrativo"/>
+        <rdfs:domain rdf:resource="#LimiteAdministrativo"/>
+        <owl:inverseOf rdf:resource="#hasGeo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#isPartOfGeoDirect -->
+
+    <owl:ObjectProperty rdf:about="#isPartOfGeoDirect">
+        <rdfs:range rdf:resource="#LimiteAdministrativo"/>
+        <rdfs:domain rdf:resource="#LimiteAdministrativo"/>
+        <owl:inverseOf rdf:resource="#hasGeoDirect"/>
+        <rdfs:subPropertyOf rdf:resource="#isPartOfGeo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#isPassableBy -->
+
+    <owl:ObjectProperty rdf:about="#isPassableBy">
+        <rdfs:comment
+            >Indica por qu&#233; medios de transporte es transitable un tramo o ruta.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#locatedAt -->
+
+    <owl:ObjectProperty rdf:about="#locatedAt">
+        <rdfs:comment
+            >Indica la situaci&#243;n de una entidad en un punto.</rdfs:comment>
+        <rdfs:range rdf:resource="&ogc-gml;Point"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#locatedIn -->
+
+    <owl:ObjectProperty rdf:about="#locatedIn">
+        <rdf:type rdf:resource="&owl;AsymmetricProperty"/>
+        <rdf:type rdf:resource="&owl;IrreflexiveProperty"/>
+        <rdfs:comment
+            >Propiedad de localizaci&#243;n en una entidad geopol&#237;tica. Indica en qu&#233; entidad o entidades geopol&#237;ticas se encuentra un determinado elemento.</rdfs:comment>
+        <rdfs:range rdf:resource="#LimiteAdministrativo"/>
+        <rdfs:subPropertyOf rdf:resource="#isPartOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:complementOf rdf:resource="#LimiteAdministrativo"/>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#passBy -->
+
+    <owl:ObjectProperty rdf:about="#passBy">
+        <rdfs:comment
+            >Propiedad &quot;pasa por&quot;. Es una subpropiedad de &quot;pasa cerca de&quot; empleada especialmente para indicar las zonas geogr&#225;ficas que atraviesa una ruta o tramo.</rdfs:comment>
+        <rdfs:range rdf:resource="#FenomenoGeografico"/>
+        <rdfs:subPropertyOf rdf:resource="#passNearOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Camino"/>
+                    <rdf:Description rdf:about="#Tramo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#passNearOf -->
+
+    <owl:ObjectProperty rdf:about="#passNearOf">
+        <rdfs:comment
+            >Propiedad &quot;pasa cerca de&quot;. Es equivalente a la propiedad &quot;est&#225; cerca de&quot; pero aplicada sobre tramos y rutas.</rdfs:comment>
+        <rdfs:range rdf:resource="#Fenomeno"/>
+        <rdfs:subPropertyOf rdf:resource="#isNearOf"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Camino"/>
+                    <rdf:Description rdf:about="#Tramo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#risesFrom -->
+
+    <owl:ObjectProperty rdf:about="#risesFrom">
+        <rdfs:comment
+            >Indica el nacimiento de un r&#237;o.</rdfs:comment>
+        <rdfs:range rdf:resource="#FenomenoGeografico"/>
+        <rdfs:subPropertyOf rdf:resource="#startsAt"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#seMueveEn -->
+
+    <owl:ObjectProperty rdf:about="#seMueveEn">
+        <rdfs:comment
+            >Indica el entorno en el que se mueve un medio de transporte.</rdfs:comment>
+        <rdfs:range rdf:resource="#MedioNatural"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#startsAt -->
+
+    <owl:ObjectProperty rdf:about="#startsAt">
+        <rdfs:range rdf:resource="#Fenomeno"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#boundedBy -->
+
+    <owl:ObjectProperty rdf:about="&ogc-gml;boundedBy"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#name -->
+
+    <owl:ObjectProperty rdf:about="&ogc-gml;name"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#hasPostalAddress -->
+
+    <owl:DatatypeProperty rdf:about="#hasPostalAddress">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#length -->
+
+    <owl:DatatypeProperty rdf:about="#length">
+        <rdfs:comment
+            >Longitud de una entidad en kil&#243;metros.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#maxVelocity -->
+
+    <owl:DatatypeProperty rdf:about="#maxVelocity">
+        <rdfs:comment
+            >Velocidad m&#225;xima alcanzada en km/h.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#name -->
+
+    <owl:DatatypeProperty rdf:about="#name">
+        <rdfs:comment
+            >El nombre de cualquier entidad.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#numWheels -->
+
+    <owl:DatatypeProperty rdf:about="#numWheels">
+        <rdfs:comment
+            >N&#250;mero de ruedas.</rdfs:comment>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#weight -->
+
+    <owl:DatatypeProperty rdf:about="#weight">
+        <rdfs:comment
+            >Peso de una entidad en kilogramos.</rdfs:comment>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Acantilado -->
+
+    <owl:Class rdf:about="#Acantilado">
+        <rdfs:label xml:lang="en">Cliff</rdfs:label>
+        <rdfs:label xml:lang="es">Acantilado</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >A high, steep to perpendicular slope overlooking a lower area or water body</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#AccidenteNatural -->
+
+    <owl:Class rdf:about="#AccidenteNatural">
+        <rdfs:label xml:lang="en">Natural feature</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Accidente natural</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoGeografico"/>
+        <owl:disjointWith rdf:resource="#FenomenoArtificial"/>
+        <owl:disjointWith rdf:resource="#LimiteAdministrativo"/>
+        <rdfs:comment
+            >A landform comprises a geomorphological unit</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Agua -->
+
+    <owl:Class rdf:about="#Agua">
+        <rdfs:label xml:lang="en">Water</rdfs:label>
+        <rdfs:label xml:lang="es">Agua.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MedioNatural"/>
+        <owl:disjointWith rdf:resource="#Aire"/>
+        <owl:disjointWith rdf:resource="#Tierra"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Aire -->
+
+    <owl:Class rdf:about="#Aire">
+        <rdfs:label xml:lang="en">Air</rdfs:label>
+        <rdfs:label xml:lang="es">Aire</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MedioNatural"/>
+        <owl:disjointWith rdf:resource="#Tierra"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Archipielago -->
+
+    <owl:Class rdf:about="#Archipielago">
+        <rdfs:label xml:lang="en">Archipelago</rdfs:label>
+        <rdfs:label xml:lang="es">Archipi&#233;lago</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >A logical grouping of islands</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Arrecife -->
+
+    <owl:Class rdf:about="#Arrecife">
+        <rdfs:label xml:lang="en">Reef</rdfs:label>
+        <rdfs:label xml:lang="es">Arrecife</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >A reef is a rock, sandbar, or other feature beneath the surface of the water, but shallow enough to be a hazard to ships</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Autopista -->
+
+    <owl:Class rdf:about="#Autopista">
+        <rdfs:label xml:lang="en">Motorway</rdfs:label>
+        <rdfs:label xml:lang="es">Autopista</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Carretera"/>
+        <owl:disjointWith rdf:resource="#Autovia"/>
+        <owl:disjointWith rdf:resource="#CarreteraConvencional"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Autovia -->
+
+    <owl:Class rdf:about="#Autovia">
+        <rdfs:label xml:lang="en">Carriageway</rdfs:label>
+        <rdfs:label xml:lang="es">Autov&#237;a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Carretera"/>
+        <owl:disjointWith rdf:resource="#CarreteraConvencional"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Bahia -->
+
+    <owl:Class rdf:about="#Bahia">
+        <rdfs:label xml:lang="en">Bay</rdfs:label>
+        <rdfs:label xml:lang="es">Bah&#237;a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >An area of water partially enclosed by an indentation of shoreline</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Bosque -->
+
+    <owl:Class rdf:about="#Bosque">
+        <rdfs:label xml:lang="en">Forest</rdfs:label>
+        <rdfs:label xml:lang="es">Bosque</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Vegetacion"/>
+        <rdfs:comment
+            >Land that is covered with trees and shrubs</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Cabo -->
+
+    <owl:Class rdf:about="#Cabo">
+        <rdfs:label xml:lang="en">Cape</rdfs:label>
+        <rdfs:label xml:lang="es">Cabo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Peninsula"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#CadenaMontannosa -->
+
+    <owl:Class rdf:about="#CadenaMontannosa">
+        <rdfs:label xml:lang="en">Mountains</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Cadena monta&#241;osa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Montanna"/>
+        <rdfs:comment
+            >A group of connected mountains</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Camino -->
+
+    <owl:Class rdf:about="#Camino">
+        <rdfs:label xml:lang="en">Way</rdfs:label>
+        <rdfs:label xml:lang="es">Camino</rdfs:label>
+        <rdfs:comment
+            >Una secuencia de tramos transitables por algun medio de transporte.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Canal -->
+
+    <owl:Class rdf:about="#Canal">
+        <rdfs:label xml:lang="en">Channel</rdfs:label>
+        <rdfs:label xml:lang="es">Canal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >A body of water between two landmasses</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#CanalArtificial -->
+
+    <owl:Class rdf:about="#CanalArtificial">
+        <rdfs:label xml:lang="en">Canal</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Canal artificial</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoArtificial"/>
+        <rdfs:comment
+            >An artificially constructed watercourse</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Carretera -->
+
+    <owl:Class rdf:about="#Carretera">
+        <rdfs:label xml:lang="en">Road</rdfs:label>
+        <rdfs:label xml:lang="es">Carretera</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Camino"/>
+        <rdfs:comment
+            >Una carretera es una secuencia de tramos cuyo principal componente es el asfalto. Esta descripci&#243;n no es una equivalencia: existen conjuntos de tramos cuyo principal componente es el asfalto que no son carreteras.</rdfs:comment>
+        <rdfs:comment
+            >Una carretera es una secuencia de tramos transitables en alg&#250;n veh&#237;culo de carretera. Esta descripci&#243;n no es una equivalencia: pueden existir secuencias de tramos transitables en alg&#250;n veh&#237;culo de carretera que no sean una carretera.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#CarreteraConvencional -->
+
+    <owl:Class rdf:about="#CarreteraConvencional">
+        <rdfs:label xml:lang="en">Minor road</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Carretera convencional</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Carretera"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Cascada -->
+
+    <owl:Class rdf:about="#Cascada">
+        <rdfs:label xml:lang="en">Waterfall</rdfs:label>
+        <rdfs:label xml:lang="es">Cascada</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >A vertical or very steep section of a river</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Ciudad -->
+
+    <owl:Class rdf:about="#Ciudad">
+        <rdfs:label xml:lang="en">City</rdfs:label>
+        <rdfs:label xml:lang="es">Ciudad</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#LimiteAdministrativo"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#DistritoPostal"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#Provincia"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:allValuesFrom rdf:resource="#Provincia"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#ComunidadAutonoma"/>
+        <owl:disjointWith rdf:resource="#DistritoPostal"/>
+        <owl:disjointWith rdf:resource="#Pais"/>
+        <owl:disjointWith rdf:resource="#Provincia"/>
+        <rdfs:comment
+            >Una ciudad es un objeto geopol&#237;tico que es parte de una o varias provincias (existen ciudades lim&#237;trofes que se encuentran entre dos provincias) y contiene uno o m&#225;s distritos postales.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Colina -->
+
+    <owl:Class rdf:about="#Colina">
+        <rdfs:label xml:lang="en">Hill</rdfs:label>
+        <rdfs:label xml:lang="es">Colina</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >A small, usually pointed peninsula that often marks the terminus of a landmass</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#ComunidadAutonoma -->
+
+    <owl:Class rdf:about="#ComunidadAutonoma">
+        <rdfs:label xml:lang="en"
+            >Autonomous region</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Comunidad aut&#243;noma</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#LimiteAdministrativo"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#Provincia"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#Pais"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:allValuesFrom rdf:resource="#Pais"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#DistritoPostal"/>
+        <owl:disjointWith rdf:resource="#Pais"/>
+        <owl:disjointWith rdf:resource="#Provincia"/>
+        <rdfs:comment
+            >Comunidad aut&#243;noma es un objeto geopol&#237;tico que es parte de un solo pa&#237;s y tiene una o varias provincias.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Continente -->
+
+    <owl:Class rdf:about="#Continente">
+        <rdfs:label xml:lang="en">Continent</rdfs:label>
+        <rdfs:label xml:lang="es">Continente</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <owl:disjointWith rdf:resource="#Isla"/>
+        <rdfs:comment
+            >Large continuous mass of land on the planet Earth.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Costa -->
+
+    <owl:Class rdf:about="#Costa">
+        <rdfs:label xml:lang="en">Shoreline</rdfs:label>
+        <rdfs:label xml:lang="es">Costa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >The shore of a sea or ocean</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Crater -->
+
+    <owl:Class rdf:about="#Crater">
+        <rdfs:label xml:lang="en">Crater</rdfs:label>
+        <rdfs:label xml:lang="es">Cr&#225;ter</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >A generally circular saucer or bowl-shaped depression caused by 
+volcanic or meteorite explosive action</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Cruce -->
+
+    <owl:Class rdf:about="#Cruce">
+        <rdfs:label xml:lang="en">Crossroads</rdfs:label>
+        <rdfs:label xml:lang="es">Cruce</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#locatedAt"/>
+                        <owl:someValuesFrom rdf:resource="&ogc-gml;Point"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasSegment"/>
+                        <owl:allValuesFrom rdf:resource="#Tramo"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasSegment"/>
+                        <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">2</owl:minCardinality>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#locatedAt"/>
+                        <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment
+            >Es una coleccion de tramos (m&#225;s de 1) que se cortan en un punto.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Cuenca -->
+
+    <owl:Class rdf:about="#Cuenca">
+        <rdfs:label xml:lang="en">Basin</rdfs:label>
+        <rdfs:label xml:lang="es">Cuenca</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >A low-lying area mostly or wholly surrounded by higher ground</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#CuendaDeDrenaje -->
+
+    <owl:Class rdf:about="#CuendaDeDrenaje">
+        <rdfs:label xml:lang="en">Drainage basin</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Cuenca de drenaje</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Cuenca"/>
+        <rdfs:comment
+            >A land region where all surface water drains into one specific water feature</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Cueva -->
+
+    <owl:Class rdf:about="#Cueva">
+        <rdfs:label xml:lang="en">Cave</rdfs:label>
+        <rdfs:label xml:lang="es">Cueva</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >An underground enclosure with access from the surface of the ground or from the sea</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Desierto -->
+
+    <owl:Class rdf:about="#Desierto">
+        <rdfs:label xml:lang="en">Desert</rdfs:label>
+        <rdfs:label xml:lang="es">Desierto</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >A large area with low rainfall and little or no vegetation</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#DistritoPostal -->
+
+    <owl:Class rdf:about="#DistritoPostal">
+        <rdfs:label xml:lang="en">Postal district</rdfs:label>
+        <rdfs:label xml:lang="es">Distrito postal</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#LimiteAdministrativo"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#Ciudad"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:allValuesFrom rdf:resource="#Ciudad"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Pais"/>
+        <owl:disjointWith rdf:resource="#Provincia"/>
+        <rdfs:comment
+            >Un distrito postal es un objeto geopol&#237;tico que forma parte de una y s&#243;lo una ciudad.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Duna -->
+
+    <owl:Class rdf:about="#Duna">
+        <rdfs:label xml:lang="en">Dune</rdfs:label>
+        <rdfs:label xml:lang="es">Duna</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >A wave form, ridge, or star shaped feature composed of sand</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Embalse -->
+
+    <owl:Class rdf:about="#Embalse">
+        <rdfs:label xml:lang="en">Reservoir</rdfs:label>
+        <rdfs:label xml:lang="es">Embalse</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Fenomeno -->
+
+    <owl:Class rdf:about="#Fenomeno">
+        <rdfs:label xml:lang="en">Feature</rdfs:label>
+        <rdfs:label xml:lang="es">Fen&#243;meno</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="&ogc-gml;name"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">0</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#locatedAt"/>
+                <owl:someValuesFrom rdf:resource="&ogc-gml;Point"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Objeto localizable en un mapa.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#FenomenoArtificial -->
+
+    <owl:Class rdf:about="#FenomenoArtificial">
+        <rdfs:label xml:lang="en"
+            >Artificial feature</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Fen&#243;meno artificial</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoGeografico"/>
+        <owl:disjointWith rdf:resource="#LimiteAdministrativo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#FenomenoFisiografico -->
+
+    <owl:Class rdf:about="#FenomenoFisiografico">
+        <rdfs:label xml:lang="en"
+            >Physiographic feature</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Fen&#243;meno fisiogr&#225;fico</rdfs:label>
+        <rdfs:label xml:lang="es">Fen&#243;meno f&#237;sico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AccidenteNatural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#FenomenoGeografico -->
+
+    <owl:Class rdf:about="#FenomenoGeografico">
+        <rdfs:label xml:lang="en"
+            >Geographical feature</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Fen&#243;meno geogr&#225;fico</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Fenomeno"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#extendsAlong"/>
+                        <owl:someValuesFrom rdf:resource="&ogc-gml;Surface"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="&ogc-gml;boundedBy"/>
+                        <owl:someValuesFrom rdf:resource="&ogc-gml;Envelope"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >Un objeto geogr&#225;fico es un objecto localizable (Feature) con una superficie asociada.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#FenomenoHidrografico -->
+
+    <owl:Class rdf:about="#FenomenoHidrografico">
+        <rdfs:label xml:lang="en"
+            >Hydrographical feature</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >Fen&#243;meno hidrogr&#225;fico</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#AccidenteNatural"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#containsMean"/>
+                        <owl:someValuesFrom rdf:resource="#Agua"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#AccidenteNatural"/>
+        <rdfs:comment
+            >A geographic feature that has water on its surface</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#FuenteTermal -->
+
+    <owl:Class rdf:about="#FuenteTermal">
+        <rdfs:label xml:lang="en">Thermal spring</rdfs:label>
+        <rdfs:label xml:lang="es">Fuente termal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Manantial"/>
+        <rdfs:comment
+            >A place where hot water emerges from the ground</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Geiser -->
+
+    <owl:Class rdf:about="#Geiser">
+        <rdfs:label xml:lang="en">Geyser</rdfs:label>
+        <rdfs:label xml:lang="es">G&#233;iser</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FuenteTermal"/>
+        <rdfs:comment
+            >A thermal spring that intermittently shoots water into the air</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Glaciar -->
+
+    <owl:Class rdf:about="#Glaciar">
+        <rdfs:label xml:lang="en">Glacier</rdfs:label>
+        <rdfs:label xml:lang="es">Glaciar</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MasaDeHielo"/>
+        <rdfs:comment
+            >A mass of ice, usually at high latitudes or high elevations, with sufficient thickness to flow away from the source area</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Golfo -->
+
+    <owl:Class rdf:about="#Golfo">
+        <rdfs:label xml:lang="en">Gulf</rdfs:label>
+        <rdfs:label xml:lang="es">Golfo</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FenomenoHidrografico"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#containsMean"/>
+                        <owl:someValuesFrom rdf:resource="#Agua"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Isla -->
+
+    <owl:Class rdf:about="#Isla">
+        <rdfs:label xml:lang="en">Island</rdfs:label>
+        <rdfs:label xml:lang="es">Isla</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >Land mass (smaller than a continent) that is surrounded by water.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Istmo -->
+
+    <owl:Class rdf:about="#Istmo">
+        <rdfs:label xml:lang="en">Isthmus</rdfs:label>
+        <rdfs:label xml:lang="es">Istmo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >A narrow strip of land connecting two larger landmasses and bordered by water on two sides</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Lago -->
+
+    <owl:Class rdf:about="#Lago">
+        <rdfs:label xml:lang="en">Lake</rdfs:label>
+        <rdfs:label xml:lang="es">Lago</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >An inland water body, usually fresh water</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Laguna -->
+
+    <owl:Class rdf:about="#Laguna">
+        <rdfs:label xml:lang="en">Lagoon</rdfs:label>
+        <rdfs:label xml:lang="es">Laguna</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#LimiteAdministrativo -->
+
+    <owl:Class rdf:about="#LimiteAdministrativo">
+        <rdfs:label xml:lang="en"
+            >Administrative area</rdfs:label>
+        <rdfs:label xml:lang="es"
+            >L&#237;mite administrativo</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Ciudad"/>
+                    <rdf:Description rdf:about="#ComunidadAutonoma"/>
+                    <rdf:Description rdf:about="#DistritoPostal"/>
+                    <rdf:Description rdf:about="#Pais"/>
+                    <rdf:Description rdf:about="#Provincia"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#FenomenoGeografico"/>
+        <rdfs:comment
+            >Un objeto geopol&#237;tico es una entidad geogr&#225;fica debida a la intervenci&#243;n humana. S&#243;lo puede ser uno de los siguientes elementos: pa&#237;s, comunidad aut&#243;noma, provincia, ciudad o distrito postal. Adem&#225;s, estos elementos son disjuntos entre s&#237;.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Llanura -->
+
+    <owl:Class rdf:about="#Llanura">
+        <rdfs:label xml:lang="en">Plain</rdfs:label>
+        <rdfs:label xml:lang="es">Llanura</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >An extensive area of comparatively level to gently undulating land, lacking surface irregularities</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Manantial -->
+
+    <owl:Class rdf:about="#Manantial">
+        <rdfs:label xml:lang="en">Spring</rdfs:label>
+        <rdfs:label xml:lang="es">Manantial</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >A place where water emerges from the ground</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Mar -->
+
+    <owl:Class rdf:about="#Mar">
+        <rdfs:label xml:lang="en">Sea</rdfs:label>
+        <rdfs:label xml:lang="es">Mar</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >A large area of salt water</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#MasaDeHielo -->
+
+    <owl:Class rdf:about="#MasaDeHielo">
+        <rdfs:label xml:lang="en">Ice masses</rdfs:label>
+        <rdfs:label xml:lang="es">Masa de hielo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >A large area covered with frozen water</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#MedioNatural -->
+
+    <owl:Class rdf:about="#MedioNatural">
+        <rdfs:label xml:lang="en">Mean</rdfs:label>
+        <rdfs:label xml:lang="es">Medio natural</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Agua"/>
+                    <rdf:Description rdf:about="#Aire"/>
+                    <rdf:Description rdf:about="#Tierra"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+        <rdfs:comment
+            >Diferentes tipos de entornos y elementos naturales: agua, aire, tierra...</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Meseta -->
+
+    <owl:Class rdf:about="#Meseta">
+        <rdfs:label xml:lang="en">Plateau</rdfs:label>
+        <rdfs:label xml:lang="es">Meseta</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >An elevated plain with steep slopes on one or more sides</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Montanna -->
+
+    <owl:Class rdf:about="#Montanna">
+        <rdfs:label xml:lang="en">Mountain</rdfs:label>
+        <rdfs:label xml:lang="es">Monta&#241;a</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >An elevated landform that rises, often steeply, above surrounding land on most sides</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Oasis -->
+
+    <owl:Class rdf:about="#Oasis">
+        <rdfs:label xml:lang="en">Oasis</rdfs:label>
+        <rdfs:label xml:lang="es">Oasis</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >An area in a desert made productive by the availability of water</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Oceano -->
+
+    <owl:Class rdf:about="#Oceano">
+        <rdfs:label xml:lang="en">Ocean</rdfs:label>
+        <rdfs:label xml:lang="es">Oc&#233;ano</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Mar"/>
+        <rdfs:comment
+            >A vast expanse of salt water, one of the major seas covering part of 
+the earth</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Pais -->
+
+    <owl:Class rdf:about="#Pais">
+        <rdfs:label xml:lang="en">Country</rdfs:label>
+        <rdfs:label xml:lang="es">Pa&#237;s</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#LimiteAdministrativo"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#ComunidadAutonoma"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <owl:disjointWith rdf:resource="#Provincia"/>
+        <rdfs:comment
+            >Un pa&#237;s es un conjunto de comunidades aut&#243;nomas.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Parcela -->
+
+    <owl:Class rdf:about="#Parcela">
+        <rdfs:label xml:lang="es">Parcel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment xml:lang="es">Parcela</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Pasarela -->
+
+    <owl:Class rdf:about="#Pasarela">
+        <rdfs:label xml:lang="en">Walkway</rdfs:label>
+        <rdfs:label xml:lang="es">Pasarela</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Camino"/>
+        <rdfs:comment
+            >Secuencia de tramos transitables a pie.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Paso -->
+
+    <owl:Class rdf:about="#Paso">
+        <rdfs:label xml:lang="en">Pass</rdfs:label>
+        <rdfs:label xml:lang="es">Paso</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >A break in a mountain range used for transportation from one side to the other</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Peninsula -->
+
+    <owl:Class rdf:about="#Peninsula">
+        <rdfs:label xml:lang="en">Peninsula</rdfs:label>
+        <rdfs:label xml:lang="es">Pen&#237;nsula</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >An elongated area of land projecting into a body of water and 
+surrounded by water on three sides</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Playa -->
+
+    <owl:Class rdf:about="#Playa">
+        <rdfs:label xml:lang="en">Beach</rdfs:label>
+        <rdfs:label xml:lang="es">Playa</rdfs:label>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#Costa"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#containsMean"/>
+                        <owl:hasValue rdf:resource="#arena"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en"
+            >A natural area of sand or fine rock sloping down to the water of a sea or lake</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Presa -->
+
+    <owl:Class rdf:about="#Presa">
+        <rdfs:label xml:lang="en">Dam</rdfs:label>
+        <rdfs:label xml:lang="es">Presa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >A barrier constructed across a stream to impound water</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Provincia -->
+
+    <owl:Class rdf:about="#Provincia">
+        <rdfs:label xml:lang="en">Province</rdfs:label>
+        <rdfs:label xml:lang="es">Provincia</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#LimiteAdministrativo"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#Ciudad"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:someValuesFrom rdf:resource="#ComunidadAutonoma"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:allValuesFrom rdf:resource="#ComunidadAutonoma"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#isPartOfGeoDirect"/>
+                        <owl:maxCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:maxCardinality>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:comment
+            >Una provincia es un objeto geopol&#237;tico que tiene una o m&#225;s ciudades y es parte de una y s&#243;lo una comunidad aut&#243;noma.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Ria -->
+
+    <owl:Class rdf:about="#Ria">
+        <rdfs:label xml:lang="en">Ria</rdfs:label>
+        <rdfs:label xml:lang="es">Ria</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Rio -->
+
+    <owl:Class rdf:about="#Rio">
+        <rdfs:label xml:lang="en">River</rdfs:label>
+        <rdfs:label xml:lang="es">R&#237;o</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#FenomenoHidrografico"/>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#containsMean"/>
+                        <owl:someValuesFrom rdf:resource="#Agua"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#flowsInto"/>
+                        <owl:someValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#AccidenteNatural"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#containsMean"/>
+                                        <owl:someValuesFrom rdf:resource="#Agua"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:someValuesFrom>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#risesFrom"/>
+                        <owl:someValuesFrom rdf:resource="#AccidenteNatural"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="#hasSegment"/>
+                        <owl:allValuesFrom>
+                            <owl:Class>
+                                <owl:intersectionOf rdf:parseType="Collection">
+                                    <rdf:Description rdf:about="#Tramo"/>
+                                    <owl:Restriction>
+                                        <owl:onProperty rdf:resource="#containsMean"/>
+                                        <owl:someValuesFrom rdf:resource="#Agua"/>
+                                    </owl:Restriction>
+                                </owl:intersectionOf>
+                            </owl:Class>
+                        </owl:allValuesFrom>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >A stream of running water</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Tierra -->
+
+    <owl:Class rdf:about="#Tierra">
+        <rdfs:label xml:lang="en">Lan</rdfs:label>
+        <rdfs:label xml:lang="es">Tierra.</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#MedioNatural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Tramo -->
+
+    <owl:Class rdf:about="#Tramo">
+        <rdfs:label xml:lang="en">Segment</rdfs:label>
+        <rdfs:label xml:lang="es">Tramo</rdfs:label>
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#isMadeOf"/>
+                <owl:someValuesFrom rdf:resource="&ogc-gml;MultiLineString"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:comment
+            >Tramo. Es cualquier sucesi&#243;n de puntos localizables en un mapa.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Valle -->
+
+    <owl:Class rdf:about="#Valle">
+        <rdfs:label xml:lang="en">Valley</rdfs:label>
+        <rdfs:label xml:lang="es">Valle</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoFisiografico"/>
+        <rdfs:comment
+            >A low area surrounded by higher ground on two or more sides</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Vegetacion -->
+
+    <owl:Class rdf:about="#Vegetacion">
+        <rdfs:label xml:lang="en">Vegetation</rdfs:label>
+        <rdfs:label xml:lang="es">Vegetaci&#243;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#AccidenteNatural"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#ViaFerrea -->
+
+    <owl:Class rdf:about="#ViaFerrea">
+        <rdfs:label xml:lang="en">Rail way</rdfs:label>
+        <rdfs:label xml:lang="es">V&#237;a f&#233;rrea</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Camino"/>
+        <rdfs:comment
+            >Una secuencia de tramos transitables en tren.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Vinnedo -->
+
+    <owl:Class rdf:about="#Vinnedo">
+        <rdfs:label xml:lang="en">Vineyard</rdfs:label>
+        <rdfs:label xml:lang="es">Vi&#241;edo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Vegetacion"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#Volcan -->
+
+    <owl:Class rdf:about="#Volcan">
+        <rdfs:label xml:lang="en">Volcano</rdfs:label>
+        <rdfs:label xml:lang="es">Volc&#225;n</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Montanna"/>
+        <rdfs:comment
+            >A mountain formed by volcanic action and composed of volcanic rock</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#ZonaPantanosa -->
+
+    <owl:Class rdf:about="#ZonaPantanosa">
+        <rdfs:label xml:lang="en">Wetland</rdfs:label>
+        <rdfs:label xml:lang="es">Zona pantanosa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#FenomenoHidrografico"/>
+        <rdfs:comment
+            >An area of high soil moisture, partially or intermittently covered with shallow water</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Envelope -->
+
+    <owl:Class rdf:about="&ogc-gml;Envelope">
+        <rdfs:comment xml:lang="en"
+            >a curve or surface tangent to each member of a set of curves or surfaces</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#MultiLineString -->
+
+    <owl:Class rdf:about="&ogc-gml;MultiLineString"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Point -->
+
+    <owl:Class rdf:about="&ogc-gml;Point"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#Surface -->
+
+    <owl:Class rdf:about="&ogc-gml;Surface"/>
+    
+
+
+    <!-- http://loki.cae.drexel.edu/~wbs/ontology/2004/09/ogc-gml#_Geometry -->
+
+    <owl:Class rdf:about="&ogc-gml;_Geometry"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#aguaDulce -->
+
+    <Agua rdf:about="#aguaDulce"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#aguaSalada -->
+
+    <Agua rdf:about="#aguaSalada"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#aire -->
+
+    <Aire rdf:about="#aire"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#arena -->
+
+    <Tierra rdf:about="#arena"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#asfalto -->
+
+    <Tierra rdf:about="#asfalto"/>
+    
+
+
+    <!-- http://dia.fi.upm.es/geografica.owl#railes -->
+
+    <Tierra rdf:about="#railes"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.1101) http://owlapi.sourceforge.net -->
+

@@ -1,0 +1,252 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY ObjetoArte "http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:ObjetoArte="http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo rdf:datatype="&xsd;string"
+            >1.1 por Ana Em&#237;lia Machado de Arruda y Pilar Rodr&#237;guez Gonz&#225;lez</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Una ontolog&#237;a sobre objetos de arte en el camino de Santiago de Compostela en Espa&#241;a.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#esReplica -->
+
+    <owl:DatatypeProperty rdf:about="&ObjetoArte;esReplica">
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#tieneNombre -->
+
+    <owl:DatatypeProperty rdf:about="&ObjetoArte;tieneNombre">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#tieneTitulo -->
+
+    <owl:DatatypeProperty rdf:about="&ObjetoArte;tieneTitulo">
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#Alfombra -->
+
+    <owl:Class rdf:about="&ObjetoArte;Alfombra">
+        <rdfs:label rdf:datatype="&xsd;string">alfombra</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:comment xml:lang="en"
+            >Rugs of some size whose primary use is to cover a flat surface; carpets constitute the largest and most familiar group of rugs.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#Capitel -->
+
+    <owl:Class rdf:about="&ObjetoArte;Capitel">
+        <rdfs:label rdf:datatype="&xsd;string">capitel</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Parte superior de la columna y de la pilastra, que las corona con forma y ornamentaci&#243;n distintas, seg&#250;n el estilo de arquitectura a que corresponde.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#Ceramica -->
+
+    <owl:Class rdf:about="&ObjetoArte;Ceramica">
+        <rdfs:label rdf:datatype="&xsd;string">ceramica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:comment xml:lang="en"
+            >Refers to any of various hard, brittle, heat-resistant and corrosion-resistant materials made by shaping and then firing a nonmetallic mineral, such as clay, at a high temperature.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#Crucifijo -->
+
+    <owl:Class rdf:about="&ObjetoArte;Crucifijo">
+        <rdfs:label xml:lang="en">crucifix</rdfs:label>
+        <rdfs:label xml:lang="es">crucifijo</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Efigie o imagen de Cristo crucificado</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Use for visual works in the shape of a cross having the figure of Christ crucified.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#ObjetoDeArte -->
+
+    <owl:Class rdf:about="&ObjetoArte;ObjetoDeArte">
+        <rdfs:label xml:lang="en">object of art</rdfs:label>
+        <rdfs:label xml:lang="es">objeto de arte</rdfs:label>
+        <rdfs:comment xml:lang="en"
+            >Works of the fine or decorative arts when their qualities as discrete and coherent individual objects are emphasized, e.g., in relation to conservation or inventorying. When the aesthetic nature of works is emphasized, use &quot;works of art.&quot; When referring to the study or practice of the fine arts or the fine and decorative arts together, use &quot;art.&quot;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#ObjetoFunerario -->
+
+    <owl:Class rdf:about="&ObjetoArte;ObjetoFunerario">
+        <rdfs:label xml:lang="es"
+            >Objeto funerario</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Use broadly for objects associated with or used in funerary practices of any culture. Sometimes defined more narrowly as only those placed with individual human remains either at the time of death or later as part of a death rite or ceremony</rdfs:comment>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >objeto perteneciente o relativo al entierro y a las exequias.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#ObjetoLiturgico -->
+
+    <owl:Class rdf:about="&ObjetoArte;ObjetoLiturgico">
+        <rdfs:label xml:lang="es"
+            >objeto lit&#250;rgico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:comment xml:lang="en"
+            >Use broadly for objects associated with or used in the rituals of public worship, especially of the Christian religion.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#Portada -->
+
+    <owl:Class rdf:about="&ObjetoArte;Portada">
+        <rdfs:label xml:lang="es">portada</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:comment xml:lang="en"
+            >Refers to exterior faces of a building which are substantially in one plane and seem to have been designed with special regard to their conspicuousness or association with entrance. Distinct from &quot;elevations (building divisions),&quot; which may constitute any side or face of a building or large interior space.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#Reliquia -->
+
+    <owl:Class rdf:about="&ObjetoArte;Reliquia">
+        <rdfs:label xml:lang="es">reliquia</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:comment xml:lang="en"
+            >Objects, such as parts of the body and articles of clothing or of personal use, that belonged to or were associated with a saint, martyr, or other holy person, preserved and held in veneration.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#Replica -->
+
+    <owl:Class rdf:about="&ObjetoArte;Replica">
+        <rdfs:label rdf:datatype="&xsd;string">replica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Copia de una obra art&#237;stica que reproduce con igualdad la original.</rdfs:comment>
+        <rdfs:comment xml:lang="en"
+            >Use for works of art produced using the technology of copying machines.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#RopaLiturgica -->
+
+    <owl:Class rdf:about="&ObjetoArte;RopaLiturgica">
+        <rdfs:label xml:lang="en"
+            >liturgical costume</rdfs:label>
+        <rdfs:label xml:lang="es">ropa lit&#250;rgica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoLiturgico"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/ObjetoArte.owl#Tapiz -->
+
+    <owl:Class rdf:about="&ObjetoArte;Tapiz">
+        <rdfs:label rdf:datatype="&xsd;string">tapiz</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+        <rdfs:comment xml:lang="en"
+            >Refers to heavy, woven textiles used as wall hangings, curtains, upholstery, or to hang from windows or balconies. Tapestries are characterized by decoration that may include ornamental or pictorial subjects; they often have details that are painted or embroidered. They are usually of wool and hand-woven on a tapestry loom by a process that differs from cloth-weaving in that the weft travels only to the warp at the edge of a particular color or pattern in the design, rather traveling from edge to edge of the entire piece of fabric. Various techniques are used in mixing and overlaying colors to create shading and patterns. The term also refers to machine-woven imitations of hand-made hangings.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#Talla -->
+
+    <owl:Class rdf:about="&ObjetoArte;Talla">
+        <rdfs:label xml:lang="es">Talla</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&ObjetoArte;ObjetoDeArte"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#botixoDeRoda -->
+
+    <ObjetoArte:Ceramica rdf:about="&ObjetoArte;botixoDeRoda"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/ObjetoArte.owl#viradeisras -->
+
+    <ObjetoArte:Ceramica rdf:about="&ObjetoArte;viradeisras"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.810) http://owlapi.sourceforge.net -->
+

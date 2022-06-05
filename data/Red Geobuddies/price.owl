@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY owl11 "http://www.w3.org/2006/12/owl11#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY owl11xml "http://www.w3.org/2006/12/owl11-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY DUL "http://www.loa-cnr.it/ontologies/DUL.owl#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY Servicios "http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#" >
+    <!ENTITY price "http://www.ontologydesignpatterns.org/codeps/owl/price.owl#" >
+    <!ENTITY OntologyArt "http://www.semanticweb.org/ontologies/2007/10/OntologyArt.owl#" >
+    <!ENTITY OntologyArte "http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#" >
+    <!ENTITY patternannotationschema "http://www.ontologydesignpatterns.org/patternannotationschema.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.ontologydesignpatterns.org/codeps/owl/price.owl#"
+     xml:base="http://www.ontologydesignpatterns.org/codeps/owl/price.owl"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:OntologyArt="http://www.semanticweb.org/ontologies/2007/10/OntologyArt.owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:patternannotationschema="http://www.ontologydesignpatterns.org/patternannotationschema.owl#"
+     xmlns:Servicios="http://www.semanticweb.org/ontologies/2008/2/Servicios.owl#"
+     xmlns:owl11="http://www.w3.org/2006/12/owl11#"
+     xmlns:owl11xml="http://www.w3.org/2006/12/owl11-xml#"
+     xmlns:price="http://www.ontologydesignpatterns.org/codeps/owl/price.owl#"
+     xmlns:DUL="http://www.loa-cnr.it/ontologies/DUL.owl#"
+     xmlns:OntologyArte="http://www.semanticweb.org/ontologies/2008/3/OntologyArte.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo rdf:datatype="&xsd;string"
+            >Created by Valentina Presutti</owl:versionInfo>
+        <rdfs:comment
+            >The price content ontology design pattern. This CP represents the price of an entity in a certain currency.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/codeps/owl/price.owl#hasCurrency -->
+
+    <owl:ObjectProperty rdf:about="#hasCurrency">
+        <rdfs:range rdf:resource="#Currency"/>
+        <rdfs:domain rdf:resource="#Price"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/codeps/owl/price.owl#hasPrice -->
+
+    <owl:ObjectProperty rdf:about="#hasPrice">
+        <rdfs:range rdf:resource="#Price"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/codeps/owl/price.owl#isPriceOf -->
+
+    <owl:ObjectProperty rdf:about="#isPriceOf">
+        <rdfs:domain rdf:resource="#Price"/>
+        <owl:inverseOf rdf:resource="#hasPrice"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/codeps/owl/price.owl#hasValue -->
+
+    <owl:DatatypeProperty rdf:about="#hasValue">
+        <rdfs:domain rdf:resource="#Price"/>
+        <rdfs:range rdf:resource="&xsd;float"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/codeps/owl/price.owl#Currency -->
+
+    <owl:Class rdf:about="#Currency">
+        <owl:disjointWith rdf:resource="#Price"/>
+        <rdfs:comment
+            >A system of money in general use in a particular country.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.ontologydesignpatterns.org/codeps/owl/price.owl#Price -->
+
+    <owl:Class rdf:about="#Price">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasCurrency"/>
+                <owl:cardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:cardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="#hasValue"/>
+                <owl:minCardinality rdf:datatype="&xsd;nonNegativeInteger">1</owl:minCardinality>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment
+            >The amount of money expected, required, or given in payment for something.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+</rdf:RDF>

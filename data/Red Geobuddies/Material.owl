@@ -1,0 +1,463 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY owl2xml "http://www.w3.org/2006/12/owl2-xml#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+    <!ENTITY OntologyMaterial "http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#" >
+]>
+
+
+<rdf:RDF xmlns="http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#"
+     xml:base="http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:owl2xml="http://www.w3.org/2006/12/owl2-xml#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:OntologyMaterial="http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#">
+    <owl:Ontology rdf:about="">
+        <owl:versionInfo rdf:datatype="&xsd;string"
+            >1.1 por Ana Em&#237;lia Machado de Arruda y Pilar Rodr&#237;guez Gonz&#225;lez</owl:versionInfo>
+        <owl:versionInfo rdf:datatype="&xsd;string"
+            >1.2 por Maria Poveda</owl:versionInfo>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Ontolog&#237;a sobre materiales art&#237;sticos.</rdfs:comment>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/OntologyMaterial.owl#Madera -->
+
+    <owl:Class rdf:about="&OntologyMaterial;Madera">
+        <rdfs:label rdf:datatype="&xsd;string">Madera</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OntologyMaterial;Material"/>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >Parte s&#243;lida de los &#225;rboles cubierta por la corteza.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/OntologyMaterial.owl#Material -->
+
+    <owl:Class rdf:about="&OntologyMaterial;Material">
+        <rdfs:label xml:lang="es">Material</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&owl;Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/OntologyMaterial.owl#MaterialTextil -->
+
+    <owl:Class rdf:about="&OntologyMaterial;MaterialTextil">
+        <rdfs:label xml:lang="es">Material textil</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OntologyMaterial;Material"/>
+        <rdfs:comment xml:lang="en"
+            >Use for the general category of materials produced by weaving, felting, knotting, twining, or otherwise processing natural or synthetic fibers so that they cohere into a form or unit; traditionally excludes fiberboard, paper, papier-m&#226;ch&#233;, and papyrus, which, though also fiber products, are considered as separate types of material. For items made of textile materials, see descriptors collocated under &quot;textiles.&quot;</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/OntologyMaterial.owl#Metal -->
+
+    <owl:Class rdf:about="&OntologyMaterial;Metal">
+        <rdfs:label xml:lang="es">Metal</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OntologyMaterial;Material"/>
+        <rdfs:comment xml:lang="en"
+            >Any of a large group of substances that typically show a characteristic luster, are good conductors of electricity and heat, are opaque, can be fused, and are usually malleable or ductile.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/OntologyMaterial.owl#MetalPrecioso -->
+
+    <owl:Class rdf:about="&OntologyMaterial;MetalPrecioso">
+        <rdfs:label xml:lang="en">Metal precioso</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OntologyMaterial;Metal"/>
+        <rdfs:comment xml:lang="en"
+            >Metal considered to have high intrinsic value, such as gold, silver, and platinum; traditionally used to make such objects as jewelry and coins.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/OntologyMaterial.owl#Piedra -->
+
+    <owl:Class rdf:about="&OntologyMaterial;Piedra">
+        <rdfs:label xml:lang="es">Piedra</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OntologyMaterial;Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2007/10/OntologyMaterial.owl#Pintura -->
+
+    <owl:Class rdf:about="&OntologyMaterial;Pintura">
+        <rdfs:label xml:lang="es">Pintura</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OntologyMaterial;Material"/>
+        <rdfs:comment xml:lang="en"
+            >Any dispersion of pigment in a liquid binder. Paint is applied with a brush, roller, sprayer, or by dipping and dries to form a decorative or protective film.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#Barro -->
+
+    <owl:Class rdf:about="#Barro">
+        <rdfs:label xml:lang="es">Barro</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OntologyMaterial;Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#Ceramica -->
+
+    <owl:Class rdf:about="#Ceramica">
+        <rdfs:label xml:lang="es">Cer&#225;mica</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OntologyMaterial;Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#CeramicaImpermeable -->
+
+    <owl:Class rdf:about="#CeramicaImpermeable">
+        <rdfs:label xml:lang="es"
+            >Cer&#225;mica impermeable</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ceramica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#CeramicaPorosa -->
+
+    <owl:Class rdf:about="#CeramicaPorosa">
+        <rdfs:label xml:lang="es">Cer&#225;mica porosa</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#Ceramica"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#GresCeramico -->
+
+    <owl:Class rdf:about="#GresCeramico">
+        <rdfs:label xml:lang="es">Gres cer&#225;mico</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#CeramicaImpermeable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#Loza -->
+
+    <owl:Class rdf:about="#Loza">
+        <rdfs:label xml:lang="es">Loza</rdfs:label>
+        <rdfs:subClassOf rdf:resource="#CeramicaPorosa"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#MaderaNoble -->
+
+    <owl:Class rdf:about="#MaderaNoble">
+        <rdfs:label xml:lang="es">Madera noble</rdfs:label>
+        <rdfs:subClassOf rdf:resource="&OntologyMaterial;Madera"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#MaterialDeConstruccion -->
+
+    <owl:Class rdf:about="#MaterialDeConstruccion">
+        <rdfs:subClassOf rdf:resource="&OntologyMaterial;Material"/>
+        <rdfs:comment xml:lang="es"
+            >Material de construcci&#243;n</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="&owl;Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#abeto -->
+
+    <OntologyMaterial:Madera rdf:about="#abeto"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#aceite -->
+
+    <OntologyMaterial:Material rdf:about="#aceite"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#alabastro -->
+
+    <OntologyMaterial:Piedra rdf:about="#alabastro"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#alamo -->
+
+    <OntologyMaterial:Madera rdf:about="#alamo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#arcillaCocida -->
+
+    <CeramicaPorosa rdf:about="#arcillaCocida"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#arenisca -->
+
+    <OntologyMaterial:Piedra rdf:about="#arenisca"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#barniz -->
+
+    <OntologyMaterial:Pintura rdf:about="#barniz"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#barroBlanco -->
+
+    <Barro rdf:about="#barroBlanco">
+        <rdfs:label rdf:datatype="&xsd;string">barro gris</rdfs:label>
+    </Barro>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#barroRefractario -->
+
+    <Barro rdf:about="#barroRefractario"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#barroRojo -->
+
+    <Barro rdf:about="#barroRojo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#bronce -->
+
+    <OntologyMaterial:Metal rdf:about="#bronce"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#caoba -->
+
+    <MaderaNoble rdf:about="#caoba"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#carboncillo -->
+
+    <OntologyMaterial:Pintura rdf:about="#carboncillo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#cedro -->
+
+    <MaderaNoble rdf:about="#cedro"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#cristal -->
+
+    <OntologyMaterial:Material rdf:about="#cristal"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#diorita -->
+
+    <OntologyMaterial:Piedra rdf:about="#diorita"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#esmalte -->
+
+    <OntologyMaterial:Pintura rdf:about="#esmalte"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#grafito -->
+
+    <OntologyMaterial:Pintura rdf:about="#grafito"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#granito -->
+
+    <OntologyMaterial:Piedra rdf:about="#granito"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#gresCeramicoComun -->
+
+    <GresCeramico rdf:about="#gresCeramicoComun"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#gresCeramicoFino -->
+
+    <GresCeramico rdf:about="#gresCeramicoFino"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#haya -->
+
+    <MaderaNoble rdf:about="#haya"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#hierro -->
+
+    <OntologyMaterial:Metal rdf:about="#hierro"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#laca -->
+
+    <OntologyMaterial:Pintura rdf:about="#laca"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#lienzo -->
+
+    <OntologyMaterial:MaterialTextil rdf:about="#lienzo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#lozaInglesa -->
+
+    <Loza rdf:about="#lozaInglesa"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#lozaItaliana -->
+
+    <Loza rdf:about="#lozaItaliana"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#marmol -->
+
+    <OntologyMaterial:Piedra rdf:about="#marmol">
+        <rdfs:label rdf:datatype="&xsd;string">M&#225;rmol</rdfs:label>
+        <rdfs:label rdf:datatype="&xsd;string">marble</rdfs:label>
+        <rdfs:comment rdf:datatype="&xsd;string"
+            >A compact variety of calcite that is usually banded and translucent, resembling onyx in appearance. It is typically used as a decorative or architectural material or for small ornamental objects</rdfs:comment>
+    </OntologyMaterial:Piedra>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#nogal -->
+
+    <MaderaNoble rdf:about="#nogal"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#oro -->
+
+    <OntologyMaterial:MetalPrecioso rdf:about="#oro"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#papel -->
+
+    <OntologyMaterial:Material rdf:about="#papel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#pastel -->
+
+    <OntologyMaterial:Pintura rdf:about="#pastel"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#pino -->
+
+    <OntologyMaterial:Madera rdf:about="#pino"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#plata -->
+
+    <OntologyMaterial:MetalPrecioso rdf:about="#plata"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#platino -->
+
+    <OntologyMaterial:MetalPrecioso rdf:about="#platino"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#porcelana -->
+
+    <CeramicaImpermeable rdf:about="#porcelana"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#refractario -->
+
+    <CeramicaPorosa rdf:about="#refractario"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#roble -->
+
+    <MaderaNoble rdf:about="#roble"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#tabla -->
+
+    <OntologyMaterial:Madera rdf:about="#tabla"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#tempera -->
+
+    <OntologyMaterial:Pintura rdf:about="#tempera"/>
+    
+
+
+    <!-- http://www.semanticweb.org/ontologies/2008/03/OntologyMaterial.owl#tinta -->
+
+    <OntologyMaterial:Material rdf:about="#tinta"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 2.2.1.810) http://owlapi.sourceforge.net -->
+
