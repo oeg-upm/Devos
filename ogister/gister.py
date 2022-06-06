@@ -2,10 +2,12 @@ import argparse
 import sys
 import rdflib
 
-
 from owl2diagram.main import get_class_diagram, get_class_hierarchy_diagram, get_object_diagram, get_data_diagram, get_data_prop
 from owl2diagram.main import get_classes, get_class_hierarchy, get_object_prop, save_diagram, get_name
-import prefixes
+try:
+    import prefixes
+except:
+    from ogister import prefixes
 
 
 def remove_datatypes(uris):
@@ -16,6 +18,10 @@ def remove_datatypes(uris):
         else:
             print("ignore: %s" % u)
     return filtered
+
+
+def remove_quotes(keywords):
+    return [k.replace('"', '') for k in keywords]
 
 
 def shorten_url(url):
@@ -204,7 +210,9 @@ def get_classes_with_keyword(g, keyword):
         label_query += label_query_template % (p, keyword)
         label_query += " UNION "
     label_query += label_query_template % (props[-1], keyword)
-    results = g.query(t % label_query)
+    q = t % label_query
+    # print("\t%s\n" % q)
+    results = g.query(q)
     for res in results:
         vals.append(str(res["class"]))
 
@@ -280,6 +288,7 @@ def workflow(input_path, out_path, title, desc, abstract):
     print("Keywords: ")
     print(keywords)
     keywords = remove_datatypes(keywords)
+    keywords = remove_quotes(keywords)
     keywords = [k.lower() for k in keywords]
     keywords = [k.replace('\n', ' ').replace('\t', ' ') for k in keywords]
     keywords = list(set(keywords))
