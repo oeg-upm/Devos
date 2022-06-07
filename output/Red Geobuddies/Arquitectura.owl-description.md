@@ -2,215 +2,7 @@
 	classDiagram
 
     
-    class Capilla {
-    
-    }
-
-    class ArcoTudor {
-    
-    }
-
-    class Timpano {
-    
-    }
-
-    class Bovedilla {
-    
-    }
-
-    class Puente {
-    
-    }
-
-    class Arcada {
-    
-    }
-
-    class Monasterio {
-    
-    }
-
-    class Sinagoga {
-    
-    }
-
-    class ArcoDeMedioPunto {
-    
-    }
-
-    class EdificioGubernamental {
-    
-    }
-
-    class Templo {
-    
-    }
-
-    class Cupula {
-    
-    }
-
-    class EdificioReligioso {
-    
-    }
-
-    class Iglesia {
-    
-    }
-
-    class Puerto {
-    
-    }
-
-    class EstacionDeFerrocarril {
-    
-    }
-
-    class Castillo {
-    
-    }
-
-    class Ayuntamiento {
-    
-    }
-
-    class ParadaDeTaxi {
-    
-    }
-
-    class HoodMoulding {
-    
-    }
-
-    class Aeropuerto {
-    
-    }
-
-    class DovelaBasal {
-    
-    }
-
-    class EstacionDeTren {
-    
-    }
-
-    class Vertice {
-    
-    }
-
-    class Pilastra {
-    
-    }
-
-    class Biblioteca {
-    
-    }
-
-    class Basa {
-    
-    }
-
-    class Construccion {
-    
-    }
-
-    class Convento {
-    
-    }
-
-    class Ermita {
-    
-    }
-
-    class Palacio {
-    
-    }
-
-    class Dovela {
-    
-    }
-
-    class SemiCupula {
-    
-    }
-
-    class Basilica {
-    
-    }
-
-    class Catedral {
-    
-    }
-
-    class Hotel {
-    
-    }
-
-    class Arco {
-    
-    }
-
-    class Columna {
-    
-    }
-
-    class CommercialBuilding {
-    
-    }
-
-    class Helipuerto {
-    
-    }
-
-    class EstacionDeAutobus {
-    
-    }
-
-    class ElementoArquitectonico {
-    
-    }
-
     class Rascacielos {
-    
-    }
-
-    class Teatro {
-    
-    }
-
-    class Establo {
-    
-    }
-
-    class ArcoDeDescarga {
-    
-    }
-
-    class ArcoCiego {
-    
-    }
-
-    class EdificioMilitar {
-    
-    }
-
-    class Pilar {
-    
-    }
-
-    class DovelaCentral {
-    
-    }
-
-    class Museo {
-    
-    }
-
-    class Mezquita {
-    
-    }
-
-    class Boveda {
     
     }
 
@@ -218,7 +10,147 @@
     
     }
 
+    class Hotel {
+    
+    }
+
+    class ArcoTudor {
+    
+    }
+
+    class Monasterio {
+    
+    }
+
+    class ElementoArquitectonico {
+    
+    }
+
+    class Aeropuerto {
+    
+    }
+
+    class Ayuntamiento {
+    
+    }
+
+    class Palacio {
+    
+    }
+
+    class ParadaDeTaxi {
+    
+    }
+
+    class Arco {
+    
+    }
+
+    class ArcoCiego {
+    
+    }
+
+    class EdificioGubernamental {
+    
+    }
+
+    class EstacionDeFerrocarril {
+    
+    }
+
+    class ArcoDeDescarga {
+    
+    }
+
+    class EstacionDeTren {
+    
+    }
+
+    class Castillo {
+    
+    }
+
+    class DovelaCentral {
+    
+    }
+
+    class Helipuerto {
+    
+    }
+
+    class Dovela {
+    
+    }
+
+    class HoodMoulding {
+    
+    }
+
     class Enjuta {
+    
+    }
+
+    class Timpano {
+    
+    }
+
+    class SemiCupula {
+    
+    }
+
+    class Arcada {
+    
+    }
+
+    class Catedral {
+    
+    }
+
+    class EdificioReligioso {
+    
+    }
+
+    class Pilastra {
+    
+    }
+
+    class DovelaBasal {
+    
+    }
+
+    class Sinagoga {
+    
+    }
+
+    class Templo {
+    
+    }
+
+    class Ermita {
+    
+    }
+
+    class Vertice {
+    
+    }
+
+    class Puente {
+    
+    }
+
+    class Biblioteca {
+    
+    }
+
+    class CommercialBuilding {
+    
+    }
+
+    class Museo {
+    
+    }
+
+    class Bovedilla {
     
     }
 
@@ -226,7 +158,27 @@
     
     }
 
-    class Capitel {
+    class Columna {
+    
+    }
+
+    class EdificioMilitar {
+    
+    }
+
+    class Teatro {
+    
+    }
+
+    class Puerto {
+    
+    }
+
+    class Construccion {
+    
+    }
+
+    class Mezquita {
     
     }
 
@@ -234,10 +186,63 @@
     
     }
 
+    class Cupula {
+    
+    }
+
+    class Establo {
+    
+    }
+
+    class Capitel {
+    
+    }
+
+    class Convento {
+    
+    }
+
+    class Iglesia {
+    
+    }
+
+    class Basa {
+    
+    }
+
+    class Capilla {
+    
+    }
+
+    class EstacionDeAutobus {
+    
+    }
+
+    class ArcoDeMedioPunto {
+    
+    }
+
+    class Pilar {
+    
+    }
+
+    class Boveda {
+    
+    }
+
+    class Basilica {
+    
+    }
 
 
-ElementoArquitectonico  --> N4f5c9aef91df4f62ba230c54a564c08b   :componeArquitectonicamente  
 
-Na58353fef1bc48d0879938419582b135  --> ElementoArquitectonico   :compuestoAquitectonicamentePor  
+Nc8239b6f94da4fcb8726cc06970eddab  --> ElementoArquitectonico   :compuestoAquitectonicamentePor  
+
+ElementoArquitectonico  --> Na42b75ad85b140a8a65ae5ab7c9f50ea   :componeArquitectonicamente  
+
+
+c  --> m   :o  
+
+c  --> m   :o  
 
 ```

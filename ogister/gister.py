@@ -4,6 +4,8 @@ import rdflib
 
 from owl2diagram.main import get_class_diagram, get_class_hierarchy_diagram, get_object_diagram, get_data_diagram, get_data_prop
 from owl2diagram.main import get_classes, get_class_hierarchy, get_object_prop, save_diagram, get_name
+
+
 try:
     import prefixes
 except:
@@ -211,7 +213,6 @@ def get_classes_with_keyword(g, keyword):
         label_query += " UNION "
     label_query += label_query_template % (props[-1], keyword)
     q = t % label_query
-    # print("\t%s\n" % q)
     results = g.query(q)
     for res in results:
         vals.append(str(res["class"]))
@@ -220,17 +221,90 @@ def get_classes_with_keyword(g, keyword):
 
 
 def get_relations(g, classes):
-    relations = dict()
+    relations = []
     for class_uri in classes:
-        rel = get_class_relation(g, class_uri)
-        for prop in rel:
-            if prop not in relations:
-                relations[prop] = rel[prop]
+        relations += get_class_relation(g, class_uri)
+    relations = list(set(relations))
     return relations
 
 
-def get_class_relation(g, class_uri):
+def get_classes_constraints(g, classes):
+    """
+    Return constraints which is kind of a relation
+    """
+    consts = []
+    print("\n\nget_classes_constraints> classes: ")
+    print(classes)
+    for class_uri in classes:
+        print("\t%s" % str(class_uri))
+        consts += get_class_constraints(g, class_uri)
+    consts = list(set(consts))
+    return consts
+
+
+def get_class_constraints(g, class_uri):
+    """
+
+    A compact query of
+        SELECT ?domain ?prop ?range WHERE{
+        ?domain rdf:type owl:Class.
+        ?range rdf:type owl:Class.
+        ?domain rdfs:subClassOf ?blank.
+        ?blank rdf:type owl:Restriction.
+        ?blank owl:onProperty ?prop.
+        ?blank owl:allValuesFrom ?range  .
+        }
+
+        with the domain and range substituted. And also tested with owl:equivalentClass
+    """
     data = dict()
+    for restr in ["owl:allValuesFrom", "owl:someValuesFrom"]:
+        q_domain = """ SELECT ?prop ?range WHERE{
+                {
+                ?range rdf:type owl:Class.
+                <%s> rdfs:subClassOf [ rdf:type owl:Restriction ;
+                owl:onProperty ?prop ;
+                %s ?range ] .
+                } UNION
+                {
+                ?range rdf:type owl:Class.
+                <%s> owl:equivalentClass [ rdf:type owl:Restriction ;
+                owl:onProperty ?prop ;
+                owl:allValuesFrom ?range ] .
+                }
+            }
+            """ % (class_uri, restr, class_uri)
+
+        q_range = """ SELECT ?domain ?prop WHERE{
+                {
+                ?domain rdf:type owl:Class.
+                ?domain rdfs:subClassOf [ rdf:type owl:Restriction ;
+                owl:onProperty ?prop ;
+                %s <%s> ] .
+                } UNION
+                {
+                ?domain rdf:type owl:Class.
+                ?domain owl:equivalentClass [ rdf:type owl:Restriction ;
+                owl:onProperty ?prop ;
+                owl:allValuesFrom <%s> ] .
+                }
+            }
+            """ % (restr, class_uri, class_uri)
+        # print(q_domain)
+        results = g.query(q_domain)
+        for r in results:
+            data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
+            data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["range"]))
+
+        results = g.query(q_range)
+        for r in results:
+            data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["domain"]))
+            data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
+    return data
+
+
+def get_class_relation(g, class_uri):
+    relations = []
     class_as_domain = """ select ?prop ?range where { 
       ?prop rdf:type owl:ObjectProperty.
       ?prop rdfs:domain <%s>.
@@ -238,8 +312,10 @@ def get_class_relation(g, class_uri):
     }"""
     results = g.query(class_as_domain % class_uri)
     for r in results:
-        data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
-        data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["range"]))
+        rel = (shorten_url(class_uri), shorten_url(r["prop"]), shorten_url(r["range"]))
+        relations.append(rel)
+        # data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
+        # data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["range"]))
 
     class_as_range = """ select ?prop ?domain where { 
       ?prop rdf:type owl:ObjectProperty.
@@ -248,9 +324,9 @@ def get_class_relation(g, class_uri):
     }"""
     results = g.query(class_as_range % class_uri)
     for r in results:
-        data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["domain"]))
-        data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
-    return data
+        rel = (shorten_url(r["domain"]), shorten_url(r["prop"]), shorten_url(class_uri))
+        relations.append(rel)
+    return relations
 
 
 def parse_arguments():
@@ -307,9 +383,12 @@ def workflow(input_path, out_path, title, desc, abstract):
     all_classes = classes+related_classes
     all_classes = list(set(all_classes))
     relations = get_relations(g, all_classes)
+    constraints = get_classes_constraints(g, all_classes)
+    constraints = [(shorten_url(c[0]), shorten_url(c[1]), shorten_url(c[2])) for c in constraints]
     shortened_classes = [shorten_url(c) for c in classes+related_classes]
     diagram = get_class_diagram(shortened_classes)
     diagram += get_object_diagram(relations)
+    diagram += get_object_diagram(constraints)
     save_diagram(diagram, out_path)
 
 
