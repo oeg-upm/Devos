@@ -339,12 +339,12 @@ def parse_arguments():
     parser.add_argument('-t', '--title', action="store_true", help="To look into titles.")
     parser.add_argument('-d', '--description', action="store_true", help="To look into description.")
     parser.add_argument('-a', '--abstract', action="store_true", help="To look into abstract.")
-
+    parser.add_argument('-n', '--topn', default=5,  help="The maximum number of relevant classes.")
     args = parser.parse_args()
-    return args.input, args.output, args.title, args.description, args.abstract
+    return args.input, args.output, args.title, args.description, args.abstract, int(args.topn)
 
 
-def workflow(input_path, out_path, title, desc, abstract):
+def workflow(input_path, out_path, title, desc, abstract, topn):
     """
 
     """
@@ -393,8 +393,8 @@ def workflow(input_path, out_path, title, desc, abstract):
 
 
 def main():
-    input_path, out_path, title, desc, abstract = parse_arguments()
-    workflow(input_path=input_path, out_path=out_path, title=title, desc=desc, abstract=abstract)
+    input_path, out_path, title, desc, abstract, topn = parse_arguments()
+    workflow(input_path=input_path, out_path=out_path, title=title, desc=desc, abstract=abstract, topn=topn)
 
 
 if __name__ == "__main__":
