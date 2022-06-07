@@ -2,47 +2,19 @@
 	classDiagram
 
     
-    class Rascacielos {
+    class Puente {
     
     }
 
-    class Pinacoteca {
+    class Museo {
     
     }
 
-    class Hotel {
+    class Boveda {
     
     }
 
-    class ArcoTudor {
-    
-    }
-
-    class Monasterio {
-    
-    }
-
-    class ElementoArquitectonico {
-    
-    }
-
-    class Aeropuerto {
-    
-    }
-
-    class Ayuntamiento {
-    
-    }
-
-    class Palacio {
-    
-    }
-
-    class ParadaDeTaxi {
-    
-    }
-
-    class Arco {
+    class Templo {
     
     }
 
@@ -50,15 +22,43 @@
     
     }
 
+    class Ayuntamiento {
+    
+    }
+
+    class Aeropuerto {
+    
+    }
+
+    class Capilla {
+    
+    }
+
+    class Palacio {
+    
+    }
+
+    class Ermita {
+    
+    }
+
+    class Pilar {
+    
+    }
+
+    class Arcada {
+    
+    }
+
+    class DovelaCentral {
+    
+    }
+
+    class Pilastra {
+    
+    }
+
     class EdificioGubernamental {
-    
-    }
-
-    class EstacionDeFerrocarril {
-    
-    }
-
-    class ArcoDeDescarga {
     
     }
 
@@ -70,83 +70,7 @@
     
     }
 
-    class DovelaCentral {
-    
-    }
-
-    class Helipuerto {
-    
-    }
-
-    class Dovela {
-    
-    }
-
-    class HoodMoulding {
-    
-    }
-
     class Enjuta {
-    
-    }
-
-    class Timpano {
-    
-    }
-
-    class SemiCupula {
-    
-    }
-
-    class Arcada {
-    
-    }
-
-    class Catedral {
-    
-    }
-
-    class EdificioReligioso {
-    
-    }
-
-    class Pilastra {
-    
-    }
-
-    class DovelaBasal {
-    
-    }
-
-    class Sinagoga {
-    
-    }
-
-    class Templo {
-    
-    }
-
-    class Ermita {
-    
-    }
-
-    class Vertice {
-    
-    }
-
-    class Puente {
-    
-    }
-
-    class Biblioteca {
-    
-    }
-
-    class CommercialBuilding {
-    
-    }
-
-    class Museo {
     
     }
 
@@ -154,63 +78,7 @@
     
     }
 
-    class Casa {
-    
-    }
-
-    class Columna {
-    
-    }
-
-    class EdificioMilitar {
-    
-    }
-
-    class Teatro {
-    
-    }
-
     class Puerto {
-    
-    }
-
-    class Construccion {
-    
-    }
-
-    class Mezquita {
-    
-    }
-
-    class Fuste {
-    
-    }
-
-    class Cupula {
-    
-    }
-
-    class Establo {
-    
-    }
-
-    class Capitel {
-    
-    }
-
-    class Convento {
-    
-    }
-
-    class Iglesia {
-    
-    }
-
-    class Basa {
-    
-    }
-
-    class Capilla {
     
     }
 
@@ -218,15 +86,111 @@
     
     }
 
+    class Capitel {
+    
+    }
+
+    class Fuste {
+    
+    }
+
+    class SemiCupula {
+    
+    }
+
+    class DovelaBasal {
+    
+    }
+
+    class Timpano {
+    
+    }
+
+    class Mezquita {
+    
+    }
+
+    class EdificioReligioso {
+    
+    }
+
+    class ArcoDeDescarga {
+    
+    }
+
+    class ParadaDeTaxi {
+    
+    }
+
+    class Vertice {
+    
+    }
+
+    class Basa {
+    
+    }
+
+    class Pinacoteca {
+    
+    }
+
+    class Biblioteca {
+    
+    }
+
+    class Monasterio {
+    
+    }
+
+    class Hotel {
+    
+    }
+
+    class EdificioMilitar {
+    
+    }
+
     class ArcoDeMedioPunto {
     
     }
 
-    class Pilar {
+    class Construccion {
     
     }
 
-    class Boveda {
+    class Convento {
+    
+    }
+
+    class Casa {
+    
+    }
+
+    class ElementoArquitectonico {
+    
+    }
+
+    class Rascacielos {
+    
+    }
+
+    class Sinagoga {
+    
+    }
+
+    class Dovela {
+    
+    }
+
+    class Catedral {
+    
+    }
+
+    class Columna {
+    
+    }
+
+    class CommercialBuilding {
     
     }
 
@@ -234,11 +198,47 @@
     
     }
 
+    class EstacionDeFerrocarril {
+    
+    }
+
+    class Arco {
+    
+    }
+
+    class Establo {
+    
+    }
+
+    class Helipuerto {
+    
+    }
+
+    class Iglesia {
+    
+    }
+
+    class Cupula {
+    
+    }
+
+    class ArcoTudor {
+    
+    }
+
+    class HoodMoulding {
+    
+    }
+
+    class Teatro {
+    
+    }
 
 
-Nc8239b6f94da4fcb8726cc06970eddab  --> ElementoArquitectonico   :compuestoAquitectonicamentePor  
 
-ElementoArquitectonico  --> Na42b75ad85b140a8a65ae5ab7c9f50ea   :componeArquitectonicamente  
+ElementoArquitectonico  --> N6015810cbadd4d15b57b3b58d7edb789   :componeArquitectonicamente  
+
+Nd22cb2bb1c24429e950d0c7da37d9f7d  --> ElementoArquitectonico   :compuestoAquitectonicamentePor  
 
 
 c  --> m   :o  
