@@ -1,7 +1,7 @@
 import argparse
 import sys
 import rdflib
-
+import json
 from owl2diagram.main import get_class_diagram, get_class_hierarchy_diagram, get_object_diagram, get_data_diagram, get_data_prop
 from owl2diagram.main import get_classes, get_class_hierarchy, get_object_prop, save_diagram, get_name
 
@@ -379,17 +379,35 @@ def workflow(input_path, out_path, title, desc, abstract, topn):
     related_classes = list(set(related_classes))
     related_classes = remove_datatypes(related_classes)
     print("classes related to relevant properties: ")
-    print(related_classes)
+
+
     all_classes = classes+related_classes
     all_classes = list(set(all_classes))
     relations = get_relations(g, all_classes)
     constraints = get_classes_constraints(g, all_classes)
     constraints = [(shorten_url(c[0]), shorten_url(c[1]), shorten_url(c[2])) for c in constraints]
     shortened_classes = [shorten_url(c) for c in classes+related_classes]
-    diagram = get_class_diagram(shortened_classes)
-    diagram += get_object_diagram(relations)
-    diagram += get_object_diagram(constraints)
-    save_diagram(diagram, out_path)
+
+    # By Jhon T
+    if topn!=5:  # topn=5, Defaut
+
+        from collections import Counter
+        myslist = Counter(elem[0] for elem in relations)
+
+        myslist = myslist.most_common()
+        myslist = myslist[:topn]
+        print(myslist) # Class ordered by ObjectProp relations
+        dictlist=[]
+        for key, value in myslist:
+            dictlist.append(key)
+        shortened_classes= dictlist
+        diagram = get_class_diagram(shortened_classes)
+        save_diagram(diagram, out_path)
+    else:
+        diagram = get_class_diagram(shortened_classes)
+        diagram += get_object_diagram(relations) #HERE
+        diagram += get_object_diagram(constraints)
+        save_diagram(diagram, out_path)
 
 
 def main():
