@@ -1,21 +1,3 @@
-HTTP/2 200 
-date: Tue, 07 Jun 2022 10:57:16 GMT
-content-location: prov.ttl
-vary: negotiate,accept
-tcn: choice
-last-modified: Mon, 29 Apr 2013 15:46:07 GMT
-etag: "1b889-4db81c871adc0;d1-4db53eedbe6c0
-accept-ranges: bytes
-content-length: 112777
-cache-control: max-age=21600
-expires: Tue, 07 Jun 2022 16:57:16 GMT
-access-control-allow-origin: *
-content-type: text/turtle
-x-backend: ssl-mirrors
-x-request-id: 629f2f0c16177a17
-strict-transport-security: max-age=15552000; includeSubdomains; preload
-content-security-policy: upgrade-insecure-requests
-
 @prefix : <http://www.w3.org/ns/prov#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .

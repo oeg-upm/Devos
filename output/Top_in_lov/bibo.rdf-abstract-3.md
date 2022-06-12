@@ -18,21 +18,20 @@
 
 LegalDecision  --> LegalDecision   :affirmedBy  
 
-Document  --> Document   :translationOf  
-
-Agent  --> Agent   :interviewer  
-
-Document  --> Document   :citedBy  
-
-Document  --> Document   :reproducedIn  
+Agent  --> Agent   :interviewee  
 
 LegalDecision  --> LegalDecision   :subsequentLegalDecision  
 
-Agent  --> Agent   :interviewee  
-
 LegalDecision  --> LegalDecision   :reversedBy  
+
+Agent  --> Agent   :interviewer  
 
 Document  --> Document   :cites  
 
+Document  --> Document   :reproducedIn  
+
+Document  --> Document   :citedBy  
+
+Document  --> Document   :translationOf  
 
 ```

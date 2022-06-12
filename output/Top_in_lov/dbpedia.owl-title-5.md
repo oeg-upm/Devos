@@ -24,163 +24,163 @@
 
 
 
-PopulatedPlace  --> PopulatedPlace   :sheading  
-
-Settlement  --> Place   :highestPoint  
-
-Person  --> Person   :colleague  
-
-PopulatedPlace  --> PopulatedPlace   :largestCity  
-
-Settlement  --> PopulatedPlace   :frazioni  
-
-Place  --> PopulatedPlace   :lowestPlace  
+Person  --> Person   :cousurper  
 
 Settlement  --> PopulatedPlace   :administrativeDistrict  
 
-Athlete  --> Person   :trainer  
-
-Person  --> Place   :bodyDiscovered  
-
-Person  --> Person   :dubber  
-
-Person  --> Person   :sibling  
-
-Person  --> Place   :educationPlace  
-
-Settlement  --> Settlement   :adjacentSettlement  
-
-Settlement  --> PopulatedPlace   :federalState  
-
-Person  --> Place   :announcedFrom  
-
-Place  --> Place   :westPlace  
-
-PopulatedPlace  --> PopulatedPlace   :oldDistrict  
-
-Place  --> PopulatedPlace   :regency  
+Place  --> PopulatedPlace   :lowestPlace  
 
 Person  --> Person   :child  
 
-PopulatedPlace  --> PopulatedPlace   :oldProvince  
+Settlement  --> Settlement   :canton  
+
+Person  --> Person   :seiyu  
+
+Person  --> Person   :opponent  
+
+PopulatedPlace  --> Person   :leaderName  
+
+Settlement  --> Person   :bourgmestre  
+
+PopulatedPlace  --> Person   :viceLeader  
+
+Settlement  --> PopulatedPlace   :jointCommunity  
 
 Place  --> PopulatedPlace   :nearestCity  
 
 Person  --> Person   :relation  
 
-Person  --> Person   :student  
-
-Place  --> Place   :mainIsland  
-
-Person  --> Person   :opponent  
-
-Settlement  --> PopulatedPlace   :administrativeCollectivity  
-
-Person  --> Person   :cousurper  
-
-Place  --> Place   :nextEntity  
-
-Settlement  --> Settlement   :twinTown  
-
-Place  --> PopulatedPlace   :sovereignCountry  
-
-Person  --> Place   :livingPlace  
-
-PopulatedPlace  --> Place   :touristicSite  
-
-Settlement  --> PopulatedPlace   :jointCommunity  
-
-Person  --> Person   :friend  
-
-Person  --> Person   :seiyu  
-
-PopulatedPlace  --> PopulatedPlace   :ceremonialCounty  
-
-Place  --> Place   :hasOutsidePlace  
-
-PopulatedPlace  --> PopulatedPlace   :borough  
-
-Settlement  --> Person   :bourgmestre  
-
-Settlement  --> Place   :wilaya  
-
-Person  --> Person   :copilote  
-
-Place  --> Place   :land  
-
-PopulatedPlace  --> Person   :viceLeader  
-
-Place  --> PopulatedPlace   :district  
-
-Person  --> Person   :relative  
-
-PopulatedPlace  --> Person   :leaderName  
-
-PopulatedPlace  --> PopulatedPlace   :arrondissement  
-
-Place  --> Place   :previousEntity  
-
-Settlement  --> Place   :daira  
-
-Place  --> Place   :locatedInArea  
-
-Person  --> Person   :collaboration  
-
-Place  --> Place   :northPlace  
-
-PopulatedPlace  --> PopulatedPlace   :lieutenancyArea  
-
-Settlement  --> Settlement   :mergedSettlement  
-
-Place  --> PopulatedPlace   :biggestCity  
-
-Settlement  --> Settlement   :canton  
-
-Place  --> Place   :closeTo  
-
-Person  --> Place   :residence  
+Settlement  --> Settlement   :adjacentSettlement  
 
 Person  --> Person   :spouse  
 
-PopulatedPlace  --> PopulatedPlace   :largestSettlement  
+Place  --> Place   :previousEntity  
 
-Person  --> Person   :parent  
+Person  --> Person   :sibling  
 
-Settlement  --> PopulatedPlace   :geolocDepartment  
-
-Place  --> Place   :southEastPlace  
-
-Place  --> Place   :subregion  
-
-PopulatedPlace  --> PopulatedPlace   :principalArea  
-
-Place  --> Place   :endPoint  
-
-PopulatedPlace  --> PopulatedPlace   :neighboringMunicipality  
-
-Place  --> Place   :northWestPlace  
-
-Place  --> Place   :supply  
-
-Place  --> Place   :northEastPlace  
-
-Settlement  --> Place   :lowestPoint  
-
-Settlement  --> PopulatedPlace   :associationOfLocalGovernment  
-
-Settlement  --> Place   :settlementAttached  
-
-Person  --> Person   :usurper  
-
-Place  --> Place   :southWestPlace  
-
-Person  --> Person   :detractor  
-
-Place  --> Place   :hasInsidePlace  
+Person  --> Person   :dubber  
 
 Place  --> Place   :eastPlace  
 
+PopulatedPlace  --> Place   :touristicSite  
+
+Person  --> Person   :parent  
+
+Settlement  --> Place   :daira  
+
+PopulatedPlace  --> PopulatedPlace   :lieutenancyArea  
+
+Place  --> Place   :northEastPlace  
+
+Athlete  --> Person   :trainer  
+
+Person  --> Person   :friend  
+
+PopulatedPlace  --> PopulatedPlace   :neighboringMunicipality  
+
+Person  --> Person   :copilote  
+
+Place  --> PopulatedPlace   :district  
+
+PopulatedPlace  --> PopulatedPlace   :ceremonialCounty  
+
+Person  --> Person   :usurper  
+
+PopulatedPlace  --> PopulatedPlace   :sheading  
+
+Place  --> Place   :northPlace  
+
+PopulatedPlace  --> PopulatedPlace   :oldProvince  
+
+Person  --> Place   :residence  
+
 Settlement  --> PopulatedPlace   :largestMetro  
+
+Place  --> Place   :nextEntity  
+
+Place  --> Place   :supply  
+
+Settlement  --> Settlement   :twinTown  
+
+Settlement  --> PopulatedPlace   :associationOfLocalGovernment  
+
+PopulatedPlace  --> PopulatedPlace   :borough  
+
+Place  --> Place   :northWestPlace  
+
+Settlement  --> Place   :highestPoint  
+
+PopulatedPlace  --> PopulatedPlace   :principalArea  
+
+Person  --> Place   :announcedFrom  
+
+Place  --> PopulatedPlace   :sovereignCountry  
+
+Place  --> Place   :subregion  
+
+Settlement  --> PopulatedPlace   :federalState  
+
+PopulatedPlace  --> PopulatedPlace   :arrondissement  
+
+PopulatedPlace  --> PopulatedPlace   :oldDistrict  
+
+PopulatedPlace  --> PopulatedPlace   :largestCity  
+
+Settlement  --> PopulatedPlace   :administrativeCollectivity  
+
+Place  --> Place   :land  
+
+Settlement  --> Place   :lowestPoint  
+
+Person  --> Person   :colleague  
+
+Place  --> Place   :hasInsidePlace  
+
+Place  --> PopulatedPlace   :regency  
+
+Settlement  --> Settlement   :mergedSettlement  
+
+Place  --> Place   :southEastPlace  
+
+Settlement  --> Place   :settlementAttached  
+
+Settlement  --> PopulatedPlace   :geolocDepartment  
+
+Place  --> Place   :mainIsland  
+
+Place  --> Place   :hasOutsidePlace  
+
+Person  --> Place   :educationPlace  
+
+Person  --> Place   :livingPlace  
+
+Person  --> Person   :relative  
+
+Place  --> Place   :closeTo  
+
+Person  --> Place   :bodyDiscovered  
+
+Place  --> Place   :endPoint  
+
+Person  --> Person   :detractor  
+
+Person  --> Person   :student  
+
+Place  --> Place   :southWestPlace  
+
+Settlement  --> PopulatedPlace   :frazioni  
+
+Place  --> Place   :locatedInArea  
+
+Place  --> PopulatedPlace   :biggestCity  
+
+PopulatedPlace  --> PopulatedPlace   :largestSettlement  
+
+Place  --> Place   :westPlace  
+
+Person  --> Person   :collaboration  
+
+Settlement  --> Place   :wilaya  
 
 
 ```

@@ -41,7 +41,7 @@ Group  --> Agent   :member
 
 ### Run the experiment
 
-```python -m experiments/generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov```
+```python -m experiments/generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov -l en -m 3```
 
 ### Evaluation
 

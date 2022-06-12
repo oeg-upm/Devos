@@ -2,179 +2,7 @@
 	classDiagram
 
     
-    class Species {
-    
-    }
-
-    class SupremeCourtOfTheUnitedStatesCase {
-    
-    }
-
-    class PoliticalParty {
-    
-    }
-
-    class Athlete {
-    
-    }
-
-    class گرم_پانی_کاقدرتی_چشم {
-    
-    }
-
-    class TheatreDirector {
-    
-    }
-
-    class Colour {
-    
-    }
-
-    class ChartsPlacements {
-    
-    }
-
-    class PersonFunction {
-    
-    }
-
-    class Broadcaster {
-    
-    }
-
-    class File {
-    
-    }
-
-    class PhilosophicalConcept {
-    
-    }
-
-    class University {
-    
-    }
-
-    class NobleFamily {
-    
-    }
-
-    class DBpedian {
-    
-    }
-
-    class SnookerPlayer {
-    
-    }
-
-    class StatedResolution {
-    
-    }
-
-    class OlympicResult {
-    
-    }
-
-    class Instrument {
-    
-    }
-
-    class Woman {
-    
-    }
-
-    class ChristianDoctrine {
-    
-    }
-
-    class Island {
-    
-    }
-
-    class NationalAnthem {
-    
-    }
-
-    class Station {
-    
-    }
-
-    class جُغرافیائی_سیاسیات_تنظیم {
-    
-    }
-
-    class Man {
-    
-    }
-
-    class Person {
-    
-    }
-
-    class MusicGenre {
-    
-    }
-
-    class Place {
-    
-    }
-
-    class PopulatedPlace {
-    
-    }
-
-    class GolfPlayer {
-    
-    }
-
-    class TheologicalConcept {
-    
-    }
-
-    class Deity {
-    
-    }
-
     class HotSpring {
-    
-    }
-
-    class Athletics {
-    
-    }
-
-    class Windmill {
-    
-    }
-
-    class GeopoliticalOrganisation {
-    
-    }
-
-    class آبادی_والی_جگہ۔ {
-    
-    }
-
-    class Municipality {
-    
-    }
-
-    class TopicalConcept {
-    
-    }
-
-    class Play {
-    
-    }
-
-    class MathematicalConcept {
-    
-    }
-
-    class Library {
-    
-    }
-
-    class Work {
     
     }
 
@@ -182,39 +10,19 @@
     
     }
 
-    class AdministrativeRegion {
-    
-    }
-
-    class ScientificConcept {
-    
-    }
-
-    class Cinema {
-    
-    }
-
-    class Embryology {
-    
-    }
-
     class OfficeHolder {
     
     }
 
-    class FormerMunicipality {
+    class Municipality {
     
     }
 
-    class Settlement {
+    class MusicGenre {
     
     }
 
-    class Animal {
-    
-    }
-
-    class Judge {
+    class Work {
     
     }
 
@@ -222,759 +30,951 @@
     
     }
 
+    class Embryology {
+    
+    }
+
+    class MathematicalConcept {
+    
+    }
+
+    class ScientificConcept {
+    
+    }
+
+    class PhilosophicalConcept {
+    
+    }
+
+    class Colour {
+    
+    }
+
+    class Play {
+    
+    }
+
+    class File {
+    
+    }
+
+    class Library {
+    
+    }
+
+    class University {
+    
+    }
+
+    class Island {
+    
+    }
+
+    class SnookerPlayer {
+    
+    }
+
+    class PersonFunction {
+    
+    }
+
+    class Man {
+    
+    }
+
+    class PoliticalParty {
+    
+    }
+
+    class Deity {
+    
+    }
+
+    class Broadcaster {
+    
+    }
+
+    class ChristianDoctrine {
+    
+    }
+
+    class StatedResolution {
+    
+    }
+
+    class DBpedian {
+    
+    }
+
+    class Cinema {
+    
+    }
+
+    class TheatreDirector {
+    
+    }
+
+    class Animal {
+    
+    }
+
     class Publisher {
+    
+    }
+
+    class Species {
+    
+    }
+
+    class Station {
+    
+    }
+
+    class GeopoliticalOrganisation {
+    
+    }
+
+    class Athlete {
+    
+    }
+
+    class TheologicalConcept {
+    
+    }
+
+    class PopulatedPlace {
+    
+    }
+
+    class NobleFamily {
+    
+    }
+
+    class ChartsPlacements {
+    
+    }
+
+    class OlympicResult {
+    
+    }
+
+    class Windmill {
+    
+    }
+
+    class آبادی_والی_جگہ۔ {
+    
+    }
+
+    class GolfPlayer {
+    
+    }
+
+    class Instrument {
+    
+    }
+
+    class Athletics {
+    
+    }
+
+    class Woman {
+    
+    }
+
+    class TopicalConcept {
+    
+    }
+
+    class SupremeCourtOfTheUnitedStatesCase {
+    
+    }
+
+    class گرم_پانی_کاقدرتی_چشم {
+    
+    }
+
+    class جُغرافیائی_سیاسیات_تنظیم {
+    
+    }
+
+    class FormerMunicipality {
+    
+    }
+
+    class Place {
+    
+    }
+
+    class Judge {
+    
+    }
+
+    class Person {
+    
+    }
+
+    class Settlement {
+    
+    }
+
+    class AdministrativeRegion {
+    
+    }
+
+    class NationalAnthem {
     
     }
 
 
 
-Film  --> Person   :makeupArtist  
-
-PopulatedPlace  --> Demographics   :agglomerationDemographics  
-
-Species  --> Species   :subTribus  
-
-Place  --> Depth   :depths  
-
-Person  --> SKOSConcept   :mastersWins  
-
-PopulatedPlace  --> PopulatedPlace   :sheading  
-
-FigureSkater  --> Person   :formerCoach  
-
-Place  --> Species   :tree  
-
-Ship  --> Place   :homeport  
-
-Settlement  --> Place   :highestPoint  
-
-SportsEvent  --> Athlete   :championInDouble  
-
-OlympicResult  --> OlympicResult   :winterAppearances  
-
-TelevisionShow  --> Person   :presenter  
-
-Island  --> Place   :subdivisionName  
-
-GrandPrix  --> Person   :thirdDriver  
-
-Broadcaster  --> PopulatedPlace   :broadcastArea  
-
-Work  --> Person   :coverArtist  
-
-Person  --> Person   :colleague  
-
-Island  --> Building   :building  
-
-GrandPrix  --> Person   :secondDriver  
-
-PopulatedPlace  --> PopulatedPlace   :largestCity  
-
-Restaurant  --> Person   :headChef  
-
-Settlement  --> PopulatedPlace   :frazioni  
-
-Place  --> PopulatedPlace   :lowestPlace  
-
-Settlement  --> PopulatedPlace   :administrativeDistrict  
-
-Canal  --> Place   :originalEndPoint  
-
-Animal  --> Place   :deathPlace  
-
-Athlete  --> Person   :trainer  
-
-Person  --> Work   :debutWork  
-
-Person  --> Place   :bodyDiscovered  
-
-MusicGenre  --> MusicGenre   :derivative  
-
-Woman  --> Person   :daughter  
-
-Place  --> Sea   :sea  
-
-Instrument  --> MusicalArtist   :musicians  
-
-Organisation  --> PersonFunction   :leaderFunction  
-
-Agent  --> Settlement   :hometown  
-
-Person  --> Person   :dubber  
-
-AdministrativeRegion  --> Place   :administrativeCenter  
-
-Island  --> PopulatedPlace   :capitalDistrict  
-
-Island  --> PopulatedPlace   :lowestRegion  
-
-Person  --> SKOSConcept   :usopenWins  
-
-Place  --> Species   :flower  
-
-Athlete  --> SportsTeam   :juniorTeam  
-
-Work  --> Person   :composer  
-
-Artwork  --> Person   :painter  
-
-Person  --> SportsEvent   :competitionTitle  
-
-River  --> PopulatedPlace   :mouthDistrict  
-
-Settlement  --> Group   :minority  
-
-Legislature  --> PoliticalParty   :politicalPartyOfLeader  
-
-Person  --> Person   :sibling  
-
-PopulatedPlace  --> Language   :officialLanguage  
-
-Person  --> Place   :educationPlace  
-
-Place  --> Organisation   :governingBody  
-
-Work  --> Person   :chiefEditor  
-
-Organisation  --> Person   :superintendent  
-
-Settlement  --> Settlement   :adjacentSettlement  
-
-Restaurant  --> Person   :chef  
-
-SportsEvent  --> Person   :medalist  
-
-RouteOfTransportation  --> Station   :routeStart  
-
-Race  --> Person   :recentWinner  
-
-Work  --> Person   :translator  
-
-SportsEvent  --> Athlete   :championInMixedDouble  
-
-Athlete  --> SportsTeam   :club  
-
-Work  --> Place   :releaseLocation  
-
-GrandPrix  --> Person   :fastestDriver  
-
-Animal  --> Animal   :sire  
-
-EducationalInstitution  --> Person   :principal  
-
-Canal  --> Person   :principalEngineer  
-
-Shrine  --> Deity   :enshrinedDeity  
-
-MusicalWork  --> Person   :lyrics  
-
-Canal  --> Place   :originalStartPoint  
-
-SportsTeam  --> Person   :currentMember  
-
-Settlement  --> PopulatedPlace   :federalState  
-
-Person  --> Place   :announcedFrom  
-
-MilitaryUnit  --> Person   :secondCommander  
-
-Place  --> Place   :westPlace  
-
-River  --> PopulatedPlace   :mouthRegion  
-
-Organisation  --> Person   :ceo  
-
-Place  --> RouteStop   :isRouteStop  
-
-Person  --> SportsLeague   :leagueManager  
-
-MusicalWork  --> PopulatedPlace   :recordedIn  
-
-RouteOfTransportation  --> Station   :routeEnd  
-
-PopulatedPlace  --> PopulatedPlace   :oldDistrict  
-
-EducationalInstitution  --> Person   :actingHeadteacher  
-
-Athlete  --> SportsTeam   :formerTeam  
-
-River  --> Place   :sourceConfluenceRegion  
-
-Place  --> PopulatedPlace   :regency  
-
-BodyOfWater  --> Island   :island  
-
-Olympics  --> Person   :olympicOathSwornByJudge  
-
-Person  --> Person   :child  
-
-PopulatedPlace  --> PopulatedPlace   :oldProvince  
-
-Island  --> PopulatedPlace   :governmentPlace  
-
-University  --> Person   :officerInCharge  
-
-Person  --> MilitaryService   :militaryService  
-
-Sport  --> Person   :footedness  
-
-SportsEvent  --> Athlete   :championInSingleFemale  
-
-Species  --> Species   :superTribus  
-
-PopulatedPlace  --> Area   :agglomerationArea  
-
-Man  --> Person   :uncle  
-
-Person  --> Diploma   :diploma  
-
-Olympics  --> Person   :torchBearer  
-
-PoliticalParty  --> Person   :spokesperson  
-
-Family  --> Person   :lastFamilyMember  
-
-Organisation  --> Place   :regionServed  
-
-PoliticalParty  --> PoliticalParty   :splitFromParty  
-
-File  --> File   :fileURL  
-
-Broadcaster  --> BroadcastNetwork   :formerBroadcastNetwork  
-
-Place  --> PopulatedPlace   :nearestCity  
-
-Person  --> Person   :relation  
-
-Person  --> Person   :student  
-
-Person  --> RadioStation   :radio  
-
-AnatomicalStructure  --> Embryology   :precursor  
-
-PopulatedPlace  --> Demographics   :previousDemographics  
-
-Species  --> Taxon   :superFamily  
-
-Place  --> Province   :provinceLink  
-
-Place  --> Place   :mainIsland  
-
-Person  --> Person   :opponent  
-
-Film  --> Person   :specialEffects  
-
-Work  --> Person   :writer  
-
-Settlement  --> PopulatedPlace   :administrativeCollectivity  
+Island  --> Mountain   :capitalMountain  
 
 Person  --> Person   :cousurper  
 
-Work  --> Agent   :publisher  
+Settlement  --> PopulatedPlace   :administrativeDistrict  
 
-SportsEvent  --> Athlete   :championInDoubleMale  
+Band  --> Person   :formerBandMember  
 
-Film  --> Person   :cinematography  
+Saint  --> Person   :canonizedBy  
 
-Legislature  --> PoliticalParty   :politicalPartyInLegislature  
-
-Island  --> PopulatedPlace   :managementRegion  
-
-Person  --> Work   :created  
-
-Person  --> EthnicGroup   :ethnicity  
-
-SiteOfSpecialScientificInterest  --> PopulatedPlace   :areaOfSearch  
-
-Athlete  --> Athletics   :otherSportsExperience  
-
-Work  --> Person   :author  
-
-Organisation  --> PopulatedPlace   :headquarter  
-
-Species  --> Species   :family  
-
-Organisation  --> Person   :chairperson  
-
-Place  --> Place   :nextEntity  
-
-Person  --> Contest   :contest  
-
-Settlement  --> Settlement   :twinTown  
-
-Island  --> PopulatedPlace   :lowestState  
-
-School  --> Person   :vicePrincipal  
-
-Athlete  --> SportsTeam   :teamCoached  
-
-Film  --> Person   :setDesigner  
-
-Person  --> Project   :project  
-
-Work  --> Work   :subsequentWork  
-
-Athlete  --> Sport   :sportSpecialty  
-
-WrittenWork  --> Person   :illustrator  
-
-Organisation  --> Person   :trustee  
-
-Film  --> Person   :director  
-
-SoccerClub  --> Person   :clubsRecordGoalscorer  
-
-EducationalInstitution  --> Person   :alumni  
-
-Woman  --> Person   :sister  
-
-Person  --> PersonFunction   :otherOccupation  
-
-Race  --> Person   :firstWinner  
-
-Athlete  --> SportsTeam   :oldTeamCoached  
-
-Place  --> PopulatedPlace   :sovereignCountry  
-
-Athlete  --> SportsTeam   :managerClub  
-
-Place  --> River   :river  
-
-Animal  --> Animal   :damsire  
-
-Woman  --> Person   :mother  
-
-PopulatedPlace  --> Legislature   :legislature  
-
-Newspaper  --> Person   :associateEditor  
-
-Man  --> Person   :father  
-
-Film  --> Person   :editing  
-
-Athlete  --> Sport   :horseRidingDiscipline  
-
-Animal  --> Place   :birthPlace  
-
-Person  --> Place   :livingPlace  
-
-Place  --> Altitude   :altitude  
-
-SportsEvent  --> Athlete   :mostSuccessfulPlayer  
-
-PopulatedPlace  --> EthnicGroup   :ethnicGroup  
-
-Work  --> Work   :basedOn  
-
-Island  --> PopulatedPlace   :capitalRegion  
-
-Magazine  --> Person   :previousEditor  
-
-SportsTeam  --> Person   :manager  
-
-RouteOfTransportation  --> Place   :routeEndLocation  
-
-Athlete  --> SportsTeam   :youthClub  
-
-HistoricBuilding  --> Person   :pastor  
-
-Person  --> Sport   :sportDiscipline  
-
-Species  --> Species   :tribus  
-
-Organisation  --> Person   :administrator  
-
-Athlete  --> SportsTeam   :stateOfOriginTeam  
-
-PopulatedPlace  --> PoliticalParty   :viceLeaderParty  
-
-WrittenWork  --> Person   :prefaceBy  
-
-PopulatedPlace  --> Place   :touristicSite  
-
-Person  --> Tournament   :worldTournament  
-
-PopulatedPlace  --> GrossDomesticProductPerCapita   :grossDomesticProductPurchasingPowerParityPerCapita  
-
-Person  --> Tournament   :nationalTournament  
-
-AdministrativeRegion  --> Person   :landeshauptmann  
-
-Settlement  --> PoliticalParty   :politicalMajority  
-
-Athlete  --> SportsTeam   :nflTeam  
-
-NobleFamily  --> Family   :otherFamilyBranch  
-
-Olympics  --> Person   :officialOpenedBy  
-
-RouteOfTransportation  --> Place   :routeStartLocation  
-
-TelevisionShow  --> Person   :coExecutiveProducer  
-
-Place  --> Mountain   :lowestMountain  
-
-River  --> PopulatedPlace   :mouthState  
-
-School  --> Person   :nobelLaureates  
-
-EducationalInstitution  --> Person   :dean  
-
-Settlement  --> PopulatedPlace   :jointCommunity  
-
-Scientist  --> Person   :notableStudent  
+Animal  --> Place   :deathPlace  
 
 Scientist  --> Person   :doctoralStudent  
 
-Person  --> SKOSConcept   :britishWins  
+Place  --> PopulatedPlace   :lowestPlace  
+
+Place  --> Altitude   :altitude  
+
+Species  --> Species   :subTribus  
+
+Person  --> Sport   :sportDiscipline  
+
+Scientist  --> Person   :doctoralAdvisor  
+
+PopulatedPlace  --> City   :capital  
+
+Album  --> Person   :compiler  
+
+Work  --> Person   :composer  
+
+Athlete  --> Country   :sportCountry  
+
+FictionalCharacter  --> Species   :entourage  
+
+PopulatedPlace  --> Language   :officialLanguage  
+
+Language  --> PopulatedPlace   :spokenIn  
+
+Film  --> Person   :editing  
+
+Work  --> Person   :author  
+
+Person  --> SKOSConcept   :endReign  
+
+Athlete  --> SportsTeam   :currentTeam  
+
+Person  --> Film   :movie  
+
+School  --> Person   :vicePrincipal  
+
+Organisation  --> Person   :secretaryGeneral  
+
+Athlete  --> Athletics   :athleticsDiscipline  
+
+Musical  --> Person   :musicBy  
+
+Island  --> PopulatedPlace   :capitalRegion  
+
+Person  --> Person   :child  
+
+Family  --> Person   :headOfFamily  
+
+Restaurant  --> Person   :chef  
+
+Settlement  --> Settlement   :canton  
+
+Person  --> Person   :seiyu  
+
+Place  --> SpatialThing   :lowestPosition  
+
+Person  --> Person   :opponent  
+
+Person  --> SKOSConcept   :startReign  
+
+TermOfOffice  --> Person   :presidentGeneralCouncil  
+
+PopulatedPlace  --> Person   :leaderName  
+
+Settlement  --> Person   :bourgmestre  
+
+River  --> PopulatedPlace   :mouthDistrict  
+
+PopulatedPlace  --> Person   :viceLeader  
+
+GrandPrix  --> Person   :thirdDriver  
+
+Island  --> Island   :leftChild  
+
+Settlement  --> PopulatedPlace   :jointCommunity  
+
+Person  --> Tournament   :nationalTournament  
+
+Place  --> PopulatedPlace   :nearestCity  
+
+Restaurant  --> Person   :headChef  
+
+Person  --> Person   :relation  
+
+Athlete  --> SportsTeam   :youthClub  
+
+Place  --> Province   :province  
+
+FormerMunicipality  --> Municipality   :presentMunicipality  
+
+Settlement  --> Settlement   :adjacentSettlement  
+
+Person  --> Person   :spouse  
+
+Place  --> Place   :previousEntity  
+
+Canal  --> Place   :originalStartPoint  
+
+PopulatedPlace  --> PoliticalParty   :viceLeaderParty  
+
+River  --> PopulatedPlace   :mouthRegion  
+
+SoccerClub  --> Place   :ground  
+
+Work  --> Actor   :starring  
+
+Island  --> PopulatedPlace   :governmentPlace  
+
+River  --> PopulatedPlace   :mouthState  
+
+MilitaryUnit  --> Person   :fourthCommander  
+
+MusicGenre  --> MusicGenre   :derivative  
+
+Person  --> Person   :sibling  
+
+SportsEvent  --> Athlete   :championInDouble  
+
+Work  --> Person   :chiefEditor  
+
+Shrine  --> Deity   :enshrinedDeity  
+
+Monarch  --> Person   :heir  
+
+Film  --> Person   :cinematography  
+
+Athlete  --> SportsTeam   :nflTeam  
+
+Species  --> Taxon   :subFamily  
+
+FictionalCharacter  --> Species   :enemy  
+
+Person  --> Person   :dubber  
+
+SportsEvent  --> Athlete   :championInDoubleFemale  
+
+LegalCase  --> Person   :solicitorGeneral  
+
+Sport  --> Person   :footedness  
+
+Settlement  --> Population   :agglomerationPopulation  
+
+Place  --> Place   :eastPlace  
+
+TelevisionShow  --> Person   :presenter  
+
+Film  --> Person   :makeupArtist  
+
+PopulatedPlace  --> GrossDomesticProductPerCapita   :grossDomesticProductNominalPerCapita  
+
+SportsEvent  --> Athlete   :champion  
+
+PopulatedPlace  --> Place   :touristicSite  
+
+Broadcaster  --> BroadcastNetwork   :formerBroadcastNetwork  
+
+Organisation  --> Person   :administrator  
+
+Legislature  --> PoliticalParty   :politicalPartyOfLeader  
+
+Place  --> Depth   :depths  
+
+Person  --> Person   :parent  
+
+Person  --> EducationalInstitution   :college  
+
+Settlement  --> Place   :daira  
+
+PopulatedPlace  --> PopulatedPlace   :lieutenancyArea  
+
+Olympics  --> Person   :olympicOathSwornBy  
+
+RouteOfTransportation  --> Place   :routeEndLocation  
+
+PopulatedPlace  --> Agglomeration   :agglomeration  
+
+Place  --> Altitude   :lowestAltitude  
+
+SiteOfSpecialScientificInterest  --> PopulatedPlace   :areaOfSearch  
+
+Woman  --> Person   :daughter  
+
+Island  --> Building   :building  
+
+Film  --> Person   :specialEffects  
+
+Artwork  --> Person   :painter  
+
+Place  --> Organisation   :governingBody  
+
+TelevisionShow  --> Person   :showJudge  
+
+Place  --> Place   :northEastPlace  
+
+PoliticalParty  --> Person   :spokesperson  
+
+Athlete  --> Person   :trainer  
+
+SportsEvent  --> Person   :medalist  
+
+MilitaryUnit  --> Person   :secondCommander  
+
+SportsTeam  --> Person   :generalManager  
+
+Place  --> RouteStop   :isRouteStop  
+
+Legislature  --> Settlement   :meetingCity  
+
+Instrument  --> MusicalArtist   :musicians  
+
+Person  --> Person   :friend  
+
+Work  --> Work   :subsequentWork  
+
+Island  --> PopulatedPlace   :managementRegion  
+
+PopulatedPlace  --> PopulatedPlace   :neighboringMunicipality  
+
+Place  --> Mountain   :lowestMountain  
+
+Film  --> Person   :director  
+
+FormerMunicipality  --> Municipality   :municipalityAbsorbedBy  
+
+Athlete  --> SportsTeam   :managerClub  
+
+WrittenWork  --> Person   :illustrator  
+
+Person  --> SKOSConcept   :world  
+
+MilitaryUnit  --> PopulatedPlace   :garrison  
+
+Animal  --> Animal   :grandsire  
+
+Man  --> Person   :father  
+
+Settlement  --> PoliticalParty   :politicalMajority  
+
+PopulatedPlace  --> Department   :department  
+
+BodyOfWater  --> Island   :island  
+
+EducationalInstitution  --> Person   :custodian  
+
+Newspaper  --> Person   :associateEditor  
+
+EducationalInstitution  --> Person   :principal  
+
+NobleFamily  --> Family   :otherFamilyBranch  
+
+Broadcaster  --> PopulatedPlace   :broadcastArea  
+
+University  --> Person   :officerInCharge  
+
+Organisation  --> Place   :regionServed  
+
+Island  --> Island   :rightChild  
+
+Athlete  --> SportsTeam   :coachClub  
+
+PopulatedPlace  --> EthnicGroup   :ethnicGroup  
+
+Person  --> Person   :copilote  
+
+Person  --> Diploma   :diploma  
+
+FigureSkater  --> Person   :choreographer  
+
+Saint  --> Person   :beatifiedBy  
+
+AdministrativeRegion  --> Place   :administrativeCenter  
+
+Place  --> PopulatedPlace   :district  
+
+PopulatedPlace  --> PopulatedPlace   :ceremonialCounty  
+
+Person  --> Person   :usurper  
+
+OfficeHolder  --> PoliticalParty   :otherParty  
+
+PopulatedPlace  --> PopulatedPlace   :sheading  
+
+Person  --> SKOSConcept   :mastersWins  
+
+Place  --> Place   :northPlace  
+
+LegalCase  --> Person   :attorneyGeneral  
+
+PopulatedPlace  --> PopulatedPlace   :oldProvince  
+
+GrandPrix  --> Person   :secondDriver  
+
+PopulatedPlace  --> Legislature   :legislature  
+
+Person  --> Tournament   :olympicGames  
+
+Person  --> List   :relatedFunctions  
+
+RouteOfTransportation  --> Station   :routeStart  
+
+Athlete  --> Sport   :horseRidingDiscipline  
+
+FigureSkater  --> Person   :formerCoach  
+
+Island  --> Place   :subdivisionName  
+
+Species  --> Species   :tribus  
+
+TelevisionEpisode  --> Person   :guest  
+
+Work  --> Place   :releaseLocation  
+
+GrandPrix  --> Person   :firstDriver  
+
+Person  --> Organisation   :employer  
+
+Man  --> Person   :brother  
+
+Athlete  --> SportsTeam   :formerTeam  
+
+Athlete  --> SportsTeam   :stateOfOriginTeam  
+
+NobleFamily  --> Family   :mainFamilyBranch  
+
+School  --> Person   :headteacher  
+
+Place  --> Species   :flower  
+
+Person  --> Place   :residence  
+
+Person  --> SportsEvent   :competitionTitle  
+
+Settlement  --> Group   :minority  
+
+PopulatedPlace  --> Demographics   :previousDemographics  
+
+Man  --> Person   :son  
+
+Settlement  --> PopulatedPlace   :largestMetro  
+
+Person  --> SportsLeague   :leagueManager  
+
+Place  --> Place   :nextEntity  
+
+Athlete  --> SportsTeam   :juniorTeam  
+
+WrittenWork  --> Person   :prefaceBy  
+
+Place  --> Sea   :sea  
+
+EducationalInstitution  --> Person   :dean  
+
+Road  --> PopulatedPlace   :ruralMunicipality  
+
+Person  --> Country   :stateOfOrigin  
+
+Place  --> PersonFunction   :politicalLeader  
+
+Place  --> Place   :supply  
+
+Work  --> Person   :translator  
+
+Species  --> Species   :fossil  
+
+Place  --> Species   :bird  
+
+Person  --> CareerStation   :careerStation  
+
+SportsEvent  --> Athlete   :championInSingleFemale  
+
+Settlement  --> Settlement   :twinTown  
+
+Athlete  --> SportsTeam   :debutTeam  
+
+Film  --> Person   :setDesigner  
+
+EducationalInstitution  --> Person   :rector  
+
+Person  --> Tournament   :continentalTournament  
+
+Settlement  --> PopulatedPlace   :associationOfLocalGovernment  
+
+GrandPrix  --> Person   :fastestDriver  
+
+PopulatedPlace  --> PopulatedPlace   :borough  
+
+Family  --> Person   :lastFamilyMember  
+
+Athlete  --> SportsLeague   :currentLeague  
+
+Place  --> Place   :northWestPlace  
+
+PopulatedPlace  --> Area   :agglomerationArea  
+
+Person  --> Country   :nationality  
+
+Person  --> SKOSConcept   :usopenWins  
+
+Athlete  --> SportsTeam   :teamCoached  
+
+Olympics  --> Person   :officialOpenedBy  
+
+Newspaper  --> Person   :managingEditor  
+
+Settlement  --> Place   :highestPoint  
+
+Person  --> RadioStation   :radio  
+
+TelevisionShow  --> Person   :storyEditor  
+
+Olympics  --> Person   :olympicOathSwornByJudge  
+
+Athlete  --> Athletics   :otherSportsExperience  
+
+AdministrativeRegion  --> Person   :landeshauptmann  
+
+PopulatedPlace  --> PopulatedPlace   :principalArea  
+
+Person  --> Place   :announcedFrom  
+
+Agent  --> Settlement   :hometown  
+
+Document  --> File   :galleryItem  
+
+Person  --> PersonFunction   :otherOccupation  
+
+Legislature  --> PoliticalParty   :politicalPartyInLegislature  
+
+Organisation  --> Person   :trustee  
+
+MusicGenre  --> MusicGenre   :musicFusionGenre  
+
+Work  --> Person   :writer  
+
+Canal  --> Person   :principalEngineer  
+
+Person  --> Work   :debutWork  
+
+RouteOfTransportation  --> Station   :routeJunction  
+
+Scientist  --> Person   :notableStudent  
+
+Species  --> Species   :species  
+
+Place  --> PopulatedPlace   :sovereignCountry  
+
+Island  --> Island   :majorIsland  
+
+Place  --> Place   :subregion  
+
+OlympicResult  --> OlympicResult   :summerAppearances  
+
+Work  --> Person   :mainCharacter  
+
+SportsEvent  --> Athlete   :championInMixedDouble  
+
+Settlement  --> PopulatedPlace   :federalState  
+
+PopulatedPlace  --> PopulatedPlace   :arrondissement  
+
+Person  --> EducationalInstitution   :almaMater  
+
+Work  --> Person   :coverArtist  
+
+Race  --> Person   :recentWinner  
+
+EducationalInstitution  --> Person   :actingHeadteacher  
+
+PopulatedPlace  --> PopulatedPlace   :oldDistrict  
+
+Athlete  --> SportsTeam   :club  
+
+PopulatedPlace  --> Saint   :saint  
+
+PopulatedPlace  --> PopulatedPlace   :largestCity  
+
+Work  --> Language   :originalLanguage  
+
+Woman  --> Person   :sister  
+
+Place  --> River   :river  
+
+Settlement  --> PopulatedPlace   :administrativeCollectivity  
+
+HistoricBuilding  --> Person   :pastor  
+
+FigureSkater  --> Person   :currentPartner  
+
+Place  --> Place   :land  
+
+File  --> File   :fileURL  
+
+Athlete  --> SportsTeam   :ncaaTeam  
+
+Person  --> Tournament   :worldTournament  
+
+Animal  --> Place   :birthPlace  
+
+TelevisionShow  --> Person   :creativeDirector  
 
 Person  --> Organisation   :federation  
 
 FigureSkater  --> Person   :formerChoreographer  
 
-SportsEvent  --> Person   :bronzeMedalist  
+PoliticalParty  --> PoliticalParty   :splitFromParty  
 
-Person  --> SKOSConcept   :world  
+Island  --> Country   :governmentCountry  
 
-Person  --> Person   :friend  
+Canal  --> Place   :originalEndPoint  
 
-Person  --> Person   :seiyu  
+Organisation  --> Person   :ceo  
 
-Person  --> SKOSConcept   :startReign  
+Person  --> SportsTeam   :teamManager  
 
-PopulatedPlace  --> Saint   :saint  
+Settlement  --> Place   :lowestPoint  
 
-Organisation  --> Person   :secretaryGeneral  
+Saint  --> PopulatedPlace   :canonizedPlace  
 
-PopulatedPlace  --> PopulatedPlace   :ceremonialCounty  
+Person  --> Person   :colleague  
 
-Newspaper  --> Person   :managingEditor  
+Man  --> Person   :uncle  
 
-River  --> PopulatedPlace   :sourceConfluenceState  
+Organisation  --> PersonFunction   :leaderFunction  
 
-MilitaryUnit  --> PopulatedPlace   :garrison  
+RouteOfTransportation  --> Place   :routeStartLocation  
 
-PopulatedPlace  --> GrossDomesticProductPerCapita   :grossDomesticProductNominalPerCapita  
+Place  --> Place   :hasInsidePlace  
 
-Place  --> Place   :hasOutsidePlace  
+PopulatedPlace  --> Language   :regionalLanguage  
 
-PopulatedPlace  --> PopulatedPlace   :borough  
+MusicalWork  --> Person   :lyrics  
 
-Settlement  --> Person   :bourgmestre  
+Place  --> Province   :provinceLink  
 
-Settlement  --> Place   :wilaya  
+Place  --> PopulatedPlace   :regency  
 
-Broadcaster  --> Broadcaster   :sisterStation  
+SoccerClub  --> Person   :clubsRecordGoalscorer  
 
-Place  --> Species   :bird  
-
-FictionalCharacter  --> Species   :entourage  
-
-Person  --> Person   :copilote  
-
-Person  --> EducationalInstitution   :almaMater  
-
-Place  --> Place   :land  
-
-Island  --> SpatialThing   :capitalPosition  
-
-FigureSkater  --> Person   :currentPartner  
-
-PopulatedPlace  --> Person   :viceLeader  
-
-Person  --> Tournament   :olympicGames  
+Person  --> SKOSConcept   :britishWins  
 
 Mountain  --> Person   :firstAscentPerson  
 
-Place  --> PopulatedPlace   :district  
+Person  --> Project   :project  
 
-FormerMunicipality  --> Municipality   :municipalityAbsorbedBy  
+Person  --> EthnicGroup   :ethnicity  
 
-LegalCase  --> Person   :solicitorGeneral  
+Food  --> Person   :creatorOfDish  
 
-Person  --> Person   :relative  
+Island  --> PopulatedPlace   :lowestState  
 
-MusicGenre  --> MusicGenre   :musicFusionGenre  
+Settlement  --> Settlement   :mergedSettlement  
 
-Album  --> Person   :compiler  
+SkiResort  --> Place   :massif  
 
-Island  --> Island   :leftChild  
+Place  --> Place   :southEastPlace  
 
-Place  --> Altitude   :lowestAltitude  
+Race  --> Person   :firstWinner  
 
-MilitaryUnit  --> Person   :fourthCommander  
+Woman  --> Person   :mother  
 
-PopulatedPlace  --> Person   :leaderName  
+Settlement  --> Place   :settlementAttached  
 
-PopulatedPlace  --> PopulatedPlace   :arrondissement  
+Work  --> Work   :basedOn  
 
-Place  --> Place   :previousEntity  
+Saint  --> PopulatedPlace   :beatifiedPlace  
 
-Settlement  --> Place   :daira  
+Broadcaster  --> Broadcaster   :network  
 
-OfficeHolder  --> PoliticalParty   :otherParty  
-
-Person  --> SKOSConcept   :endReign  
+River  --> PopulatedPlace   :sourceConfluenceState  
 
 Politician  --> Person   :prefect  
 
+Settlement  --> PopulatedPlace   :geolocDepartment  
+
+Place  --> Place   :mainIsland  
+
+Olympics  --> Person   :torchBearer  
+
+Island  --> PopulatedPlace   :capitalPlace  
+
+Scientist  --> Person   :academicAdvisor  
+
+SportsTeam  --> Person   :manager  
+
+TelevisionShow  --> Work   :openingTheme  
+
+VideoGame  --> Person   :gameArtist  
+
+Magazine  --> Person   :previousEditor  
+
+SportsTeam  --> Person   :currentMember  
+
+Place  --> Place   :hasOutsidePlace  
+
+Work  --> MusicalArtist   :musicComposer  
+
+Person  --> Place   :educationPlace  
+
+EducationalInstitution  --> Person   :alumni  
+
+LegalCase  --> Judge   :judge  
+
+Athlete  --> Sport   :sportSpecialty  
+
+Person  --> MilitaryService   :militaryService  
+
+OlympicResult  --> OlympicResult   :winterAppearances  
+
+Person  --> Place   :livingPlace  
+
+PublicTransitSystem  --> Station   :importantStation  
+
+Person  --> Person   :relative  
+
+Place  --> Place   :closeTo  
+
+SportsEvent  --> Athlete   :championInDoubleMale  
+
+PopulatedPlace  --> GrossDomesticProductPerCapita   :grossDomesticProductPurchasingPowerParityPerCapita  
+
+Species  --> Species   :superTribus  
+
+Person  --> Place   :bodyDiscovered  
+
+Work  --> Agent   :publisher  
+
+Organisation  --> Person   :chairperson  
+
+PopulatedPlace  --> Population   :previousPopulation  
+
+SportsEvent  --> Athlete   :mostSuccessfulPlayer  
+
+River  --> Place   :sourceConfluenceRegion  
+
+SportsEvent  --> Person   :bronzeMedalist  
+
+OlympicResult  --> OlympicResult   :otherAppearances  
+
+Broadcaster  --> Broadcaster   :sisterStation  
+
+Place  --> Place   :endPoint  
+
+Island  --> PopulatedPlace   :lowestRegion  
+
+Person  --> Contest   :contest  
+
+Island  --> PopulatedPlace   :governmentRegion  
+
+Broadcaster  --> BroadcastNetwork   :broadcastNetwork  
+
 Island  --> PopulatedPlace   :highestRegion  
+
+Department  --> PopulatedPlace   :subprefecture  
+
+Athlete  --> SportsTeam   :oldTeamCoached  
+
+Person  --> Person   :detractor  
+
+AnatomicalStructure  --> Embryology   :precursor  
+
+Band  --> Person   :bandMember  
+
+PopulatedPlace  --> Demographics   :agglomerationDemographics  
+
+Island  --> SpatialThing   :capitalPosition  
+
+Animal  --> Animal   :damsire  
+
+Person  --> Work   :created  
+
+RouteOfTransportation  --> Station   :routeEnd  
+
+Person  --> Person   :student  
+
+Place  --> Place   :southWestPlace  
+
+MusicalWork  --> PopulatedPlace   :recordedIn  
+
+Family  --> Person   :primogenitor  
+
+Species  --> Taxon   :superFamily  
+
+Municipality  --> FormerMunicipality   :hasAbsorbedMunicipality  
+
+Settlement  --> PopulatedPlace   :frazioni  
 
 Artist  --> Instrument   :instrument  
 
 Place  --> Place   :locatedInArea  
 
-Saint  --> PopulatedPlace   :beatifiedPlace  
-
-PublicTransitSystem  --> Station   :importantStation  
-
-Place  --> Area   :wholeArea  
-
-FictionalCharacter  --> Species   :enemy  
-
-Person  --> Person   :collaboration  
-
-Scientist  --> Person   :doctoralAdvisor  
-
-Place  --> PersonFunction   :politicalLeader  
-
-Athlete  --> SportsTeam   :currentTeam  
-
-Musical  --> Person   :musicBy  
-
-Island  --> Country   :governmentCountry  
-
-Scientist  --> Person   :academicAdvisor  
-
-Broadcaster  --> BroadcastNetwork   :broadcastNetwork  
-
-Food  --> Person   :creatorOfDish  
+Place  --> PopulatedPlace   :biggestCity  
 
 MilitaryUnit  --> Person   :notableCommander  
 
-Person  --> SportsTeam   :teamManager  
+Place  --> Area   :wholeArea  
 
-Athlete  --> SportsTeam   :ncaaTeam  
-
-Place  --> Place   :northPlace  
-
-PopulatedPlace  --> PopulatedPlace   :lieutenancyArea  
-
-Settlement  --> Settlement   :mergedSettlement  
-
-Work  --> MusicalArtist   :musicComposer  
-
-SportsEvent  --> Athlete   :championInDoubleFemale  
-
-Person  --> Organisation   :employer  
-
-TelevisionShow  --> Person   :showJudge  
-
-Municipality  --> FormerMunicipality   :hasAbsorbedMunicipality  
-
-VideoGame  --> Person   :gameArtist  
-
-OlympicResult  --> OlympicResult   :otherAppearances  
-
-Place  --> PopulatedPlace   :biggestCity  
-
-EducationalInstitution  --> Person   :rector  
-
-Person  --> Country   :nationality  
-
-Animal  --> Animal   :grandsire  
-
-Document  --> File   :galleryItem  
-
-Settlement  --> Settlement   :canton  
-
-FigureSkater  --> Person   :choreographer  
-
-Work  --> Actor   :starring  
-
-Place  --> Place   :closeTo  
+Organisation  --> PopulatedPlace   :headquarter  
 
 School  --> Person   :executiveHeadteacher  
 
-Athlete  --> Athletics   :athleticsDiscipline  
-
-Organisation  --> Person   :chaplain  
-
-Person  --> CareerStation   :careerStation  
-
-Person  --> EducationalInstitution   :college  
-
-FormerMunicipality  --> Municipality   :presentMunicipality  
-
-SoccerClub  --> Place   :ground  
-
-Place  --> Province   :province  
-
-NobleFamily  --> Family   :mainFamilyBranch  
-
-Person  --> Place   :residence  
-
-Person  --> Person   :spouse  
-
 PopulatedPlace  --> PopulatedPlace   :largestSettlement  
 
-Species  --> Taxon   :subFamily  
-
-TelevisionEpisode  --> Person   :guest  
-
-Athlete  --> Country   :sportCountry  
+Place  --> Place   :westPlace  
 
 PopulatedPlace  --> Population   :population  
 
-Person  --> Tournament   :continentalTournament  
-
-SportsEvent  --> Athlete   :champion  
-
-Person  --> Person   :parent  
-
-Settlement  --> PopulatedPlace   :geolocDepartment  
-
-PopulatedPlace  --> Department   :department  
-
-PopulatedPlace  --> Population   :previousPopulation  
-
-Place  --> Place   :southEastPlace  
-
-Athlete  --> SportsTeam   :coachClub  
-
-GrandPrix  --> Person   :firstDriver  
-
-Place  --> Place   :subregion  
-
-Island  --> Island   :rightChild  
-
-PopulatedPlace  --> PopulatedPlace   :principalArea  
-
-Island  --> Island   :majorIsland  
-
-Person  --> Country   :stateOfOrigin  
-
-Island  --> PopulatedPlace   :governmentRegion  
-
-Place  --> Place   :endPoint  
-
-School  --> Person   :headteacher  
-
-LegalCase  --> Person   :attorneyGeneral  
-
-Island  --> PopulatedPlace   :capitalPlace  
-
-Band  --> Person   :formerBandMember  
-
-Athlete  --> SportsTeam   :debutTeam  
-
-TelevisionShow  --> Person   :storyEditor  
+Person  --> Person   :collaboration  
 
 Person  --> SpatialThing   :restingPlacePosition  
 
-Family  --> Person   :headOfFamily  
+Place  --> Species   :tree  
 
-Person  --> SportsTeam   :currentTeamManager  
-
-PopulatedPlace  --> PopulatedPlace   :neighboringMunicipality  
-
-Place  --> Place   :northWestPlace  
-
-Work  --> Language   :originalLanguage  
-
-PopulatedPlace  --> Agglomeration   :agglomeration  
-
-Olympics  --> Person   :olympicOathSwornBy  
-
-Place  --> Place   :supply  
-
-Work  --> Person   :mainCharacter  
-
-LegalCase  --> Judge   :judge  
-
-TelevisionShow  --> Work   :openingTheme  
-
-Man  --> Person   :son  
-
-Place  --> Place   :northEastPlace  
-
-RouteOfTransportation  --> Station   :routeJunction  
-
-Settlement  --> Place   :lowestPoint  
-
-Monarch  --> Person   :heir  
-
-Settlement  --> PopulatedPlace   :associationOfLocalGovernment  
-
-SportsTeam  --> Person   :generalManager  
-
-Species  --> Species   :species  
-
-Species  --> Species   :fossil  
-
-Man  --> Person   :brother  
-
-Road  --> PopulatedPlace   :ruralMunicipality  
-
-Settlement  --> Population   :agglomerationPopulation  
-
-Settlement  --> Place   :settlementAttached  
-
-OlympicResult  --> OlympicResult   :summerAppearances  
-
-Legislature  --> Settlement   :meetingCity  
-
-Athlete  --> SportsLeague   :currentLeague  
-
-Person  --> Film   :movie  
+TelevisionShow  --> Person   :coExecutiveProducer  
 
 Work  --> Agent   :producer  
 
-Language  --> PopulatedPlace   :spokenIn  
+Animal  --> Animal   :sire  
 
-Island  --> Mountain   :capitalMountain  
+Settlement  --> Place   :wilaya  
 
-Person  --> Person   :usurper  
+School  --> Person   :nobelLaureates  
 
-Saint  --> Person   :canonizedBy  
+Ship  --> Place   :homeport  
 
-PopulatedPlace  --> City   :capital  
+Organisation  --> Person   :chaplain  
 
-EducationalInstitution  --> Person   :custodian  
+Species  --> Species   :family  
 
-Saint  --> Person   :beatifiedBy  
+Organisation  --> Person   :superintendent  
 
-Saint  --> PopulatedPlace   :canonizedPlace  
+Island  --> PopulatedPlace   :capitalDistrict  
 
-Place  --> Place   :southWestPlace  
-
-Band  --> Person   :bandMember  
-
-SkiResort  --> Place   :massif  
-
-TelevisionShow  --> Person   :creativeDirector  
-
-Family  --> Person   :primogenitor  
-
-TermOfOffice  --> Person   :presidentGeneralCouncil  
-
-Place  --> SpatialThing   :lowestPosition  
-
-Person  --> Person   :detractor  
-
-Broadcaster  --> Broadcaster   :network  
-
-Department  --> PopulatedPlace   :subprefecture  
-
-PopulatedPlace  --> Language   :regionalLanguage  
-
-Place  --> Place   :hasInsidePlace  
-
-Person  --> List   :relatedFunctions  
-
-Place  --> Place   :eastPlace  
-
-Settlement  --> PopulatedPlace   :largestMetro  
+Person  --> SportsTeam   :currentTeamManager  
 
 
 ```

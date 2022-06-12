@@ -1,6 +1,7 @@
 import argparse
 import sys
 import rdflib
+from rdflib import Literal
 import json
 from owl2diagram.main import get_class_diagram, get_class_hierarchy_diagram, get_object_diagram, get_data_diagram, get_data_prop
 from owl2diagram.main import get_classes, get_class_hierarchy, get_object_prop, save_diagram, get_name
@@ -10,6 +11,9 @@ try:
     import prefixes
 except:
     from ogister import prefixes
+
+
+MAX_CHARS = 300
 
 
 def remove_datatypes(uris):
@@ -50,6 +54,7 @@ def get_possible_keywords(txt, max_tok_len):
     Return possible combinations of keywords based on
     """
     tokens = txt.split(' ')
+    tokens = [t.strip() for t in tokens if t.strip()!= '']
     keywords = []
     for i in range(len(tokens)):
         kw_i = get_possible_combinations(tokens[i:max_tok_len+i], max_tok_len)
@@ -83,23 +88,33 @@ def get_possible_joins(tokens, joiners=[" "]):
     return poss
 
 
-def get_prop_vals(g, properties):
+def get_prop_vals(g, properties, lang=None):
     """
     Get values about the graph itself
     :param g: rdf Graph
     :param properties:
+    :param lang:
     :return: return values
     """
     vals = []
-    t = "select ?val where {?s <%s> ?val}"
+    t = "select ?val where {?s <%s> ?val. ?s rdf:type owl:Ontology}"
     for p in properties:
         results = g.query(t % p)
         for res in results:
+            if lang:
+                if not res["val"].language or (type(res["val"]) == Literal and res["val"].language.lower() != lang.lower()):
+                # if type(res["val"]) == Literal and res["val"].language.lower() != lang.lower():
+                    continue
+            # literal = res["val"]
+            # if litera
+            # print(res)
+            # print(res[1])
+            # print(res['val']["lang"])
             vals.append(str(res["val"]))
     return vals
 
 
-def get_titles(g):
+def get_titles(g, lang=None):
     """
     According to https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html#title
     :param g: rdf Graph
@@ -110,10 +125,10 @@ def get_titles(g):
         prefixes.DCTERMS+"title",
         prefixes.SCHEMA+"name"
     ]
-    return get_prop_vals(g, props)
+    return get_prop_vals(g, props, lang=lang)
 
 
-def get_descriptions(g):
+def get_descriptions(g, lang=None):
     """
     According to https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html#description
     :param g: rdf Graph
@@ -126,10 +141,10 @@ def get_descriptions(g):
         prefixes.RDFS+"comment",
         prefixes.SKOS+"note"
     ]
-    return get_prop_vals(g, props)
+    return get_prop_vals(g, props, lang=lang)
 
 
-def get_abstracts(g):
+def get_abstracts(g, lang=None):
     """
     According to https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html#abs
     :param g: rdf Graph
@@ -139,7 +154,7 @@ def get_abstracts(g):
         prefixes.DC+"abstract",
         prefixes.DCTERMS+"abstract"
     ]
-    return get_prop_vals(g, props)
+    return get_prop_vals(g, props, lang=lang)
 
 
 def classes_with_keywords(g, keywords):
@@ -340,11 +355,14 @@ def parse_arguments():
     parser.add_argument('-d', '--description', action="store_true", help="To look into description.")
     parser.add_argument('-a', '--abstract', action="store_true", help="To look into abstract.")
     parser.add_argument('-n', '--topn', default=0,  help="The maximum number of relevant classes.")
+    parser.add_argument('-l', '--lang', default=None, help="language tag. e.g., en")
+    parser.add_argument('-m', '--maxoptions', default=0, help="Maximum number of meta literal for each meta type (e.g., title)")
+    # parser.add_argument('-y', '--charlimit', default=0, help="Maximum number of characters per literal property.")
     args = parser.parse_args()
-    return args.input, args.output, args.title, args.description, args.abstract, int(args.topn)
+    return args.input, args.output, args.title, args.description, args.abstract, int(args.topn), args.lang, int(args.maxoptions)
 
 
-def workflow(input_path, out_path, title, desc, abstract, topn):
+def get_classes_and_relations(input_path, title, desc, abstract, lang=None, max_options=0):
     """
 
     """
@@ -353,17 +371,36 @@ def workflow(input_path, out_path, title, desc, abstract, topn):
     g.parse(input_path, format=rdflib.util.guess_format(input_path))
     meta = []
     if title:
-        meta += get_titles(g)
-        print(get_titles(g))
+        titles = get_titles(g, lang=lang)
+        if max_options > 0:
+            print("%d of titles out of %d" % (min(max_options, len(titles)), len(titles)))
+            titles = titles[:max_options]
+        meta += titles
+        print("titles: ")
+        # print(len(titles))
+        print(titles)
     if desc:
-        meta += get_descriptions(g)
-        print(get_descriptions(g))
+        descs = get_descriptions(g, lang=lang)
+        if max_options > 0:
+            print("%d of descriptions out of %d" % (min(max_options, len(descs)), len(descs)))
+            descs = descs[:max_options]
+        meta += descs
+        print("descriptions: ")
+        # print(len(descs))
+        print(descs)
     if abstract:
-        meta += get_abstracts(g)
-        print(get_abstracts(g))
+        absts = get_abstracts(g, lang=lang)
+        if max_options > 0:
+            print("%d of abstracts out of %d" % (min(max_options, len(absts)), len(absts)))
+            absts = absts[:max_options]
+        meta += absts
+        print("abstracts")
+        print(absts)
+
     keywords = gather_keywords(meta, max_tok_len=3)
     print("Keywords: ")
     print(keywords)
+
     keywords = remove_datatypes(keywords)
     keywords = remove_quotes(keywords)
     keywords = [k.lower() for k in keywords]
@@ -388,6 +425,39 @@ def workflow(input_path, out_path, title, desc, abstract, topn):
     constraints = [(shorten_url(c[0]), shorten_url(c[1]), shorten_url(c[2])) for c in constraints]
     shortened_classes = [shorten_url(c) for c in all_classes]
 
+    # if topn > 0:
+    #     from_classes = [elem[0] for elem in relations]
+    #     to_classes = [elem[2] for elem in relations]
+    #     to_from_classes = from_classes + to_classes
+    #     myslist = Counter(to_from_classes)
+    #     myslist = myslist.most_common()
+    #     myslist = myslist[:topn]
+    #     print("\n top %d: " % topn)
+    #     print(myslist)  # Class ordered by ObjectProp relations
+    #     top_classes = []
+    #     for key, value in myslist:
+    #         top_classes.append(key)
+    #     shortened_classes = top_classes
+    #     relations = [rel for rel in relations if ((rel[0] in shortened_classes) and (rel[2] in shortened_classes))]
+    #     constraints = [rel for rel in constraints if ((rel[0] in shortened_classes) and (rel[2] in shortened_classes))]
+
+    # diagram = get_class_diagram(shortened_classes)
+    # diagram += get_object_diagram(relations)
+    # diagram += get_object_diagram(constraints)
+    # save_diagram(diagram, out_path)
+
+    return shortened_classes, relations+constraints
+
+
+def get_top(topn, classes, relations):
+    """
+    topn: int
+    classes: shorten classes
+    relations: a list of [cls1, rel, cls2]
+
+    return topn classes and properties
+
+    """
     if topn > 0:
         from_classes = [elem[0] for elem in relations]
         to_classes = [elem[2] for elem in relations]
@@ -400,21 +470,41 @@ def workflow(input_path, out_path, title, desc, abstract, topn):
         top_classes = []
         for key, value in myslist:
             top_classes.append(key)
-        shortened_classes = top_classes
-        relations = [rel for rel in relations if ((rel[0] in shortened_classes) and (rel[2] in shortened_classes))]
-        constraints = [rel for rel in constraints if ((rel[0] in shortened_classes) and (rel[2] in shortened_classes))]
+        classes = top_classes
+        relations = [rel for rel in relations if ((rel[0] in classes) and (rel[2] in classes))]
 
-    diagram = get_class_diagram(shortened_classes)
+    return classes, relations
+
+
+def draw_diagrams(classes, relations, out_path):
+    """
+    classes: shorten classes
+    relations: a list
+    out_path: the path for the markdown file
+    return None
+    """
+    diagram = get_class_diagram(classes)
     diagram += get_object_diagram(relations)
-    diagram += get_object_diagram(constraints)
     save_diagram(diagram, out_path)
 
-    return shortened_classes, relations+constraints
+
+def workflow(input_path, title, desc, abstract, topn, out_path=None, lang=None, max_options=0):
+    """
+    meta: either "title", "description", or "abstract". It is only used for the json files
+    """
+    classes, relations = get_classes_and_relations(input_path, title, desc, abstract, lang=lang,
+                                                   max_options=max_options)
+
+    classes_top, relations_top = get_top(topn=topn, classes=classes, relations=relations)
+    if out_path:
+        draw_diagrams(classes=classes_top, relations=relations_top, out_path=out_path)
+    return classes_top, relations_top
 
 
 def main():
-    input_path, out_path, title, desc, abstract, topn = parse_arguments()
-    workflow(input_path=input_path, out_path=out_path, title=title, desc=desc, abstract=abstract, topn=topn)
+    input_path, out_path, title, desc, abstract, topn, lang, max_options = parse_arguments()
+    workflow(input_path=input_path, out_path=out_path, title=title, desc=desc, abstract=abstract, topn=topn,
+             lang=lang, max_options=max_options)
 
 
 if __name__ == "__main__":
