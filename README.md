@@ -4,6 +4,7 @@
 
 A tool to generate a gist of the ontology
 
+
 ## Main Features
 
 * In Progress
@@ -35,6 +36,17 @@ Thing  --> Agent   :maker
 Group  --> Agent   :member  
 
 ```
+
+## Experiment
+
+### Run the experiment
+
+```python -m experiments/generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov```
+
+### Evaluation
+
+
+
 
 ## Authors
 

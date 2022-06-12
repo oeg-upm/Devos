@@ -15,7 +15,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 
-<http://www.w3.org/ns/adms> 	a voaf:Vocabulary, owl:Ontology;
+<http://www.w3.org/ns/adms> a voaf:Vocabulary, owl:Ontology;
   voaf:specializes dcat:;
   dcterms:title "Asset Description Metadata Schema (ADMS)"@en;
   rdfs:label "Asset Description Metadata Schema (ADMS)"@en;

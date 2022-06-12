@@ -9,11 +9,11 @@ dcmitype.ttl,http://purl.org/dc/dcmitype/Event,2,,1
 dcmitype.ttl,http://purl.org/dc/dcmitype/Collection,3,,1
 dcmitype.ttl,http://purl.org/dc/dcmitype/Service,4,,1
 dcmitype.ttl,http://purl.org/dc/dcmitype/PhysicalObject,5,,1
-adm.rdf,http://www.w3.org/ns/adms#Asset,1,1,
-adm.rdf,http://www.w3.org/ns/adms#AssetDistribution,2,1,
-adm.rdf,http://www.w3.org/ns/adms#AssetRepository,3,1,
-adm.rdf,http://www.w3.org/ns/dcat#Dataset,4,1,
-adm.rdf,http://www.w3.org/ns/dcat#Distribution,5,1,
+adm.ttl,http://www.w3.org/ns/adms#Asset,1,1,
+adm.ttl,http://www.w3.org/ns/adms#AssetDistribution,2,1,
+adm.ttl,http://www.w3.org/ns/adms#AssetRepository,3,1,
+adm.ttl,http://www.w3.org/ns/dcat#Dataset,4,1,
+adm.ttl,http://www.w3.org/ns/dcat#Distribution,5,1,
 doap.rdf,http://usefulinc.com/ns/doap#Project,1,1,
 doap.rdf,http://usefulinc.com/ns/doap#Repository,2,1,
 doap.rdf,http://xmlns.com/foaf/0.1/Person,3,1,

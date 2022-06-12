@@ -339,7 +339,7 @@ def parse_arguments():
     parser.add_argument('-t', '--title', action="store_true", help="To look into titles.")
     parser.add_argument('-d', '--description', action="store_true", help="To look into description.")
     parser.add_argument('-a', '--abstract', action="store_true", help="To look into abstract.")
-    parser.add_argument('-n', '--topn', default=-1,  help="The maximum number of relevant classes.")
+    parser.add_argument('-n', '--topn', default=0,  help="The maximum number of relevant classes.")
     args = parser.parse_args()
     return args.input, args.output, args.title, args.description, args.abstract, int(args.topn)
 
@@ -349,6 +349,7 @@ def workflow(input_path, out_path, title, desc, abstract, topn):
 
     """
     g = rdflib.Graph()
+    print("\n\n\t\t==============\n\t Parsing: %s (format: %s)" % (input_path, rdflib.util.guess_format(input_path)))
     g.parse(input_path, format=rdflib.util.guess_format(input_path))
     meta = []
     if title:
@@ -385,7 +386,7 @@ def workflow(input_path, out_path, title, desc, abstract, topn):
     relations = get_relations(g, all_classes)
     constraints = get_classes_constraints(g, all_classes)
     constraints = [(shorten_url(c[0]), shorten_url(c[1]), shorten_url(c[2])) for c in constraints]
-    shortened_classes = [shorten_url(c) for c in classes+related_classes]
+    shortened_classes = [shorten_url(c) for c in all_classes]
 
     if topn > 0:
         from_classes = [elem[0] for elem in relations]
@@ -400,11 +401,15 @@ def workflow(input_path, out_path, title, desc, abstract, topn):
         for key, value in myslist:
             top_classes.append(key)
         shortened_classes = top_classes
+        relations = [rel for rel in relations if ((rel[0] in shortened_classes) and (rel[2] in shortened_classes))]
+        constraints = [rel for rel in constraints if ((rel[0] in shortened_classes) and (rel[2] in shortened_classes))]
 
     diagram = get_class_diagram(shortened_classes)
     diagram += get_object_diagram(relations)
     diagram += get_object_diagram(constraints)
     save_diagram(diagram, out_path)
+
+    return shortened_classes, relations+constraints
 
 
 def main():
