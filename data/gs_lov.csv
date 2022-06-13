@@ -39,8 +39,8 @@ prov.ttl,http://www.w3.org/ns/prov#Activity,2,1,
 prov.ttl,http://www.w3.org/ns/prov#Person,3,1,
 prov.ttl,http://www.w3.org/ns/prov#Organization,4,1,
 prov.ttl,http://www.w3.org/ns/prov#Role,5,,1
-schemaorg-all-http.ttl,http://xmlns.com/foaf/0.1/Person,1,,1
-schemaorg-all-http.ttl,http://schema.org/Organization,2,,1
-schemaorg-all-http.ttl,http://schema.org/Event,3,,1
-schemaorg-all-http.ttl,http://schema.org/CreativeWork,4,,1
-schemaorg-all-http.ttl,http://schema.org/Product,5,,1
+schemaorg.ttl,http://xmlns.com/foaf/0.1/Person,1,,1
+schemaorg.ttl,http://schema.org/Organization,2,,1
+schemaorg.ttl,http://schema.org/Event,3,,1
+schemaorg.ttl,http://schema.org/CreativeWork,4,,1
+schemaorg.ttl,http://schema.org/Product,5,,1

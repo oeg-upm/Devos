@@ -67,7 +67,7 @@ def eval_file(inpf, classes):
         'topn': top_n,
         'ontology': inpf.split(os.sep)[-1]
     }
-
+    print(res)
     return res
 
 
@@ -131,9 +131,9 @@ def generate_diagram(df, output_path):
         dfm = df[df.meta == m]
         for n in top_ns:
             dfn = dfm[dfm == n]
-            corr = sum(dfm['corr'])
-            incorr = sum(dfm['incorr'])
-            notf = sum(dfm['notf'])
+            corr = sum(dfn['corr'])
+            incorr = sum(dfn['incorr'])
+            notf = sum(dfn['notf'])
             prec = corr / (corr + incorr)
             rec = corr / (corr + notf)
             f1 = 0
