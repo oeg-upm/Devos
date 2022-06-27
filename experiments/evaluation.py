@@ -13,16 +13,7 @@ except:
     from experiments.generate_diagrams import meta_srcs, top_ns
 
 
-def parse_arguments():
-    """
-    Parse command line arguments
-    """
-    parser = argparse.ArgumentParser(description='Evaluate the generate graphs')
-    parser.add_argument('-i', '--input', nargs="+", required=True, help="json files")
-    parser.add_argument('-o', '--output', default="output", help="Output path")
-    parser.add_argument('-g', '--gs', required=True, help="Path to the gs csv file")
-    args = parser.parse_args()
-    return args.output, args.input, args.gs
+
 
 
 def eval_file(inpf, classes):
@@ -177,6 +168,18 @@ def generate_diagram(df, output_path):
         ax.legend(loc=2, fontsize='x-small')
         # ax.figure.savefig('%s.svg' % fpath, bbox_inches="tight")
         plt.show()
+
+
+def parse_arguments():
+    """
+    Parse command line arguments
+    """
+    parser = argparse.ArgumentParser(description='Evaluate the generate graphs')
+    parser.add_argument('-i', '--input', nargs="+", required=True, help="json files")
+    parser.add_argument('-o', '--output', default="output", help="Output path")
+    parser.add_argument('-g', '--gs', required=True, help="Path to the gs csv file")
+    args = parser.parse_args()
+    return args.output, args.input, args.gs
 
 
 def main():

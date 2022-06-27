@@ -16,28 +16,28 @@
 
 
 
+Agent  --> Document   :tipjar  
+
+Agent  --> Thing   :made  
+
 Document  --> Thing   :topic  
 
 Document  --> Thing   :primaryTopic  
 
-Agent  --> Thing   :mbox  
+Agent  --> Thing   :topic_interest  
 
 Thing  --> Agent   :maker  
 
-Agent  --> Thing   :made  
+Agent  --> Document   :interest  
 
 Agent  --> Document   :openid  
 
 Thing  --> Document   :homepage  
 
-Thing  --> Document   :page  
-
-Agent  --> Document   :tipjar  
-
-Agent  --> Document   :interest  
+Agent  --> Thing   :mbox  
 
 Agent  --> Document   :weblog  
 
-Agent  --> Thing   :topic_interest  
+Thing  --> Document   :page  
 
 ```

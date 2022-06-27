@@ -2,11 +2,19 @@
 	classDiagram
 
     
-    class Nfd439d0743384e05945f9982bf05fb18 {
+    class BKRepository {
     
     }
 
     class ArchRepository {
+    
+    }
+
+    class CVSRepository {
+    
+    }
+
+    class N61f8f98d042b4d98878c21744be354c0 {
     
     }
 

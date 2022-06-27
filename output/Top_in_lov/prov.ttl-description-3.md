@@ -16,38 +16,38 @@
 
 
 
-Entity  --> Entity   :specializationOf  
-
-Activity  --> Entity   :used  
-
 Entity  --> Entity   :mentionOf  
-
-Activity  --> Entity   :wasEndedBy  
-
-Entity  --> Entity   :wasQuotedFrom  
-
-Dictionary  --> Dictionary   :derivedByRemovalFrom  
-
-Activity  --> Entity   :generated  
-
-Entity  --> Entity   :wasDerivedFrom  
 
 Activity  --> Entity   :wasStartedBy  
 
-Entity  --> Entity   :alternateOf  
+Activity  --> Entity   :used  
+
+Entity  --> Entity   :specializationOf  
 
 Entity  --> Activity   :wasInvalidatedBy  
 
-Dictionary  --> Dictionary   :derivedByInsertionFrom  
-
-Entity  --> Activity   :wasGeneratedBy  
+Entity  --> Entity   :wasQuotedFrom  
 
 Activity  --> Activity   :wasInformedBy  
 
-Entity  --> Entity   :wasRevisionOf  
+Entity  --> Entity   :wasDerivedFrom  
+
+Entity  --> Activity   :wasGeneratedBy  
+
+Entity  --> Entity   :hadPrimarySource  
+
+Entity  --> Entity   :alternateOf  
 
 Activity  --> Entity   :invalidated  
 
-Entity  --> Entity   :hadPrimarySource  
+Activity  --> Entity   :wasEndedBy  
+
+Activity  --> Entity   :generated  
+
+Entity  --> Entity   :wasRevisionOf  
+
+Dictionary  --> Dictionary   :derivedByInsertionFrom  
+
+Dictionary  --> Dictionary   :derivedByRemovalFrom  
 
 ```

@@ -10,32 +10,30 @@
     
     }
 
-    class ChangeEvent {
+    class Site {
     
     }
 
 
 
-ChangeEvent  --> Organization   :resultingOrganization  
-
-Agent  --> Organization   :headOf  
-
 Agent  --> Organization   :memberOf  
-
-Organization  --> ChangeEvent   :changedBy  
-
-ChangeEvent  --> Organization   :originalOrganization  
-
-Organization  --> Organization   :linkedTo  
-
-Organization  --> ChangeEvent   :resultedFrom  
-
-Organization  --> Organization   :hasSubOrganization  
 
 Organization  --> Organization   :subOrganizationOf  
 
+Organization  --> Organization   :linkedTo  
+
+Organization  --> Site   :hasPrimarySite  
+
 Organization  --> Agent   :hasMember  
 
+Agent  --> Organization   :headOf  
+
+Organization  --> Organization   :hasSubOrganization  
+
 Organization  --> Organization   :transitiveSubOrganizationOf  
+
+Organization  --> Site   :hasSite  
+
+Site  --> Organization   :siteOf  
 
 ```

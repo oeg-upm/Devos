@@ -16,125 +16,124 @@
 
 
 
-Place  --> Place   :northEastPlace  
+Person  --> Person   :seiyu  
 
-Place  --> Place   :locatedInArea  
-
-PopulatedPlace  --> PopulatedPlace   :sheading  
-
-PopulatedPlace  --> Person   :leaderName  
-
-Person  --> Person   :usurper  
-
-Person  --> Place   :livingPlace  
-
-PopulatedPlace  --> PopulatedPlace   :borough  
-
-Person  --> Person   :spouse  
-
-Place  --> Place   :northPlace  
-
-Place  --> Place   :mainIsland  
-
-Person  --> Place   :residence  
-
-PopulatedPlace  --> PopulatedPlace   :oldProvince  
+Place  --> Place   :supply  
 
 Person  --> Person   :collaboration  
 
-Person  --> Place   :educationPlace  
+Person  --> Person   :opponent  
 
-Place  --> Place   :closeTo  
+Person  --> Person   :usurper  
 
-Person  --> Person   :parent  
-
-PopulatedPlace  --> PopulatedPlace   :arrondissement  
-
-Person  --> Place   :announcedFrom  
-
-Place  --> Place   :southWestPlace  
-
-Place  --> PopulatedPlace   :sovereignCountry  
-
-Person  --> Place   :bodyDiscovered  
-
-Person  --> Person   :friend  
-
-Place  --> PopulatedPlace   :biggestCity  
-
-Person  --> Person   :seiyu  
-
-Place  --> Place   :endPoint  
-
-Place  --> Place   :hasOutsidePlace  
-
-PopulatedPlace  --> PopulatedPlace   :oldDistrict  
-
-Person  --> Person   :student  
+PopulatedPlace  --> PopulatedPlace   :largestSettlement  
 
 Place  --> Place   :westPlace  
 
-Person  --> Person   :opponent  
+Place  --> Place   :southWestPlace  
+
+Person  --> Person   :copilote  
+
+PopulatedPlace  --> Person   :leaderName  
+
+Person  --> Place   :bodyDiscovered  
+
+Person  --> Person   :spouse  
+
+Place  --> PopulatedPlace   :sovereignCountry  
 
 Person  --> Person   :child  
 
-Place  --> Place   :land  
+Person  --> Person   :parent  
 
-Person  --> Person   :cousurper  
+Person  --> Person   :sibling  
 
-Person  --> Person   :detractor  
+Place  --> Place   :northWestPlace  
 
-PopulatedPlace  --> PopulatedPlace   :ceremonialCounty  
+Place  --> Place   :northEastPlace  
+
+Place  --> PopulatedPlace   :district  
+
+PopulatedPlace  --> PopulatedPlace   :borough  
+
+Place  --> Place   :hasOutsidePlace  
+
+Person  --> Place   :educationPlace  
 
 Place  --> PopulatedPlace   :nearestCity  
+
+Place  --> Place   :hasInsidePlace  
+
+Person  --> Person   :friend  
+
+PopulatedPlace  --> Place   :touristicSite  
+
+Place  --> Place   :eastPlace  
+
+Person  --> Person   :dubber  
+
+PopulatedPlace  --> PopulatedPlace   :oldDistrict  
+
+PopulatedPlace  --> PopulatedPlace   :sheading  
+
+Place  --> Place   :previousEntity  
+
+Place  --> Place   :endPoint  
+
+Person  --> Person   :detractor  
 
 Place  --> PopulatedPlace   :regency  
 
 Place  --> PopulatedPlace   :lowestPlace  
 
-PopulatedPlace  --> PopulatedPlace   :principalArea  
+Place  --> Place   :subregion  
 
-PopulatedPlace  --> Place   :touristicSite  
+PopulatedPlace  --> PopulatedPlace   :principalArea  
 
 PopulatedPlace  --> Person   :viceLeader  
 
-Person  --> Person   :sibling  
+PopulatedPlace  --> PopulatedPlace   :ceremonialCounty  
 
-Person  --> Person   :relation  
+Place  --> Place   :mainIsland  
 
-Place  --> Place   :nextEntity  
-
-PopulatedPlace  --> PopulatedPlace   :largestSettlement  
-
-Place  --> Place   :subregion  
-
-PopulatedPlace  --> PopulatedPlace   :neighboringMunicipality  
-
-Place  --> Place   :previousEntity  
-
-Person  --> Person   :colleague  
-
-Person  --> Person   :relative  
-
-Person  --> Person   :copilote  
+Person  --> Place   :announcedFrom  
 
 PopulatedPlace  --> PopulatedPlace   :lieutenancyArea  
 
-Person  --> Person   :dubber  
+PopulatedPlace  --> PopulatedPlace   :arrondissement  
 
-Place  --> Place   :hasInsidePlace  
+Person  --> Person   :relative  
 
-Place  --> Place   :northWestPlace  
+Person  --> Place   :residence  
 
-Place  --> PopulatedPlace   :district  
+Person  --> Place   :livingPlace  
 
-Place  --> Place   :eastPlace  
+Person  --> Person   :student  
 
-Place  --> Place   :southEastPlace  
+PopulatedPlace  --> PopulatedPlace   :neighboringMunicipality  
+
+Person  --> Person   :relation  
+
+Place  --> PopulatedPlace   :biggestCity  
+
+Place  --> Place   :northPlace  
+
+Place  --> Place   :land  
+
+Person  --> Person   :cousurper  
+
+Place  --> Place   :closeTo  
 
 PopulatedPlace  --> PopulatedPlace   :largestCity  
 
-Place  --> Place   :supply  
+PopulatedPlace  --> PopulatedPlace   :oldProvince  
 
+Place  --> Place   :southEastPlace  
+
+Place  --> Place   :nextEntity  
+
+Person  --> Person   :colleague  
+
+Place  --> Place   :locatedInArea  
 
 ```

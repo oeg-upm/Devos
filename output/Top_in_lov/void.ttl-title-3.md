@@ -16,18 +16,18 @@
 
 
 
-Dataset  --> Document   :openSearchDescription  
-
-Dataset  --> RDFSResource   :dataDump  
-
-Dataset  --> Dataset   :propertyPartition  
+Dataset  --> RDFSResource   :exampleResource  
 
 Dataset  --> Dataset   :subset  
 
 Document  --> Dataset   :inDataset  
 
-Dataset  --> RDFSResource   :exampleResource  
-
 Dataset  --> Dataset   :classPartition  
+
+Dataset  --> RDFSResource   :dataDump  
+
+Dataset  --> Document   :openSearchDescription  
+
+Dataset  --> Dataset   :propertyPartition  
 
 ```

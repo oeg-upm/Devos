@@ -6,6 +6,7 @@ import json
 from owl2diagram.main import get_class_diagram, get_class_hierarchy_diagram, get_object_diagram, get_data_diagram, get_data_prop
 from owl2diagram.main import get_classes, get_class_hierarchy, get_object_prop, save_diagram, get_name
 from collections import Counter
+from datetime import datetime
 
 try:
     import prefixes
@@ -502,9 +503,13 @@ def workflow(input_path, title, desc, abstract, topn, out_path=None, lang=None, 
 
 
 def main():
+    a = datetime.now()
     input_path, out_path, title, desc, abstract, topn, lang, max_options = parse_arguments()
     workflow(input_path=input_path, out_path=out_path, title=title, desc=desc, abstract=abstract, topn=topn,
              lang=lang, max_options=max_options)
+    b = datetime.now()
+    print("\n\nTime it took: %.1f minutes\n\n" % ((b - a).total_seconds() / 60.0))
+
 
 
 if __name__ == "__main__":

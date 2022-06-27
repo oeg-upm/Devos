@@ -16,24 +16,24 @@
 
 
 
-Agent  --> Organization   :headOf  
-
 Agent  --> Organization   :memberOf  
-
-Organization  --> Organization   :linkedTo  
-
-Organization  --> Site   :hasSite  
-
-Organization  --> Site   :hasPrimarySite  
-
-Organization  --> Organization   :hasSubOrganization  
-
-Site  --> Organization   :siteOf  
 
 Organization  --> Organization   :subOrganizationOf  
 
+Organization  --> Organization   :linkedTo  
+
+Organization  --> Site   :hasPrimarySite  
+
 Organization  --> Agent   :hasMember  
 
+Agent  --> Organization   :headOf  
+
+Organization  --> Organization   :hasSubOrganization  
+
 Organization  --> Organization   :transitiveSubOrganizationOf  
+
+Organization  --> Site   :hasSite  
+
+Site  --> Organization   :siteOf  
 
 ```

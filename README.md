@@ -41,11 +41,11 @@ Group  --> Agent   :member
 
 ### Run the experiment
 
-* For DBpedia, we use `en` to speed up the process in taking into account only English labels. Note it take sometime to generate the summary for DBpedia.
-```python -m experiments/generate_diagrams -i data/Top_in_lov/dbpedia.owl -o output/Top_in_lov -l en -m 3```
+* For DBpedia, we use `en` to speed up the process in taking into account only English labels. Note that it take sometime to generate the summary for DBpedia.
+```python -m experiments.generate_diagrams -i data/Top_in_lov/dbpedia.owl -o output/Top_in_lov -l en```
 
 * Then, the experiment is performed for the rest of ontologies. Note that it will not overwrite generated resources. 
-```python -m experiments/generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov -m 3```
+```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov```
 
 ### Evaluation
 

@@ -8,22 +8,22 @@
 
 
 
-Dataset  --> Document   :openSearchDescription  
-
-Dataset  --> RDFSResource   :dataDump  
-
-Dataset  --> Dataset   :propertyPartition  
-
-Linkset  --> Dataset   :target  
+Dataset  --> RDFSResource   :exampleResource  
 
 Dataset  --> Dataset   :subset  
 
 Document  --> Dataset   :inDataset  
 
-Dataset  --> RDFSResource   :exampleResource  
+Dataset  --> Dataset   :classPartition  
 
 Dataset  --> TechnicalFeature   :feature  
 
-Dataset  --> Dataset   :classPartition  
+Dataset  --> RDFSResource   :dataDump  
+
+Dataset  --> Document   :openSearchDescription  
+
+Dataset  --> Dataset   :propertyPartition  
+
+Linkset  --> Dataset   :target  
 
 ```

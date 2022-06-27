@@ -6,26 +6,26 @@
     
     }
 
-    class Linkset {
-    
-    }
-
     class Document {
     
     }
 
+    class Linkset {
+    
+    }
 
 
-Dataset  --> Document   :openSearchDescription  
-
-Dataset  --> Dataset   :propertyPartition  
-
-Linkset  --> Dataset   :target  
 
 Dataset  --> Dataset   :subset  
 
 Document  --> Dataset   :inDataset  
 
 Dataset  --> Dataset   :classPartition  
+
+Dataset  --> Document   :openSearchDescription  
+
+Dataset  --> Dataset   :propertyPartition  
+
+Linkset  --> Dataset   :target  
 
 ```

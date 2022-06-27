@@ -2,11 +2,15 @@
 	classDiagram
 
     
-    class ndef996f381a9409fa0a3dfd0d29e7b39b17 {
+    class OrganizationalUnit {
     
     }
 
-    class FormalOrganization {
+    class Site {
+    
+    }
+
+    class ndb97867576be414ea22b39b22ccd3e62b11 {
     
     }
 
@@ -14,7 +18,7 @@
     
     }
 
-    class Role {
+    class Membership {
     
     }
 
@@ -22,62 +26,84 @@
     
     }
 
-    class OrganizationalUnit {
+    class ndb97867576be414ea22b39b22ccd3e62b14 {
     
     }
 
-    class Membership {
+    class ndb97867576be414ea22b39b22ccd3e62b17 {
+    
+    }
+
+    class Role {
+    
+    }
+
+    class FormalOrganization {
+    
+    }
+
+    class Post {
+    
+    }
+
+    class OrganizationalCollaboration {
     
     }
 
 
 
-ndef996f381a9409fa0a3dfd0d29e7b39b17  --> Role   :role  
+Organization  --> ChangeEvent   :changedBy  
 
 Organization  --> SKOSConcept   :classification  
 
-Membership  --> Organization   :organization  
+Agent  --> Organization   :memberOf  
 
-FormalOrganization  --> Site   :hasRegisteredSite  
+Organization  --> Organization   :subOrganizationOf  
 
-ChangeEvent  --> Organization   :resultingOrganization  
+Organization  --> Organization   :linkedTo  
+
+Organization  --> Site   :hasPrimarySite  
+
+Organization  --> Agent   :hasMember  
+
+Agent  --> Post   :holds  
 
 Agent  --> Organization   :headOf  
 
 OrganizationalUnit  --> FormalOrganization   :unitOf  
 
-Membership  --> Agent   :member  
+ndb97867576be414ea22b39b22ccd3e62b17  --> Role   :role  
 
-Agent  --> Organization   :memberOf  
+Post  --> Organization   :postIn  
 
-Agent  --> Membership   :hasMembership  
+Person  --> Site   :basedAt  
 
-Organization  --> ChangeEvent   :changedBy  
-
-Organization  --> Post   :hasPost  
-
-ChangeEvent  --> Organization   :originalOrganization  
-
-Organization  --> Organization   :linkedTo  
-
-Organization  --> ChangeEvent   :resultedFrom  
-
-Organization  --> Site   :hasSite  
-
-Site  --> Organization   :siteOf  
+FormalOrganization  --> Site   :hasRegisteredSite  
 
 Organization  --> Organization   :hasSubOrganization  
 
-Organization  --> Site   :hasPrimarySite  
+Organization  --> Organization   :transitiveSubOrganizationOf  
 
-Organization  --> Organization   :subOrganizationOf  
+ChangeEvent  --> Organization   :resultingOrganization  
 
 FormalOrganization  --> OrganizationalUnit   :hasUnit  
 
-Organization  --> Agent   :hasMember  
+Organization  --> Site   :hasSite  
 
-Organization  --> Organization   :transitiveSubOrganizationOf  
+ChangeEvent  --> Organization   :originalOrganization  
 
-Post  --> Organization   :postIn  
+Site  --> Organization   :siteOf  
+
+Organization  --> Post   :hasPost  
+
+Membership  --> Organization   :organization  
+
+Agent  --> Membership   :hasMembership  
+
+Membership  --> Agent   :member  
+
+Organization  --> ChangeEvent   :resultedFrom  
+
+Post  --> Agent   :heldBy  
 
 ```
