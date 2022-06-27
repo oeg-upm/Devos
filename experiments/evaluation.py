@@ -13,9 +13,6 @@ except:
     from experiments.generate_diagrams import meta_srcs, top_ns
 
 
-
-
-
 def eval_file(inpf, classes):
     """
         inpf: json
@@ -42,13 +39,13 @@ def eval_file(inpf, classes):
         if g in pred:
             corr += 1
         else:
-            incorr += 1
+            notf += 1
             print("g not in pred")
             print("%s\t--\t%s" % (g, str(pred)))
 
     for p in pred:
         if p not in gs:
-            notf += 1
+            incorr += 1
 
     res = {
         'corr': corr,
@@ -117,17 +114,29 @@ def generate_diagram(df, output_path):
 
     :return: None
     """
+    # # JUST for testing
+    # meta_srcs = ["description"]
+    # # top_ns = [5]
+
     scores = []
+    print("df: ")
+    print(df)
     for m in meta_srcs:
         dfm = df[df.meta == m]
+        print("dfm: %s" % m)
+        print(dfm)
         for n in top_ns:
-            dfn = dfm[dfm == n]
+            dfn = dfm[dfm.topn == n]
+            print("dfn: %s\t%d" % (m, n))
+            print(dfn)
             corr = sum(dfn['corr'])
             incorr = sum(dfn['incorr'])
             notf = sum(dfn['notf'])
-            prec = corr / (corr + incorr)
-            rec = corr / (corr + notf)
-            f1 = 0
+            prec = rec = f1 = 0
+            if (corr + incorr) > 0:
+                prec = corr / (corr + incorr)
+            if (corr + notf) > 0:
+                rec = corr / (corr + notf)
             if (prec + rec) > 0:
                 f1 = 2 * prec * rec / (prec + rec)
             row = [m, n, prec, 'Precision']
@@ -143,6 +152,10 @@ def generate_diagram(df, output_path):
 
     # scores_titles = ["Precision", "Recall", "F1"]
     df_scores = pd.DataFrame(scores, columns=['Meta', 'Top-n', 'Score', 'Metric'])
+
+    print("\n\nScores:\n=========\n ")
+    print(df_scores)
+
     # for k in scores:
     #     for idx, sc in enumerate(scores_titles):
     #         row = [str(k), scores[k][idx], scores_titles[idx]]
@@ -152,22 +165,40 @@ def generate_diagram(df, output_path):
     # df = pd.DataFrame(rows, columns=['Cutoff', 'Score', 'Metric'])
     # df['Cutoff'] = df['Cutoff'].astype('category')
     # linestyles = ["--", ":", "dashdot"]
-    for m in meta_srcs:
-        dfm = df_scores[df_scores["Meta"] == m]
-        ax = sns.lineplot(x="Top-n", y="Score", hue="Metric", data=dfm, linewidth=2, style="Metric",
-                         # palette="colorblind",
-                         # palette="Spectral",
-                         # palette="pastel",
-                         # palette="ch:start=.2,rot=-.3",
-                         # palette="YlOrBr",
-                         # palette="Paired",
-                         # palette="Set2",
-                         # orient="h"
-                          )
 
-        ax.legend(loc=2, fontsize='x-small')
-        # ax.figure.savefig('%s.svg' % fpath, bbox_inches="tight")
-        plt.show()
+    # # DRAW for each meta
+    # for m in meta_srcs:
+    #     dfm = df_scores[df_scores["Meta"] == m]
+    #     ax = sns.lineplot(x="Top-n", y="Score", hue="Metric", data=dfm, linewidth=2, style="Metric",
+    #                      # palette="colorblind",
+    #                      # palette="Spectral",
+    #                      # palette="pastel",
+    #                      # palette="ch:start=.2,rot=-.3",
+    #                      # palette="YlOrBr",
+    #                      # palette="Paired",
+    #                      # palette="Set2",
+    #                      # orient="h"
+    #                       )
+    #
+    #     ax.legend(loc=2, fontsize='x-small')
+    #     # ax.figure.savefig('%s.svg' % fpath, bbox_inches="tight")
+    #     plt.show()
+
+    ax = sns.lineplot(x="Top-n", y="Score", hue="Meta", data=df_scores, linewidth=2, style="Metric",
+                      # palette="colorblind",
+                      # palette="Spectral",
+                      # palette="pastel",
+                      # palette="ch:start=.2,rot=-.3",
+                      # palette="YlOrBr",
+                      # palette="Paired",
+                      # palette="Set2",
+                      # orient="h"
+                      )
+
+    ax.legend(loc=2, fontsize='x-small')
+    fpath = os.path.join(output_path, 'results')
+    ax.figure.savefig('%s.svg' % fpath, bbox_inches="tight")
+    # plt.show()
 
 
 def parse_arguments():

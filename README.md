@@ -49,8 +49,13 @@ Group  --> Agent   :member
 
 ### Evaluation
 
+```
+python -m experiments.evaluation -i output/Top_in_lov/*.json  -g data/gs_lov.csv -o output/Top_in_lov
+```
 
+## Results
 
+![](output/Top_in_lov/results.svg)
 
 ## Authors
 
