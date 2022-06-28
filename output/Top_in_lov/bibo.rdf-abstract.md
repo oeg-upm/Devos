@@ -2,95 +2,7 @@
 	classDiagram
 
     
-    class Proceedings {
-    
-    }
-
-    class DocumentPart {
-    
-    }
-
-    class Agent {
-    
-    }
-
-    class Thesis {
-    
-    }
-
-    class Website {
-    
-    }
-
-    class N2e227a074e2a48e29eeaa4bc2429b1b3 {
-    
-    }
-
     class Event {
-    
-    }
-
-    class N62f41d04c2fb4c0e805d7b2ac4578aaa {
-    
-    }
-
-    class AcademicArticle {
-    
-    }
-
-    class Image {
-    
-    }
-
-    class ThesisDegree {
-    
-    }
-
-    class BookSection {
-    
-    }
-
-    class Magazine {
-    
-    }
-
-    class Specification {
-    
-    }
-
-    class Statute {
-    
-    }
-
-    class Note {
-    
-    }
-
-    class Webpage {
-    
-    }
-
-    class Document {
-    
-    }
-
-    class AudioVisualDocument {
-    
-    }
-
-    class Standard {
-    
-    }
-
-    class Patent {
-    
-    }
-
-    class DocumentStatus {
-    
-    }
-
-    class Legislation {
     
     }
 
@@ -98,35 +10,23 @@
     
     }
 
-    class LegalCaseDocument {
+    class Magazine {
     
     }
 
-    class Performance {
+    class ThesisDegree {
     
     }
 
-    class Chapter {
+    class N2dd5508e0a954f8b9701c2efe18aad9f {
     
     }
 
-    class RDFSResource {
+    class Patent {
     
     }
 
-    class LegalDecision {
-    
-    }
-
-    class Journal {
-    
-    }
-
-    class Newspaper {
-    
-    }
-
-    class Map {
+    class Thesis {
     
     }
 
@@ -134,31 +34,11 @@
     
     }
 
-    class Collection {
+    class Standard {
     
     }
 
-    class Email {
-    
-    }
-
-    class Conference {
-    
-    }
-
-    class AudioDocument {
-    
-    }
-
-    class Naf62883580b04ef5a46f4047d95af2c7 {
-    
-    }
-
-    class Na513c0721b2a4325a2a7b87d6961b114 {
-    
-    }
-
-    class N0cf29912f05c4f858270a0c5522ac6d7 {
+    class Legislation {
     
     }
 
@@ -170,19 +50,51 @@
     
     }
 
+    class BookSection {
+    
+    }
+
+    class LegalDecision {
+    
+    }
+
+    class AudioVisualDocument {
+    
+    }
+
+    class Document {
+    
+    }
+
+    class LegalCaseDocument {
+    
+    }
+
+    class Map {
+    
+    }
+
     class Article {
     
     }
 
-    class PersonalCommunication {
+    class Image {
     
     }
 
-    class N26faf6c3326f46e38115a5bc0df0ed23 {
+    class Email {
     
     }
 
-    class Hearing {
+    class Agent {
+    
+    }
+
+    class Webpage {
+    
+    }
+
+    class Collection {
     
     }
 
@@ -190,11 +102,35 @@
     
     }
 
-    class EditedBook {
+    class Interview {
     
     }
 
-    class Manual {
+    class N394446daa1c34526b49b7570862fd8ac {
+    
+    }
+
+    class Journal {
+    
+    }
+
+    class DocumentStatus {
+    
+    }
+
+    class Hearing {
+    
+    }
+
+    class N0f7bcaf6b61940158d9e73b84c59970d {
+    
+    }
+
+    class Newspaper {
+    
+    }
+
+    class AcademicArticle {
     
     }
 
@@ -202,71 +138,135 @@
     
     }
 
-    class Interview {
+    class Manual {
+    
+    }
+
+    class Performance {
+    
+    }
+
+    class N8fcd85ea399a4b4a95b353bc8e13779c {
+    
+    }
+
+    class AudioDocument {
+    
+    }
+
+    class EditedBook {
+    
+    }
+
+    class Specification {
+    
+    }
+
+    class Note {
+    
+    }
+
+    class DocumentPart {
+    
+    }
+
+    class PersonalCommunication {
+    
+    }
+
+    class RDFSResource {
+    
+    }
+
+    class Proceedings {
+    
+    }
+
+    class Chapter {
+    
+    }
+
+    class Statute {
+    
+    }
+
+    class Website {
+    
+    }
+
+    class N2a62cd5c62fb44578207aadaab50f25e {
+    
+    }
+
+    class Conference {
+    
+    }
+
+    class N1e5536c5e4f1407cb17cb43d8611d17b {
     
     }
 
 
 
-LegalDecision  --> LegalDecision   :reversedBy  
+LegalDecision  --> LegalDecision   :subsequentLegalDecision  
 
-LegalDocument  --> Organization   :court  
-
-AudioVisualDocument  --> Agent   :director  
-
-Na7027cbc757644c59c03cb2c83718404  --> Agent   :owner  
-
-Nada4a07377e64db08b5a16c3a1058989  --> Agent   :issuer  
-
-PersonalCommunicationDocument  --> Agent   :recipient  
-
-LegalDecision  --> LegalDecision   :affirmedBy  
+Document  --> Event   :presentedAt  
 
 Document  --> Document   :cites  
 
-Document  --> Document   :translationOf  
+Document  --> N8fcd85ea399a4b4a95b353bc8e13779c   :editorList  
 
-Document  --> N26faf6c3326f46e38115a5bc0df0ed23   :authorList  
+PersonalCommunicationDocument  --> Agent   :recipient  
 
-Agent  --> Agent   :interviewer  
+Document  --> N0f7bcaf6b61940158d9e73b84c59970d   :contributorList  
 
-Document  --> N62f41d04c2fb4c0e805d7b2ac4578aaa   :editorList  
+Document  --> RDFSResource   :reviewOf  
+
+N2dd5508e0a954f8b9701c2efe18aad9f  --> Agent   :translator  
+
+Document  --> DocumentStatus   :status  
+
+Document  --> Document   :reproducedIn  
+
+N4dac3c94e48c4aedafd2c973cd6e8f20  --> Agent   :producer  
+
+Thesis  --> ThesisDegree   :degree  
+
+LegalDecision  --> LegalDecision   :reversedBy  
+
+Nd8d083af41bd4aa39c04893c9a56b011  --> Agent   :owner  
+
+N22c081deb05b4b7cbc1d3954bf9135f7  --> Agent   :issuer  
+
+Event  --> Agent   :organizer  
+
+Performance  --> Agent   :performer  
+
+N2a62cd5c62fb44578207aadaab50f25e  --> Agent   :distributor  
 
 Event  --> Document   :presents  
 
-N0cf29912f05c4f858270a0c5522ac6d7  --> Agent   :distributor  
+LegalDocument  --> Organization   :court  
 
-Document  --> N2e227a074e2a48e29eeaa4bc2429b1b3   :contributorList  
+Agent  --> Agent   :interviewee  
 
-Note  --> RDFSResource   :annotates  
-
-Document  --> RDFSResource   :reviewOf  
+N394446daa1c34526b49b7570862fd8ac  --> Agent   :editor  
 
 Document  --> Document   :citedBy  
 
 Document  --> RDFSResource   :transcriptOf  
 
-Document  --> Document   :reproducedIn  
+Document  --> Document   :translationOf  
 
-Na513c0721b2a4325a2a7b87d6961b114  --> Agent   :translator  
+Note  --> RDFSResource   :annotates  
 
-Agent  --> Agent   :interviewee  
+AudioVisualDocument  --> Agent   :director  
 
-LegalDecision  --> LegalDecision   :subsequentLegalDecision  
+LegalDecision  --> LegalDecision   :affirmedBy  
 
-Naf62883580b04ef5a46f4047d95af2c7  --> Agent   :editor  
+Document  --> N1e5536c5e4f1407cb17cb43d8611d17b   :authorList  
 
-Na139b06655ed44b6a7c153c127589462  --> Agent   :producer  
-
-Performance  --> Agent   :performer  
-
-Event  --> Agent   :organizer  
-
-Document  --> DocumentStatus   :status  
-
-Document  --> Event   :presentedAt  
-
-Thesis  --> ThesisDegree   :degree  
+Agent  --> Agent   :interviewer  
 
 D  --> T   :C  
 

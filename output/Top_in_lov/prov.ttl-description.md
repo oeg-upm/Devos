@@ -2,7 +2,59 @@
 	classDiagram
 
     
-    class Removal {
+    class Insertion {
+    
+    }
+
+    class Contributor {
+    
+    }
+
+    class Communication {
+    
+    }
+
+    class Entity {
+    
+    }
+
+    class Start {
+    
+    }
+
+    class Usage {
+    
+    }
+
+    class n026bd98444f44611a9ea03dafab66258b39 {
+    
+    }
+
+    class Influence {
+    
+    }
+
+    class Agent {
+    
+    }
+
+    class n026bd98444f44611a9ea03dafab66258b19 {
+    
+    }
+
+    class Delegation {
+    
+    }
+
+    class End {
+    
+    }
+
+    class Attribution {
+    
+    }
+
+    class Publisher {
     
     }
 
@@ -14,51 +66,7 @@
     
     }
 
-    class Entity {
-    
-    }
-
-    class Usage {
-    
-    }
-
-    class Contributor {
-    
-    }
-
-    class n1fe43d7349a24e3b8d5e01f1af9b52bbb35 {
-    
-    }
-
-    class Activity {
-    
-    }
-
-    class Attribution {
-    
-    }
-
-    class Association {
-    
-    }
-
-    class n1fe43d7349a24e3b8d5e01f1af9b52bbb19 {
-    
-    }
-
-    class Dictionary {
-    
-    }
-
-    class Invalidation {
-    
-    }
-
-    class Delegation {
-    
-    }
-
-    class Revision {
+    class Removal {
     
     }
 
@@ -66,19 +74,11 @@
     
     }
 
-    class Insertion {
+    class Activity {
     
     }
 
-    class Publisher {
-    
-    }
-
-    class Derivation {
-    
-    }
-
-    class Generation {
+    class Association {
     
     }
 
@@ -86,11 +86,11 @@
     
     }
 
-    class PrimarySource {
+    class Revision {
     
     }
 
-    class Agent {
+    class Generation {
     
     }
 
@@ -98,132 +98,132 @@
     
     }
 
-    class Influence {
+    class Derivation {
     
     }
 
-    class Start {
+    class Invalidation {
     
     }
 
-    class n1fe43d7349a24e3b8d5e01f1af9b52bbb39 {
+    class Dictionary {
     
     }
 
-    class End {
+    class n026bd98444f44611a9ea03dafab66258b35 {
     
     }
 
-    class Communication {
+    class PrimarySource {
     
     }
 
 
-
-Entity  --> Entity   :mentionOf  
-
-Entity  --> Quotation   :qualifiedQuotation  
-
-Insertion  --> Dictionary   :dictionary  
-
-AgentInfluence  --> Agent   :agent  
-
-Activity  --> Entity   :wasStartedBy  
-
-Activity  --> Entity   :used  
-
-Activity  --> Usage   :qualifiedUsage  
-
-Activity  --> Association   :qualifiedAssociation  
-
-Entity  --> Entity   :specializationOf  
-
-Entity  --> Activity   :wasInvalidatedBy  
-
-Activity  --> Agent   :wasAssociatedWith  
-
-Influence  --> Activity   :hadActivity  
-
-Entity  --> Revision   :qualifiedRevision  
-
-n1fe43d7349a24e3b8d5e01f1af9b52bbb9  --> Activity   :hadActivity  
-
-Association  --> Plan   :hadPlan  
-
-Derivation  --> Generation   :hadGeneration  
-
-Entity  --> Entity   :wasQuotedFrom  
-
-Activity  --> Activity   :wasInformedBy  
-
-Entity  --> Agent   :wasAttributedTo  
-
-Entity  --> Invalidation   :qualifiedInvalidation  
-
-Removal  --> Dictionary   :dictionary  
-
-Entity  --> Entity   :wasDerivedFrom  
 
 Entity  --> Activity   :wasGeneratedBy  
 
-Influence  --> Thing   :influencer  
-
-Agent  --> Agent   :actedOnBehalfOf  
+Activity  --> Start   :qualifiedStart  
 
 Entity  --> Entity   :hadPrimarySource  
 
-Entity  --> Entity   :alternateOf  
+n026bd98444f44611a9ea03dafab66258b9  --> Activity   :hadActivity  
 
-Activity  --> End   :qualifiedEnd  
-
-Insertion  --> KeyEntityPair   :insertedKeyEntityPair  
-
-Entity  --> Attribution   :qualifiedAttribution  
-
-Activity  --> Start   :qualifiedStart  
-
-Activity  --> Entity   :invalidated  
-
-Activity  --> Entity   :wasEndedBy  
-
-EntityInfluence  --> Entity   :entity  
-
-KeyEntityPair  --> Entity   :pairEntity  
-
-Activity  --> Entity   :generated  
-
-Entity  --> Entity   :wasRevisionOf  
-
-Dictionary  --> KeyEntityPair   :hadDictionaryMember  
-
-Activity  --> Communication   :qualifiedCommunication  
-
-Agent  --> Delegation   :qualifiedDelegation  
-
-Entity  --> Generation   :qualifiedGeneration  
-
-n1fe43d7349a24e3b8d5e01f1af9b52bbb19  --> Influence   :qualifiedInfluence  
+Association  --> Plan   :hadPlan  
 
 Entity  --> Derivation   :qualifiedDerivation  
 
-Dictionary  --> Dictionary   :derivedByInsertionFrom  
+Activity  --> Entity   :wasStartedBy  
+
+Insertion  --> Dictionary   :dictionary  
 
 Dictionary  --> Dictionary   :derivedByRemovalFrom  
 
-Entity  --> PrimarySource   :qualifiedPrimarySource  
+Activity  --> Entity   :used  
 
-Dictionary  --> Insertion   :qualifiedInsertion  
+Activity  --> Entity   :wasEndedBy  
 
-Influence  --> Role   :hadRole  
+AgentInfluence  --> Agent   :agent  
 
-Dictionary  --> Removal   :qualifiedRemoval  
+Activity  --> Communication   :qualifiedCommunication  
+
+EntityInfluence  --> Entity   :entity  
 
 Entity  --> Bundle   :asInBundle  
 
-Collection  --> Entity   :hadMember  
+Dictionary  --> Dictionary   :derivedByInsertionFrom  
+
+Activity  --> Activity   :wasInformedBy  
+
+Activity  --> Usage   :qualifiedUsage  
+
+Removal  --> Dictionary   :dictionary  
+
+Agent  --> Agent   :actedOnBehalfOf  
+
+n026bd98444f44611a9ea03dafab66258b19  --> Influence   :qualifiedInfluence  
+
+Insertion  --> KeyEntityPair   :insertedKeyEntityPair  
+
+Agent  --> Delegation   :qualifiedDelegation  
+
+Entity  --> Revision   :qualifiedRevision  
+
+Entity  --> Entity   :specializationOf  
+
+Activity  --> Entity   :invalidated  
+
+Influence  --> Role   :hadRole  
+
+Derivation  --> Usage   :hadUsage  
+
+Entity  --> Generation   :qualifiedGeneration  
+
+Entity  --> PrimarySource   :qualifiedPrimarySource  
+
+KeyEntityPair  --> Entity   :pairEntity  
+
+Dictionary  --> Insertion   :qualifiedInsertion  
+
+Influence  --> Activity   :hadActivity  
+
+Activity  --> End   :qualifiedEnd  
+
+Entity  --> Entity   :wasDerivedFrom  
+
+Entity  --> Activity   :wasInvalidatedBy  
+
+Dictionary  --> Removal   :qualifiedRemoval  
+
+Dictionary  --> KeyEntityPair   :hadDictionaryMember  
+
+Derivation  --> Generation   :hadGeneration  
 
 ActivityInfluence  --> Activity   :activity  
 
-Derivation  --> Usage   :hadUsage  
+Entity  --> Entity   :wasQuotedFrom  
+
+Entity  --> Entity   :alternateOf  
+
+Activity  --> Agent   :wasAssociatedWith  
+
+Entity  --> Entity   :mentionOf  
+
+Entity  --> Invalidation   :qualifiedInvalidation  
+
+Entity  --> Attribution   :qualifiedAttribution  
+
+Activity  --> Entity   :generated  
+
+Activity  --> Association   :qualifiedAssociation  
+
+Entity  --> Agent   :wasAttributedTo  
+
+Entity  --> Quotation   :qualifiedQuotation  
+
+Entity  --> Entity   :wasRevisionOf  
+
+Collection  --> Entity   :hadMember  
+
+Influence  --> Thing   :influencer  
 
 ```

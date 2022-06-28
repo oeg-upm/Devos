@@ -2,7 +2,7 @@
 	classDiagram
 
     
-    class Nc71b20d4df5c443197c6b673606a90b8 {
+    class N06f625a332a74073a246e02c7286fe99 {
     
     }
 

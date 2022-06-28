@@ -6,11 +6,11 @@
     
     }
 
-    class Site {
+    class n56397b272ee44bd6941ab08c8d16f31fb14 {
     
     }
 
-    class Organization {
+    class n56397b272ee44bd6941ab08c8d16f31fb11 {
     
     }
 
@@ -18,19 +18,7 @@
     
     }
 
-    class n82b216db468d41afa742054788fdc5a4b17 {
-    
-    }
-
-    class ChangeEvent {
-    
-    }
-
-    class n82b216db468d41afa742054788fdc5a4b11 {
-    
-    }
-
-    class n82b216db468d41afa742054788fdc5a4b14 {
+    class Organization {
     
     }
 
@@ -38,11 +26,7 @@
     
     }
 
-    class FormalOrganization {
-    
-    }
-
-    class Post {
+    class Site {
     
     }
 
@@ -50,60 +34,76 @@
     
     }
 
+    class ChangeEvent {
+    
+    }
+
+    class Post {
+    
+    }
+
+    class FormalOrganization {
+    
+    }
+
+    class n56397b272ee44bd6941ab08c8d16f31fb17 {
+    
+    }
 
 
-Organization  --> ChangeEvent   :changedBy  
-
-Organization  --> SKOSConcept   :classification  
-
-Agent  --> Organization   :memberOf  
-
-Organization  --> Organization   :subOrganizationOf  
-
-Organization  --> Organization   :linkedTo  
-
-Organization  --> Site   :hasPrimarySite  
 
 Organization  --> Agent   :hasMember  
 
+Agent  --> Membership   :hasMembership  
+
+Organization  --> SKOSConcept   :classification  
+
+Organization  --> Site   :hasSite  
+
 Agent  --> Post   :holds  
 
-Agent  --> Organization   :headOf  
+Organization  --> Organization   :subOrganizationOf  
 
-n82b216db468d41afa742054788fdc5a4b17  --> Role   :role  
-
-OrganizationalUnit  --> FormalOrganization   :unitOf  
-
-Post  --> Organization   :postIn  
-
-Person  --> Site   :basedAt  
+Organization  --> ChangeEvent   :resultedFrom  
 
 FormalOrganization  --> Site   :hasRegisteredSite  
 
 Organization  --> Organization   :hasSubOrganization  
 
-Organization  --> Organization   :transitiveSubOrganizationOf  
+Post  --> Organization   :postIn  
+
+Membership  --> Organization   :organization  
+
+OrganizationalUnit  --> FormalOrganization   :unitOf  
+
+Organization  --> Site   :hasPrimarySite  
+
+Organization  --> Post   :hasPost  
+
+Organization  --> ChangeEvent   :changedBy  
+
+n56397b272ee44bd6941ab08c8d16f31fb17  --> Role   :role  
 
 ChangeEvent  --> Organization   :resultingOrganization  
 
-FormalOrganization  --> OrganizationalUnit   :hasUnit  
-
-Organization  --> Site   :hasSite  
+Membership  --> Agent   :member  
 
 ChangeEvent  --> Organization   :originalOrganization  
 
 Site  --> Organization   :siteOf  
 
-Organization  --> Post   :hasPost  
+Agent  --> Organization   :memberOf  
 
-Membership  --> Organization   :organization  
-
-Agent  --> Membership   :hasMembership  
-
-Membership  --> Agent   :member  
-
-Organization  --> ChangeEvent   :resultedFrom  
+Organization  --> Organization   :transitiveSubOrganizationOf  
 
 Post  --> Agent   :heldBy  
+
+Person  --> Site   :basedAt  
+
+Agent  --> Organization   :headOf  
+
+Organization  --> Organization   :linkedTo  
+
+FormalOrganization  --> OrganizationalUnit   :hasUnit  
 
 ```

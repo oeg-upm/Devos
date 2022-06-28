@@ -1,0 +1,1 @@
+"{\"classes\": [\"SKOSConcept\", \"SKOSConceptScheme\", \"SKOSOrderedCollection\", \"SKOSCollection\"], \"relations\": [[\"SKOSConceptScheme\", \"SKOShasTopConcept\", \"SKOSConcept\"], [\"SKOSConcept\", \"SKOStopConceptOf\", \"SKOSConceptScheme\"], [\"SKOSConcept\", \"SKOSsemanticRelation\", \"SKOSConcept\"]], \"meta\": \"freq\", \"topn\": 4}"

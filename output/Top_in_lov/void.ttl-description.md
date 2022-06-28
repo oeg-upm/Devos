@@ -2,15 +2,15 @@
 	classDiagram
 
     
-    class DatasetDescription {
-    
-    }
-
     class Linkset {
     
     }
 
     class TechnicalFeature {
+    
+    }
+
+    class DatasetDescription {
     
     }
 
@@ -22,22 +22,22 @@
 
 Dataset  --> RDFSResource   :exampleResource  
 
-Dataset  --> Dataset   :subset  
+Dataset  --> RDFSResource   :dataDump  
 
-Document  --> Dataset   :inDataset  
+Linkset  --> RDFProperty   :linkPredicate  
 
 Dataset  --> Dataset   :classPartition  
 
 Dataset  --> TechnicalFeature   :feature  
 
-Dataset  --> RDFSResource   :dataDump  
-
 Dataset  --> Document   :openSearchDescription  
+
+Document  --> Dataset   :inDataset  
 
 Dataset  --> Dataset   :propertyPartition  
 
-Linkset  --> RDFProperty   :linkPredicate  
-
 Linkset  --> Dataset   :target  
+
+Dataset  --> Dataset   :subset  
 
 ```

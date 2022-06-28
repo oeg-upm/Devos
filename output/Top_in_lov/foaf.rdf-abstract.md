@@ -2,23 +2,11 @@
 	classDiagram
 
     
-    class OnlineGamingAccount {
+    class Agent {
     
     }
 
-    class Document {
-    
-    }
-
-    class Person {
-    
-    }
-
-    class OnlineAccount {
-    
-    }
-
-    class PersonalProfileDocument {
+    class OnlineEcommerceAccount {
     
     }
 
@@ -26,15 +14,7 @@
     
     }
 
-    class Organization {
-    
-    }
-
-    class Image {
-    
-    }
-
-    class Agent {
+    class OnlineAccount {
     
     }
 
@@ -42,7 +22,27 @@
     
     }
 
-    class OnlineEcommerceAccount {
+    class Image {
+    
+    }
+
+    class Document {
+    
+    }
+
+    class Organization {
+    
+    }
+
+    class PersonalProfileDocument {
+    
+    }
+
+    class OnlineGamingAccount {
+    
+    }
+
+    class Person {
     
     }
 
@@ -54,58 +54,58 @@
 
 Person  --> Person   :knows  
 
+Person  --> Document   :schoolHomepage  
+
 Person  --> Thing   :pastProject  
-
-OnlineAccount  --> Document   :accountServiceHomepage  
-
-Agent  --> OnlineAccount   :account  
-
-SpatialThing  --> SpatialThing   :based_near  
-
-Person  --> Document   :publications  
-
-Agent  --> Document   :tipjar  
-
-Person  --> Thing   :currentProject  
-
-Agent  --> Thing   :made  
-
-Document  --> Thing   :topic  
-
-Person  --> Document   :workInfoHomepage  
-
-Document  --> Thing   :primaryTopic  
-
-Agent  --> Thing   :topic_interest  
-
-Thing  --> Agent   :maker  
 
 Person  --> Image   :img  
 
-Agent  --> Document   :interest  
-
-Agent  --> Document   :openid  
-
-Group  --> Agent   :member  
-
-Thing  --> Document   :homepage  
-
-Image  --> Thing   :depicts  
-
-Agent  --> Thing   :mbox  
-
-Agent  --> OnlineAccount   :holdsAccount  
-
-Agent  --> Document   :weblog  
-
-Person  --> Document   :workplaceHomepage  
+Document  --> Thing   :primaryTopic  
 
 Image  --> Image   :thumbnail  
 
+Agent  --> Document   :weblog  
+
+Person  --> Document   :workInfoHomepage  
+
+Agent  --> Thing   :mbox  
+
+Thing  --> Document   :homepage  
+
+Agent  --> Thing   :made  
+
+OnlineAccount  --> Document   :accountServiceHomepage  
+
+Person  --> Document   :workplaceHomepage  
+
+Agent  --> Document   :interest  
+
+SpatialThing  --> SpatialThing   :based_near  
+
+Person  --> Thing   :currentProject  
+
+Thing  --> Agent   :maker  
+
 Thing  --> Image   :depiction  
 
-Person  --> Document   :schoolHomepage  
+Group  --> Agent   :member  
+
+Agent  --> OnlineAccount   :holdsAccount  
+
+Agent  --> Thing   :topic_interest  
+
+Document  --> Thing   :topic  
+
+Agent  --> OnlineAccount   :account  
+
+Person  --> Document   :publications  
 
 Thing  --> Document   :page  
+
+Image  --> Thing   :depicts  
+
+Agent  --> Document   :tipjar  
+
+Agent  --> Document   :openid  
 
 ```

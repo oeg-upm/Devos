@@ -2,11 +2,11 @@
 	classDiagram
 
     
-    class ThesisDegree {
+    class Thesis {
     
     }
 
-    class Thesis {
+    class ThesisDegree {
     
     }
 

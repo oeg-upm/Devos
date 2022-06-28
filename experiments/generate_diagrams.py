@@ -51,7 +51,7 @@ def experiment(input_files, output_path, lang=None, max_options=0):
             for n in top_ns:
                 graph_fname = graph_fname_base
                 if n > 0:
-                    graph_fname = graph_fname_base + "-%d" % n
+                    graph_fname = graph_fname_base + "-meta" + "-%d" % n
 
                 top_classes, top_relations = get_top(topn=n, classes=classes, relations=relations)
                 opath = os.path.join(output_path, graph_fname + ".md")
@@ -88,7 +88,7 @@ def high_freq_experiment(input_files, output_path):
             "\n\n\t\t==============\n\t Rel Parsing: %s (format: %s)" % (inp, rdflib.util.guess_format(inp)))
         g.parse(inp, format=rdflib.util.guess_format(inp))
 
-        graph_fname_base = inp.split(os.sep)[-1]+"-hi-freq"
+        graph_fname_base = inp.split(os.sep)[-1]+"-freq"
         check_diagram_fpath = os.path.join(output_path, graph_fname_base + ".md")
         if os.path.exists(check_diagram_fpath):
             print("\n%s already exists" % check_diagram_fpath)

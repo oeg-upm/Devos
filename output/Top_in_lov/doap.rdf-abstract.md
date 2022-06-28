@@ -2,10 +2,6 @@
 	classDiagram
 
     
-    class BKRepository {
-    
-    }
-
     class ArchRepository {
     
     }
@@ -14,7 +10,11 @@
     
     }
 
-    class N61f8f98d042b4d98878c21744be354c0 {
+    class BKRepository {
+    
+    }
+
+    class N3d62ca7b944448208e79c45324ac044a {
     
     }
 
