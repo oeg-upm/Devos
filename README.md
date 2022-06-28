@@ -58,11 +58,12 @@ python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lo
 
 ### Evaluation
 
+#### META
 ```
 python -m experiments.evaluation -i output/Top_in_lov/*.json  -g data/gs_lov.csv -o output/Top_in_lov/results-meta.svg
 ```
 
-
+#### Frequency
 ```
 python -m experiments.evaluation -i output/Top_in_lov/*.json  -g data/gs_lov.csv -o output/Top_in_lov/results-freq.svg
 ```
