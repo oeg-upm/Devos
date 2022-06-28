@@ -423,7 +423,7 @@ def get_classes_and_relations(input_path, title, desc, abstract, lang=None, max_
     all_classes = list(set(all_classes))
     relations = get_relations(g, all_classes)
     constraints = get_classes_constraints(g, all_classes)
-    constraints = [(shorten_url(c[0]), shorten_url(c[1]), shorten_url(c[2])) for c in constraints]
+    # constraints = [(shorten_url(c[0]), shorten_url(c[1]), shorten_url(c[2])) for c in constraints]
     shortened_classes = [shorten_url(c) for c in all_classes]
 
     # if topn > 0:

@@ -196,8 +196,7 @@ def generate_diagram(df, output_path):
                       )
 
     ax.legend(loc=2, fontsize='x-small')
-    fpath = os.path.join(output_path, 'results')
-    ax.figure.savefig('%s.svg' % fpath, bbox_inches="tight")
+    ax.figure.savefig('%s.svg' % output_path, bbox_inches="tight")
     # plt.show()
 
 

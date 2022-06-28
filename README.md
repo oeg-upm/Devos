@@ -41,21 +41,38 @@ Group  --> Agent   :member
 
 ### Run the experiment
 
+#### From Meta data
+
 * For DBpedia, we use `en` to speed up the process in taking into account only English labels. Note that it take sometime to generate the summary for DBpedia.
 ```python -m experiments.generate_diagrams -i data/Top_in_lov/dbpedia.owl -o output/Top_in_lov -l en```
 
 * Then, the experiment is performed for the rest of ontologies. Note that it will not overwrite generated resources. 
 ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov```
 
+#### Only Frequency
+Using only frequency
+
+```
+python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov --freq
+```
+
 ### Evaluation
 
 ```
-python -m experiments.evaluation -i output/Top_in_lov/*.json  -g data/gs_lov.csv -o output/Top_in_lov
+python -m experiments.evaluation -i output/Top_in_lov/*.json  -g data/gs_lov.csv -o output/Top_in_lov/results-meta.svg
 ```
+
+
+```
+python -m experiments.evaluation -i output/Top_in_lov/*.json  -g data/gs_lov.csv -o output/Top_in_lov/results-freq.svg
+```
+
 
 ## Results
 
-![](output/Top_in_lov/results.svg)
+![](output/Top_in_lov/results-meta.svg)
+
+![](output/Top_in_lov/results-freq.svg)
 
 ## Authors
 
