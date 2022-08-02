@@ -363,9 +363,9 @@ def parse_arguments():
     return args.input, args.output, args.title, args.description, args.abstract, int(args.topn), args.lang, int(args.maxoptions)
 
 
-def get_meta_text(input_path, title, desc, abstract, lang=None, max_options=0):
+def get_classes_and_relations(input_path, title, desc, abstract, lang=None, max_options=0):
     """
-    Get all the meta text from the given ontology
+
     """
     g = rdflib.Graph()
     print("\n\n\t\t==============\n\t Parsing: %s (format: %s)" % (input_path, rdflib.util.guess_format(input_path)))
@@ -397,87 +397,6 @@ def get_meta_text(input_path, title, desc, abstract, lang=None, max_options=0):
         meta += absts
         print("abstracts")
         print(absts)
-    return meta
-
-
-def split_text(text, splitters=[" ", ".", ",", ":", "(", ")", ">", "<"]):
-    if len(splitters) == 0:
-        if text.strip() == "":
-            return []
-        return [text]
-    sp = splitters[0]
-    tokens = text.split(sp)
-    tokens = [t for t in tokens if t.strip()!=""]
-    toks = []  # tokenizes to the max
-    for t in tokens:
-        toks += split_text(t, splitters[1:])
-    return toks
-
-
-def keyword_in_ontology(keyword, g):
-    return True
-
-
-def get_matched_keywords_per_text(m, max_num_tok, g):
-    tokens = split_text(m)
-    i = 0
-    matched = []
-    while i < len(tokens):
-        token_added = False
-        for l in range(max_num_tok, 0, -1):
-            kw = " ".join(tokens[i:i+l])
-            if keyword_in_ontology(kw, g):
-                matched.append(kw)
-                i += l
-                token_added = True
-                break
-        if not token_added:
-            i += 1
-    return matched
-
-
-def get_matched_keywords(meta, max_num_tok, g):
-    mkeywords = []
-    for m in meta:
-        mkeywords += get_matched_keywords_per_text(m, max_num_tok, g)
-    mkeywords = list(set(mkeywords))  # to remove duplicates
-    return mkeywords
-
-
-def get_classes_and_relations(input_path, title, desc, abstract, lang=None, max_options=0):
-    """
-
-    """
-    # g = rdflib.Graph()
-    # print("\n\n\t\t==============\n\t Parsing: %s (format: %s)" % (input_path, rdflib.util.guess_format(input_path)))
-    # g.parse(input_path, format=rdflib.util.guess_format(input_path))
-    # meta = []
-    # if title:
-    #     titles = get_titles(g, lang=lang)
-    #     if max_options > 0:
-    #         print("%d of titles out of %d" % (min(max_options, len(titles)), len(titles)))
-    #         titles = titles[:max_options]
-    #     meta += titles
-    #     print("titles: ")
-    #     # print(len(titles))
-    #     print(titles)
-    # if desc:
-    #     descs = get_descriptions(g, lang=lang)
-    #     if max_options > 0:
-    #         print("%d of descriptions out of %d" % (min(max_options, len(descs)), len(descs)))
-    #         descs = descs[:max_options]
-    #     meta += descs
-    #     print("descriptions: ")
-    #     # print(len(descs))
-    #     print(descs)
-    # if abstract:
-    #     absts = get_abstracts(g, lang=lang)
-    #     if max_options > 0:
-    #         print("%d of abstracts out of %d" % (min(max_options, len(absts)), len(absts)))
-    #         absts = absts[:max_options]
-    #     meta += absts
-    #     print("abstracts")
-    #     print(absts)
 
     keywords = gather_keywords(meta, max_tok_len=3)
     print("Keywords: ")
