@@ -78,8 +78,8 @@ def get_properties_with_keyword(g, keyword):
         prefixes.OBO+"IAO_0000118"
     ]
     vals = []
-    t = "select ?property where { ?property rdf:type owl:ObjectProperty.  %s }"
-
+    # t = "select ?property where { ?property rdf:type owl:ObjectProperty.  %s }"
+    t = "select ?property where { ?a ?property ?b.  %s }"
     label_query_template = "{?property <%s> ?label. FILTER CONTAINS(lcase(?label), \"%s\") }"
     label_query = ""
     for p in props[:-1]:
