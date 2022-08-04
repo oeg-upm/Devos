@@ -128,33 +128,6 @@ def get_primary_classes_and_relations(input_path, title, desc, abstract, lang=No
     return class_relations, property_relations, classes, properties
 
 
-def get_top(topn, classes, relations):
-    """
-    topn: int
-    classes: shorten classes
-    relations: a list of [cls1, rel, cls2]
-
-    return topn classes and properties
-
-    """
-    if topn > 0:
-        from_classes = [elem[0] for elem in relations]
-        to_classes = [elem[2] for elem in relations]
-        to_from_classes = from_classes + to_classes
-        myslist = Counter(to_from_classes)
-        myslist = myslist.most_common()
-        myslist = myslist[:topn]
-        print("\n top %d: " % topn)
-        print(myslist)  # Class ordered by ObjectProp relations
-        top_classes = []
-        for key, value in myslist:
-            top_classes.append(key)
-        classes = top_classes
-        relations = [rel for rel in relations if ((rel[0] in classes) and (rel[2] in classes))]
-
-    return classes, relations
-
-
 def draw_diagrams(classes, relations, out_path):
     """
     classes: shorten classes
@@ -167,15 +140,26 @@ def draw_diagrams(classes, relations, out_path):
     save_diagram(diagram, out_path)
 
 
-def workflow(input_path, title, desc, abstract, topn, out_path=None, lang=None, max_options=0):
+def shorten_uris(uris):
+    shortened_uris = [fetcher.shorten_url(u) for u in uris]
+    return shortened_uris
+
+
+def shorten_relations(rels):
+    shortented_rels = [(fetcher.shorten_url(r[0]), fetcher.shorten_url(r[1]), fetcher.shorten_url(r[2])) for r in rels]
+    return shortented_rels
+
+
+def workflow(input_path, title, desc, abstract, out_path=None, lang=None, max_options=0):
     """
     meta: either "title", "description", or "abstract". It is only used for the json files
     """
     class_relations, property_relations, classes, properties = get_primary_classes_and_relations(input_path, title, desc, abstract, lang=lang,
                                                    max_options=max_options)
     relations = list(set(class_relations + property_relations))
-    top_relations = relations
-    top_classes = classes
+
+    top_relations = shorten_relations(relations)
+    top_classes = shorten_uris(classes)
     # classes_top, relations_top = get_top(topn=topn, classes=classes, relations=relations)
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)

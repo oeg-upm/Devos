@@ -39,7 +39,7 @@ Group  --> Agent   :member
 
 ## Experiment
 
-### Run the experiment
+### Run the experiment (NEW)
 
 #### From Meta data
 
@@ -49,23 +49,34 @@ Group  --> Agent   :member
 * Then, the experiment is performed for the rest of ontologies. Note that it will not overwrite generated resources. 
 ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov```
 
+
+### Run the experiment (OLD)
+
+#### From Meta data
+
+* For DBpedia, we use `en` to speed up the process in taking into account only English labels. Note that it take sometime to generate the summary for DBpedia.
+```python -m experiments.generate_diagrams -i data/Top_in_lov/dbpedia.owl -o output_old/Top_in_lov -l en```
+
+* Then, the experiment is performed for the rest of ontologies. Note that it will not overwrite generated resources. 
+```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output_old/Top_in_lov```
+
 #### Only Frequency
 Using only frequency
 
 ```
-python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov --freq
+python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output_old/Top_in_lov --freq
 ```
 
-### Evaluation
+### Evaluation (OLD)
 
 #### META
 ```
-python -m experiments.evaluation -i output/Top_in_lov/*meta*.json  -g data/gs_lov.csv -o output/Top_in_lov/results-meta.svg
+python -m experiments.evaluation -i output_old/Top_in_lov/*meta*.json  -g data/gs_lov.csv -o output_old/Top_in_lov/results-meta.svg
 ```
 
 #### Frequency
 ```
-python -m experiments.evaluation -i output/Top_in_lov/*freq*.json  -g data/gs_lov.csv -o output/Top_in_lov/results-freq.svg
+python -m experiments.evaluation -i output_old/Top_in_lov/*freq*.json  -g data/gs_lov.csv -o output_old/Top_in_lov/results-freq.svg
 ```
 
 
