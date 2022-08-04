@@ -6,7 +6,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-from ogister.gister import shorten_url
+from ogister.fetcher import shorten_url
 try:
     from .generate_diagrams import meta_srcs, top_ns
 except:

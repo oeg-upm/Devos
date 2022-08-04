@@ -71,9 +71,9 @@ python -m experiments.evaluation -i output/Top_in_lov/*freq*.json  -g data/gs_lo
 
 ## Results
 
-![](output/Top_in_lov/results-meta.svg)
+![](output_old/Top_in_lov/results-meta.svg)
 
-![](output/Top_in_lov/results-freq.svg)
+![](output_old/Top_in_lov/results-freq.svg)
 
 ## Authors
 
