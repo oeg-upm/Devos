@@ -34,6 +34,36 @@ def get_abstracts(g, lang=None):
     return get_prop_vals(g, props, lang=lang)
 
 
+def get_class_freq(g, only_object_property):
+    if only_object_property:
+        t = "select ?class (COUNT(?property) as ?num ) where { ?property rdf:type owl:ObjectProperty.  %s } group by ?class"
+    else:
+        t = "select ?class (COUNT(?property) as ?num )  where { ?a ?property ?b.  %s } group by ?class"
+    # Domain
+    q = t % """ {?property rdfs:domain ?class.}"""
+
+    # q = """select (count(?s) as ?c) ?p where {?s ?p ?o}"""
+    results = g.query(q)
+    d = dict()
+    for res in results:
+        class_uri = str(res["class"])
+        num = int(str(res["num"]))
+        if class_uri not in d:
+            d[class_uri] = 0
+        d[class_uri] += num
+    # range
+    q = t % """ {?property rdfs:range ?class.}"""
+    results = g.query(q)
+    d = dict()
+    for res in results:
+        class_uri = str(res["class"])
+        num = int(str(res["num"]))
+        if class_uri not in d:
+            d[class_uri] = 0
+        d[class_uri] += num
+    return d
+
+
 def get_classes_with_keyword(g, keyword):
     """
     Get existing labels from a given uri.

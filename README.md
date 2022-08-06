@@ -49,6 +49,12 @@ Group  --> Agent   :member
 * To use all properties when getting the relevant properties to the given meta
 ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_any_property```
 
+#### From Frequency
+
+* Top 5: ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_freq_5 --object-property --freq --topn 5```
+
+* Top 10: ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_freq_10 --object-property --freq --topn 10```
+
 
 ### Run the experiment (OLD)
 

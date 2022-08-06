@@ -3,6 +3,7 @@ import rdflib
 from owl2diagram.main import get_class_diagram, get_object_diagram
 from owl2diagram.main import save_diagram
 from collections import Counter
+from operator import itemgetter
 from datetime import datetime
 
 from ogister import fetcher
@@ -11,13 +12,18 @@ from nltk.corpus import stopwords
 stopwords = stopwords.words('english')
 
 
+def parse_ontology(input_path):
+    g = rdflib.Graph()
+    print("\n\n\t\t==============\n\t Parsing: %s (format: %s)" % (input_path, rdflib.util.guess_format(input_path)))
+    g.parse(input_path, format=rdflib.util.guess_format(input_path))
+    return g
+
+
 def get_meta_text(input_path, title, desc, abstract, lang=None, max_options=0):
     """
     Get all the meta text from the given ontology
     """
-    g = rdflib.Graph()
-    print("\n\n\t\t==============\n\t Parsing: %s (format: %s)" % (input_path, rdflib.util.guess_format(input_path)))
-    g.parse(input_path, format=rdflib.util.guess_format(input_path))
+    g = parse_ontology(input_path)
     meta = []
     if title:
         titles = fetcher.get_titles(g, lang=lang)
@@ -169,6 +175,38 @@ def workflow(input_path, title, desc, abstract, only_object_property, out_path=N
     return top_classes, top_relations
 
 
+def get_freq_classes(g, topn, only_object_property):
+    d = fetcher.get_class_freq(g, only_object_property=only_object_property)
+    freq_cls_pairs = []
+    for k in d:
+        p = (d[k], k)
+        freq_cls_pairs.append(p)
+    freq_cls_pairs.sort(reverse=True, key=itemgetter(0))
+    freq_cls_pairs = freq_cls_pairs[:topn]
+    top_classes = [p[1] for p in freq_cls_pairs]
+    print(freq_cls_pairs)
+    return top_classes
+
+
+def freq_workflow(input_path, out_path, topn, only_object_property):
+    """
+
+    """
+    g = parse_ontology(input_path)
+    top_classes = get_freq_classes(g, topn=topn, only_object_property=only_object_property)
+    class_relations = fetcher.get_relations(g, top_classes)
+    constraints = fetcher.get_classes_constraints(g, top_classes)
+    class_relations += constraints
+
+    top_relations = shorten_relations(class_relations)
+    top_classes = shorten_uris(top_classes)
+
+    if out_path:
+        draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
+    print(top_relations)
+    return top_classes, top_relations
+
+
 def parse_arguments():
     """
     Parse command line arguments
@@ -179,20 +217,24 @@ def parse_arguments():
     parser.add_argument('-t', '--title', action="store_true", help="To look into titles.")
     parser.add_argument('-d', '--description', action="store_true", help="To look into description.")
     parser.add_argument('-a', '--abstract', action="store_true", help="To look into abstract.")
-    parser.add_argument('-n', '--topn', default=0,  help="The maximum number of relevant classes.")
+    parser.add_argument('-n', '--topn', default=0, type=int, help="The maximum number of relevant classes.")
     parser.add_argument('-l', '--lang', default=None, help="language tag. e.g., en")
     parser.add_argument('--object-property', action="store_true", help="Whether to only use object property for getting the relevant properties relenvant to the given meta")
-    parser.add_argument('-m', '--maxoptions', default=0, help="Maximum number of meta literal for each meta type (e.g., title)")
-    # parser.add_argument('-y', '--charlimit', default=0, help="Maximum number of characters per literal property.")
+    parser.add_argument('-m', '--maxoptions', default=0, type=int, help="Maximum number of meta literal for each meta type (e.g., title)")
+    parser.add_argument('-f', '--freq', action="store_true", help="Use frequency to fetch the most relative classes and properties")
+
     args = parser.parse_args()
-    return args.input, args.output, args.title, args.description, args.abstract, int(args.topn), args.lang, int(args.maxoptions), args.object_property
+    return args.input, args.output, args.title, args.description, args.abstract, args.topn, args.lang, args.maxoptions, args.object_property, args.freq
 
 
 def main():
     a = datetime.now()
-    input_path, out_path, title, desc, abstract, topn, lang, max_options, only_object_property = parse_arguments()
-    workflow(input_path=input_path, out_path=out_path, title=title, desc=desc, abstract=abstract, topn=topn,
-             lang=lang, max_options=max_options, only_object_property=only_object_property)
+    input_path, out_path, title, desc, abstract, topn, lang, max_options, only_object_property, freq = parse_arguments()
+    if not freq:
+        workflow(input_path=input_path, out_path=out_path, title=title, desc=desc, abstract=abstract, topn=topn,
+                 lang=lang, max_options=max_options, only_object_property=only_object_property)
+    else:
+        freq_workflow(input_path=input_path, out_path=out_path, topn=topn, only_object_property=only_object_property)
     b = datetime.now()
     print("\n\nTime it took: %.1f minutes\n\n" % ((b - a).total_seconds() / 60.0))
 
