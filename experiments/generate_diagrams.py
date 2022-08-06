@@ -23,7 +23,7 @@ def save_json(json_path, classes, relations, meta):
         json.dump(json_string, outfile)
 
 
-def experiment(input_files, output_path, lang=None, max_options=0):
+def experiment(input_files, output_path, only_object_property, lang=None, max_options=0):
     """
     Experiment
     """
@@ -45,7 +45,7 @@ def experiment(input_files, output_path, lang=None, max_options=0):
                 print("\n%s already exists" % check_diagram_fpath)
                 continue
             classes, relations = workflow(input_path=inp, out_path=None, lang=lang, max_options=max_options, title=titl,
-                                          desc=desc, abstract=abst)
+                                          desc=desc, abstract=abst, only_object_property=only_object_property)
 
             graph_fname = graph_fname_base
             opath = os.path.join(output_path, graph_fname + ".md")
@@ -63,8 +63,9 @@ def parse_arguments():
     parser.add_argument('-o', '--output', default="output", help="Output path")
     parser.add_argument('-l', '--lang', default=None, help="language tag. e.g., en")
     parser.add_argument('-m', '--maxoptions', default=0, help="Maximum number of meta literal for each meta type (e.g., title)")
+    parser.add_argument('--object-property', action="store_true", help="Whether to only use object property for getting the relevant properties relenvant to the given meta")
     args = parser.parse_args()
-    return args.output, args.input, args.lang, int(args.maxoptions)
+    return args.output, args.input, args.lang, int(args.maxoptions), args.object_property
 
 
 def main():
@@ -72,8 +73,8 @@ def main():
     Parse Arguments
     """
     a = datetime.now()
-    output_path, input_files, lang, max_options = parse_arguments()
-    experiment(input_files, output_path, lang=lang, max_options=max_options)
+    output_path, input_files, lang, max_options, only_object_property = parse_arguments()
+    experiment(input_files, output_path, lang=lang, max_options=max_options, only_object_property=only_object_property)
     b = datetime.now()
     print("\n\nTime it took: %.1f minutes\n\n" % ((b - a).total_seconds() / 60.0))
 

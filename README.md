@@ -43,11 +43,11 @@ Group  --> Agent   :member
 
 #### From Meta data
 
-* For DBpedia, we use `en` to speed up the process in taking into account only English labels. Note that it take sometime to generate the summary for DBpedia.
-```python -m experiments.generate_diagrams -i data/Top_in_lov/dbpedia.owl -o output/Top_in_lov -l en```
+* To only use `owl:ObjectProperty` when getting the relevant properties to the given meta
+```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_object_property --object-property```
 
-* Then, the experiment is performed for the rest of ontologies. Note that it will not overwrite generated resources. 
-```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov```
+* To use all properties when getting the relevant properties to the given meta
+```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_any_property```
 
 
 ### Run the experiment (OLD)

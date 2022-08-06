@@ -64,12 +64,13 @@ def get_classes_with_keyword(g, keyword):
     return vals
 
 
-def get_properties_with_keyword(g, keyword):
+def get_properties_with_keyword(g, keyword, only_object_property=True):
     """
     Get existing labels from a given uri.
     This follows the recommendation https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html#title
     :param g: rdf Graph
     :param keyword:
+    :param only_object_property:
     :return:
     """
     props = [
@@ -78,8 +79,10 @@ def get_properties_with_keyword(g, keyword):
         prefixes.OBO+"IAO_0000118"
     ]
     vals = []
-    # t = "select ?property where { ?property rdf:type owl:ObjectProperty.  %s }"
-    t = "select ?property where { ?a ?property ?b.  %s }"
+    if only_object_property:
+        t = "select ?property where { ?property rdf:type owl:ObjectProperty.  %s }"
+    else:
+        t = "select ?property where { ?a ?property ?b.  %s }"
     label_query_template = "{?property <%s> ?label. FILTER CONTAINS(lcase(?label), \"%s\") }"
     label_query = ""
     for p in props[:-1]:

@@ -48,9 +48,9 @@ def get_meta_text(input_path, title, desc, abstract, lang=None, max_options=0):
     return meta, g
 
 
-def keyword_in_ontology(keyword, g):
+def keyword_in_ontology(keyword, g, only_object_property=True):
     classes = fetcher.get_classes_with_keyword(g, keyword)
-    properties = fetcher.get_properties_with_keyword(g, keyword)
+    properties = fetcher.get_properties_with_keyword(g, keyword, only_object_property)
     return classes, properties
 
 
@@ -61,7 +61,7 @@ def all_stop_words(tokens):
     return True
 
 
-def get_matched_per_text(m, max_num_tok, g):
+def get_matched_per_text(m, max_num_tok, g, only_object_property):
     tokens = util.split_text(m)
     i = 0
     matched = []
@@ -77,7 +77,7 @@ def get_matched_per_text(m, max_num_tok, g):
             if all_stop_words(tks):
                 # print("skip: %s" % kw)
                 continue
-            classes, properties = keyword_in_ontology(kw, g)
+            classes, properties = keyword_in_ontology(kw, g, only_object_property)
             matched_classes += classes
             matched_properties += properties
             if len(classes+properties) > 0:
@@ -96,12 +96,13 @@ def get_matched_per_text(m, max_num_tok, g):
     return matched, matched_classes, matched_properties
 
 
-def get_matched(meta, max_num_tok, g):
+def get_matched(meta, max_num_tok, g, only_object_property):
     mkeywords = []
     mclasses = []
     mproperties = []
     for m in meta:
-        keywords, classes, properties = get_matched_per_text(m, max_num_tok, g)
+        keywords, classes, properties = get_matched_per_text(m, max_num_tok, g,
+                                                             only_object_property=only_object_property)
         mkeywords += keywords
         mclasses += classes
         mproperties += properties
@@ -112,14 +113,15 @@ def get_matched(meta, max_num_tok, g):
     return mkeywords, mclasses, mproperties
 
 
-def get_primary_classes_and_relations(input_path, title, desc, abstract, lang=None, max_options=0):
+def get_primary_classes_and_relations(input_path, title, desc, abstract, only_object_property, lang=None, max_options=0):
     """
     Get relations, classes and properties related to the meta.
     """
 
     meta, g = get_meta_text(input_path=input_path, title=title, desc=desc, abstract=abstract, lang=lang,
                             max_options=max_options)
-    keywords, classes, properties = get_matched(meta=meta, max_num_tok=5, g=g)
+    keywords, classes, properties = get_matched(meta=meta, max_num_tok=5, g=g,
+                                                only_object_property=only_object_property)
     class_relations = fetcher.get_relations(g, classes)
     property_relations = fetcher.get_properties_relations(g, properties)
     constraints = fetcher.get_classes_constraints(g, classes)
@@ -150,12 +152,12 @@ def shorten_relations(rels):
     return shortented_rels
 
 
-def workflow(input_path, title, desc, abstract, out_path=None, lang=None, max_options=0):
+def workflow(input_path, title, desc, abstract, only_object_property, out_path=None, lang=None, max_options=0):
     """
     meta: either "title", "description", or "abstract". It is only used for the json files
     """
     class_relations, property_relations, classes, properties = get_primary_classes_and_relations(input_path, title, desc, abstract, lang=lang,
-                                                   max_options=max_options)
+                                                   max_options=max_options, only_object_property=only_object_property)
     relations = list(set(class_relations + property_relations))
 
     top_relations = shorten_relations(relations)
@@ -179,17 +181,18 @@ def parse_arguments():
     parser.add_argument('-a', '--abstract', action="store_true", help="To look into abstract.")
     parser.add_argument('-n', '--topn', default=0,  help="The maximum number of relevant classes.")
     parser.add_argument('-l', '--lang', default=None, help="language tag. e.g., en")
+    parser.add_argument('--object-property', action="store_true", help="Whether to only use object property for getting the relevant properties relenvant to the given meta")
     parser.add_argument('-m', '--maxoptions', default=0, help="Maximum number of meta literal for each meta type (e.g., title)")
     # parser.add_argument('-y', '--charlimit', default=0, help="Maximum number of characters per literal property.")
     args = parser.parse_args()
-    return args.input, args.output, args.title, args.description, args.abstract, int(args.topn), args.lang, int(args.maxoptions)
+    return args.input, args.output, args.title, args.description, args.abstract, int(args.topn), args.lang, int(args.maxoptions), args.object_property
 
 
 def main():
     a = datetime.now()
-    input_path, out_path, title, desc, abstract, topn, lang, max_options = parse_arguments()
+    input_path, out_path, title, desc, abstract, topn, lang, max_options, only_object_property = parse_arguments()
     workflow(input_path=input_path, out_path=out_path, title=title, desc=desc, abstract=abstract, topn=topn,
-             lang=lang, max_options=max_options)
+             lang=lang, max_options=max_options, only_object_property=only_object_property)
     b = datetime.now()
     print("\n\nTime it took: %.1f minutes\n\n" % ((b - a).total_seconds() / 60.0))
 
