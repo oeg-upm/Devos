@@ -27,6 +27,8 @@ def experiment(input_files, output_path, only_object_property, freq, topn, lang=
     """
     Experiment
     """
+    if freq:
+        meta_srcs = ["freq"]
     for inp in input_files:
         for m in meta_srcs:
             titl = desc = abst = False
@@ -36,6 +38,8 @@ def experiment(input_files, output_path, only_object_property, freq, topn, lang=
                 titl = desc = True
             elif m == "abstract":
                 titl = desc = abst = True
+            elif m == "freq":
+                pass
             else:
                 raise Exception("invalid meta src")
 

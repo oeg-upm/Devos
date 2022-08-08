@@ -55,42 +55,71 @@ Group  --> Agent   :member
 
 * Top 10: ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_freq_10 --object-property --freq --topn 10```
 
+#### Convert the md diagrams to pngs
+##### Requirement
 
-### Run the experiment (OLD)
+[mermaid-cli](https://github.com/mermaid-js/mermaid-cli)
 
-#### From Meta data
-
-* For DBpedia, we use `en` to speed up the process in taking into account only English labels. Note that it take sometime to generate the summary for DBpedia.
-```python -m experiments.generate_diagrams -i data/Top_in_lov/dbpedia.owl -o output_old/Top_in_lov -l en```
-
-* Then, the experiment is performed for the rest of ontologies. Note that it will not overwrite generated resources. 
-```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output_old/Top_in_lov```
-
-#### Only Frequency
-Using only frequency
-
+##### Generate the pngs
 ```
-python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output_old/Top_in_lov --freq
+mmdc -i 
 ```
 
-### Evaluation (OLD)
+[//]: # (### Run the experiment &#40;OLD&#41;)
 
-#### META
-```
-python -m experiments.evaluation -i output_old/Top_in_lov/*meta*.json  -g data/gs_lov.csv -o output_old/Top_in_lov/results-meta.svg
-```
+[//]: # ()
+[//]: # (#### From Meta data)
 
-#### Frequency
-```
-python -m experiments.evaluation -i output_old/Top_in_lov/*freq*.json  -g data/gs_lov.csv -o output_old/Top_in_lov/results-freq.svg
-```
+[//]: # ()
+[//]: # (* For DBpedia, we use `en` to speed up the process in taking into account only English labels. Note that it take sometime to generate the summary for DBpedia.)
 
+[//]: # (```python -m experiments.generate_diagrams -i data/Top_in_lov/dbpedia.owl -o output_old/Top_in_lov -l en```)
 
-## Results
+[//]: # ()
+[//]: # (* Then, the experiment is performed for the rest of ontologies. Note that it will not overwrite generated resources. )
 
-![](output_old/Top_in_lov/results-meta.svg)
+[//]: # (```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output_old/Top_in_lov```)
 
-![](output_old/Top_in_lov/results-freq.svg)
+[//]: # ()
+[//]: # (#### Only Frequency)
+
+[//]: # (Using only frequency)
+
+[//]: # ()
+[//]: # (```)
+
+[//]: # (python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output_old/Top_in_lov --freq)
+
+[//]: # (```)
+
+[//]: # (### Evaluation &#40;OLD&#41;)
+
+[//]: # ()
+[//]: # (#### META)
+
+[//]: # (```)
+
+[//]: # (python -m experiments.evaluation -i output_old/Top_in_lov/*meta*.json  -g data/gs_lov.csv -o output_old/Top_in_lov/results-meta.svg)
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (#### Frequency)
+
+[//]: # (```)
+
+[//]: # (python -m experiments.evaluation -i output_old/Top_in_lov/*freq*.json  -g data/gs_lov.csv -o output_old/Top_in_lov/results-freq.svg)
+
+[//]: # (```)
+
+[//]: # ()
+[//]: # (## Results &#40;OLD&#41;)
+
+[//]: # ()
+[//]: # (![]&#40;output_old/Top_in_lov/results-meta.svg&#41;)
+
+[//]: # ()
+[//]: # (![]&#40;output_old/Top_in_lov/results-freq.svg&#41;)
 
 ## Authors
 

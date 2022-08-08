@@ -1,1 +1,0 @@
-"{\"classes\": [\"Asset\", \"SKOSConcept\", \"Identifier\"], \"relations\": [[\"Asset\", \"sample\", \"Asset\"], [\"Asset\", \"interoperabilityLevel\", \"SKOSConcept\"], [\"Asset\", \"includedAsset\", \"Asset\"]], \"meta\": \"title\"}"
