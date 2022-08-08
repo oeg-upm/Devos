@@ -62,8 +62,9 @@ Group  --> Agent   :member
 
 ##### Generate the pngs
 ```
-mmdc -i 
+python -m experiments.convert_diagrams -i output/Top_in_lov_freq_5/*.md
 ```
+*Note: the coverted does not look as good as the rendered mermaid diagrams*
 
 [//]: # (### Run the experiment &#40;OLD&#41;)
 

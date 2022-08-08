@@ -23,7 +23,7 @@ def parse_arguments():
     parser.add_argument('-i', '--input', nargs="+", required=True, help="md files")
     parser.add_argument('-f', '--format', default="png", help="output file format (e.g., png, svg)")
     args = parser.parse_args()
-    return args.input , args.format
+    return args.input, args.format
 
 
 def main():
