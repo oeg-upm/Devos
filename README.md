@@ -51,9 +51,9 @@ Group  --> Agent   :member
 
 #### From Frequency
 
-* Top 5: ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_freq_5 --object-property --freq --topn 5```
+* Top 5: ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_freq --object-property --freq --topn 5```
 
-* Top 10: ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_freq_10 --object-property --freq --topn 10```
+* Top 10: ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_freq --object-property --freq --topn 10```
 
 #### Convert the md diagrams to pngs
 ##### Requirement
