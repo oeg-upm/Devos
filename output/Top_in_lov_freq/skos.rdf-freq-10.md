@@ -10,7 +10,7 @@
     
     }
 
-    class N1bb64c0e4e924e639edadb73b6340a0b {
+    class Nd4710cac099d4d70a1427f142be80884 {
     
     }
 
@@ -20,12 +20,12 @@
 
 
 
-SKOSOrderedCollection  --> RDFList   :SKOSmemberList  
-
-SKOSConceptScheme  --> SKOSConcept   :SKOShasTopConcept  
-
 SKOSConcept  --> SKOSConcept   :SKOSsemanticRelation  
 
+SKOSOrderedCollection  --> RDFList   :SKOSmemberList  
+
 SKOSConcept  --> SKOSConceptScheme   :SKOStopConceptOf  
+
+SKOSConceptScheme  --> SKOSConcept   :SKOShasTopConcept  
 
 ```

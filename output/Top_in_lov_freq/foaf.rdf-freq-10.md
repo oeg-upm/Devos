@@ -32,68 +32,68 @@
 
 
 
+Thing  --> Thing   :theme  
+
 Person  --> Document   :workplaceHomepage  
 
-Document  --> Thing   :primaryTopic  
+Agent  --> OnlineAccount   :holdsAccount  
 
-Image  --> Thing   :depicts  
+Person  --> Document   :publications  
 
-SKOSConcept  --> Thing   :focus  
+OnlineAccount  --> Document   :accountServiceHomepage  
 
-SpatialThing  --> SpatialThing   :based_near  
+Agent  --> Document   :weblog  
 
-Person  --> Thing   :currentProject  
+Agent  --> Document   :openid  
+
+Person  --> Document   :workInfoHomepage  
+
+Agent  --> Document   :interest  
 
 Thing  --> Document   :page  
 
-Agent  --> Document   :interest  
+Image  --> Thing   :depicts  
+
+Person  --> Thing   :pastProject  
+
+Document  --> Thing   :primaryTopic  
+
+Person  --> Image   :img  
+
+Agent  --> Thing   :made  
+
+Person  --> Thing   :currentProject  
+
+Thing  --> Thing   :logo  
+
+Thing  --> Thing   :fundedBy  
+
+Thing  --> Agent   :maker  
+
+Person  --> Document   :schoolHomepage  
+
+SpatialThing  --> SpatialThing   :based_near  
+
+Image  --> Image   :thumbnail  
+
+SKOSConcept  --> Thing   :focus  
+
+Agent  --> OnlineAccount   :account  
+
+Thing  --> Document   :homepage  
+
+Agent  --> Thing   :mbox  
+
+Document  --> Thing   :topic  
 
 Person  --> Person   :knows  
 
 Agent  --> Document   :tipjar  
 
-Person  --> Document   :workInfoHomepage  
-
-Agent  --> Document   :weblog  
-
 Agent  --> Thing   :topic_interest  
 
-Thing  --> Image   :depiction  
-
-Person  --> Document   :publications  
-
-Thing  --> Agent   :maker  
-
-Agent  --> Document   :openid  
-
-Thing  --> Thing   :theme  
-
-Agent  --> OnlineAccount   :account  
-
-Thing  --> Thing   :logo  
-
-Agent  --> Thing   :made  
-
-Person  --> Image   :img  
-
-Thing  --> Thing   :fundedBy  
-
-Person  --> Thing   :pastProject  
-
-Image  --> Image   :thumbnail  
-
-Document  --> Thing   :topic  
-
-Agent  --> OnlineAccount   :holdsAccount  
-
-Agent  --> Thing   :mbox  
-
-Person  --> Document   :schoolHomepage  
-
-OnlineAccount  --> Document   :accountServiceHomepage  
-
-Thing  --> Document   :homepage  
-
 Group  --> Agent   :member  
+
+Thing  --> Image   :depiction  
 
 ```

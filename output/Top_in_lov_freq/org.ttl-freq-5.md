@@ -24,52 +24,52 @@
 
 
 
-Agent  --> Organization   :memberOf  
-
-Organization  --> Site   :hasSite  
-
-Membership  --> Agent   :member  
-
-Organization  --> Post   :hasPost  
-
-ChangeEvent  --> Organization   :resultingOrganization  
-
-Agent  --> Membership   :hasMembership  
-
-Agent  --> Post   :holds  
-
-Organization  --> ChangeEvent   :changedBy  
+Organization  --> ChangeEvent   :resultedFrom  
 
 Membership  --> Organization   :organization  
 
-Organization  --> Organization   :subOrganizationOf  
-
-Organization  --> ChangeEvent   :resultedFrom  
-
-ChangeEvent  --> Organization   :originalOrganization  
-
-Organization  --> SKOSConcept   :classification  
-
-Organization  --> Organization   :linkedTo  
-
-Agent  --> Organization   :headOf  
-
-Post  --> Agent   :heldBy  
-
-Organization  --> Organization   :transitiveSubOrganizationOf  
-
-FormalOrganization  --> Site   :hasRegisteredSite  
-
-Organization  --> Organization   :hasSubOrganization  
-
-Person  --> Site   :basedAt  
+Site  --> Organization   :siteOf  
 
 Organization  --> Agent   :hasMember  
 
-Site  --> Organization   :siteOf  
+Agent  --> Organization   :memberOf  
+
+Agent  --> Post   :holds  
+
+ChangeEvent  --> Organization   :resultingOrganization  
 
 Post  --> Organization   :postIn  
 
+Organization  --> SKOSConcept   :classification  
+
+Person  --> Site   :basedAt  
+
+Membership  --> Agent   :member  
+
+Agent  --> Membership   :hasMembership  
+
+Organization  --> Post   :hasPost  
+
+Organization  --> ChangeEvent   :changedBy  
+
+Agent  --> Organization   :headOf  
+
 Organization  --> Site   :hasPrimarySite  
+
+Post  --> Agent   :heldBy  
+
+Organization  --> Organization   :hasSubOrganization  
+
+FormalOrganization  --> Site   :hasRegisteredSite  
+
+Organization  --> Site   :hasSite  
+
+Organization  --> Organization   :subOrganizationOf  
+
+ChangeEvent  --> Organization   :originalOrganization  
+
+Organization  --> Organization   :linkedTo  
+
+Organization  --> Organization   :transitiveSubOrganizationOf  
 
 ```

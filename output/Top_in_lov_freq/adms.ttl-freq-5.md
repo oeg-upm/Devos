@@ -16,10 +16,10 @@
 
 
 
-Asset  --> SKOSConcept   :interoperabilityLevel  
-
 Asset  --> Asset   :includedAsset  
 
 Asset  --> Asset   :sample  
+
+Asset  --> SKOSConcept   :interoperabilityLevel  
 
 ```

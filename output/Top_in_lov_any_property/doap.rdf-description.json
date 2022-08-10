@@ -1,1 +1,1 @@
-"{\"classes\": [\"CVSRepository\", \"ArchRepository\", \"BKRepository\"], \"relations\": [], \"meta\": \"description\"}"
+{"classes": ["BKRepository", "ArchRepository", "CVSRepository"], "relations": [], "meta": "description"}

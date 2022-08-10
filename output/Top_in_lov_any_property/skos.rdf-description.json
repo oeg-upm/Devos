@@ -1,1 +1,1 @@
-"{\"classes\": [\"SKOSConceptScheme\", \"SKOSConcept\"], \"relations\": [[\"SKOSConcept\", \"SKOSsemanticRelation\", \"SKOSConcept\"], [\"SKOSConceptScheme\", \"SKOShasTopConcept\", \"SKOSConcept\"], [\"SKOSConcept\", \"SKOStopConceptOf\", \"SKOSConceptScheme\"]], \"meta\": \"description\"}"
+{"classes": ["SKOSConcept", "SKOSConceptScheme"], "relations": [["SKOSConceptScheme", "SKOShasTopConcept", "SKOSConcept"], ["SKOSConcept", "SKOSsemanticRelation", "SKOSConcept"], ["SKOSConcept", "SKOStopConceptOf", "SKOSConceptScheme"]], "meta": "description"}

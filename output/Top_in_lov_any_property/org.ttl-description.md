@@ -2,15 +2,7 @@
 	classDiagram
 
     
-    class Role {
-    
-    }
-
-    class FormalOrganization {
-    
-    }
-
-    class Organization {
+    class Site {
     
     }
 
@@ -18,11 +10,7 @@
     
     }
 
-    class Site {
-    
-    }
-
-    class ChangeEvent {
+    class Role {
     
     }
 
@@ -30,54 +18,66 @@
     
     }
 
+    class Organization {
+    
+    }
+
+    class ChangeEvent {
+    
+    }
+
+    class FormalOrganization {
+    
+    }
 
 
-FormalOrganization  --> Site   :hasRegisteredSite  
-
-n6613f7afd2494719b79873490ba3ef20b17  --> Role   :role  
-
-Site  --> Organization   :siteOf  
-
-Agent  --> Organization   :memberOf  
-
-Membership  --> Organization   :organization  
-
-Organization  --> ChangeEvent   :resultedFrom  
-
-Organization  --> Organization   :transitiveSubOrganizationOf  
 
 ChangeEvent  --> Organization   :resultingOrganization  
 
-FormalOrganization  --> OrganizationalUnit   :hasUnit  
-
-Organization  --> Post   :hasPost  
-
-Post  --> Organization   :postIn  
-
-Organization  --> Organization   :hasSubOrganization  
-
-Organization  --> Site   :hasPrimarySite  
+Organization  --> Agent   :hasMember  
 
 Person  --> Site   :basedAt  
 
-OrganizationalUnit  --> FormalOrganization   :unitOf  
-
-Organization  --> Site   :hasSite  
-
-Organization  --> Organization   :linkedTo  
-
-Agent  --> Organization   :headOf  
+ChangeEvent  --> Organization   :originalOrganization  
 
 Organization  --> Organization   :subOrganizationOf  
 
-ChangeEvent  --> Organization   :originalOrganization  
+Site  --> Organization   :siteOf  
 
-Organization  --> Agent   :hasMember  
+Organization  --> SKOSConcept   :classification  
 
-Role  --> RDFProperty   :roleProperty  
+Organization  --> Post   :hasPost  
+
+nfe96903dd2ea4374ac2da5aeaeb73444b17  --> Role   :role  
 
 Organization  --> ChangeEvent   :changedBy  
 
-Organization  --> SKOSConcept   :classification  
+Post  --> Organization   :postIn  
+
+Agent  --> Organization   :headOf  
+
+Membership  --> Organization   :organization  
+
+Organization  --> Organization   :hasSubOrganization  
+
+OrganizationalUnit  --> FormalOrganization   :unitOf  
+
+Organization  --> Organization   :linkedTo  
+
+Organization  --> Organization   :transitiveSubOrganizationOf  
+
+Role  --> RDFProperty   :roleProperty  
+
+FormalOrganization  --> OrganizationalUnit   :hasUnit  
+
+Agent  --> Organization   :memberOf  
+
+FormalOrganization  --> Site   :hasRegisteredSite  
+
+Organization  --> ChangeEvent   :resultedFrom  
+
+Organization  --> Site   :hasPrimarySite  
+
+Organization  --> Site   :hasSite  
 
 ```

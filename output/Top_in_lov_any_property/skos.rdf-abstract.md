@@ -2,19 +2,19 @@
 	classDiagram
 
     
-    class SKOSConceptScheme {
-    
-    }
-
     class SKOSConcept {
     
     }
 
+    class SKOSConceptScheme {
+    
+    }
 
 
-SKOSConcept  --> SKOSConcept   :SKOSsemanticRelation  
 
 SKOSConceptScheme  --> SKOSConcept   :SKOShasTopConcept  
+
+SKOSConcept  --> SKOSConcept   :SKOSsemanticRelation  
 
 SKOSConcept  --> SKOSConceptScheme   :SKOStopConceptOf  
 

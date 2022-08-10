@@ -6,11 +6,15 @@
     
     }
 
+    class AudioVisualDocument {
+    
+    }
+
     class Document {
     
     }
 
-    class AudioDocument {
+    class DocumentStatus {
     
     }
 
@@ -22,11 +26,7 @@
     
     }
 
-    class PersonalCommunicationDocument {
-    
-    }
-
-    class DocumentStatus {
+    class AudioDocument {
     
     }
 
@@ -34,42 +34,42 @@
     
     }
 
-    class AudioVisualDocument {
+    class PersonalCommunicationDocument {
     
     }
 
 
 
-Document  --> Nf67297da0fab40eaa57dcc325708c8dc   :authorList  
+AudioVisualDocument  --> Agent   :director  
+
+Document  --> Ndae9d35a90cf40a79cd79986a88b9b10   :authorList  
+
+Document  --> Document   :citedBy  
+
+Document  --> N6949a558a0e245709e74beedac56be0b   :editorList  
+
+Event  --> Document   :presents  
+
+Document  --> Document   :cites  
+
+LegalDocument  --> Organization   :court  
+
+Document  --> RDFSResource   :transcriptOf  
+
+Document  --> N1cdd25ff99664edd8061b7a26ac3c97b   :contributorList  
 
 D  --> T   :C  
 
 Document  --> RDFSResource   :reviewOf  
 
+Document  --> DocumentStatus   :status  
+
 PersonalCommunicationDocument  --> Agent   :recipient  
-
-LegalDocument  --> Organization   :court  
-
-AudioVisualDocument  --> Agent   :director  
 
 Document  --> Document   :translationOf  
 
-Document  --> DocumentStatus   :status  
-
-Event  --> Document   :presents  
-
-Document  --> N8c641edc335644d0a599ad2e64d61bf3   :contributorList  
-
-Document  --> N08824c58c5f1436aa6b5abda27602723   :editorList  
-
-Document  --> Event   :presentedAt  
-
 Document  --> Document   :reproducedIn  
 
-Document  --> Document   :cites  
-
-Document  --> Document   :citedBy  
-
-Document  --> RDFSResource   :transcriptOf  
+Document  --> Event   :presentedAt  
 
 ```

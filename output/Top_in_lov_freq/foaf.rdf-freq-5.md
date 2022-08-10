@@ -24,64 +24,64 @@
 
 
 
-Thing  --> Thing   :theme  
-
-Agent  --> Document   :openid  
-
-Image  --> Thing   :depicts  
-
-Person  --> Document   :workplaceHomepage  
-
-Person  --> Thing   :pastProject  
-
-Agent  --> Thing   :mbox  
-
-Agent  --> OnlineAccount   :account  
-
-Document  --> Thing   :primaryTopic  
-
-Person  --> Thing   :currentProject  
-
-Person  --> Document   :schoolHomepage  
-
-Document  --> Thing   :topic  
-
-Thing  --> Document   :homepage  
-
-Person  --> Image   :img  
+Thing  --> Thing   :fundedBy  
 
 OnlineAccount  --> Document   :accountServiceHomepage  
+
+Image  --> Thing   :depicts  
 
 Agent  --> OnlineAccount   :holdsAccount  
 
 Person  --> Document   :workInfoHomepage  
 
-Agent  --> Document   :interest  
-
-Group  --> Agent   :member  
-
-Agent  --> Document   :tipjar  
-
-SKOSConcept  --> Thing   :focus  
-
-Thing  --> Document   :page  
-
-Thing  --> Thing   :fundedBy  
-
 Thing  --> Thing   :logo  
 
-Thing  --> Image   :depiction  
+Document  --> Thing   :topic  
+
+Document  --> Thing   :primaryTopic  
+
+Agent  --> Thing   :mbox  
 
 Person  --> Document   :publications  
 
-Agent  --> Thing   :made  
+Thing  --> Document   :page  
 
-Image  --> Image   :thumbnail  
+Agent  --> Thing   :topic_interest  
 
-Agent  --> Document   :weblog  
+Person  --> Thing   :currentProject  
 
 Thing  --> Agent   :maker  
 
-Agent  --> Thing   :topic_interest  
+Thing  --> Document   :homepage  
+
+Image  --> Image   :thumbnail  
+
+SKOSConcept  --> Thing   :focus  
+
+Agent  --> Thing   :made  
+
+Person  --> Document   :workplaceHomepage  
+
+Person  --> Thing   :pastProject  
+
+Thing  --> Thing   :theme  
+
+Agent  --> Document   :weblog  
+
+Agent  --> Document   :tipjar  
+
+Person  --> Image   :img  
+
+Person  --> Document   :schoolHomepage  
+
+Agent  --> Document   :interest  
+
+Agent  --> OnlineAccount   :account  
+
+Group  --> Agent   :member  
+
+Agent  --> Document   :openid  
+
+Thing  --> Image   :depiction  
 
 ```

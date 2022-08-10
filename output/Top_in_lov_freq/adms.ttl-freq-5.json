@@ -1,1 +1,1 @@
-"{\"classes\": [\"Asset\", \"SKOSConcept\", \"Identifier\"], \"relations\": [[\"Asset\", \"interoperabilityLevel\", \"SKOSConcept\"], [\"Asset\", \"includedAsset\", \"Asset\"], [\"Asset\", \"sample\", \"Asset\"]], \"meta\": \"freq-5\"}"
+{"classes": ["Asset", "SKOSConcept", "Identifier"], "relations": [["Asset", "includedAsset", "Asset"], ["Asset", "sample", "Asset"], ["Asset", "interoperabilityLevel", "SKOSConcept"]], "meta": "freq-5"}

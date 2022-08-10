@@ -44,62 +44,62 @@
 
 
 
+DateTimeInterval  --> GeneralDateTimeDescription   :hasDateTimeDescription  
+
+GeneralDateTimeDescription  --> TimeZone   :timeZone  
+
+ProperInterval  --> ProperInterval   :intervalOverlappedBy  
+
+ProperInterval  --> ProperInterval   :intervalStarts  
+
 Interval  --> Instant   :inside  
 
-Instant  --> GeneralDateTimeDescription   :inDateTime  
+Instant  --> TimePosition   :inTimePosition  
 
-n7e3c7e0bb1614bc0b6e1ae25a3f6a74db66  --> TRS   :hasTRS  
+TemporalEntity  --> TemporalEntity   :before  
 
-ProperInterval  --> ProperInterval   :intervalFinishedBy  
-
-Instant  --> TemporalPosition   :inTemporalPosition  
-
-ProperInterval  --> ProperInterval   :intervalEquals  
-
-ProperInterval  --> ProperInterval   :intervalBefore  
-
-ProperInterval  --> ProperInterval   :intervalStartedBy  
-
-TemporalEntity  --> Instant   :hasEnd  
-
-ProperInterval  --> ProperInterval   :intervalFinishes  
+ProperInterval  --> ProperInterval   :intervalDuring  
 
 ProperInterval  --> ProperInterval   :intervalDisjoint  
 
-ProperInterval  --> ProperInterval   :intervalStarts  
+ProperInterval  --> ProperInterval   :intervalBefore  
+
+GeneralDateTimeDescription  --> DayOfWeek   :dayOfWeek  
 
 ProperInterval  --> ProperInterval   :intervalIn  
 
 TemporalEntity  --> Instant   :hasBeginning  
 
-ProperInterval  --> ProperInterval   :intervalOverlaps  
-
 ProperInterval  --> ProperInterval   :intervalContains  
 
-ProperInterval  --> ProperInterval   :intervalAfter  
-
-ProperInterval  --> ProperInterval   :intervalDuring  
-
-ProperInterval  --> ProperInterval   :intervalMetBy  
-
-ProperInterval  --> ProperInterval   :intervalMeets  
-
-DateTimeInterval  --> GeneralDateTimeDescription   :hasDateTimeDescription  
-
-GeneralDateTimeDescription  --> DayOfWeek   :dayOfWeek  
+Instant  --> GeneralDateTimeDescription   :inDateTime  
 
 GeneralDateTimeDescription  --> MonthOfYear   :monthOfYear  
 
+ProperInterval  --> ProperInterval   :intervalAfter  
+
+ProperInterval  --> ProperInterval   :intervalEquals  
+
+nffa46916821c40e0982c83ef749f6967b66  --> TRS   :hasTRS  
+
+ProperInterval  --> ProperInterval   :intervalFinishedBy  
+
+ProperInterval  --> ProperInterval   :intervalFinishes  
+
 TemporalEntity  --> TemporalEntity   :after  
 
-ProperInterval  --> ProperInterval   :intervalOverlappedBy  
+TemporalEntity  --> Instant   :hasEnd  
 
-GeneralDateTimeDescription  --> TimeZone   :timeZone  
+ProperInterval  --> ProperInterval   :intervalOverlaps  
 
-TemporalEntity  --> TemporalEntity   :before  
-
-Instant  --> TimePosition   :inTimePosition  
+ProperInterval  --> ProperInterval   :intervalMeets  
 
 TemporalEntity  --> TemporalDuration   :hasTemporalDuration  
+
+ProperInterval  --> ProperInterval   :intervalMetBy  
+
+Instant  --> TemporalPosition   :inTemporalPosition  
+
+ProperInterval  --> ProperInterval   :intervalStartedBy  
 
 ```

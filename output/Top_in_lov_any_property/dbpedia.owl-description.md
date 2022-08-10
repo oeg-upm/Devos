@@ -2,43 +2,7 @@
 	classDiagram
 
     
-    class HistoricalSettlement {
-    
-    }
-
-    class Referee {
-    
-    }
-
-    class Newspaper {
-    
-    }
-
-    class InformationAppliance {
-    
-    }
-
-    class Reference {
-    
-    }
-
     class Database {
-    
-    }
-
-    class BiologicalDatabase {
-    
-    }
-
-    class Settlement {
-    
-    }
-
-    class ProgrammingLanguage {
-    
-    }
-
-    class Language {
     
     }
 
@@ -46,66 +10,102 @@
     
     }
 
+    class HistoricalSettlement {
+    
+    }
 
+    class InformationAppliance {
+    
+    }
+
+    class Newspaper {
+    
+    }
+
+    class Reference {
+    
+    }
+
+    class Referee {
+    
+    }
+
+    class Language {
+    
+    }
+
+    class Settlement {
+    
+    }
+
+    class BiologicalDatabase {
+    
+    }
+
+    class ProgrammingLanguage {
+    
+    }
+
+
+
+Settlement  --> PopulatedPlace   :administrativeDistrict  
 
 Settlement  --> Settlement   :canton  
 
-Settlement  --> Place   :highestPoint  
-
-PopulatedPlace  --> Language   :regionalLanguage  
-
-Work  --> Language   :originalLanguage  
-
-Newspaper  --> Person   :associateEditor  
-
-Settlement  --> Place   :lowestPoint  
+Settlement  --> PopulatedPlace   :associationOfLocalGovernment  
 
 PopulatedPlace  --> Language   :officialLanguage  
 
-Settlement  --> Place   :wilaya  
+Settlement  --> Group   :minority  
 
-Settlement  --> Person   :bourgmestre  
+Settlement  --> PopulatedPlace   :jointCommunity  
+
+Settlement  --> Population   :agglomerationPopulation  
+
+Work  --> Language   :originalLanguage  
+
+Settlement  --> PopulatedPlace   :largestMetro  
+
+Settlement  --> PoliticalParty   :politicalMajority  
+
+Language  --> PopulatedPlace   :spokenIn  
+
+Settlement  --> Place   :daira  
+
+Settlement  --> PopulatedPlace   :geolocDepartment  
+
+Newspaper  --> Person   :managingEditor  
 
 Newspaper  --> Newspaper   :sisterNewspaper  
 
 Settlement  --> Settlement   :adjacentSettlement  
 
-Agent  --> Settlement   :hometown  
-
-Settlement  --> Place   :settlementAttached  
-
-Settlement  --> PopulatedPlace   :associationOfLocalGovernment  
-
-Language  --> PopulatedPlace   :spokenIn  
-
-Settlement  --> PoliticalParty   :politicalMajority  
-
-Settlement  --> PopulatedPlace   :federalState  
-
-Settlement  --> PopulatedPlace   :largestMetro  
+Settlement  --> Settlement   :mergedSettlement  
 
 Legislature  --> Settlement   :meetingCity  
 
-Settlement  --> Place   :daira  
+Newspaper  --> Person   :associateEditor  
 
-Settlement  --> Settlement   :twinTown  
+Settlement  --> Place   :highestPoint  
 
-Settlement  --> PopulatedPlace   :frazioni  
+PopulatedPlace  --> Language   :regionalLanguage  
+
+Settlement  --> PopulatedPlace   :federalState  
+
+Settlement  --> Person   :bourgmestre  
+
+Settlement  --> Place   :settlementAttached  
 
 Settlement  --> PopulatedPlace   :administrativeCollectivity  
 
-Settlement  --> Population   :agglomerationPopulation  
+Settlement  --> Place   :wilaya  
 
-Settlement  --> Settlement   :mergedSettlement  
+Settlement  --> Place   :lowestPoint  
 
-Newspaper  --> Person   :managingEditor  
+Settlement  --> PopulatedPlace   :frazioni  
 
-Settlement  --> Group   :minority  
+Agent  --> Settlement   :hometown  
 
-Settlement  --> PopulatedPlace   :administrativeDistrict  
-
-Settlement  --> PopulatedPlace   :jointCommunity  
-
-Settlement  --> PopulatedPlace   :geolocDepartment  
+Settlement  --> Settlement   :twinTown  
 
 ```

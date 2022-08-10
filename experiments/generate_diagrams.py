@@ -18,15 +18,17 @@ def save_json(json_path, classes, relations, meta):
         "meta": meta,
     }
 
-    json_string = json.dumps(j)
+    # json_string = json.dumps(j)
     with open(json_path, 'w') as outfile:
-        json.dump(json_string, outfile)
+        json.dump(j, outfile)
+        # json.dump(json_string, outfile)
 
 
 def experiment(input_files, output_path, only_object_property, freq, topn, lang=None, max_options=0):
     """
     Experiment
     """
+    global meta_srcs
     if freq:
         meta_srcs = ["freq-%d" % topn]
     for inp in input_files:

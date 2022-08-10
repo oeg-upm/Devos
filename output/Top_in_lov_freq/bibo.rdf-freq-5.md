@@ -18,67 +18,67 @@
     
     }
 
-    class N3320551107884ab1914e7616cd9f3c5f {
+    class Nf30b7ea3b2134f43b3c5f0cc52e320fb {
     
     }
 
 
 
-Document  --> RDFSResource   :reviewOf  
+Document  --> Nf30b7ea3b2134f43b3c5f0cc52e320fb   :authorList  
 
-Event  --> Agent   :organizer  
-
-N4b983804a5894bb086136a160a4c9152  --> Agent   :editor  
+Nc9f65cbc02134310839a75cfcb40c4be  --> Agent   :editor  
 
 LegalDecision  --> LegalDecision   :subsequentLegalDecision  
 
-LegalDecision  --> LegalDecision   :affirmedBy  
+Document  --> RDFSResource   :reviewOf  
 
-Document  --> Document   :translationOf  
-
-Note  --> RDFSResource   :annotates  
-
-N2ff3754a42244c60be4954fe27c53d5a  --> Agent   :producer  
-
-Event  --> Document   :presents  
-
-LegalDecision  --> LegalDecision   :reversedBy  
-
-Agent  --> Agent   :interviewer  
-
-Document  --> Neb8117820dbe4913be658b7be7ca00ee   :editorList  
-
-Nefb8fb780511418db40fda672e099e0f  --> Agent   :translator  
-
-Nc16f06efd4bb475cb817e87a6ab3f104  --> Agent   :distributor  
-
-Document  --> DocumentStatus   :status  
-
-Document  --> Document   :cites  
-
-AudioVisualDocument  --> Agent   :director  
-
-Performance  --> Agent   :performer  
-
-Document  --> N29e1a83a6c8641f3a499f21de2d40782   :contributorList  
-
-Document  --> N3320551107884ab1914e7616cd9f3c5f   :authorList  
-
-Document  --> Event   :presentedAt  
-
-PersonalCommunicationDocument  --> Agent   :recipient  
-
-Document  --> Document   :reproducedIn  
+N2ab5a40c12de47ffb531ab7b24eba524  --> Agent   :owner  
 
 Agent  --> Agent   :interviewee  
 
-Nc1a6644142584bfc8b29818c887e5c9d  --> Agent   :issuer  
+Document  --> Document   :reproducedIn  
 
-N727daccf038848ae9f6acd8db445ef71  --> Agent   :owner  
+Document  --> DocumentStatus   :status  
+
+N6bccfe79659244c2a9f74f38ca5aea17  --> Agent   :issuer  
+
+Document  --> Event   :presentedAt  
+
+Agent  --> Agent   :interviewer  
+
+LegalDecision  --> LegalDecision   :reversedBy  
+
+Performance  --> Agent   :performer  
+
+Event  --> Document   :presents  
+
+AudioVisualDocument  --> Agent   :director  
+
+N1f9c48b879464da1943910f8482b6960  --> Agent   :producer  
+
+Nfa6cdb3ff19c4cc584025f4e62ee0659  --> Agent   :distributor  
+
+LegalDecision  --> LegalDecision   :affirmedBy  
+
+Document  --> RDFSResource   :transcriptOf  
+
+Event  --> Agent   :organizer  
+
+Note  --> RDFSResource   :annotates  
 
 Document  --> Document   :citedBy  
 
-Document  --> RDFSResource   :transcriptOf  
+Document  --> Document   :cites  
+
+N81ecc98975374774ac04fd7c7f474374  --> Agent   :translator  
+
+Document  --> N2e6d0ba972d44b67bc4df897370dcfc6   :editorList  
+
+Document  --> Document   :translationOf  
+
+PersonalCommunicationDocument  --> Agent   :recipient  
+
+Document  --> Naa61ae68b77a44e4b10bb8925c67f383   :contributorList  
 
 D  --> T   :C  
 

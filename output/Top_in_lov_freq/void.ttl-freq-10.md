@@ -24,24 +24,24 @@
 
 
 
-Dataset  --> Dataset   :propertyPartition  
-
-Dataset  --> RDFSResource   :dataDump  
+Dataset  --> TechnicalFeature   :feature  
 
 Document  --> Dataset   :inDataset  
 
-Dataset  --> Document   :openSearchDescription  
-
-Dataset  --> Dataset   :classPartition  
-
-Linkset  --> Dataset   :target  
-
-Linkset  --> RDFProperty   :linkPredicate  
-
-Dataset  --> TechnicalFeature   :feature  
+Dataset  --> Dataset   :propertyPartition  
 
 Dataset  --> RDFSResource   :exampleResource  
 
+Linkset  --> RDFProperty   :linkPredicate  
+
+Dataset  --> Dataset   :classPartition  
+
 Dataset  --> Dataset   :subset  
+
+Dataset  --> RDFSResource   :dataDump  
+
+Dataset  --> Document   :openSearchDescription  
+
+Linkset  --> Dataset   :target  
 
 ```

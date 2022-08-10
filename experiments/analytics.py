@@ -5,10 +5,26 @@ from datetime import datetime
 
 
 def get_ontology_data(jpath):
-    f = open(jpath)
-    j = json.load(f)
-    f.close()
-    j["ontology"] = jpath.split("-")[0]
+    with open(jpath) as f:
+        s = f.read()
+        # print("< %s >" % s)
+        j = json.loads(s)
+        # print(j)
+        # print(type(j))
+
+
+
+    # f = open(jpath)
+    # j = json.load(f)
+    # f.close()
+    # print(j)
+    # print(type(j))
+    # print(j["meta"])
+    ontology = jpath.split(os.sep)[-1].split("-")[0]
+    # print("ontology: ")
+    # print(ontology)
+    j["ontology"] = ontology
+    # print(j)
     # ".".join(jpath.split('.')[:-1])
     return j
 
@@ -16,23 +32,31 @@ def get_ontology_data(jpath):
 def get_folder_data(folder_path):
     data = []
     for fname in os.listdir(folder_path):
-        data += get_ontology_data(os.path.join(folder_path, fname))
+        if fname.endswith("json"):
+            data.append(get_ontology_data(os.path.join(folder_path, fname)))
     return data
 
 
 def get_data(output_dir):
     data = []
     for folder_name in os.listdir(output_dir):
-        data += get_folder_data(os.path.join(output_dir, folder_name))
+        folder_path = os.path.join(output_dir, folder_name)
+        if os.path.isdir(folder_path):
+            data += get_folder_data(folder_path)
     return data
 
 
 def save_aggregate_data(data, output_path):
     output_file = os.path.join(output_path, "stats.csv")
     with open(output_file, "w") as f:
+        line = "%s,%s,%s,%s\n" % ("ontology", "method", "num_classes", "num_relations")
+        print(line)
+        f.write(line)
         for d in data:
-            line = "%s,%s,%s,%d,%d\n" % (d["ontology"], d["meta"], d["classes"], d["relations"])
+            print(type(d))
+            line = "%s,%s,%d,%d\n" % (d["ontology"], d["meta"], len(d["classes"]), len(d["relations"]))
             print(line)
+            f.write(line)
 
 
 def workflow(input_path, output_path):

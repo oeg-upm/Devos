@@ -2,7 +2,7 @@
 	classDiagram
 
     
-    class CVSRepository {
+    class BKRepository {
     
     }
 
@@ -10,7 +10,7 @@
     
     }
 
-    class BKRepository {
+    class CVSRepository {
     
     }
 
