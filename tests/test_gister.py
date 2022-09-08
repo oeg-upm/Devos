@@ -1,10 +1,9 @@
+import unittest
 from ogister.gister import get_matched_per_text, get_matched
 from ogister.util import split_text_manual
 # from ogister.util import split_text
+
 split_text = split_text_manual
-
-
-import unittest
 
 
 class TestGister(unittest.TestCase):

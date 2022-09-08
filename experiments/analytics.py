@@ -7,25 +7,10 @@ from datetime import datetime
 def get_ontology_data(jpath):
     with open(jpath) as f:
         s = f.read()
-        # print("< %s >" % s)
         j = json.loads(s)
-        # print(j)
-        # print(type(j))
 
-
-
-    # f = open(jpath)
-    # j = json.load(f)
-    # f.close()
-    # print(j)
-    # print(type(j))
-    # print(j["meta"])
     ontology = jpath.split(os.sep)[-1].split("-")[0]
-    # print("ontology: ")
-    # print(ontology)
     j["ontology"] = ontology
-    # print(j)
-    # ".".join(jpath.split('.')[:-1])
     return j
 
 
