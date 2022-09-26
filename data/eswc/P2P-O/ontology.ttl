@@ -1,0 +1,239 @@
+@prefix : <https://purl.org/p2p-o#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://purl.org/p2p-o> .
+
+<https://purl.org/p2p-o> rdf:type owl:Ontology ;
+                        owl:versionIRI <https://purl.org/p2p-o/0.9.0> ;
+                          owl:imports <https://purl.org/p2p-o/invoice> ,
+                                      <https://purl.org/p2p-o/process> ;
+                          <http://ainf.aau.at/ontodebug#testCase> _:genid-nodeid-node1esavteqox10 ,
+                                                                  _:genid-nodeid-node1esavteqox11 ,
+                                                                  _:genid-nodeid-node1esavteqox12 ,
+                                                                  _:genid-nodeid-node1esavteqox13 ,
+                                                                  _:genid-nodeid-node1esavteqox14 ,
+                                                                  _:genid-nodeid-node1esavteqox2 ,
+                                                                  _:genid-nodeid-node1esavteqox3 ,
+                                                                  _:genid-nodeid-node1esavteqox4 ,
+                                                                  _:genid-nodeid-node1esavteqox5 ,
+                                                                  _:genid-nodeid-node1esavteqox6 ,
+                                                                  _:genid-nodeid-node1esavteqox7 ,
+                                                                  _:genid-nodeid-node1esavteqox8 ,
+                                                                  _:genid-nodeid-node1esavteqox9 ,
+                                                                  [ ] ,
+[ ] ,
+[ ] ,
+[ ] ,
+[ ] ,
+[ ] ,
+[ ] ,
+[ ] ,
+[ ] ,
+[ ] ,
+[ ] ,
+[ ] ,
+[ ] ,
+[ ] ;
+<http://purl.org/dc/elements/1.1/description> "This ongoing research work is developed at the German Research Center for Artificial Intelligence (Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH). It is work in progress and presents a purchase-to-pay ontology and vocabulary for describing purchase-to-pay processes and electronic invoices. It reuses parts of the European Standard EN 16931-1."@en ;
+<http://purl.org/dc/elements/1.1/title> "P2P-O: A Purchase-To-Pay Ontology"@en ;
+<http://purl.org/dc/terms/license> "https://opensource.org/licenses/MIT" ;
+<http://purl.org/vocab/vann/preferredNamespacePrefix> "p2p-o" ;
+<http://purl.org/vocab/vann/preferredNamespaceUri> "https://purl.org/p2p-o" ;
+rdfs:label "P2P-O: A Purchase-To-Pay Ontology"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://ainf.aau.at/ontodebug#axiom
+<http://ainf.aau.at/ontodebug#axiom> rdf:type owl:AnnotationProperty ;
+                                     rdfs:subPropertyOf <http://ainf.aau.at/ontodebug#testCase> .
+
+
+###  http://ainf.aau.at/ontodebug#testCase
+<http://ainf.aau.at/ontodebug#testCase> rdf:type owl:AnnotationProperty .
+
+
+###  http://ainf.aau.at/ontodebug#type
+<http://ainf.aau.at/ontodebug#type> rdf:type owl:AnnotationProperty ;
+                                    rdfs:subPropertyOf <http://ainf.aau.at/ontodebug#testCase> .
+
+
+###  http://purl.org/dc/elements/1.1/contributor
+<http://purl.org/dc/elements/1.1/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/elements/1.1/title
+<http://purl.org/dc/elements/1.1/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  https://purl.org/p2p-o/organization#globalLocationNumber
+<https://purl.org/p2p-o/organization#globalLocationNumber> rdf:type owl:AnnotationProperty .
+
+
+###  https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasFormalName
+<https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasFormalName> rdf:type owl:AnnotationProperty .
+
+
+_:genid15 <http://ainf.aau.at/ontodebug#axiom> "CommercialInvoiceLine SubClassOf DocumentLine" ;
+          <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid16 <http://ainf.aau.at/ontodebug#axiom> "IncidentalPurchaseOrderProcess SubClassOf PurchaseToPayProcess" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid17 <http://ainf.aau.at/ontodebug#axiom> "CommercialInvoiceLine SubClassOf DocumentLine" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid18 <http://ainf.aau.at/ontodebug#axiom> "E-PrePaymentInvoice SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid19 <http://ainf.aau.at/ontodebug#axiom> "E-PrePaymentInvoice SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid20 <http://ainf.aau.at/ontodebug#axiom> "PurchaseOrderLine SubClassOf DocumentLine" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid21 <http://ainf.aau.at/ontodebug#axiom> "Address EquivalentTo Address" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid22 <http://ainf.aau.at/ontodebug#axiom> "Item SubClassOf ItemAttribute" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid23 <http://ainf.aau.at/ontodebug#axiom> "Item SubClassOf ItemAttribute" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid24 <http://ainf.aau.at/ontodebug#axiom> "CommercialInvoiceLine SubClassOf DocumentLine" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid25 <http://ainf.aau.at/ontodebug#axiom> "IncidentalPurchaseOrderProcess SubClassOf PurchaseToPayProcess" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid26 <http://ainf.aau.at/ontodebug#axiom> "Item SubClassOf ItemAttribute" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid27 <http://ainf.aau.at/ontodebug#axiom> "hasAddress EquivalentTo hasAddress" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid28 <http://ainf.aau.at/ontodebug#axiom> "AmountOfMoney SubClassOf E-Invoice" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid29 <http://ainf.aau.at/ontodebug#axiom> "E-CreditNote SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid30 <http://ainf.aau.at/ontodebug#axiom> "E-CreditNote SubClassOf ReceivingAdvice" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid31 <http://ainf.aau.at/ontodebug#axiom> "E-Invoice SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid32 <http://ainf.aau.at/ontodebug#axiom> "Address EquivalentTo Address" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid33 <http://ainf.aau.at/ontodebug#axiom> "PurchaseOrderLine SubClassOf DocumentLine" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid34 <http://ainf.aau.at/ontodebug#axiom> "SupportingDocument SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid35 <http://ainf.aau.at/ontodebug#axiom> "SupportingDocument SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid36 <http://ainf.aau.at/ontodebug#axiom> "Address EquivalentTo Address" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid37 <http://ainf.aau.at/ontodebug#axiom> "E-CreditNote SubClassOf ReceivingAdvice" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid38 <http://ainf.aau.at/ontodebug#axiom> "InvoiceLine SubClassOf DocumentLine" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid39 <http://ainf.aau.at/ontodebug#axiom> "E-Invoice EquivalentTo AmountOfMoney" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid40 <http://ainf.aau.at/ontodebug#axiom> "E-CreditNote SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid41 <http://ainf.aau.at/ontodebug#axiom> "hasAddress EquivalentTo hasAddress" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid42 <http://ainf.aau.at/ontodebug#axiom> "PurchaseOrderLine SubClassOf DocumentLine" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid43 <http://ainf.aau.at/ontodebug#axiom> "E-Invoice SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid44 <http://ainf.aau.at/ontodebug#axiom> "AmountOfMoney SubClassOf E-Invoice" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid45 <http://ainf.aau.at/ontodebug#axiom> "E-CreditNote SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid46 <http://ainf.aau.at/ontodebug#axiom> "E-CreditNote SubClassOf ReceivingAdvice" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid47 <http://ainf.aau.at/ontodebug#axiom> "E-Invoice SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid48 <http://ainf.aau.at/ontodebug#axiom> "InvoiceLine SubClassOf DocumentLine" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid49 <http://ainf.aau.at/ontodebug#axiom> "SupportingDocument SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid50 <http://ainf.aau.at/ontodebug#axiom> "hasAddress EquivalentTo hasAddress" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid51 <http://ainf.aau.at/ontodebug#axiom> "IncidentalPurchaseOrderProcess SubClassOf PurchaseToPayProcess" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid52 <http://ainf.aau.at/ontodebug#axiom> "E-Invoice EquivalentTo AmountOfMoney" ;
+           <http://ainf.aau.at/ontodebug#type> "false"^^xsd:boolean .
+
+_:genid53 <http://ainf.aau.at/ontodebug#axiom> "E-PrePaymentInvoice SubClassOf Document" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+_:genid54 <http://ainf.aau.at/ontodebug#axiom> "InvoiceLine SubClassOf DocumentLine" ;
+           <http://ainf.aau.at/ontodebug#type> "true"^^xsd:boolean .
+
+### Copyright 2022 Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH
+### Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+### The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+### THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+### Generated by the OWL API (version 5.1.14) https://github.com/owlcs/owlapi/
+
+### EN 16931-1:2017, Electronic invoicing - Part 1: Semantic data model of the core elements of an electronic invoice:
+### This is an implementation of the publication (where according to EN 16931-1:2017 users are allowed to make derivative use of this publication) and such reproduction is with the permission of CEN and DIN as copyright owners.
+### CEN and DIN bear no liability from the use of the content and implementation of such derivative application and give no warranties expressed or implied for any purpose of such implementation. In case of doubt, users shall always refer to the content of the publication provided by DIN which makes available the official authoritative text here: www.beuth.de.
+
+### This ontology includes the The Financial Industry Business Ontology (FIBO): Copyright (c) 2020 Enterprise Data Management Council
+### Permission is hereby granted, free of charge, to any person obtaining a copy of
+### this software and associated documentation files (the "Software"), to deal in
+### the Software without restriction, including without limitation the rights to
+### use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+### the Software, and to permit persons to whom the Software is furnished to do so,
+### subject to the following conditions:
+### The above copyright notice and this permission notice shall be included in all
+### copies or substantial portions of the Software.
+### THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+### IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+### FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+### AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+### LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+### OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+### SOFTWARE.
