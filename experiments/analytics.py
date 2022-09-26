@@ -44,9 +44,13 @@ def save_aggregate_data(data, output_path):
             f.write(line)
 
 
-def workflow(input_path, output_path):
+def stat_workflow(input_path, output_path):
     data = get_data(input_path)
     save_aggregate_data(data, output_path)
+
+
+def meta_workflow(input_path, output_path):
+    pass
 
 
 def parse_arguments():
@@ -54,10 +58,11 @@ def parse_arguments():
     Parse command line arguments
     """
     parser = argparse.ArgumentParser(description='Get a Gist of the ontology')
+    parser.add_argument('-a', '--action', choices=['stats', 'meta'], help="The analytics to be studied")
     parser.add_argument('-i', '--input', default="output", help="The the results path")
     parser.add_argument('-o', '--output', default="output", help="The output path")
     args = parser.parse_args()
-    return args.output, args.input
+    return args.action, args.output, args.input
 
 
 def main():
@@ -65,8 +70,11 @@ def main():
     Parse Arguments
     """
     a = datetime.now()
-    output_path, input_path = parse_arguments()
-    workflow(output_path=output_path, input_path=input_path)
+    action, output_path, input_path = parse_arguments()
+    if action =="stats":
+        stat_workflow(output_path=output_path, input_path=input_path)
+    if action =="meta":
+        meta_workflow(output_path=output_path, input_path=input_path)
     b = datetime.now()
     print("\n\nTime it took: %.1f minutes\n\n" % ((b - a).total_seconds() / 60.0))
 

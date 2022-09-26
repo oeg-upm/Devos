@@ -55,6 +55,13 @@ Group  --> Agent   :member
 
 * Top 10: ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_freq --object-property --freq --topn 10```
 
+
+### Generate Statistics
+About the number of classes properties to `stats.csv`
+```
+python -m experiments.analytics
+```
+
 #### Convert the md diagrams to pngs
 ##### Requirement
 

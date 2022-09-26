@@ -1,0 +1,644 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ago: <http://awesemantic-geo.link/ontology/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+
+@prefix iospress: <http://ld.iospress.nl/rdf/ontology/> .
+@prefix iospress-datatype: <http://ld.iospress.nl/rdf/datatype/> .
+@prefix iospress-geocode: <http://ld.iospress.nl/rdf/geocode/> .
+
+
+# ------------------------------
+# Classes
+# ------------------------------
+
+iospress:Location a owl:Class ;
+	rdfs:label "Location"@en ;
+	.
+
+iospress:Journal a owl:Class ;
+	rdfs:label "Journal"@en ;
+	.
+
+iospress:Volume a owl:Class ;
+	rdfs:label "Volume"@en ;
+	.
+
+iospress:Issue a owl:Class ;
+	rdfs:label "Issue"@en ;
+	.
+
+iospress:Publication a owl:Class ;
+	rdfs:label "Publication"@en ;
+	.
+
+iospress:Article a owl:Class ;
+	rdfs:label "Article"@en ;
+	rdfs:subClassOf iospress:Publication ;
+	.
+
+iospress:Series a owl:Class ;
+	rdfs:label "Series"@en ;
+	.
+
+iospress:Book a owl:Class ;
+	rdfs:label "Book"@en ;
+	.
+
+iospress:Chapter a owl:Class ;
+	rdfs:label "Chapter"@en ;
+	rdfs:subClassOf iospress:Publication ;
+	.
+
+iospress:Contributor a owl:Class ;
+	rdfs:label "Contributor"@en ;
+	.
+
+iospress:Organization a owl:Class ;
+	rdfs:label "Organization"@en ;
+	.
+
+iospress:GeocodedLocation a owl:Class ;
+	rdfs:label "Geocoded Location"@en ;
+	.
+
+iospress:Role a owl:Class ;
+	rdfs:label "Role"@en ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:oneOf (
+			iospress:Role.Author
+			iospress:Role.Editor
+			iospress:Role.Contributor
+		) ;
+	] ;
+	.
+
+iospress:Role.Author rdfs:subClassOf iospress:Role.Contributor .
+iospress:Role.Editor rdfs:subClassOf iospress:Role.Contributor .
+
+iospress:Accessibility
+	rdfs:label "Accessibility"@en ;
+	owl:equivalentClass [
+		a owl:Class ;
+		owl:oneOf (
+			iospress:Accessibility.Open
+			iospress:Accessibility.Closed
+		) ;
+	] ;
+	.
+
+
+# ------------------------------
+# Individuals of Enumerated Classes
+# ------------------------------
+
+iospress:Accessibility.Open a iospress:Accessibility ;
+	rdfs:label "Open Access" ;
+	owl:differentFrom iospress:Accessibility.Closed ;
+	.
+
+iospress:Accessibility.Closed a iospress:Accessibility ;
+	rdfs:label "Closed Access" ;
+	.
+
+iospress:Role.Author a iospress:Role ;
+	rdfs:label "Author"@en ;
+	.
+
+iospress:Role.Editor a iospress:Role ;
+	rdfs:label "Editor"@en ;
+	.
+
+
+# ------------------------------
+# Custom Datatypes
+# ------------------------------
+
+iospress-datatype:yearOrYearMonth owl:equivalentClass [
+	a rdfs:Datatype ;
+	owl:unionOf ( xsd:gYear xsd:gYearMonth ) ;
+] .
+
+iospress-datatype:artifactId owl:equivalentClass [
+	a rdfs:Datatype ;
+	owl:onDatatype xsd:string ;
+] .
+
+iospress-datatype:pageReference owl:equivalentClass [
+	a rdfs:Datatype ;
+	owl:unionOf ( xsd:nonNegativeInteger xsd:string ) ;
+] .
+
+iospress-datatype:collectionNumber owl:equivalentClass [
+	a rdfs:Datatype ;
+	owl:unionOf ( xsd:nonNegativeInteger xsd:string ) ;
+] .
+
+iospress-datatype:doi a rdfs:Datatype .
+
+iospress-datatype:issn a rdfs:Datatype .
+
+iospress-datatype:eIssn a rdfs:Datatype .
+
+iospress-datatype:pIssn a rdfs:Datatype .
+
+
+# # ------------------------------
+# # Location Properties
+# # ------------------------------
+
+# iospress:locationName a owl:DatatypeProperty ;
+# 	rdfs:label "Location's Name"@en ;
+# 	rdfs:domain iospress:Location ;
+# 	rdfs:range xsd:string ;
+# 	.
+
+
+# ------------------------------
+# Publisher Properties
+# ------------------------------
+
+iospress:publisherName a owl:DatatypeProperty ;
+	rdfs:label "Name"@en ;
+	rdfs:domain iospress:Publisher ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:publisherLocationName a owl:DatatypeProperty ;
+	rdfs:label "Location Name"@en ;
+	rdfs:domain iospress:Publisher ;
+	rdfs:range xsd:string ;
+	.
+
+
+# ------------------------------
+# Generic Properties
+# ------------------------------
+
+iospress:id a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "ID"@en ;
+	rdfs:domain iospress:Journal, iospress:Series, iospress:Publication ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:issn a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "ISSN"@en ;
+	rdfs:domain iospress:Journal, iospress:Series ;
+	rdfs:range iospress-datatype:issn ;
+	.
+
+iospress:eIssn a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "eISSN"@en ;
+	rdfs:domain iospress:Journal, iospress:Series ;
+	rdfs:range iospress-datatype:eIssn ;
+	.
+
+iospress:pIssn a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "pISSN"@en ;
+	rdfs:domain iospress:Journal, iospress:Series ;
+	rdfs:range iospress-datatype:pIssn ;
+	.
+
+iospress:publisher a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "Publisher"@en ;
+	rdfs:domain iospress:Journal, iospress:Series, iospress:Publication ;
+	rdfs:range iospress:publisher ;
+	.
+
+iospress:reflectsYear a owl:DatatypeProperty ;
+	rdfs:label "Reflects Year"@en ;
+	rdfs:domain iospress:Volume, iospress:Chapter ;
+	rdfs:range xsd:gYear ;
+	.
+
+iospress:partOf a owl:ObjectProperty ;
+	rdfs:label "Part Of"@en ;
+	.
+
+iospress:category a owl:ObjectProperty ;
+	rdfs:label "Category"@en ;
+	rdfs:domain iospress:Journal, iospress:Series ;
+	rdfs:range iospress:Category ;
+	.
+
+# ------------------------------
+# Journal Properties
+# ------------------------------
+
+iospress:journalName a owl:DatatypeProperty ;
+	rdfs:label "Name"@en ;
+	rdfs:domain iospress:Journal ;
+	rdfs:range xsd:string ;
+	.
+
+
+# ------------------------------
+# Volume Properties
+# ------------------------------
+
+iospress:volumeName a owl:DatatypeProperty ;
+	rdfs:label "Name"@en ;
+	rdfs:domain iospress:Volume ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:volumeNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "Volume Number"@en ;
+	rdfs:domain iospress:Volume ;
+	rdfs:range iospress-datatype:collectionNumber ;
+	.
+
+iospress:volumeReflectsYear a owl:DatatypeProperty ;
+	rdfs:label "Reflects Year"@en ;
+	rdfs:domain iospress:Volume ;
+	rdfs:range xsd:gYear ;
+	.
+
+iospress:volumeInJournal a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:label "Volume In Journal"@en ;
+	rdfs:domain iospress:Volume ;
+	rdfs:range iospress:Journal ;
+	.
+
+
+# ------------------------------
+# Issue Properties
+# ------------------------------
+
+iospress:issueName a owl:DatatypeProperty ;
+	rdfs:label "Name"@en ;
+	rdfs:domain iospress:Issue ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:issueNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "Issue Number"@en ;
+	rdfs:domain iospress:Issue ;
+	rdfs:range iospress-datatype:collectionNumber ;
+	.
+
+iospress:issueInVolume a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:label "Issue In Volume"@en ;
+	rdfs:domain iospress:Isssue ;
+	rdfs:range iospress:Volume ;
+	.
+
+iospress:issueDate a owl:DatatypeProperty ;
+	rdfs:label "Issue Date"@en ;
+	rdfs:domain iospress:Isssue ;
+	rdfs:range iospress-datatype:yearOrYearMonth ;
+	.
+
+
+# ------------------------------
+# Article Properties
+# ------------------------------
+
+iospress:articleInIssue a owl:ObjectProperty ;
+	rdfs:label "Article In Issue"@en ;
+	rdfs:domain iospress:Article ;
+	rdfs:range iospress:Issue ;
+	.
+
+
+# ------------------------------
+# Series Properties
+# ------------------------------
+
+iospress:seriesName a owl:DatatypeProperty ;
+	rdfs:label "Name"@en ;
+	rdfs:domain iospress:Series ;
+	rdfs:range xsd:string ;
+	.
+
+
+# ------------------------------
+# Book Properties
+# ------------------------------
+
+iospress:bookName a owl:DatatypeProperty ;
+	rdfs:label "Name"@en ;
+	rdfs:domain iospress:Book ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:bookNumber a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "Book Number"@en ;
+	rdfs:domain iospress:Book ;
+	rdfs:range iospress-datatype:collectionNumber ;
+	.
+
+iospress:bookYear a owl:DatatypeProperty ;
+	rdfs:label "Year"@en ;
+	rdfs:domain iospress:Book ;
+	rdfs:range xsd:gYear ;
+	.
+
+iospress:bookInSeries a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:label "Book In Series"@en ;
+	rdfs:domain iospress:Book ;
+	rdfs:range iospress:Series ;
+	.
+
+iospress:isbn a owl:DatatypeProperty ;
+	rdfs:label "ISBN" ;
+	rdfs:domain iospress:Book ;
+	rdfs:range iospress-datatype:isbn ;
+	.
+
+# ------------------------------
+# Chapter Properties
+# ------------------------------
+
+iospress:chapterInBook a owl:ObjectProperty ;
+	rdfs:label "Chapter In Book"@en ;
+	rdfs:domain iospress:Chapter ;
+	rdfs:range iospress:Book ;
+	.
+
+
+# ------------------------------
+# Publication Properties
+# ------------------------------
+
+iospress:publicationId a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "Publication ID"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range iospress-datatype:artifactId ;
+	.
+
+iospress:publicationDoi a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "DOI"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range iospress-datatype:doi ;
+	.
+
+iospress:publicationDoiUrl a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "DOI URL"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range xsd:anyUri ;
+	.
+
+iospress:publicationTitle a owl:DatatypeProperty ;
+	rdfs:label "Title"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:publicationAbstract a owl:DatatypeProperty ;
+	rdfs:label "Abstract"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:publicationDate a owl:DatatypeProperty ;
+	rdfs:label "Publication Date"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range xsd:date ;
+	.
+
+iospress:publicationAcceptedDate a owl:DatatypeProperty ;
+	rdfs:label "Accepted Date"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range xsd:date ;
+	.
+
+iospress:publicationReceivedDate a owl:DatatypeProperty ;
+	rdfs:label "Received Date"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range xsd:date ;
+	.
+
+iospress:publicationPreprintDate a owl:DatatypeProperty ;
+	rdfs:label "Preprint Date"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range xsd:date ;
+	.
+
+iospress:publicationInIssue a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:label "Publication In Issue"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range iospress:Issue ;
+	.
+
+iospress:publicationInChapter a owl:ObjectProperty, owl:FunctionalProperty ;
+	rdfs:label "Publication In Chapter"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range iospress:Chapter ;
+	.
+
+iospress:publicationPageStart a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "Page Start"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range iospress-datatype:pageReference ;
+	.
+
+iospress:publicationPageEnd a owl:DatatypeProperty, owl:FunctionalProperty ;
+	rdfs:label "Page End"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range iospress-datatype:pageReference ;
+	.
+
+iospress:publicationIncludesKeyword a owl:DatatypeProperty ;
+	rdfs:label "Includes Keyword"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:publicationAccessibility a owl:ObjectProperty ;
+	rdfs:label "Accessibility"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range iospress:Accessibility ;
+	.
+
+iospress:publicationAuthorList a owl:ObjectProperty ;
+	rdfs:label "Author List"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range iospress:ContributorList ;
+	.
+
+iospress:publicationEditorList a owl:ObjectProperty ;
+	rdfs:label "Editor List"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range iospress:ContributorList ;
+	.
+
+iospress:sourceFile a owl:ObjectProperty ;
+	rdfs:label "Source File"@en ;
+	rdfs:domain iospress:Publication ;
+	rdfs:range xsd:string ;
+	.
+
+# ------------------------------
+# Custom List Semantics
+# ------------------------------
+
+iospress:first a owl:ObjectProperty ;
+	rdfs:domain iospress:List ;
+	rdfs:range iospress:List ;
+	.
+
+iospress:rest a owl:ObjectProperty ;
+	rdfs:domain iospress:List ;
+	rdfs:range iospress:List ;
+	.
+
+iospress:nil a owl:NamedIndividual, iospress:List .
+
+iospress:List a owl:Class .
+
+
+# ------------------------------
+# Custom Lists
+# ------------------------------
+
+iospress:nil a iospress:ContributorList .
+
+iospress:ContributorList a owl:Class ;
+	rdfs:subClassOf [
+		a owl:Class ;
+		owl:intersectionOf (
+			iospress:List
+			[
+				a owl:Restriction ;
+				owl:allValuesFrom iospress:Contributor ;
+				owl:onProperty iospress:first ;
+			]
+			[
+				a owl:Restriction ;
+				owl:allValuesFrom iospress:ContributorList ;
+				owl:onProperty iospress:rest ;
+			]
+		) ;
+	] ;
+	.
+
+# ------------------------------
+# Contributor Properties
+# ------------------------------
+
+iospress:contributorFullName a owl:DatatypeProperty ;
+	rdfs:label "Full Name"@en ;
+	rdfs:domain iospress:Contributor ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:contributorFirstName a owl:DatatypeProperty ;
+	rdfs:label "First Name"@en ;
+	rdfs:domain iospress:Contributor ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:contributorLastName a owl:DatatypeProperty ;
+	rdfs:label "Last Name"@en ;
+	rdfs:domain iospress:Contributor ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:contributorRole a owl:ObjectProperty ;
+	rdfs:label "Role"@en ;
+	rdfs:domain iospress:Contributor ;
+	rdfs:range iospress:Role ;
+	.
+
+iospress:contributorAffiliation a owl:ObjectProperty ;
+	rdfs:label "Affiliation"@en ;
+	rdfs:domain iospress:Contributor ;
+	rdfs:range iospress:Organization ;
+	.
+
+iospress:contributorNote a owl:DatatypeProperty ;
+	rdfs:label "Notes"@en ;
+	rdfs:domain iospress:Contributor ;
+	rdfs:range xsd:string ;
+	.
+
+
+# ------------------------------
+# Organization Properties
+# ------------------------------
+
+iospress:organizationName a owl:DatatypeProperty ;
+	rdfs:label "Name"@en ;
+	rdfs:domain iospress:Organization ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:organizationCountry a owl:DatatypeProperty ;
+	rdfs:label "Country"@en ;
+	rdfs:domain iospress:Organization ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:organizationPlace a owl:DatatypeProperty ;
+	rdfs:label "Place"@en ;
+	rdfs:domain iospress:Organization ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:organizationInstitution a owl:DatatypeProperty ;
+	rdfs:label "Institution"@en ;
+	rdfs:domain iospress:Organization ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:geocodingInput a owl:DatatypeProperty ;
+	rdfs:label "Geocoding Input"@en ;
+	rdfs:domain iospress:Organization ;
+	rdfs:range xsd:string ;
+	.
+
+iospress:geocodingOutput a owl:ObjectProperty ;
+	rdfs:label "Geocoding Output"@en ;
+	rdfs:domain iospress:Organization ;
+	rdfs:range iospress:GeocodedLocation ;
+	.
+
+
+# ------------------------------
+# GeocodedLocation Properties
+# ------------------------------
+
+iospress-geocode:city a owl:DatatypeProperty ;
+	rdfs:label "City"@en ;
+	rdfs:domain iospress:GeocodedLocation ;
+	rdfs:range xsd:string ;
+	.
+
+iospress-geocode:zone a owl:DatatypeProperty ;
+	rdfs:label "Zone"@en ;
+	rdfs:domain iospress:GeocodedLocation ;
+	rdfs:range xsd:string ;
+	.
+
+iospress-geocode:region a owl:DatatypeProperty ;
+	rdfs:label "Region"@en ;
+	rdfs:domain iospress:GeocodedLocation ;
+	rdfs:range xsd:string ;
+	.
+
+iospress-geocode:country a owl:DatatypeProperty ;
+	rdfs:label "Country"@en ;
+	rdfs:domain iospress:GeocodedLocation ;
+	rdfs:range xsd:string ;
+	.
+
+iospress-geocode:postalCode a owl:DatatypeProperty ;
+	rdfs:label "Postal Code"@en ;
+	rdfs:domain iospress:GeocodedLocation ;
+	rdfs:range xsd:string ;
+	.
+
+ago:geometry a owl:ObjectProperty ;
+	rdfs:label "Geometry"@en ;
+	rdfs:domain iospress:GeocodedLocation ;
+	rdfs:range ago:Geometry ;
+	.
+
+geosparql:asWKT a owl:DatatypeProperty ;
+	rdfs:domain ago:Geometry ;
+	rdfs:range geosparql:wktLiteral ;
+	.

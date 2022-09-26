@@ -1,0 +1,81 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix qkg: <https://quotekg.l3s.uni-hannover.de/resource/> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+qkg:QuoteKG a void:Dataset ;
+    dcterms:created "2020-04-20"^^xsd:date ;
+    dcterms:creator <https://www.l3s.de/~gottschalk/>,
+        <https://www.l3s.de/~kuculo/> ;
+    dcterms:description "QuoteKG is a multilingual knowledge graph of quotations from famous people."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+    dcterms:modified "2021-03-24"^^xsd:date ;
+    dcterms:publisher <https://www.l3s.de/home> ;
+    dcterms:source <https://ar.wikiquote.org/>,
+        <https://az.wikiquote.org/>,
+        <https://be.wikiquote.org/>,
+        <https://bg.wikiquote.org/>,
+        <https://bs.wikiquote.org/>,
+        <https://ca.wikiquote.org/>,
+        <https://cs.wikiquote.org/>,
+        <https://cy.wikiquote.org/>,
+        <https://da.wikiquote.org/>,
+        <https://de.wikiquote.org/>,
+        <https://el.wikiquote.org/>,
+        <https://en.wikiquote.org/>,
+        <https://eo.wikiquote.org/>,
+        <https://es.wikiquote.org/>,
+        <https://et.wikiquote.org/>,
+        <https://eu.wikiquote.org/>,
+        <https://fa.wikiquote.org/>,
+        <https://fi.wikiquote.org/>,
+        <https://fr.wikiquote.org/>,
+        <https://gl.wikiquote.org/>,
+        <https://gu.wikiquote.org/>,
+        <https://he.wikiquote.org/>,
+        <https://hi.wikiquote.org/>,
+        <https://hr.wikiquote.org/>,
+        <https://hu.wikiquote.org/>,
+        <https://hy.wikiquote.org/>,
+        <https://id.wikiquote.org/>,
+        <https://is.wikiquote.org/>,
+        <https://it.wikiquote.org/>,
+        <https://ja.wikiquote.org/>,
+        <https://ka.wikiquote.org/>,
+        <https://kn.wikiquote.org/>,
+        <https://ko.wikiquote.org/>,
+        <https://ku.wikiquote.org/>,
+        <https://la.wikiquote.org/>,
+        <https://li.wikiquote.org/>,
+        <https://lt.wikiquote.org/>,
+        <https://ml.wikiquote.org/>,
+        <https://nl.wikiquote.org/>,
+        <https://nn.wikiquote.org/>,
+        <https://no.wikiquote.org/>,
+        <https://pl.wikiquote.org/>,
+        <https://pt.wikiquote.org/>,
+        <https://ro.wikiquote.org/>,
+        <https://ru.wikiquote.org/>,
+        <https://sa.wikiquote.org/>,
+        <https://sah.wikiquote.org/>,
+        <https://sk.wikiquote.org/>,
+        <https://sl.wikiquote.org/>,
+        <https://sq.wikiquote.org/>,
+        <https://sr.wikiquote.org/>,
+        <https://su.wikiquote.org/>,
+        <https://sv.wikiquote.org/>,
+        <https://ta.wikiquote.org/>,
+        <https://te.wikiquote.org/>,
+        <https://th.wikiquote.org/>,
+        <https://tr.wikiquote.org/>,
+        <https://uk.wikiquote.org/>,
+        <https://ur.wikiquote.org/>,
+        <https://uz.wikiquote.org/>,
+        <https://vi.wikiquote.org/>,
+        <https://zh.wikiquote.org/> ;
+    dcterms:title "QuoteKG" ;
+    void:sparqlEndpoint <https://quotekg.l3s.uni-hannover.de/sparql> ;
+    foaf:homepage <https://quotekg.l3s.uni-hannover.de/> .
+
+
