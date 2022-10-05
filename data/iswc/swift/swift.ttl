@@ -1,0 +1,1404 @@
+@prefix dbr: <http://dbpedia.org/page/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix swift: <http://purl.org/lu/uni/alma/swift#> .
+
+<http://purl.org/lu/uni/alma/swift> a owl:Ontology ;
+    dct:created "2020-04-27" ;
+    dct:creator [ a foaf:Person ;
+            foaf:mbox <christian.grevisse@uni.lu> ;
+            foaf:name "Christian GREVISSE" ] ;
+    dct:description "This is an SKOS-based vocabulary about the Swift programming language." ;
+    dct:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
+    dct:modified "2020-04-27" ;
+    dct:subject dbr:Swift_%28programming_language%29 ;
+    dct:title "Swift Vocabulary" ;
+    rdfs:seeAlso <https://coast.uni.lu/alma/> ;
+    owl:imports <http://www.w3.org/2004/02/skos/core> ;
+    owl:versionIRI <http://purl.org/lu/uni/alma/swift/5.2> ;
+    owl:versionInfo "5.2/1.0.0" .
+
+swift:Any a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Type ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html#ID342> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Any"@en ;
+    skos:related swift:TypeCasting .
+
+swift:AnyObject a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Type ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html#ID342> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "AnyObject"@en ;
+    skos:related swift:Class,
+        swift:TypeCasting .
+
+swift:ArgumentLabel a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID166> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Argument Label"@en ;
+    skos:related swift:Parameter .
+
+swift:ArithmeticOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#ID63> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Arithmetic Operator"@en ;
+    skos:related dbr:Operator_%28computer_programming%29 .
+
+swift:Array a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Collection ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID107> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Array"@en ;
+    skos:related dbr:Array_data_type .
+
+swift:AssociatedType a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID189> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Associated Type"@en ;
+    skos:related swift:GenericType,
+        swift:Protocol .
+
+swift:AssociatedValue a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html#ID148> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Associated Value"@en ;
+    skos:related swift:Enumeration .
+
+swift:Attribute a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#attributes> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Attribute"@en ;
+    skos:related dbr:Attribute_%28computing%29 .
+
+swift:Autoclosure a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Closure ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID543> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Autoclosure"@en .
+
+swift:BitwiseOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID29> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Bitwise Operator"@en ;
+    skos:related dbr:Bitwise_operation .
+
+swift:Bool a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Struct ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID328> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Boolean"@en ;
+    skos:related dbr:Boolean_data_type .
+
+swift:ClosureExpression a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Closure ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID95> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Closure Expression"@en .
+
+swift:Comment a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID315> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Comment"@en ;
+    skos:related dbr:Comment_%28computer_programming%29 .
+
+swift:ComparisonOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#ID70> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Comparison Operator"@en ;
+    skos:related dbr:Relational_operator .
+
+swift:CompilerControlStatement a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/ReferenceManual/Statements.html#ID538> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Compiler Control Statement"@en ;
+    skos:related dbr:Directive_%28programming%29,
+        swift:If .
+
+swift:CompoundAssignmentOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:AssignmentOperator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID44> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Compound Assignment Operator"@en ;
+    skos:related dbr:Augmented_assignment .
+
+swift:CustomOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID46> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Custom Operator"@en .
+
+swift:DefaultInitializer a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Initializer ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID213> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Default Initializer"@en ;
+    skos:related dbr:Default_constructor .
+
+swift:DefaultParameterValue a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID169> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Default Parameter Value"@en ;
+    skos:related dbr:Default_argument,
+        swift:Parameter .
+
+swift:DefaultPropertyValue a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID206> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Default Property Value"@en ;
+    skos:related swift:Initializer,
+        swift:Property .
+
+swift:DesignatedInitializer a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Initializer ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID217> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Designated Initializer"@en .
+
+swift:Dictionary a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Collection ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID113> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Dictionary"@en ;
+    skos:related dbr:Associative_array .
+
+swift:Double a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Struct ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID321> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Double"@en ;
+    skos:related dbr:Double-precision_floating-point_format .
+
+swift:EscapingClosure a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Closure ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID546> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Escaping Closure"@en .
+
+swift:FailableInitializer a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Initializer ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID224> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Failable Initializer"@en .
+
+swift:Float a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Struct ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID321> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Float"@en ;
+    skos:related dbr:Floating-point_arithmetic .
+
+swift:ForInLoop a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Loop ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID121> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "For-In Loop"@en ;
+    skos:related dbr:Foreach_loop .
+
+swift:ForcedUnwrapping a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID332> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Forced Unwrapping"@en ;
+    skos:related swift:Optional .
+
+swift:FunctionType a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Type ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID174> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Function Type"@en ;
+    skos:related dbr:Function_type,
+        swift:Function .
+
+swift:GenericFunction a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Function ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID181> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Generic Function"@en ;
+    skos:related dbr:Generic_function,
+        swift:Generics .
+
+swift:Guard a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ConditionalStatement ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID525> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "guard Statement"@en ;
+    skos:related dbr:Guard_%28computer_science%29 .
+
+swift:IdentityOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#ID90> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Identity Operator"@en ;
+    skos:related swift:ReferenceType .
+
+swift:InitializerDelegation a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID215> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Initializer Delegation"@en ;
+    skos:related swift:Initializer .
+
+swift:InitializerRequirement a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID272> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Initializer Requirement"@en ;
+    skos:related swift:Initializer,
+        swift:Protocol .
+
+swift:InstanceMethod a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Method ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Methods.html#ID235> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Instance Method"@en .
+
+swift:Int a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Struct ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID317> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Int"@en ;
+    skos:related dbr:Integer_%28computer_science%29 .
+
+swift:LabeledStatement a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ControlFlow ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID141> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Labeled Statement"@en ;
+    skos:related dbr:Label_%28computer_science%29,
+        swift:break,
+        swift:continue .
+
+swift:LazyStoredProperty a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:StoredProperty ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID257> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Lazy Stored Property"@en .
+
+swift:LogicalOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#ID76> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Logical Operator"@en ;
+    skos:related dbr:Operator_%28computer_programming%29 .
+
+swift:NestedFunction a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Function ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID178> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Nested Function"@en ;
+    skos:related dbr:Nested_function .
+
+swift:NestedType a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Type ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/NestedTypes.html#nested-types> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Nested Type"@en .
+
+swift:NilCoalescingOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#ID72> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Nil-Coalescing Operator"@en ;
+    skos:related dbr:Null_coalescing_operator,
+        swift:Optional .
+
+swift:OpenAccess a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:AccessLevel ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Open Access"@en .
+
+swift:OptionalBinding a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID333> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Optional Binding"@en ;
+    skos:related swift:If,
+        swift:Optional .
+
+swift:OptionalChaining a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Optional Chaining"@en ;
+    skos:related dbr:Optional_chaining_operator,
+        swift:Optional .
+
+swift:OptionalProtocolRequirement a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID284> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Optional Protocol Requirement"@en ;
+    skos:related swift:MethodRequirement,
+        swift:PropertyRequirement,
+        swift:Protocol .
+
+swift:OverflowOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID37> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Overflow Operator"@en .
+
+swift:PropertyObserver a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID262> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Property Observer"@en ;
+    skos:related swift:Property .
+
+swift:PropertyWrapper a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID617> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Property Wrapper"@en ;
+    skos:related swift:Property .
+
+swift:ProtocolExtension a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Extension ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID521> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Protocol Extension"@en ;
+    skos:related dbr:Trait_%28computer_programming%29,
+        swift:Protocol .
+
+swift:RangeOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#ID73> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Range Operator"@en ;
+    skos:related dbr:Range_%28computer_programming%29 .
+
+swift:RawValue a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html#ID149> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Raw Value"@en ;
+    skos:related swift:Enumeration .
+
+swift:RecursiveEnumeration a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Enumeration ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html#ID536> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Recursive Enumeration"@en .
+
+swift:RepeatWhileLoop a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Loop ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID126> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Repeat-While Loop"@en ;
+    skos:related dbr:Do_while_loop .
+
+swift:Set a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Collection ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID484> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Set"@en ;
+    skos:related dbr:Set_%28abstract_data_type%29 .
+
+swift:StringInterpolation a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html#ID292> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "String Interpolation"@en ;
+    skos:related dbr:String_interpolation,
+        swift:String .
+
+swift:StrongReference a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID49> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Strong Reference"@en ;
+    skos:related swift:ARC .
+
+swift:Subclassing a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Inheritance.html#ID195> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Subclassing"@en ;
+    skos:related dbr:Subclass_%28computer_science%29,
+        swift:Inheritance .
+
+swift:TernaryConditionalOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#ID71> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Ternary Conditional Operator"@en ;
+    skos:related dbr:Elvis_operator,
+        dbr:Ternary_operation .
+
+swift:TrailingClosure a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Closure ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID102> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Trailing Closure"@en .
+
+swift:Tuple a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ValueType ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID329> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Tuple"@en ;
+    skos:related dbr:Tuple .
+
+swift:TypeAlias a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID327> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Alias"@en ;
+    skos:related dbr:Typedef,
+        swift:Type .
+
+swift:TypeAnnotation a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID312> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Annotation"@en ;
+    skos:related swift:Type .
+
+swift:TypeCastOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:DownCasting,
+        swift:Operator ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Cast Operator"@en .
+
+swift:TypeInference a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID322> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Inference"@en ;
+    skos:related dbr:Type_inference,
+        swift:Type .
+
+swift:TypeMethod a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Method ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Methods.html#ID241> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Method"@en .
+
+swift:TypeParameter a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Parameter ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID182> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Parameter"@en ;
+    skos:related dbr:TypeParameter,
+        swift:GenericType .
+
+swift:TypeProperty a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Property ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID264> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Property"@en ;
+    skos:related dbr:Class_variable .
+
+swift:TypeSubscript a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Subscript ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html#ID609> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Subscript"@en .
+
+swift:VariadicParameter a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Parameter ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID171> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Variadic Parameter"@en ;
+    skos:related dbr:Variadic_function .
+
+swift:WhileLoop a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Loop ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID124> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "While Loop"@en ;
+    skos:related dbr:While_loop .
+
+swift:case a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "case"@en ;
+    skos:related swift:Enumeration,
+        swift:Switch .
+
+swift:catch a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "catch"@en ;
+    skos:related swift:DoCatch .
+
+swift:convenience a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "convenience"@en ;
+    skos:related swift:ConvenienceInitializer .
+
+swift:defer a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html#ID514> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "defer"@en ;
+    skos:related swift:ErrorHandling .
+
+swift:deinit a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "deinit"@en ;
+    skos:related swift:Deinitializer .
+
+swift:do a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "do"@en ;
+    skos:related swift:DoCatch .
+
+swift:enum a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "enum"@en ;
+    skos:related swift:Enumeration .
+
+swift:fallthrough a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID140> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "fallthrough"@en ;
+    skos:related swift:ControlFlow,
+        swift:Switch .
+
+swift:fileprivate a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "fileprivate"@en ;
+    skos:related swift:FilePrivateAccess .
+
+swift:final a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Inheritance.html#ID202> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "final"@en ;
+    skos:related swift:Overriding .
+
+swift:func a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "func"@en ;
+    skos:related swift:Function .
+
+swift:import a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "import"@en ;
+    skos:related swift:Module .
+
+swift:init a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "init"@en ;
+    skos:related swift:Initializer .
+
+swift:inout a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "inout"@en ;
+    skos:related swift:InOutParameter .
+
+swift:internal a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "internal"@en ;
+    skos:related swift:InternalAccess .
+
+swift:is a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "is"@en ;
+    skos:related swift:TypeCheckOperator .
+
+swift:let a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "let"@en ;
+    skos:related swift:Constant .
+
+swift:mutating a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Methods.html#ID239> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "mutating"@en ;
+    skos:related swift:Instance,
+        swift:Method,
+        swift:ValueType .
+
+swift:nil a owl:NamedIndividual,
+        skos:Concept ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "nil"@en ;
+    skos:related dbr:Null_pointer,
+        swift:Optional .
+
+swift:override a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "override"@en ;
+    skos:related swift:Overriding .
+
+swift:print a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Function ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID314> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "print"@en ;
+    skos:related dbr:Printf_format_string .
+
+swift:private a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "private"@en ;
+    skos:related swift:PrivateAccess .
+
+swift:public a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "public"@en ;
+    skos:related swift:PublicAccess .
+
+swift:required a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "required"@en ;
+    skos:related swift:RequiredInitializer .
+
+swift:return a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID160> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "return"@en ;
+    skos:related dbr:Return_statement,
+        swift:ControlFlow,
+        swift:ReturnValue .
+
+swift:self a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Methods.html#ID238> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "self"@en ;
+    skos:related dbr:This_%28computer_programming%29,
+        swift:Instance,
+        swift:Method .
+
+swift:some a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "some"@en ;
+    skos:related swift:OpaqueType .
+
+swift:super a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID392> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "super"@en ;
+    skos:related swift:BaseClass .
+
+swift:throw a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html#ID509> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "throw"@en ;
+    skos:related swift:ControlFlow,
+        swift:ErrorHandling .
+
+swift:throws a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html#ID510> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "throws"@en ;
+    skos:related swift:ErrorHandling,
+        swift:Function .
+
+swift:try a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "try"@en ;
+    skos:related swift:ErrorHandling .
+
+swift:unowned a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "unowned"@en ;
+    skos:related swift:UnownedReference .
+
+swift:var a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "var"@en ;
+    skos:related swift:Variable .
+
+swift:weak a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "weak"@en ;
+    skos:related swift:WeakReference .
+
+swift:where a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID134> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "where"@en ;
+    skos:related swift:GenericWhereClause .
+
+swift:AssignmentOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#ID62> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Assignment Operator"@en ;
+    skos:related dbr:Assignment_%28computer_science%29,
+        dbr:Operator_%28computer_programming%29 .
+
+swift:BaseClass a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Inheritance.html#ID194> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Base Class"@en ;
+    skos:related dbr:Superclass_%28computer_science%29,
+        swift:Inheritance .
+
+swift:ComputedProperty a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Property ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID259> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Computed Property"@en ;
+    skos:related dbr:Property_%28programming%29 .
+
+swift:Constant a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID310> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Constant"@en ;
+    skos:related dbr:Constant_%28computer_programming%29 .
+
+swift:ConvenienceInitializer a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Initializer ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID217> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Convenience Initializer"@en .
+
+swift:Deinitializer a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Deinitialization.html#deinitialization> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Deinitializer"@en ;
+    skos:related dbr:Destructor_%28computer_programming%29 .
+
+swift:DownCasting a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:TypeCasting ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html#ID341> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Downcasting"@en ;
+    skos:related dbr:Downcasting .
+
+swift:Extension a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Extensions.html#extensions> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Extension"@en ;
+    skos:related swift:Class,
+        swift:Enumeration,
+        swift:Protocol,
+        swift:Struct .
+
+swift:FilePrivateAccess a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:AccessLevel ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "File-private Access"@en .
+
+swift:GenericWhereClause a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID192> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Generic Where Clause"@en ;
+    skos:related swift:GenericType,
+        swift:TypeConstraint .
+
+swift:InOutParameter a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Parameter ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID173> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "In-Out Parameter"@en ;
+    skos:related dbr:Evaluation_strategy .
+
+swift:InternalAccess a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:AccessLevel ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Internal Access"@en .
+
+swift:MethodRequirement a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID270> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Method Requirement"@en ;
+    skos:related dbr:Abstract_type,
+        swift:Method,
+        swift:Protocol .
+
+swift:Module a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html#ID4> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Module"@en ;
+    skos:related dbr:Modular_programming,
+        swift:AccessControl .
+
+swift:OpaqueType a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Type ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html#opaque-types> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Opaque Type"@en ;
+    skos:related swift:ReturnValue .
+
+swift:OperatorMethod a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID42> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Operator Method"@en ;
+    skos:related swift:Method .
+
+swift:PrivateAccess a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:AccessLevel ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Private Access"@en .
+
+swift:PropertyRequirement a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID269> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Property Requirement"@en ;
+    skos:related swift:Property,
+        swift:Protocol .
+
+swift:PublicAccess a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:AccessLevel ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Public Access"@en .
+
+swift:RequiredInitializer a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Initializer ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID231> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Required Initializer"@en .
+
+swift:StoredProperty a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Property ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID255> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Stored Property"@en ;
+    skos:related dbr:Field_%28computer_science%29 .
+
+swift:String a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Struct ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "String"@en ;
+    skos:related dbr:String_%28computer_science%29 .
+
+swift:Subscript a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ComputedProperty ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html#subscripts> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Subscript"@en ;
+    skos:related dbr:Index_notation,
+        swift:Class,
+        swift:Enumeration,
+        swift:Struct .
+
+swift:TypeCheckOperator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Operator,
+        swift:TypeCasting ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html#ID340> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Check Operator"@en ;
+    skos:related dbr:Type_introspection .
+
+swift:TypeConstraint a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID186> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Constraint"@en ;
+    skos:related dbr:Bounded_quantification,
+        swift:GenericType .
+
+swift:UnownedReference a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID54> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Unowned Reference"@en ;
+    skos:related swift:ARC .
+
+swift:Variable a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID310> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Variable"@en ;
+    skos:related dbr:Variable_%28computer_science%29 .
+
+swift:WeakReference a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID53> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Weak Reference"@en ;
+    skos:related dbr:Weak_reference,
+        swift:ARC .
+
+swift:break a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID137> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "break"@en ;
+    skos:related dbr:Control_flow,
+        swift:ControlFlow .
+
+swift:continue a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Keyword ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID136> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "continue"@en ;
+    skos:related dbr:Control_flow,
+        swift:ControlFlow .
+
+swift:AccessControl a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html#access-control> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Access Control"@en ;
+    skos:related dbr:Encapsulation_%28computer_programming%29 .
+
+swift:DoCatch a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html#ID541> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Do-Catch"@en ;
+    skos:related swift:ErrorHandling .
+
+swift:Generics a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Generics.html#generics> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Generics"@en ;
+    skos:related dbr:Generic_programming .
+
+swift:If a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ConditionalStatement ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID128> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "If"@en ;
+    skos:related dbr:Conditional_%28computer_programming%29,
+        dbr:Control_flow .
+
+swift:Instance a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#ID85> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Instance"@en ;
+    skos:related dbr:Object_%28computer_science%29,
+        swift:Class,
+        swift:Struct .
+
+swift:Overriding a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Inheritance.html#ID196> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Overriding"@en ;
+    skos:related dbr:Method_overriding,
+        swift:Inheritance .
+
+swift:ReturnValue a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID160> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Return Value"@en ;
+    skos:related dbr:Return_type,
+        swift:Function .
+
+swift:Switch a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ConditionalStatement ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID129> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Switch"@en ;
+    skos:related dbr:Switch_statement .
+
+swift:ARC a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#automatic-reference-counting> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Automatic Reference Counting"@en ;
+    skos:related dbr:Automatic_Reference_Counting .
+
+swift:Collection a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Struct ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Collection"@en ;
+    skos:related dbr:Collection_%28abstract_data_type%29 .
+
+swift:ConditionalStatement a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ControlFlow ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID127> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Conditional Statement"@en ;
+    skos:related dbr:Conditional_%28computer_programming%29 .
+
+swift:Inheritance a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Inheritance.html#inheritance> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Inheritance"@en ;
+    skos:related dbr:Inheritance_%28object-oriented_programming%29,
+        swift:Class .
+
+swift:Loop a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ControlFlow ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Loop"@en ;
+    skos:related dbr:Control_flow .
+
+swift:Closure a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ReferenceType ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Closures.html> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Closure"@en ;
+    skos:related dbr:Closure_%28computer_programming%29 .
+
+swift:GenericType a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Type ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID184> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Generic Type"@en ;
+    skos:related dbr:Generic_programming,
+        dbr:Generics_in_Java,
+        swift:Generics .
+
+swift:ReferenceType a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Type ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#ID89> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Reference Type"@en ;
+    skos:related dbr:Reference_type .
+
+swift:TypeCasting a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html#type-casting> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type Casting"@en ;
+    skos:related dbr:Type_conversion,
+        swift:Type .
+
+swift:ValueType a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Type ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#ID88> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Value Type"@en ;
+    skos:related dbr:Value_type .
+
+swift:AccessLevel a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:AccessControl ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html#ID5> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Access Level"@en ;
+    skos:related dbr:Access_level .
+
+swift:ErrorHandling a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html#error-handling> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Error Handling"@en ;
+    skos:related dbr:Exception_handling .
+
+swift:Optional a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Type ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID330> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Optional"@en ;
+    skos:related dbr:Option_type .
+
+swift:Parameter a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID160> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Parameter"@en ;
+    skos:related dbr:Parameter_%28computer_programming%29,
+        swift:Function .
+
+swift:Method a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Function ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Methods.html#methods> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Method"@en ;
+    skos:related dbr:Method_%28computer_programming%29,
+        swift:Class,
+        swift:Enumeration,
+        swift:Struct .
+
+swift:Property a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Properties.html#properties> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Property"@en ;
+    skos:related dbr:Property_%28programming%29,
+        swift:Class,
+        swift:Enumeration,
+        swift:Struct .
+
+swift:Protocol a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Type ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#protocols> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Protocol"@en ;
+    skos:related dbr:Interface_%28Java%29,
+        dbr:Protocol_%28object-oriented_programming%29 .
+
+swift:Class a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ReferenceType ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#structures-and-classes> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Class"@en ;
+    skos:related dbr:Class_%28computer_programming%29 .
+
+swift:ControlFlow a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#control-flow> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Control Flow"@en ;
+    skos:related dbr:Control_flow .
+
+swift:Function a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ReferenceType ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Functions.html> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Function"@en ;
+    skos:related dbr:Subroutine .
+
+swift:Initializer a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:Method ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID205> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Initializer"@en ;
+    skos:related dbr:Constructor_%28object-oriented_programming%29,
+        swift:Class,
+        swift:Enumeration,
+        swift:Struct .
+
+swift:Enumeration a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ValueType ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html#enumerations> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Enumeration"@en ;
+    skos:related dbr:Enumerated_type .
+
+swift:Struct a owl:NamedIndividual,
+        skos:Concept ;
+    skos:broader swift:ValueType ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#structures-and-classes> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Struct"@en ;
+    skos:related dbr:Record_%28computer_science%29 .
+
+swift:Operator a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#basic-operators> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Operator"@en ;
+    skos:related dbr:Operator_%28computer_programming%29 .
+
+swift:Type a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/ReferenceManual/Types.html#types> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Type"@en ;
+    skos:related dbr:Data_type .
+
+swift:Keyword a owl:NamedIndividual,
+        skos:Concept ;
+    skos:definition <https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID413> ;
+    skos:inScheme swift:Scheme ;
+    skos:prefLabel "Keyword"@en ;
+    skos:related dbr:Keyword_%28computer_programming%29 .
+
+swift:Scheme a skos:ConceptScheme ;
+    dct:title "Swift" ;
+    skos:hasTopConcept swift:ARC,
+        swift:AccessControl,
+        swift:ArgumentLabel,
+        swift:AssociatedType,
+        swift:AssociatedValue,
+        swift:Attribute,
+        swift:BaseClass,
+        swift:Comment,
+        swift:CompilerControlStatement,
+        swift:Constant,
+        swift:ControlFlow,
+        swift:DefaultParameterValue,
+        swift:DefaultPropertyValue,
+        swift:Deinitializer,
+        swift:DoCatch,
+        swift:ErrorHandling,
+        swift:Extension,
+        swift:ForcedUnwrapping,
+        swift:GenericWhereClause,
+        swift:Generics,
+        swift:Inheritance,
+        swift:InitializerDelegation,
+        swift:InitializerRequirement,
+        swift:Instance,
+        swift:Keyword,
+        swift:MethodRequirement,
+        swift:Module,
+        swift:Operator,
+        swift:OptionalBinding,
+        swift:OptionalChaining,
+        swift:OptionalProtocolRequirement,
+        swift:Overriding,
+        swift:Parameter,
+        swift:Property,
+        swift:PropertyObserver,
+        swift:PropertyRequirement,
+        swift:PropertyWrapper,
+        swift:RawValue,
+        swift:ReturnValue,
+        swift:StringInterpolation,
+        swift:StrongReference,
+        swift:Subclassing,
+        swift:Type,
+        swift:TypeAlias,
+        swift:TypeAnnotation,
+        swift:TypeCasting,
+        swift:TypeConstraint,
+        swift:TypeInference,
+        swift:UnownedReference,
+        swift:Variable,
+        swift:WeakReference,
+        swift:nil .
