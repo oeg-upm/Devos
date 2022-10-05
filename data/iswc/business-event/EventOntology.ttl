@@ -1,0 +1,696 @@
+@prefix schema: <http://schema.org/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dctype: <http://purl.org/dc/dcmitype/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ews: <http://www.ew-shopp.eu/ontology#> .
+
+<http://www.ew-shopp.eu/ontology#> a owl:Ontology ;
+  dc:title "EW-Shopp event ontology" ;
+  dct:created "2019-11-11"^^xsd:date;
+  dct:modified "2019-11-11"^^xsd:date;
+  foaf:homepage <https://www.ew-shopp.eu/> ;
+  dc:type <http://purl.org/adms/assettype/Ontology> ;
+  dc:status <http://purl.org/adms/status/UnderDevelopment> ;
+  dct:creator <http://ew-shopp.eu>, <http://unimib.it>, <mailto:matteo.palmonari@unimib.it> ;
+  dc:publisher <http://ew-shopp.eu> ;
+  rdfs:seeAlso <https://docs.google.com/document/d/1dhMOTlIOC6dOK_jksJRX0CB-GIRoiYY6fWtCnZArUhU/edit> ;
+ rdfs:comment "The ew-shopp (`ews:`) event ontology has the aim of defining a shared terminology to describe events and support the integration of data about these events with existing data so as to build integrated data that are feed to event-based analytics workflows in the industry. Since EW-Shopp approach refers to this integration step as semantic enrichment, the aim of the event ontology is to support semantic enrichment of a dataset with event data. Schema.org has been adopted as starting ontology to define mappings where possible and add new concepts to comply the EW-Shopp needs in the marketing domain. The main advantage is to keep compliance with existing tools and systems that already adopt Schema.org as reference ontology.
+In the ontology is therefore composed of properties taken from Schema.org (with schema prefix), and properties introduced by EW-Shopp (with ews prefix). Ews properties are derived from Schema.org types, or defined as “subpropertyof” a property of Schema.org.
+The ontology has the following properties:
+•	It is based on an extension of Schema.org ontology.
+•	As Schema.org, it uses polymorphic properties and heuristic domain/range specifications (with includesDomain and includesRange); 
+•	The main types considered in the ontology are derived from Schema.org, where are listed among the most frequently used types. These types are: 
+•	schema:Event, which is the type associated to all events;
+•	schema:Product, which is the type associated to products;
+•	schema:Place, which is the type associated to locations;
+•	Additional types used in the ontology are: 
+•	ews:MarketingEvent, which is the only new type introduced in the ontology, and is defined as subclass of schema:Event;
+•	skos:Concept, which is defined as possible type for a property schema:category, which is introduced in to associate a category to an event; the type schema:CateogryCode is pending in the Schema.org definition and not used in domains similar to the ones addressed in EW-Shopp so far; for this reason we reused a type (i.e., an OWL class) defined in SKOS, a W3C-recommended language to define simple categorization systems;
+•	schema:PostalAddress, which is used because it is the recommended value for the schema:address property that is attributed to locations (instances of schema:Place); in practice, a postal address is a placeholder used to aggregate more specific address information specified using a number of properties; leveraging the non-normative specification of domains and ranges in Schema.org, we also consider descriptions where these properties (e.g., schema:postalCode ) are directly referred to places without using an instance of postal address as intermediary.
+Schema.org does not provide properties to describe measures of events’ aspects, e.g., the number of attendees; we introduced several properties to describe these measures; in this case, we preferred to keep a terminology as close as possible to the terminology used to specify these measures by the partners; however, we linked these properties to Schema.org by specifying their superproperties in Schema.org." .
+
+
+
+schema:Event a rdfs:Class ;
+    rdfs:label "Event" ;
+    rdfs:comment "An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the <a class=\"localLink\" href=\"http://schema.org/offers\">offers</a> property. Repeated events may be structured as separate Event objects." ;
+    rdfs:subClassOf schema:Thing ;
+    owl:equivalentClass dctype:Event .
+
+schema:QuantitativeValue a rdfs:Class ;
+    rdfs:label "QuantitativeValue" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment "A point value or interval for product characteristics and other purposes." ;
+    rdfs:subClassOf schema:StructuredValue .
+
+ews:MarketingEvent a rdfs:Class ;
+    rdfs:label "MarketingEvent" ;
+    rdfs:comment "A marketing event." ;
+    rdfs:subClassOf schema:Event .
+
+schema:Order a rdfs:Class ;
+    rdfs:label "Order" ;
+    rdfs:comment "An order is a confirmation of a transaction (a receipt), which can contain multiple line items, each represented by an Offer that has been accepted by the customer." ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:EducationalOccupationalProgram a rdfs:Class ;
+	rdfs:label "EducationalOccupationalProgram" ;
+	dct:source <https://schema.org/EducationalOccupationalProgram> ;
+	rdfs:comment "A program offered by an institution which determines the learning progress to achieve an outcome, usually a credential like a degree or certificate. This would define a discrete set of opportunities (e.g., job, courses) that together constitute a program with a clear start, end, set of requirements, and transition to a new occupational opportunity (e.g., a job), or sometimes a higher educational opportunity (e.g., an advanced degree)." ;
+	rdfs:subClassOf schema:Intangible .
+
+schema:Recommendation a rdfs:Class ;
+	rdfs:label "Recommendation" ;
+	dct:source <https://schema.org/Recommendation> ;
+	rdfs:comment "Recommendation is a type of Review that suggests or proposes something as the best option or best course of action. Recommendations may be for products or services, or other concrete things, as in the case of a ranked list or product guide. A Guide may list multiple recommendations for different categories. For example, in a Guide about which TVs to buy, the author may have several Recommendations." ;
+	rdfs:subClassOf schema:Review .
+
+schema:Review a rdfs:Class ;
+	rdfs:label "Review" ;
+	dct:source <https://schema.org/Review> ;
+	rdfs:comment "A review of an item - for example, of a restaurant, movie, or store." ;
+	rdfs:subClassOf schema:CreativeWork .
+
+schema:PhysicalActivityCategory a rdfs:Class ;
+	rdfs:label "PhysicalActivityCategory" ;
+	rdfs:comment "Categories of physical activity, organized by physiologic classification." ;
+	dct:source <https://schema.org/PhysicalActivityCategory> ;
+	rdfs:subClassOf schema:Enumeration .
+
+schema:Enumeration a rdfs:Class ;
+	rdfs:label "schema:Enumeration" ;
+	rdfs:comment "Lists or enumerations—for example, a list of cuisines or music genres, etc." ;
+	dct:source <https://schema.org/Enumeration> ;
+	rdfs:subClassOf schema:Intangible .
+	
+schema:PhysicalActivity a rdfs:Class ;
+    rdfs:label "PhysicalActivity" ;
+    dct:source <https://schema.org/PhysicalActivity> ;
+    rdfs:comment "Any bodily activity that enhances or maintains physical fitness and overall health and wellness. Includes activity that is part of daily living and routine, structured exercise, and exercise prescribed as part of a medical treatment or recovery plan." ;
+    rdfs:subClassOf schema:LifestyleModification .
+
+schema:LifestyleModification a rdfs:Class ;
+    rdfs:label "LifestyleModification" ;
+    dct:source <https://schema.org/LifestyleModification> ;
+    rdfs:comment "A process of care involving exercise, changes to diet, fitness routines, and other lifestyle changes aimed at improving a health condition." ;
+    rdfs:subClassOf schema:MedicalEntity .
+
+schema:MedicalEntity a rdfs:Class ;
+    rdfs:label "MedicalEntity" ;
+    dct:source <https://schema.org/MedicalEntity> ;
+    rdfs:comment "The most generic type of entity related to health and the practice of medicine." ;
+    rdfs:subClassOf schema:Thing .
+
+schema:Offer a rdfs:Class ;
+    rdfs:label "Offer" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:comment """An offer to transfer some rights to an item or to provide a service — for example, an offer to sell tickets to an event, to rent the DVD of a movie, to stream a TV show over the internet, to repair a motorcycle, or to loan a book.<br/><br/>   
+
+Note: As the <a class="localLink" href="http://schema.org/businessFunction">businessFunction</a> property, which identifies the form of offer (e.g. sell, lease, repair, dispose), defaults to http://purl.org/goodrelations/v1#Sell; an Offer without a defined businessFunction value can be assumed to be an offer to sell.<br/><br/>
+
+For <a href="http://www.gs1.org/barcodes/technical/idkeys/gtin">GTIN</a>-related fields, see <a href="http://www.gs1.org/barcodes/support/check_digit_calculator">Check Digit calculator</a> and <a href="http://www.gs1us.org/resources/standards/gtin-validation-guide">validation guide</a> from <a href="http://www.gs1.org/">GS1</a>.""" ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:Product a rdfs:Class ;
+    rdfs:label "Product" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:comment "Any offered product or service. For example: a pair of shoes; a concert ticket; the rental of a car; a haircut; or an episode of a TV show streamed online." ;
+    rdfs:subClassOf schema:Thing .
+
+schema:PostalAddress a rdfs:Class ;
+    rdfs:label "PostalAddress" ;
+    rdfs:comment "The mailing address." ;
+    rdfs:subClassOf schema:ContactPoint .
+ 
+schema:ContactPoint a rdfs:Class ;
+    rdfs:label "ContactPoint" ;
+    rdfs:comment "A contact point&#x2014;for example, a Customer Complaints department." ;
+    rdfs:subClassOf schema:StructuredValue .
+
+schema:StructuredValue a rdfs:Class ;
+    rdfs:label "StructuredValue" ;
+    rdfs:comment "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing." ;
+    rdfs:subClassOf schema:Intangible .   
+
+schema:Intangible a rdfs:Class ;
+    rdfs:label "Intangible" ;
+    rdfs:comment "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc." ;
+    rdfs:subClassOf schema:Thing .
+
+schema:Place a rdfs:Class ;
+    rdfs:label "Place" ;
+    rdfs:comment "Entities that have a somewhat fixed, physical extension." ;
+    rdfs:subClassOf schema:Thing .
+
+schema:Person a rdfs:Class ;
+    rdfs:label "Person" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    rdfs:comment "A person (alive, dead, undead, or fictional)." ;
+    rdfs:subClassOf schema:Thing ;
+    owl:equivalentClass foaf:Person .
+
+schema:Organization a rdfs:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An organization such as a school, NGO, corporation, club, etc." ;
+    rdfs:subClassOf schema:Thing .
+
+schema:GeoShape a rdfs:Class ;
+    rdfs:label "GeoShape" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    rdfs:comment "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points." ;
+    rdfs:subClassOf schema:StructuredValue .
+
+schema:GeoCoordinates a rdfs:Class ;
+    rdfs:label "GeoCoordinates" ;
+    rdfs:comment "The geographic coordinates of a place or event." ;
+    rdfs:subClassOf schema:StructuredValue .
+
+schema:URL a rdfs:Class ;
+    rdfs:label "URL" ;
+    rdfs:comment "Data type: URL." ;
+    rdfs:subClassOf schema:Text .
+
+schema:CreativeWork a rdfs:Class ;
+    rdfs:label "CreativeWork" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    rdfs:comment "The most generic kind of creative work, including books, movies, photographs, software programs, etc." ;
+    rdfs:subClassOf schema:Thing .
+
+schema:Text a schema:DataType,
+        rdfs:Class ;
+    rdfs:label "Text" ;
+    rdfs:comment "Data type: Text." .
+
+schema:Number a schema:DataType,
+        rdfs:Class ;
+    rdfs:label "Number" ;
+    rdfs:comment """Data type: Number.<br/><br/>
+
+Usage guidelines:<br/><br/>
+
+<ul>
+<li>Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.</li>
+<li>Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.</li>
+</ul>
+""" .
+
+
+schema:DataType a rdfs:Class ;
+    rdfs:label "DataType" ;
+    rdfs:comment "The basic data types such as Integers, Strings, etc." ;
+    rdfs:subClassOf rdfs:Class .
+
+schema:Thing a rdfs:Class ;
+    rdfs:label "Thing" ;
+    rdfs:comment "The most generic type of item." .
+
+schema:PropertyValue a rdfs:Class ;
+    rdfs:label "PropertyValue" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment """A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.<br/><br/>
+
+Always use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.""" ;
+    rdfs:subClassOf schema:StructuredValue .
+
+schema:CreativeWorkSeason a rdfs:Class ;
+    rdfs:label "CreativeWorkSeason" ;
+    rdfs:comment "A media season e.g. tv, radio, video game etc." ;
+    rdfs:subClassOf schema:CreativeWork .
+
+schema:DatedMoneySpecification a rdfs:Class ;
+    rdfs:label "DatedMoneySpecification" ;
+    schema:supersededBy schema:MonetaryAmount ;
+    rdfs:comment "A DatedMoneySpecification represents monetary values with optional start and end dates. For example, this could represent an employee's salary over a specific period of time. <strong>Note:</strong> This type has been superseded by <a class=\"localLink\" href=\"http://schema.org/MonetaryAmount\">MonetaryAmount</a> use of that type is recommended" ;
+    rdfs:subClassOf schema:StructuredValue .
+
+schema:MonetaryAmount a rdfs:Class ;
+    rdfs:label "MonetaryAmount" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#FIBO> ;
+    rdfs:comment "A monetary value or range. This type can be used to describe an amount of money such as $50 USD, or a range as in describing a bank account being suitable for a balance between £1,000 and £1,000,000 GBP, or the value of a salary, etc. It is recommended to use <a class=\"localLink\" href=\"http://schema.org/PriceSpecification\">PriceSpecification</a> Types to describe the price of an Offer, Invoice, etc." ;
+    rdfs:subClassOf schema:StructuredValue .
+
+schema:Role a rdfs:Class ;
+    rdfs:label "Role" ;
+    rdfs:comment """Represents additional information about a relationship or property. For example a Role can be used to say that a 'member' role linking some SportsTeam to a player occurred during a particular time period. Or that a Person's 'actor' role in a Movie was for some particular characterName. Such properties can be attached to a Role entity, which is then associated with the main entities using ordinary properties like 'member' or 'actor'.<br/><br/>
+
+See also <a href="http://blog.schema.org/2014/06/introducing-role.html">blog post</a>.""" ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:Date a schema:DataType,
+        rdfs:Class ;
+    rdfs:label "Date" ;
+    rdfs:comment "A date value in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>." .
+
+schema:PriceSpecification a rdfs:Class ;
+    rdfs:label "PriceSpecification" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment "A structured value representing a price or price range. Typically, only the subclasses of this type are used for markup. It is recommended to use <a class=\"localLink\" href=\"http://schema.org/MonetaryAmount\">MonetaryAmount</a> to describe independent amounts of money such as a salary, credit card limits, etc." ;
+    rdfs:subClassOf schema:StructuredValue .
+
+schema:CreativeWorkSeries a rdfs:Class ;
+    rdfs:label "CreativeWorkSeries" ;
+    rdfs:comment """A CreativeWorkSeries in schema.org is a group of related items, typically but not necessarily of the same kind. CreativeWorkSeries are usually organized into some order, often chronological. Unlike <a class="localLink" href="http://schema.org/ItemList">ItemList</a> which is a general purpose data structure for lists of things, the emphasis with CreativeWorkSeries is on published materials (written e.g. books and periodicals, or media such as tv, radio and games).<br/><br/>
+
+Specific subtypes are available for describing <a class="localLink" href="http://schema.org/TVSeries">TVSeries</a>, <a class="localLink" href="http://schema.org/RadioSeries">RadioSeries</a>, <a class="localLink" href="http://schema.org/MovieSeries">MovieSeries</a>, <a class="localLink" href="http://schema.org/BookSeries">BookSeries</a>, <a class="localLink" href="http://schema.org/Periodical">Periodical</a> and <a class="localLink" href="http://schema.org/VideoGameSeries">VideoGameSeries</a>. In each case, the <a class="localLink" href="http://schema.org/hasPart">hasPart</a> / <a class="localLink" href="http://schema.org/isPartOf">isPartOf</a> properties can be used to relate the CreativeWorkSeries to its parts. The general CreativeWorkSeries type serves largely just to organize these more specific and practical subtypes.<br/><br/>
+
+It is common for properties applicable to an item from the series to be usefully applied to the containing group. Schema.org attempts to anticipate some of these cases, but publishers should be free to apply properties of the series parts to the series as a whole wherever they seem appropriate.""" ;
+    rdfs:subClassOf schema:CreativeWork,
+        schema:Series .
+
+schema:Series a rdfs:Class ;
+    rdfs:label "Series" ;
+    rdfs:comment "A Series in schema.org is a group of related items, typically but not necessarily of the same kind. See also <a class=\"localLink\" href=\"http://schema.org/CreativeWorkSeries\">CreativeWorkSeries</a>, <a class=\"localLink\" href=\"http://schema.org/EventSeries\">EventSeries</a>." ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:DateTime a schema:DataType,
+        rdfs:Class ;
+    rdfs:label "DateTime" ;
+    rdfs:comment "A combination of date and time of day in the form [-]CCYY-MM-DDThh:mm:ss[Z|(+|-)hh:mm] (see Chapter 5.4 of ISO 8601)." .
+
+schema:ActionAccessSpecification a rdfs:Class ;
+    rdfs:label "ActionAccessSpecification" ;
+    dct:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
+    schema:category "issue-1741" ;
+    rdfs:comment "A set of requirements that a must be fulfilled in order to perform an Action." ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:Invoice a rdfs:Class ;
+    rdfs:label "Invoice" ;
+    rdfs:comment "A statement of the money due for goods or services; a bill." ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:Demand a rdfs:Class ;
+    rdfs:label "Demand" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment "A demand entity represents the public, not necessarily binding, not necessarily exclusive, announcement by an organization or person to seek a certain type of goods or services. For describing demand using this type, the very same properties used for Offer apply." ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:BuyAction a rdfs:Class ;
+    rdfs:label "BuyAction" ;
+    rdfs:comment "The act of giving money to a seller in exchange for goods or services rendered. An agent buys an object, product, or service from a seller for a price. Reciprocal of SellAction." ;
+    rdfs:subClassOf schema:TradeAction .
+
+schema:Flight a rdfs:Class ;
+    rdfs:label "Flight" ;
+    rdfs:comment "An airline flight." ;
+    rdfs:subClassOf schema:Trip .
+
+schema:Trip a rdfs:Class ;
+    rdfs:label "Trip" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#Tourism> ;
+    rdfs:comment "A trip or journey. An itinerary of visits to one or more places." ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:Boolean a schema:DataType,
+        rdfs:Class ;
+    rdfs:label "Boolean" ;
+    rdfs:comment "Boolean: True or False." .
+
+schema:Country a rdfs:Class ;
+    rdfs:label "Country" ;
+    rdfs:comment "A country." ;
+    rdfs:subClassOf schema:AdministrativeArea .
+
+schema:AdministrativeArea a rdfs:Class ;
+    rdfs:label "AdministrativeArea" ;
+    rdfs:comment "A geographical region, typically under the jurisdiction of a particular government." ;
+    rdfs:subClassOf schema:Place .
+
+schema:Action a rdfs:Class ;
+    rdfs:label "Action" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_ActionCollabClass> ;
+    rdfs:comment """An action performed by a direct agent and indirect participants upon a direct object. Optionally happens at a location with the help of an inanimate instrument. The execution of the action may produce a result. Specific action sub-type documentation specifies the exact expectation of each argument/role.<br/><br/>
+
+See also <a href="http://blog.schema.org/2014/04/announcing-schemaorg-actions.html">blog post</a> and <a href="http://schema.org/docs/actions.html">Actions overview document</a>.""" ;
+    rdfs:subClassOf schema:Thing .
+
+schema:Service a rdfs:Class ;
+    rdfs:label "Service" ;
+    rdfs:comment "A service provided by an organization, e.g. delivery service, print services, etc." ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:CommunicateAction a rdfs:Class ;
+    rdfs:label "CommunicateAction" ;
+    rdfs:comment "The act of conveying information to another person via a communication medium (instrument) such as speech, email, or telephone conversation." ;
+    rdfs:subClassOf schema:InteractAction .
+
+schema:InteractAction a rdfs:Class ;
+    rdfs:label "InteractAction" ;
+    rdfs:comment "The act of interacting with another person or organization." ;
+    rdfs:subClassOf schema:Action .
+
+schema:TradeAction a rdfs:Class ;
+    rdfs:label "TradeAction" ;
+    rdfs:comment "The act of participating in an exchange of goods and services for monetary compensation. An agent trades an object, product or service with a participant in exchange for a one time or periodic payment." ;
+    rdfs:subClassOf schema:Action .
+
+schema:identifier a rdf:Property ;
+    rdfs:label "identifier" ;
+    schema:domainIncludes schema:Thing ;
+    schema:rangeIncludes schema:PropertyValue,
+        schema:Text,
+        schema:URL ;
+    rdfs:comment "The identifier property represents any kind of identifier for any kind of <a class=\"localLink\" href=\"http://schema.org/Thing\">Thing</a>, such as ISBNs, GTIN codes, UUIDs etc. Schema.org provides dedicated properties for representing many of these, either as textual strings or as URL (URI) links. See <a href=\"/docs/datamodel.html#identifierBg\">background notes</a> for more details." ;
+    owl:equivalentProperty dct:identifier .
+
+schema:text a rdf:Property ;
+    rdfs:label "text" ;
+    schema:domainIncludes schema:CreativeWork ;
+    schema:rangeIncludes schema:Text ;
+    rdfs:comment "The textual content of this CreativeWork." .
+
+schema:name a rdf:Property ;
+    rdfs:label "name" ;
+    schema:domainIncludes schema:Thing ;
+    schema:rangeIncludes schema:Text ;
+    rdfs:comment "The name of the item." ;
+    rdfs:subPropertyOf rdfs:label ;
+    owl:equivalentProperty dct:title .
+
+schema:description a rdf:Property ;
+    rdfs:label "description" ;
+    schema:domainIncludes schema:Thing ;
+    schema:rangeIncludes schema:Text ;
+    rdfs:comment "A description of the item." ;
+    owl:equivalentProperty dct:description .
+
+schema:startDate a rdf:Property ;
+    rdfs:label "startDate" ;
+    schema:domainIncludes schema:CreativeWorkSeason,
+        schema:CreativeWorkSeries,
+        schema:DatedMoneySpecification,
+        schema:EducationalOccupationalProgram,
+        schema:Event,
+        schema:Role ;
+    schema:rangeIncludes schema:Date,
+        schema:DateTime ;
+    rdfs:comment "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
+
+schema:endDate a rdf:Property ;
+    rdfs:label "endDate" ;
+    schema:domainIncludes schema:CreativeWorkSeason,
+        schema:CreativeWorkSeries,
+        schema:DatedMoneySpecification,
+        schema:EducationalOccupationalProgram,
+        schema:Event,
+        schema:Role ;
+    schema:rangeIncludes schema:Date,
+        schema:DateTime ;
+    rdfs:comment "The end date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
+
+schema:category a rdf:Property ;
+    rdfs:label "category" ;
+    dct:source <https://github.com/schemaorg/schemaorg/issues/1741> ;
+    schema:category "issue-1741" ;
+    schema:domainIncludes schema:ActionAccessSpecification,
+        schema:Invoice,
+        schema:Offer,
+        schema:PhysicalActivity,
+        schema:Product,
+        schema:Recommendation,
+        schema:Service ;
+    schema:rangeIncludes schema:PhysicalActivityCategory,
+        schema:Text,
+        schema:Thing ;
+    rdfs:comment "A category for the item. Greater signs or slashes can be used to informally indicate a category hierarchy." .
+
+schema:value a rdf:Property ;
+    rdfs:label "value" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    schema:domainIncludes schema:MonetaryAmount,
+        schema:PropertyValue,
+        schema:QuantitativeValue ;
+    schema:rangeIncludes schema:Boolean,
+        schema:Number,
+        schema:StructuredValue,
+        schema:Text ;
+    rdfs:comment """The value of the quantitative value or property value node.<br/><br/>
+
+<ul>
+<li>For <a class="localLink" href="http://schema.org/QuantitativeValue">QuantitativeValue</a> and <a class="localLink" href="http://schema.org/MonetaryAmount">MonetaryAmount</a>, the recommended type for values is 'Number'.</li>
+<li>For <a class="localLink" href="http://schema.org/PropertyValue">PropertyValue</a>, it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.</li>
+<li>Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.</li>
+<li>Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.</li>
+</ul>
+""" .
+
+schema:discount a rdf:Property ;
+    rdfs:label "discount" ;
+    schema:domainIncludes schema:Order ;
+    schema:rangeIncludes schema:Number,
+        schema:Text ;
+    rdfs:comment "Any discount applied (to an Order)." .
+
+schema:price a rdf:Property ;
+    rdfs:label "price" ;
+    schema:domainIncludes schema:Offer,
+        schema:PriceSpecification,
+        schema:TradeAction ;
+    schema:rangeIncludes schema:Number,
+        schema:Text ;
+    rdfs:comment """The offer price of a product, or of a price component when attached to PriceSpecification and its subtypes.<br/><br/>
+
+Usage guidelines:<br/><br/>
+
+<ul>
+<li>Use the <a class="localLink" href="http://schema.org/priceCurrency">priceCurrency</a> property (with standard formats: <a href="http://en.wikipedia.org/wiki/ISO_4217">ISO 4217 currency format</a> e.g. "USD"; <a href="https://en.wikipedia.org/wiki/List_of_cryptocurrencies">Ticker symbol</a> for cryptocurrencies e.g. "BTC"; well known names for <a href="https://en.wikipedia.org/wiki/Local_exchange_trading_system">Local Exchange Tradings Systems</a> (LETS) and other currency types e.g. "Ithaca HOUR") instead of including <a href="http://en.wikipedia.org/wiki/Dollar_sign#Currencies_that_use_the_dollar_or_peso_sign">ambiguous symbols</a> such as '$' in the value.</li>
+<li>Use '.' (Unicode 'FULL STOP' (U+002E)) rather than ',' to indicate a decimal point. Avoid using these symbols as a readability separator.</li>
+<li>Note that both <a href="http://www.w3.org/TR/xhtml-rdfa-primer/#using-the-content-attribute">RDFa</a> and Microdata syntax allow the use of a "content=" attribute for publishing simple machine-readable values alongside more human-friendly formatting.</li>
+<li>Use values from 0123456789 (Unicode 'DIGIT ZERO' (U+0030) to 'DIGIT NINE' (U+0039)) rather than superficially similiar Unicode symbols.</li>
+</ul>
+""" .
+
+schema:location a rdf:Property ;
+    rdfs:label "location" ;
+    schema:domainIncludes schema:Action,
+        schema:Event,
+        schema:Organization ;
+    schema:rangeIncludes schema:Place,
+        schema:PostalAddress,
+        schema:Text ;
+    rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." .
+
+schema:gtin a rdf:Property ;
+    rdfs:label "gtin" ;
+    dct:source <https://schema.org/gtin> ;
+    rdfs:comment "A Global Trade Item Number (GTIN). GTINs identify trade items, including products and services, using numeric identification codes. The gtin property generalizes the earlier gtin8, gtin12, gtin13, and gtin14 properties. The GS1 digital link specifications express GTINs as URLs. A correct gtin value should be a valid GTIN, which means that it should be an all-numeric string of either 8, 12, 13 or 14 digits, or a GS1 Digital Link URL based on such a string. The numeric component should also have a valid GS1 check digit and meet the other rules for valid GTINs. See also GS1's GTIN Summary and Wikipedia for more details. Left-padding of the gtin values is not required or encouraged." ;
+    rdfs:subPropertyOf schema:identifier .
+
+schema:gtin13 a rdf:Property ;
+    rdfs:label "gtin13" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    schema:domainIncludes schema:Demand,
+        schema:Offer,
+        schema:Product ;
+    schema:rangeIncludes schema:Text ;
+    rdfs:comment "The GTIN-13 code of the product, or the product to which the offer refers. This is equivalent to 13-digit ISBN codes and EAN UCC-13. Former 12-digit UPC codes can be converted into a GTIN-13 code by simply adding a preceeding zero. See <a href=\"http://www.gs1.org/barcodes/technical/idkeys/gtin\">GS1 GTIN Summary</a> for more details." ;
+    rdfs:subPropertyOf schema:gtin,
+        schema:identifier .
+
+schema:seller a rdf:Property ;
+    rdfs:label "seller" ;
+    schema:domainIncludes schema:BuyAction,
+        schema:Demand,
+        schema:Flight,
+        schema:Offer,
+        schema:Order ;
+    schema:rangeIncludes schema:Organization,
+        schema:Person ;
+    rdfs:comment "An entity which offers (sells / leases / lends / loans) the services / goods.  A seller may also be a provider." ;
+    rdfs:subPropertyOf schema:participant .
+
+schema:participant a rdf:Property ;
+    rdfs:label "participant" ;
+    schema:domainIncludes schema:Action ;
+    schema:rangeIncludes schema:Organization,
+        schema:Person ;
+    rdfs:comment "Other co-agents that participated in the action indirectly. e.g. John wrote a book with <em>Steve</em>." .
+
+schema:about a rdf:Property ;
+    rdfs:label "about" ;
+    dct:source <https://github.com/schemaorg/schemaorg/issues/1670> ;
+    schema:category "issue-1670" ;
+    schema:domainIncludes schema:CommunicateAction,
+        schema:CreativeWork,
+        schema:Event ;
+    schema:inverseOf schema:subjectOf ;
+    schema:rangeIncludes schema:Thing ;
+    rdfs:comment "The subject matter of the content." .
+
+schema:inverseOf a rdf:Property ;
+	rdfs:label "inverseOf" ;
+	rdfs:comment "Relates a property to a property that is its inverse. Inverse properties relate the same pairs of items to each other, but in reversed direction. For example, the 'alumni' and 'alumniOf' properties are inverseOf each other. Some properties don't have explicit inverses; in these situations RDFa and JSON-LD syntax for reverse properties can be used. " ;
+	owl:equivalentProperty owl:inverseOf .
+
+schema:subjectOf a rdf:Property ;
+    rdfs:label "subjectOf" ;
+    dct:source <https://github.com/schemaorg/schemaorg/issues/1670> ;
+    schema:category "issue-1670" ;
+    schema:domainIncludes schema:Thing ;
+    schema:inverseOf schema:about ;
+    schema:rangeIncludes schema:CreativeWork,
+        schema:Event ;
+    rdfs:comment "A CreativeWork or Event about this Thing." .
+
+schema:sku a rdf:Property ;
+    rdfs:label "sku" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    schema:domainIncludes schema:Demand,
+        schema:Offer,
+        schema:Product ;
+    schema:rangeIncludes schema:Text ;
+    rdfs:comment "The Stock Keeping Unit (SKU), i.e. a merchant-specific identifier for a product or service, or the product to which the offer refers." ;
+    rdfs:subPropertyOf schema:identifier .
+
+schema:addressLocality a rdf:Property ;
+    rdfs:label "addressLocality" ;
+    schema:domainIncludes schema:PostalAddress ;
+    schema:rangeIncludes schema:Text ;
+    rdfs:comment "The locality in which the street address is, and which is in the region. For example, Mountain View." .
+
+schema:addressCountry a rdf:Property ;
+    rdfs:label "addressCountry" ;
+    schema:domainIncludes schema:GeoCoordinates,
+        schema:GeoShape,
+        schema:PostalAddress ;
+    schema:rangeIncludes schema:Country,
+        schema:Text ;
+    rdfs:comment "The country. For example, USA. You can also provide the two-letter <a href=\"http://en.wikipedia.org/wiki/ISO_3166-1\">ISO 3166-1 alpha-2 country code</a>." .
+
+schema:latitude a rdf:Property ;
+    rdfs:label "latitude" ;
+    schema:domainIncludes schema:GeoCoordinates,
+        schema:Place ;
+    schema:rangeIncludes schema:Number,
+        schema:Text ;
+    rdfs:comment "The latitude of a location. For example <code>37.42242</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." .
+
+schema:longitude a rdf:Property ;
+    rdfs:label "longitude" ;
+    schema:domainIncludes schema:GeoCoordinates,
+        schema:Place ;
+    schema:rangeIncludes schema:Number,
+        schema:Text ;
+    rdfs:comment "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." .
+
+schema:addressRegion a rdf:Property ;
+    rdfs:label "addressRegion" ;
+    schema:domainIncludes schema:PostalAddress ;
+    schema:rangeIncludes schema:Text ;
+    rdfs:comment "The region in which the locality is, and which is in the country. For example, California or another appropriate first-level <a href=\"https://en.wikipedia.org/wiki/List_of_administrative_divisions_by_country\">Administrative division</a>" .
+
+schema:streetAddress a rdf:Property ;
+    rdfs:label "streetAddress" ;
+    schema:domainIncludes schema:PostalAddress ;
+    schema:rangeIncludes schema:Text ;
+    rdfs:comment "The street address. For example, 1600 Amphitheatre Pkwy." .
+
+schema:postalCode a rdf:Property ;
+    rdfs:label "postalCode" ;
+    schema:domainIncludes schema:GeoCoordinates,
+        schema:GeoShape,
+        schema:PostalAddress ;
+    schema:rangeIncludes schema:Text ;
+    rdfs:comment "The postal code. For example, 94043." .
+
+schema:address a rdf:Property ;
+    rdfs:label "address" ;
+    schema:domainIncludes schema:GeoCoordinates,
+        schema:GeoShape,
+        schema:Organization,
+        schema:Person,
+        schema:Place ;
+    schema:rangeIncludes schema:PostalAddress,
+        schema:Text ;
+    rdfs:comment "Physical address of the item." .
+
+ews:source a rdf:Property ;
+    schema:rangeIncludes schema:Text ;
+    schema:description "A description of the source of the event." .
+
+ews:channelCode a rdf:Property ;
+    schema:rangeIncludes schema:Text ;
+    schema:description "A code associated with a channel in a marketing event" .
+
+ews:channelDescription a rdf:Property ;
+    schema:rangeIncludes schema:Text ;
+    schema:description "A description associated with a channel in a marketing event" .
+
+ews:quantity a rdf:Property ;
+    schema:domainIncludes schema:PropertyValue,
+        schema:QuantitativeValue ;
+    schema:rangeIncludes xsd:int;
+    schema:description "A number identifying a generic quantity." ;
+    rdfs:subPropertyOf ews:simpleMeasure .
+
+ews:quantyUnitId a rdf:Property ;
+   	schema:domainIncludes schema:Thing ;
+    schema:rangeIncludes schema:PropertyValue,
+        schema:Text,
+        schema:URL ;
+    schema:description "The specification of the unit in which a quantity is measured." ;
+    rdfs:subPropertyOf schema:identifier .
+
+ews:interestedAudience a rdf:Property ;
+    schema:domainIncludes schema:PropertyValue ;
+    schema:rangeIncludes xsd:int;
+    schema:description "The number of people interested in an event. " ;
+    rdfs:subPropertyOf ews:simpleMeasure .
+
+ews:attendingAudience a rdf:Property ;
+    schema:domainIncludes schema:PropertyValue ;
+    schema:rangeIncludes xsd:int;
+    schema:description "The number of people who plan to attend an event. " ;
+    rdfs:subPropertyOf ews:simpleMeasure .
+
+ews:priceChanged a rdf:Property ;
+    schema:domainIncludes schema:PropertyValue ;
+    schema:rangeIncludes schema:Boolean;
+    schema:description "A measure that assigns a boolean value to specify if the price of a product has changed or not. " ;
+    rdfs:subPropertyOf ews:booleanMeasure .
+
+ews:priceChange a rdf:Property ;
+    schema:domainIncludes schema:PropertyValue ;
+    schema:rangeIncludes xsd:float;
+    schema:description "Price change in %" ;
+    rdfs:subPropertyOf ews:simpleMeasure .
+
+ews:product a rdf:Property ;
+    schema:domainIncludes schema:CreativeWork ;
+    schema:rangeIncludes schema:Product,
+        schema:Text,
+        schema:URL ;
+    schema:description "The product the event refers to - if we are describing events about products." ;
+    rdfs:subPropertyOf schema:about .
+
+ews:simpleMeasure a rdf:Property ;
+    schema:domainIncludes schema:PropertyValue ;
+    schema:rangeIncludes xsd:float,
+    	xsd:int;
+    schema:description "A measure used to describe a business phenomenon." ;
+    rdfs:subPropertyOf schema:value .
+
+ews:booleanMeasure a rdf:Property ;
+    schema:domainIncludes schema:PropertyValue ;
+    schema:rangeIncludes xsd:float,
+    	xsd:int;
+    schema:description "A measure that assigns a boolean value. " ;
+    rdfs:subPropertyOf schema:value .
+
+ews:catalogId a rdf:Property ;
+    schema:domainIncludes schema:PropertyValue ;
+    schema:rangeIncludes schema:Text;
+    schema:description "Specify the identifier. " ;
+    rdfs:subPropertyOf schema:identifier .
+
+
+
+
