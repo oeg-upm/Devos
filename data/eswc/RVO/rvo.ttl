@@ -1,0 +1,348 @@
+@prefix : <http://w3id.org/rv-ontology#> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix frbr: <http://purl.org/vocab/frbr/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix fabio: <http://purl.org/spar/fabio/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://w3id.org/rv-ontology> a owl:Ontology .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://w3id.org/rv-ontology#containMeasure
+
+:containMeasure a owl:ObjectProperty ;
+	rdfs:domain :DatasetStructure ;
+	rdfs:range :Measure .
+# 
+# http://w3id.org/rv-ontology#controlVariable
+
+:controlVariable a owl:ObjectProperty ;
+	rdfs:domain :Model ;
+	rdfs:range :Variable .
+# 
+# http://w3id.org/rv-ontology#dataSource
+
+:dataSource a owl:ObjectProperty ;
+	rdfs:domain :DatasetStructure ;
+	rdfs:range :DataSource .
+# 
+# http://w3id.org/rv-ontology#datasetStructure
+
+:datasetStructure a owl:ObjectProperty ;
+	rdfs:domain :Dataset ;
+	rdfs:range :DatasetStructure .
+# 
+# http://w3id.org/rv-ontology#dependentVariable
+
+:dependentVariable a owl:ObjectProperty ;
+	rdfs:domain :Model ;
+	rdfs:range :Variable .
+# 
+# http://w3id.org/rv-ontology#firstVariable
+
+:firstVariable a owl:ObjectProperty ;
+	rdfs:domain :LinkedVariables ;
+	rdfs:range :Variable .
+# 
+# http://w3id.org/rv-ontology#fromExpert
+
+:fromExpert a owl:ObjectProperty ;
+	rdfs:subPropertyOf :origin ;
+	rdfs:domain _:genid1 .
+
+_:genid1 a owl:Class ;
+	owl:unionOf _:genid4 .
+
+_:genid4 a rdf:List ;
+	rdf:first :LinkedVariables ;
+	rdf:rest _:genid3 .
+
+_:genid3 a rdf:List ;
+	rdf:first :Model ;
+	rdf:rest _:genid2 .
+
+_:genid2 a rdf:List ;
+	rdf:first :Variable ;
+	rdf:rest rdf:nil .
+
+:fromExpert rdfs:range <http://xmlns.com/foaf/0.1/Person> .
+# 
+# http://w3id.org/rv-ontology#independentVariable
+
+:independentVariable a owl:ObjectProperty ;
+	rdfs:domain :Model ;
+	rdfs:range :Variable .
+# 
+# http://w3id.org/rv-ontology#linkType
+
+:linkType a owl:ObjectProperty ;
+	rdfs:domain :LinkedVariables ;
+	rdfs:range :LinkType .
+# 
+# http://w3id.org/rv-ontology#measuredBy
+
+:measuredBy a owl:ObjectProperty ;
+	rdfs:domain :Variable ;
+	rdfs:range :Measure .
+# 
+# http://w3id.org/rv-ontology#modelType
+
+:modelType a owl:ObjectProperty ;
+	rdfs:domain :Model ;
+	rdfs:range :ModelType .
+# 
+# http://w3id.org/rv-ontology#operationalize
+
+:operationalize a owl:ObjectProperty ;
+	rdfs:domain :Variable ;
+	rdfs:range :Concept .
+# 
+# http://w3id.org/rv-ontology#origin
+
+:origin a owl:ObjectProperty ;
+	rdfs:domain _:genid5 .
+
+_:genid5 a owl:Class ;
+	owl:unionOf _:genid8 .
+
+_:genid8 a rdf:List ;
+	rdf:first :LinkedVariables ;
+	rdf:rest _:genid7 .
+
+_:genid7 a rdf:List ;
+	rdf:first :Model ;
+	rdf:rest _:genid6 .
+
+_:genid6 a rdf:List ;
+	rdf:first :Variable ;
+	rdf:rest rdf:nil .
+
+:origin rdfs:range _:genid9 .
+
+_:genid9 a owl:Class ;
+	owl:unionOf _:genid12 .
+
+_:genid12 a rdf:List ;
+	rdf:first fabio:ResearchPaper ;
+	rdf:rest _:genid11 .
+
+_:genid11 a rdf:List ;
+	rdf:first :Model ;
+	rdf:rest _:genid10 .
+
+_:genid10 a rdf:List ;
+	rdf:first <http://xmlns.com/foaf/0.1/Person> ;
+	rdf:rest rdf:nil .
+# 
+# http://w3id.org/rv-ontology#secondVariable
+
+:secondVariable a owl:ObjectProperty ;
+	rdfs:domain :LinkedVariables ;
+	rdfs:range :Variable .
+# 
+# http://w3id.org/rv-ontology#trainingSet
+
+:trainingSet a owl:ObjectProperty ;
+	rdfs:domain :Model ;
+	rdfs:range :Dataset .
+# 
+# http://w3id.org/rv-ontology#viaLitreture
+
+:viaLitreture a owl:ObjectProperty ;
+	rdfs:subPropertyOf :origin ;
+	rdfs:domain _:genid13 .
+
+_:genid13 a owl:Class ;
+	owl:unionOf _:genid16 .
+
+_:genid16 a rdf:List ;
+	rdf:first :LinkedVariables ;
+	rdf:rest _:genid15 .
+
+_:genid15 a rdf:List ;
+	rdf:first :Model ;
+	rdf:rest _:genid14 .
+
+_:genid14 a rdf:List ;
+	rdf:first :Variable ;
+	rdf:rest rdf:nil .
+
+:viaLitreture rdfs:range fabio:ResearchPaper .
+# 
+# http://w3id.org/rv-ontology#viaModel
+
+:viaModel a owl:ObjectProperty ;
+	rdfs:subPropertyOf :origin ;
+	rdfs:domain :LinkedVariables ;
+	rdfs:range :Model .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/dc/terms/title
+
+dcterms:title a owl:DatatypeProperty .
+# 
+# http://w3id.org/rv-ontology#coefficients
+
+:coefficients a owl:DatatypeProperty ;
+	rdfs:domain :LinkedVariables ;
+	rdfs:range rdfs:Literal .
+# 
+# http://w3id.org/rv-ontology#measureReferenceInDatasource
+
+:measureReferenceInDatasource a owl:DatatypeProperty ;
+	rdfs:domain :Measure ;
+	rdfs:range rdfs:Literal .
+# 
+# http://w3id.org/rv-ontology#rCode
+
+:rCode a owl:DatatypeProperty ;
+	rdfs:domain _:genid17 .
+
+_:genid17 a owl:Class ;
+	owl:unionOf _:genid19 .
+
+_:genid19 a rdf:List ;
+	rdf:first :Model ;
+	rdf:rest _:genid18 .
+
+_:genid18 a rdf:List ;
+	rdf:first :ModelType ;
+	rdf:rest rdf:nil .
+
+:rCode rdfs:range rdf:XMLLiteral .
+# 
+
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://purl.org/spar/fabio/ResearchPaper
+
+fabio:ResearchPaper a owl:Class .
+# 
+# http://w3id.org/rv-ontology#Concept
+
+:Concept a owl:Class .
+# 
+# http://w3id.org/rv-ontology#DataSource
+
+:DataSource a owl:Class ;
+	rdfs:comment "Data source refererce to the source from which a data is coming from, examples are: American Bureau of Statistics, Yahoo Finance, Wharton Research Data Services (WRDS), Thomson Reuters, etc."^^rdfs:Literal .
+# 
+# http://w3id.org/rv-ontology#Dataset
+
+:Dataset a owl:Class ;
+	rdfs:comment "Dataset refers to the data file provided by a data source which contain the data for one or multiple measures."^^rdfs:Literal .
+
+# 
+# http://w3id.org/rv-ontology#DatasetStructure
+
+:DatasetStructure a owl:Class ;
+	rdfs:comment "Dataset structure refers to the meta data for a dataset such as what measures are captured, unit of measur."^^rdfs:Literal .
+# 
+# http://w3id.org/rv-ontology#LinkType
+
+:LinkType a owl:Class ;
+	rdfs:comment "Link Type describes the type of link that exists between two or more variables."^^rdfs:Literal .
+# 
+# http://w3id.org/rv-ontology#LinkedVariables
+
+:LinkedVariables a owl:Class ;
+	rdfs:comment "A link describes a connection between two variables, the nature of this connection and how this connection was established. When the link is directional, it is read to the direction of LinkType. e.g. - firstVariable causes  secondVariable, for Causal LinkType."^^rdfs:Literal .
+# 
+# http://w3id.org/rv-ontology#Measure
+
+:Measure a owl:Class ;
+	rdfs:comment """Measures are the actual values for variables and are expected to have following features:
+· A unique identifier for each measure
+· Dataset structure for the measure"""^^rdfs:Literal .
+# 
+# http://w3id.org/rv-ontology#Model
+
+:Model a owl:Class ;
+	rdfs:comment """Models refer to underlying technique(s) which establish the link between two variables. The model is required to have following specifications:
+· Class of model such as statistical or mathematical model
+· Type of model within a particular class
+· Additional features within each model type"""^^rdfs:Literal .
+# 
+# http://w3id.org/rv-ontology#ModelType
+
+:ModelType a owl:Class .
+# 
+# http://w3id.org/rv-ontology#Variable
+
+:Variable a owl:Class ;
+rdfs:comment """Variables exist as metrics to quantify concepts. Variables are required to have following features:
+· A unique identifier for each variable
+· The origin of the variables (references, people, etc.)
+· Concepts associated with a variable, and link to those concepts"""^^rdfs:Literal .
+# 
+# http://xmlns.com/foaf/0.1/Person
+
+<http://xmlns.com/foaf/0.1/Person> a owl:Class .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://w3id.org/rv-ontology#Causal
+
+:Causal a owl:NamedIndividual , :LinkType ;
+	rdfs:comment "Causal: a variable causes another variable"^^rdfs:Literal .
+# 
+# http://w3id.org/rv-ontology#Correlated
+
+:Correlated a owl:NamedIndividual , :LinkType ;
+	rdfs:comment "Two variables are correlated to each other." .
+
+
+# 
+# http://w3id.org/rv-ontology#InvestigativeCausal
+
+:InvestigativeCausal a owl:NamedIndividual , :LinkType ;
+	rdfs:comment "·Investigative Causal: there is a hypothesis that one variable cause another, the hypothesis needs to be tested."^^rdfs:Literal .
+# 
+
+# 
+# http://w3id.org/rv-ontology#NonCausal
+
+:NonCausal a owl:NamedIndividual , :LinkType ;
+	rdfs:comment "NonCausal: Unable to establish a causal link between two variables."^^rdfs:Literal .
+# 
+# http://w3id.org/rv-ontology#Proxy
+
+:Proxy a owl:NamedIndividual , :LinkType ;
+	rdfs:comment "One variable can be used as a proxy to the second variable." .
+# 
+
+# Generated by the OWL API (version 4.2.5.20160517-0735) https://github.com/owlcs/owlapi
