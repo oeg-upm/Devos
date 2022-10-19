@@ -1,0 +1,1 @@
+{"classes": ["Context", "Mention"], "relations": [["Quotation", "hasMention", "Mention"], ["Mention", "hasContext", "Context"]], "meta": "freq-10"}

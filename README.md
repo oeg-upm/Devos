@@ -47,20 +47,29 @@ Group  --> Agent   :member
 ##### Top in Lov
 ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_object_property --object-property```
 
+
 ##### IESWC (ISWC and ESWC)
 ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_object_property --object-property```
-
-
-
 
 * To use all properties when getting the relevant properties to the given meta
 ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_any_property```
 
+
+
 #### From Frequency
+
+##### Top in Lov
+
 
 * Top 5: ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_freq --object-property --freq --topn 5```
 
 * Top 10: ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_freq --object-property --freq --topn 10```
+
+
+##### IESWC (ISWC and ESWC)
+* Top 5: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 5```
+
+* Top 10: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 10```
 
 
 ### Generate Statistics
