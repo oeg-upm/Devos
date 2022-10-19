@@ -1,11 +1,14 @@
 import argparse
+import traceback
+
 from ogister.gister import workflow, draw_diagrams, freq_workflow
 import os
 import json
 from datetime import datetime
 import rdflib
 
-meta_srcs = ["title", "description", "abstract"]
+# meta_srcs = ["title", "description", "abstract"]
+meta_srcs = ["abstract"]
 
 
 def save_json(json_path, classes, relations, meta):
@@ -50,14 +53,19 @@ def experiment(input_files, output_path, only_object_property, freq, topn, lang=
             if os.path.exists(check_diagram_fpath):
                 print("\n%s already exists" % check_diagram_fpath)
                 continue
-            if freq:
-                classes, relations = freq_workflow(input_path=inp, out_path=None,
-                                                   only_object_property=only_object_property, topn=topn)
-            else:
-                classes, relations = workflow(input_path=inp, out_path=None, lang=lang, max_options=max_options,
-                                              title=titl, desc=desc, abstract=abst,
-                                              only_object_property=only_object_property)
-
+            try:
+                if freq:
+                    classes, relations = freq_workflow(input_path=inp, out_path=None,
+                                                       only_object_property=only_object_property, topn=topn)
+                else:
+                    classes, relations = workflow(input_path=inp, out_path=None, lang=lang, max_options=max_options,
+                                                  title=titl, desc=desc, abstract=abst,
+                                                  only_object_property=only_object_property)
+            except Exception as e:
+                print("Error processing: %s" % inp)
+                print("Exception: %s" % str(e))
+                traceback.print_exc()
+                continue
             graph_fname = graph_fname_base
             opath = os.path.join(output_path, graph_fname + ".md")
             json_path = os.path.join(output_path, graph_fname + ".json")
@@ -77,6 +85,7 @@ def parse_arguments():
     parser.add_argument('--object-property', action="store_true", help="Whether to only use object property for getting the relevant properties relenvant to the given meta")
     parser.add_argument('-f', '--freq', action="store_true", help="Use frequency to fetch the most relative classes and properties")
     parser.add_argument('-n', '--topn', default=0, type=int, help="The maximum number of relevant classes.")
+
     args = parser.parse_args()
     return args.output, args.input, args.lang, int(args.maxoptions), args.object_property, args.freq, args.topn
 

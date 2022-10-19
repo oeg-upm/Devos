@@ -44,7 +44,14 @@ Group  --> Agent   :member
 #### From Meta data
 
 * To only use `owl:ObjectProperty` when getting the relevant properties to the given meta
+##### Top in Lov
 ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_object_property --object-property```
+
+##### IESWC (ISWC and ESWC)
+```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_object_property --object-property```
+
+
+
 
 * To use all properties when getting the relevant properties to the given meta
 ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_any_property```

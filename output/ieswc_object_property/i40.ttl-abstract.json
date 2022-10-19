@@ -1,0 +1,1 @@
+{"classes": ["ConnectivityLayer", "DataSharingInitiative", "IicfConnectivityLayer"], "relations": [["StandardClassification", "isDescribedin", "StandardizationFramework"], ["Standard", "relatedTo", "Standard"]], "meta": "abstract"}
