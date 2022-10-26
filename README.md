@@ -18,7 +18,6 @@ A tool to generate a gist of the ontology
 **Example**:
 
 
-
 ```mermaid
 	classDiagram
 
@@ -34,7 +33,6 @@ Agent  --> Thing   :topic_interest
 Thing  --> Agent   :maker  
 
 Group  --> Agent   :member  
-
 ```
 
 ## Experiment
@@ -89,61 +87,6 @@ python -m experiments.convert_diagrams -i output/Top_in_lov_freq_5/*.md
 ```
 *Note: the coverted does not look as good as the rendered mermaid diagrams*
 
-[//]: # (### Run the experiment &#40;OLD&#41;)
-
-[//]: # ()
-[//]: # (#### From Meta data)
-
-[//]: # ()
-[//]: # (* For DBpedia, we use `en` to speed up the process in taking into account only English labels. Note that it take sometime to generate the summary for DBpedia.)
-
-[//]: # (```python -m experiments.generate_diagrams -i data/Top_in_lov/dbpedia.owl -o output_old/Top_in_lov -l en```)
-
-[//]: # ()
-[//]: # (* Then, the experiment is performed for the rest of ontologies. Note that it will not overwrite generated resources. )
-
-[//]: # (```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output_old/Top_in_lov```)
-
-[//]: # ()
-[//]: # (#### Only Frequency)
-
-[//]: # (Using only frequency)
-
-[//]: # ()
-[//]: # (```)
-
-[//]: # (python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output_old/Top_in_lov --freq)
-
-[//]: # (```)
-
-[//]: # (### Evaluation &#40;OLD&#41;)
-
-[//]: # ()
-[//]: # (#### META)
-
-[//]: # (```)
-
-[//]: # (python -m experiments.evaluation -i output_old/Top_in_lov/*meta*.json  -g data/gs_lov.csv -o output_old/Top_in_lov/results-meta.svg)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (#### Frequency)
-
-[//]: # (```)
-
-[//]: # (python -m experiments.evaluation -i output_old/Top_in_lov/*freq*.json  -g data/gs_lov.csv -o output_old/Top_in_lov/results-freq.svg)
-
-[//]: # (```)
-
-[//]: # ()
-[//]: # (## Results &#40;OLD&#41;)
-
-[//]: # ()
-[//]: # (![]&#40;output_old/Top_in_lov/results-meta.svg&#41;)
-
-[//]: # ()
-[//]: # (![]&#40;output_old/Top_in_lov/results-freq.svg&#41;)
 
 ## Authors
 
