@@ -64,6 +64,31 @@ def get_class_freq(g, only_object_property):
     return d
 
 
+def get_class_leng(g, label_uris=["rdfs:label"]):
+    """
+    """
+    label_uris_formatted = []
+    for uri in label_uris:
+        if uri.startswith('http'):
+            label_uris_formatted.append("<"+uri+">")
+        else:
+            label_uris_formatted.append(uri)
+
+    label_uris_sparql = ", ".join(label for label in label_uris_formatted)
+    # q = "select ?class ?label where { [] a ?class. FILTER (?class IN ( %s )) }" % label_uris_sparql
+    q = "select ?class ?label where { [] a ?class. ?class ?p ?label. FILTER (?p IN ( %s )) }" % label_uris_sparql
+    results = g.query(q)
+    d = dict()
+    for res in results:
+        class_uri = str(res["class"])
+        num = len(res["label"].split(' '))
+        if class_uri not in d:
+            d[class_uri] = 0
+        d[class_uri] = max(d[class_uri], num)
+
+    return d
+
+
 def get_classes_with_keyword(g, keyword):
     """
     Get existing labels from a given uri.

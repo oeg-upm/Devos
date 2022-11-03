@@ -1,0 +1,1 @@
+{"classes": ["DeductiveTask", "CounterfactualExplanation", "ScientificKnowledge", "SystemRecommendation", "Characteristic"], "relations": [["S", "I", "O"], ["i", "s", "B"], ["S", "I", "O"]], "meta": "leng-5"}

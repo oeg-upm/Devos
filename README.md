@@ -70,6 +70,14 @@ Group  --> Agent   :member
 * Top 10: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 10```
 
 
+#### Label Length
+##### IESWC (ISWC and ESWC)
+* Top 5: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_leng --leng --topn 5```
+
+* Top 10: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_leng --leng --topn 10```
+
+
+
 ### Generate Statistics
 About the number of classes properties to `stats.csv`
 ```
@@ -87,6 +95,12 @@ python -m experiments.convert_diagrams -i output/Top_in_lov_freq_5/*.md
 ```
 *Note: the coverted does not look as good as the rendered mermaid diagrams*
 
+
+## Tests
+To run unit tests
+```
+python -m unittest discover tests 
+```
 
 ## Authors
 
