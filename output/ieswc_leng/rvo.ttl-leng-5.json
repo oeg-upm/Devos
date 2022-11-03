@@ -1,1 +1,1 @@
-{"classes": [], "relations": [], "meta": "leng-5"}
+{"classes": ["LinkType"], "relations": [["LinkedVariables", "linkType", "LinkType"]], "meta": "leng-5"}

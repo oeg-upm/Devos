@@ -64,7 +64,7 @@ def get_class_freq(g, only_object_property):
     return d
 
 
-def get_class_leng(g, label_uris=["rdfs:label"]):
+def get_class_leng(g, label_uris=["rdfs:label", "rdfs:comment", "http://www.w3.org/2009/08/skos-reference/skos.html#definition"]):
     """
     """
     label_uris_formatted = []

@@ -1,1 +1,0 @@
-{"classes": ["DeductiveTask", "CounterfactualExplanation", "ScientificKnowledge", "SystemRecommendation", "Characteristic", "Foil", "Explanation", "Fact"], "relations": [["a", "d", "d"], ["S", "I", "O"], ["S", "I", "O"], ["i", "s", "B"], ["c", "o", "n"], ["S", "I", "O"], ["S", "I", "O"], ["h", "a", "s"]], "meta": "leng-10"}

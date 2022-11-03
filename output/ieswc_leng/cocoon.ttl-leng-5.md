@@ -2,6 +2,10 @@
 	classDiagram
 
     
+    class UnitOfMeasure {
+    
+    }
+
 
 
 ```

@@ -1,1 +1,1 @@
-{"classes": ["AiiClassification", "NGSI_Context_Information_Management_API", "AdminShellSubmodel", "DataSharingInitiative", "IDSRAMLayer"], "relations": [], "meta": "leng-5"}
+{"classes": ["ArchitectureDescription", "BdvaConcern", "TechnicalReport", "TechnicalSpecification", "FiwareChapter"], "relations": [], "meta": "leng-5"}
