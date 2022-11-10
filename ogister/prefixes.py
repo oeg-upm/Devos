@@ -7,7 +7,6 @@ SKOS = "http://www.w3.org/2004/02/skos/core#"
 OBO = "http://purl.obolibrary.org/obo/"
 XSD = "http://www.w3.org/2001/XMLSchema#"
 
-
 prefs = {
     "DC": DC,
     "DCTERMS": DCTERMS,

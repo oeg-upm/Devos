@@ -64,7 +64,7 @@ def get_class_freq(g, only_object_property):
     return d
 
 
-def get_class_leng(g, label_uris=["rdfs:label", "rdfs:comment", "http://www.w3.org/2009/08/skos-reference/skos.html#definition"]):
+def get_class_leng(g, label_uris=["rdfs:label", "rdfs:comment", "%sdefinition" % prefixes.SKOS]):
     """
     """
     label_uris_formatted = []
@@ -77,6 +77,7 @@ def get_class_leng(g, label_uris=["rdfs:label", "rdfs:comment", "http://www.w3.o
     label_uris_sparql = ", ".join(label for label in label_uris_formatted)
     # q = "select ?class ?label where { [] a ?class. FILTER (?class IN ( %s )) }" % label_uris_sparql
     q = "select ?class ?label where { [] a ?class. ?class ?p ?label. FILTER (?p IN ( %s )) }" % label_uris_sparql
+    print("query: %s" % q)
     results = g.query(q)
     d = dict()
     for res in results:
@@ -103,7 +104,8 @@ def get_classes_with_keyword(g, keyword):
         prefixes.OBO+"IAO_0000118"
     ]
     vals = []
-    t = "select ?class where { ?class a owl:Class.  %s }"
+    t = "select ?class where {[] a ?class .  %s }"
+    # t = "select ?class where { ?class a owl:Class.  %s }"
 
     label_query_template = "{?class <%s> ?label. FILTER CONTAINS(lcase(?label), \"%s\") }"
     label_query = ""

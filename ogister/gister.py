@@ -9,6 +9,7 @@ from datetime import datetime
 from ogister import fetcher
 from ogister import util
 from nltk.corpus import stopwords
+
 stopwords = stopwords.words('english')
 
 
@@ -71,7 +72,7 @@ def all_stop_words(tokens):
     return True
 
 
-def get_matched_per_text(m, max_num_tok, g, only_object_property):
+def get_matched_per_text(m, max_num_tok, g, only_object_property, lower=True):
     tokens = util.split_text(m)
     i = 0
     matched = []
@@ -80,29 +81,36 @@ def get_matched_per_text(m, max_num_tok, g, only_object_property):
     while i < len(tokens):
         token_added = False
         for l in range(max_num_tok, 0, -1):
-            tks = tokens[i:i+l]
+            tks = tokens[i:i + l]
             if tks[0] in [',', '.']:
                 continue
             kw = " ".join(tks)
             if all_stop_words(tks):
                 # print("skip: %s" % kw)
                 continue
-            classes, properties = keyword_in_ontology(kw, g, only_object_property)
+            kw_processed = kw
+            if lower:
+                kw_processed = kw.lower()
+            classes, properties = keyword_in_ontology(kw_processed, g, only_object_property)
             matched_classes += classes
             matched_properties += properties
-            if len(classes+properties) > 0:
+            if len(classes + properties) > 0:
                 matched.append(kw)
                 i += l
                 token_added = True
                 break
         if not token_added:
             i += 1
-    print("Matched keyword: ")
-    print(matched)
-    print("matched classes: ")
-    print(matched_classes)
-    print("matched properties: ")
-    print(matched_properties)
+
+    matched = list(set(matched))
+    matched_classes = list(set(matched_classes))
+    matched_properties = list(set(matched_properties))
+    # print("Matched keyword: ")
+    # print(matched)
+    # print("matched classes: ")
+    # print(matched_classes)
+    # print("matched properties: ")
+    # print(matched_properties)
     return matched, matched_classes, matched_properties
 
 
@@ -123,7 +131,8 @@ def get_matched(meta, max_num_tok, g, only_object_property):
     return mkeywords, mclasses, mproperties
 
 
-def get_primary_classes_and_relations(input_path, title, desc, abstract, only_object_property, lang=None, max_options=0):
+def get_primary_classes_and_relations(input_path, title, desc, abstract, only_object_property, lang=None,
+                                      max_options=0):
     """
     Get relations, classes and properties related to the meta.
     """
@@ -166,8 +175,11 @@ def workflow(input_path, title, desc, abstract, only_object_property, out_path=N
     """
     meta: either "title", "description", or "abstract". It is only used for the json files
     """
-    class_relations, property_relations, classes, properties, g = get_primary_classes_and_relations(input_path, title, desc, abstract, lang=lang,
-                                                   max_options=max_options, only_object_property=only_object_property)
+    class_relations, property_relations, classes, properties, g = get_primary_classes_and_relations(input_path, title,
+                                                                                                    desc, abstract,
+                                                                                                    lang=lang,
+                                                                                                    max_options=max_options,
+                                                                                                    only_object_property=only_object_property)
     relations = list(set(class_relations + property_relations))
 
     top_relations = shorten_relations(relations)
@@ -194,6 +206,8 @@ def get_freq_classes(g, topn, only_object_property):
 
 def get_leng_classes(g, topn):
     d = fetcher.get_class_leng(g)
+    print("get_leng_classes: ")
+    print(d)
     freq_cls_pairs = []
     for k in d:
         p = (d[k], k)
@@ -231,11 +245,21 @@ def freq_workflow(input_path, out_path, topn, only_object_property):
 
 def leng_workflow(input_path, out_path, topn):
     """
+    Workflow using the comments length as the signal for importance
     """
     g = parse_ontology(input_path)
     top_classes, class_leng_dict = get_leng_classes(g, topn=topn)
+    print("Top classes: ")
+    for c in top_classes:
+        print("\t%s" % c)
     class_relations = fetcher.get_relations(g, top_classes)
+    print("relations: ")
+    for r in class_relations:
+        print(r)
     constraints = fetcher.get_classes_constraints(g, top_classes)
+    print("constraints: ")
+    for c in constraints:
+        print(c)
     class_relations += constraints
 
     top_relations = shorten_relations(class_relations)
@@ -259,10 +283,14 @@ def parse_arguments():
     parser.add_argument('-a', '--abstract', action="store_true", help="To look into abstract.")
     parser.add_argument('-n', '--topn', default=0, type=int, help="The maximum number of relevant classes.")
     parser.add_argument('-l', '--lang', default=None, help="language tag. e.g., en")
-    parser.add_argument('--object-property', action="store_true", help="Whether to only use object property for getting the relevant properties relenvant to the given meta")
-    parser.add_argument('-m', '--maxoptions', default=0, type=int, help="Maximum number of meta literal for each meta type (e.g., title)")
-    parser.add_argument('-f', '--freq', action="store_true", help="Use frequency to fetch the most relevant classes and properties")
-    parser.add_argument('-g', '--leng', action="store_true", help="Use the length to fetch the most relevant classes and properties")
+    parser.add_argument('--object-property', action="store_true",
+                        help="Whether to only use object property for getting the relevant properties relenvant to the given meta")
+    parser.add_argument('-m', '--maxoptions', default=0, type=int,
+                        help="Maximum number of meta literal for each meta type (e.g., title)")
+    parser.add_argument('-f', '--freq', action="store_true",
+                        help="Use frequency to fetch the most relevant classes and properties")
+    parser.add_argument('-g', '--leng', action="store_true",
+                        help="Use the length to fetch the most relevant classes and properties")
 
     args = parser.parse_args()
     return args.input, args.output, args.title, args.description, args.abstract, args.topn, args.lang, args.maxoptions, args.object_property, args.freq, args.leng
