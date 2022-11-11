@@ -167,6 +167,11 @@ def shorten_uris(uris):
 
 
 def shorten_relations(rels):
+    # # DEBUG
+    # for r in rels:
+    #     print(r)
+    #     print("%s\t%s\t%s" % (r[0], r[1], r[2]))
+
     shortented_rels = [(fetcher.shorten_url(r[0]), fetcher.shorten_url(r[1]), fetcher.shorten_url(r[2])) for r in rels]
     return shortented_rels
 
@@ -187,7 +192,6 @@ def workflow(input_path, title, desc, abstract, only_object_property, out_path=N
     # classes_top, relations_top = get_top(topn=topn, classes=classes, relations=relations)
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
-    print(top_relations)
     return top_classes, top_relations
 
 
@@ -200,14 +204,14 @@ def get_freq_classes(g, topn, only_object_property):
     freq_cls_pairs.sort(reverse=True, key=itemgetter(0))
     freq_cls_pairs = freq_cls_pairs[:topn]
     top_classes = [p[1] for p in freq_cls_pairs]
-    print(freq_cls_pairs)
+    # print(freq_cls_pairs)
     return top_classes
 
 
 def get_leng_classes(g, topn):
     d = fetcher.get_class_leng(g)
-    print("get_leng_classes: ")
-    print(d)
+    # print("get_leng_classes: ")
+    # print(d)
     freq_cls_pairs = []
     for k in d:
         p = (d[k], k)
@@ -215,7 +219,7 @@ def get_leng_classes(g, topn):
     freq_cls_pairs.sort(reverse=True, key=itemgetter(0))
     freq_cls_pairs = freq_cls_pairs[:topn]
     top_classes = [p[1] for p in freq_cls_pairs]
-    print(freq_cls_pairs)
+    # print(freq_cls_pairs)
 
     d_top_classes = dict()
     for c in top_classes:
@@ -234,12 +238,21 @@ def freq_workflow(input_path, out_path, topn, only_object_property):
     constraints = fetcher.get_classes_constraints(g, top_classes)
     class_relations += constraints
 
+    # print("\nTop classes: ")
+    # for c in top_classes:
+    #     print("\t%s" % c)
+    # print("\nrelations: ")
+    # for r in class_relations:
+    #     print(r)
+    # print("\nconstraints: ")
+    # for c in constraints:
+    #     print(c)
+
     top_relations = shorten_relations(class_relations)
     top_classes = shorten_uris(top_classes)
 
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
-    print(top_relations)
     return top_classes, top_relations
 
 
@@ -249,17 +262,8 @@ def leng_workflow(input_path, out_path, topn):
     """
     g = parse_ontology(input_path)
     top_classes, class_leng_dict = get_leng_classes(g, topn=topn)
-    print("Top classes: ")
-    for c in top_classes:
-        print("\t%s" % c)
     class_relations = fetcher.get_relations(g, top_classes)
-    print("relations: ")
-    for r in class_relations:
-        print(r)
     constraints = fetcher.get_classes_constraints(g, top_classes)
-    print("constraints: ")
-    for c in constraints:
-        print(c)
     class_relations += constraints
 
     top_relations = shorten_relations(class_relations)
@@ -267,7 +271,6 @@ def leng_workflow(input_path, out_path, topn):
 
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
-    print(top_relations)
     return top_classes, top_relations, class_leng_dict
 
 

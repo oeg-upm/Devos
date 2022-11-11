@@ -44,32 +44,32 @@
 
 
 
-Publication  --> Accessibility   :publicationAccessibility  
-
-Article  --> Issue   :articleInIssue  
-
-Publication  --> ContributorList   :publicationEditorList  
-
-Chapter  --> Book   :chapterInBook  
-
 Publication  --> ContributorList   :publicationAuthorList  
-
-Publication  --> Issue   :publicationInIssue  
-
-List  --> List   :first  
-
-Publication  --> Chapter   :publicationInChapter  
-
-Volume  --> Journal   :volumeInJournal  
-
-Journal  --> Category   :category  
 
 Series  --> Category   :category  
 
-Book  --> Series   :bookInSeries  
+Volume  --> Journal   :volumeInJournal  
+
+Publication  --> Accessibility   :publicationAccessibility  
+
+List  --> List   :rest  
+
+Article  --> Issue   :articleInIssue  
+
+Publication  --> Chapter   :publicationInChapter  
 
 Isssue  --> Volume   :issueInVolume  
 
-List  --> List   :rest  
+Chapter  --> Book   :chapterInBook  
+
+Publication  --> Issue   :publicationInIssue  
+
+Journal  --> Category   :category  
+
+Publication  --> ContributorList   :publicationEditorList  
+
+Book  --> Series   :bookInSeries  
+
+List  --> List   :first  
 
 ```

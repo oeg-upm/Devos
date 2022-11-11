@@ -34,7 +34,7 @@
     
     }
 
-    class n77d0a0fc641143ff95f701f298db63dcb9 {
+    class nd2a534a6414c4856b5890c088e75d1f6b9 {
     
     }
 
@@ -44,32 +44,32 @@
 
 
 
-Dataset  --> DatasetStructure   :datasetStructure  
+Variable  --> Concept   :operationalize  
 
 Model  --> Variable   :independentVariable  
 
-n77d0a0fc641143ff95f701f298db63dcb1  --> Person   :fromExpert  
-
 LinkedVariables  --> Variable   :secondVariable  
-
-Variable  --> Measure   :measuredBy  
-
-LinkedVariables  --> Variable   :firstVariable  
 
 Model  --> Variable   :dependentVariable  
 
-LinkedVariables  --> LinkType   :linkType  
-
-Model  --> Dataset   :trainingSet  
-
-Variable  --> Concept   :operationalize  
-
-Model  --> ModelType   :modelType  
+DatasetStructure  --> DataSource   :dataSource  
 
 DatasetStructure  --> Measure   :containMeasure  
 
+Dataset  --> DatasetStructure   :datasetStructure  
+
+nd2a534a6414c4856b5890c088e75d1f6b1  --> Person   :fromExpert  
+
+LinkedVariables  --> LinkType   :linkType  
+
+Model  --> ModelType   :modelType  
+
 Model  --> Variable   :controlVariable  
 
-DatasetStructure  --> DataSource   :dataSource  
+LinkedVariables  --> Variable   :firstVariable  
+
+Model  --> Dataset   :trainingSet  
+
+Variable  --> Measure   :measuredBy  
 
 ```

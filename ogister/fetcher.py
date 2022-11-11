@@ -77,7 +77,7 @@ def get_class_leng(g, label_uris=["rdfs:label", "rdfs:comment", "%sdefinition" %
     label_uris_sparql = ", ".join(label for label in label_uris_formatted)
     # q = "select ?class ?label where { [] a ?class. FILTER (?class IN ( %s )) }" % label_uris_sparql
     q = "select ?class ?label where { [] a ?class. ?class ?p ?label. FILTER (?p IN ( %s )) }" % label_uris_sparql
-    print("query: %s" % q)
+    # print("query: %s" % q)
     results = g.query(q)
     d = dict()
     for res in results:
@@ -257,6 +257,12 @@ def get_relations(g, classes):
     for class_uri in classes:
         relations += get_class_relation(g, class_uri)
     relations = list(set(relations))
+
+    # # DEBUG
+    # print("\n\n==== get_relations: ")
+    # for r in relations:
+    #     print(r)
+
     return relations
 
 
@@ -273,31 +279,19 @@ def get_classes_constraints(g, classes):
     Return constraints which is kind of a relation
     """
     consts = []
-    print("\n\nget_classes_constraints> classes: ")
-    print(classes)
+    # print("\n\nget_classes_constraints> classes: ")
+    # print(classes)
     for class_uri in classes:
-        print("\t%s" % str(class_uri))
+        # print("\t%s" % str(class_uri))
         consts += get_class_constraints(g, class_uri)
     consts = list(set(consts))
     return consts
 
 
-def get_class_constraints(g, class_uri):
+def get_class_domain_constraints(g, class_uri):
     """
-
-    A compact query of
-        SELECT ?domain ?prop ?range WHERE{
-        ?domain rdf:type owl:Class.
-        ?range rdf:type owl:Class.
-        ?domain rdfs:subClassOf ?blank.
-        ?blank rdf:type owl:Restriction.
-        ?blank owl:onProperty ?prop.
-        ?blank owl:allValuesFrom ?range  .
-        }
-
-        with the domain and range substituted. And also tested with owl:equivalentClass
     """
-    data = dict()
+    relations = []
     for restr in ["owl:allValuesFrom", "owl:someValuesFrom"]:
         q_domain = """ SELECT ?prop ?range WHERE{
                 {
@@ -315,6 +309,23 @@ def get_class_constraints(g, class_uri):
             }
             """ % (class_uri, restr, class_uri)
 
+        results = g.query(q_domain)
+        for r in results:
+            # # DEBUG
+            # print("\n**get_class_domain_constraints> ")
+            # print(r)
+
+            rel = (class_uri, r["prop"], r["range"])
+            relations.append(rel)
+
+    return relations
+
+
+def get_class_range_constraints(g, class_uri):
+    """
+    """
+    relations = []
+    for restr in ["owl:allValuesFrom", "owl:someValuesFrom"]:
         q_range = """ SELECT ?domain ?prop WHERE{
                 {
                 ?domain rdf:type owl:Class.
@@ -330,17 +341,113 @@ def get_class_constraints(g, class_uri):
                 }
             }
             """ % (restr, class_uri, class_uri)
-        # print(q_domain)
-        results = g.query(q_domain)
-        for r in results:
-            data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
-            data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["range"]))
 
         results = g.query(q_range)
         for r in results:
-            data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["domain"]))
-            data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
-    return data
+            # # DEBUG
+            # print("\n**get_class_range_constraints> ")
+            # print(r)
+
+            rel = (r["domain"], r["prop"], class_uri)
+            relations.append(rel)
+
+    return relations
+
+
+def get_class_constraints(g, class_uri):
+    """
+    A compact query of
+        SELECT ?domain ?prop ?range WHERE{
+        ?domain rdf:type owl:Class.
+        ?range rdf:type owl:Class.
+        ?domain rdfs:subClassOf ?blank.
+        ?blank rdf:type owl:Restriction.
+        ?blank owl:onProperty ?prop.
+        ?blank owl:allValuesFrom ?range  .
+        }
+        with the domain and range substituted. And also tested with owl:equivalentClass
+    """
+    domain_constraints = get_class_domain_constraints(g, class_uri)
+    range_constraints = get_class_range_constraints(g, class_uri)
+    constraints = domain_constraints + range_constraints
+    # constraints = list(set(constraints))
+    return constraints
+
+
+# def get_class_constraints(g, class_uri):
+#     """
+#
+#     A compact query of
+#         SELECT ?domain ?prop ?range WHERE{
+#         ?domain rdf:type owl:Class.
+#         ?range rdf:type owl:Class.
+#         ?domain rdfs:subClassOf ?blank.
+#         ?blank rdf:type owl:Restriction.
+#         ?blank owl:onProperty ?prop.
+#         ?blank owl:allValuesFrom ?range  .
+#         }
+#
+#         with the domain and range substituted. And also tested with owl:equivalentClass
+#     """
+#     data = dict()
+#
+#     for restr in ["owl:allValuesFrom", "owl:someValuesFrom"]:
+#         q_domain = """ SELECT ?prop ?range WHERE{
+#                 {
+#                 ?range rdf:type owl:Class.
+#                 <%s> rdfs:subClassOf [ rdf:type owl:Restriction ;
+#                 owl:onProperty ?prop ;
+#                 %s ?range ] .
+#                 } UNION
+#                 {
+#                 ?range rdf:type owl:Class.
+#                 <%s> owl:equivalentClass [ rdf:type owl:Restriction ;
+#                 owl:onProperty ?prop ;
+#                 owl:allValuesFrom ?range ] .
+#                 }
+#             }
+#             """ % (class_uri, restr, class_uri)
+#
+#         q_range = """ SELECT ?domain ?prop WHERE{
+#                 {
+#                 ?domain rdf:type owl:Class.
+#                 ?domain rdfs:subClassOf [ rdf:type owl:Restriction ;
+#                 owl:onProperty ?prop ;
+#                 %s <%s> ] .
+#                 } UNION
+#                 {
+#                 ?domain rdf:type owl:Class.
+#                 ?domain owl:equivalentClass [ rdf:type owl:Restriction ;
+#                 owl:onProperty ?prop ;
+#                 owl:allValuesFrom <%s> ] .
+#                 }
+#             }
+#             """ % (restr, class_uri, class_uri)
+#         # print(q_domain)
+#         results = g.query(q_domain)
+#         for r in results:
+#
+#             # DEBUG
+#             print("\n**get_class_constraints> ")
+#             print(r)
+#
+#             data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
+#             data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["range"]))
+#
+#         results = g.query(q_range)
+#         for r in results:
+#             # DEBUG
+#             print("\n**get_class_constraints> ")
+#             print(r)
+#
+#             data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["domain"]))
+#             data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
+#
+#     # DEBUG
+#     print("\n===== get_class_constraints> data")
+#     print(data)
+#
+#     return data
 
 
 def get_class_relation(g, class_uri):

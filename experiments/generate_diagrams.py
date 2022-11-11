@@ -38,11 +38,19 @@ def experiment(input_files, output_path, only_object_property, freq, topn, leng,
     Experiment
     """
     global meta_srcs
+
+    if not os.path.exists(output_path):
+        os.mkdir(output_path)
+
     if freq:
         meta_srcs = ["freq-%d" % topn]
     elif leng:
         meta_srcs = ["leng-%d" % topn]
+
     for inp in input_files:
+        if os.path.isdir(inp):
+            print("skip: %s" % inp)
+            continue
         for m in meta_srcs:
             titl = desc = abst = False
             if m == "title":

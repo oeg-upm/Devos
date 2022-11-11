@@ -44,64 +44,64 @@
 
 
 
-AssociatedPositioningSystem  --> IntrinsicCoordinate   :intrinsicCoordinate  
+LinearPositioningSystem  --> LinearAnchorPoint   :anchor  
 
-PositionedRelation  --> PositioningNetElement   :elementA  
+LinearLocation  --> OrderedAssociatedNetElement   :associatedElement  
 
-AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :start  
+NetElement  --> Relation   :relation  
+
+OrderedCollection  --> RDFList   :elementPartList  
 
 AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :end  
 
+PositionedRelation  --> PositioningNetElement   :elementB  
+
 AreaLocation  --> AssociatedNetElement   :associatedNetElement  
+
+n487941f7af5943ebb12a70be1d6b47ebb24  --> NetElement   :elementPart  
+
+AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :start  
+
+n487941f7af5943ebb12a70be1d6b47ebb27  --> PositioningNetElement   :netElement  
 
 CompositionNetElement  --> ElementPartCollection   :elementCollection  
 
 Relation  --> NetElement   :element  
 
-OrderedCollection  --> RDFList   :elementPartList  
-
-nb3326e55e1944b9d8965c2af15ea47d5b20  --> PositioningSystemCoordinate   :coordinate  
-
-PositioningNetElement  --> AssociatedPositioningSystem   :associatedPositioningSystem  
-
-PositionedRelation  --> PositioningNetElement   :elementB  
-
-nb3326e55e1944b9d8965c2af15ea47d5b24  --> NetElement   :elementPart  
-
-nb3326e55e1944b9d8965c2af15ea47d5b27  --> PositioningNetElement   :netElement  
-
-LinearLocation  --> OrderedAssociatedNetElement   :associatedElement  
+n487941f7af5943ebb12a70be1d6b47ebb20  --> PositioningSystemCoordinate   :coordinate  
 
 IntrinsicCoordinate  --> IntrinsicCoordinate   :reaches  
 
-LinearPositioningSystem  --> LinearAnchorPoint   :anchor  
+PositionedRelation  --> PositioningNetElement   :elementA  
 
-NetElement  --> Relation   :relation  
+AssociatedPositioningSystem  --> IntrinsicCoordinate   :intrinsicCoordinate  
 
-e  --> e   :l  
+PositioningNetElement  --> AssociatedPositioningSystem   :associatedPositioningSystem  
 
-n  --> t   :e  
-
-a  --> s   :s  
-
-c  --> o   :o  
+r  --> l   :e  
 
 e  --> e   :l  
 
-a  --> s   :s  
-
-e  --> e   :l  
+p  --> s   :o  
 
 a  --> s   :s  
 
 s  --> a   :t  
 
+c  --> o   :o  
+
+a  --> s   :s  
+
 i  --> t   :n  
+
+n  --> t   :e  
 
 e  --> d   :n  
 
-p  --> s   :o  
+a  --> s   :s  
 
-r  --> l   :e  
+e  --> e   :l  
+
+e  --> e   :l  
 
 ```

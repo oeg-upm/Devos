@@ -24,26 +24,26 @@
 
 
 
+Variable  --> Concept   :operationalize  
+
 DatasetStructure  --> DataSource   :dataSource  
 
-Variable  --> Measure   :measuredBy  
-
-Dataset  --> DatasetStructure   :datasetStructure  
-
-n7151c38c92fa454b83965fed99172cdcb1  --> Person   :fromExpert  
+LinkedVariables  --> Variable   :firstVariable  
 
 Model  --> Variable   :controlVariable  
 
-Model  --> Variable   :dependentVariable  
+Model  --> Variable   :independentVariable  
 
 LinkedVariables  --> Variable   :secondVariable  
 
+Model  --> Variable   :dependentVariable  
+
+Dataset  --> DatasetStructure   :datasetStructure  
+
 DatasetStructure  --> Measure   :containMeasure  
 
-Variable  --> Concept   :operationalize  
+ncaa247dcf0f14bdeb87308e331c88396b1  --> Person   :fromExpert  
 
-Model  --> Variable   :independentVariable  
-
-LinkedVariables  --> Variable   :firstVariable  
+Variable  --> Measure   :measuredBy  
 
 ```

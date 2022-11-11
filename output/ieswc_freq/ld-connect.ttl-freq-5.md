@@ -24,22 +24,22 @@
 
 
 
-List  --> List   :rest  
-
-Publication  --> Issue   :publicationInIssue  
-
-Publication  --> ContributorList   :publicationAuthorList  
-
-Journal  --> Category   :category  
-
 Series  --> Category   :category  
 
-Volume  --> Journal   :volumeInJournal  
-
-Article  --> Issue   :articleInIssue  
+Publication  --> ContributorList   :publicationEditorList  
 
 List  --> List   :first  
 
-Publication  --> ContributorList   :publicationEditorList  
+Volume  --> Journal   :volumeInJournal  
+
+List  --> List   :rest  
+
+Journal  --> Category   :category  
+
+Publication  --> ContributorList   :publicationAuthorList  
+
+Article  --> Issue   :articleInIssue  
+
+Publication  --> Issue   :publicationInIssue  
 
 ```

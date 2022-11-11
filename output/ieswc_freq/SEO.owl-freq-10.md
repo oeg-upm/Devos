@@ -44,35 +44,35 @@
 
 
 
-OrganisedEvent  --> Flyer   :hasFlyer  
-
-Sponsor  --> OrganisedEvent   :isSponsorOf  
-
-Agent  --> OrganisedEvent   :participatesIn  
-
-OrganisedEvent  --> OrganisedEvent   :colocatedWith  
-
-OrganisedEvent  --> TravelInformation   :providesTravelInformation  
-
-OrganisedEvent  --> Keynote   :hasKeynote  
-
-OrganisedEvent  --> Sponsor   :hasSponsor  
-
-EventSeries  --> OrganisedEvent   :hasEvent  
-
-AcademicEvent  --> DCTERMSAgentClass   :DCTERMSaudience  
-
 OrganisedEvent  --> Country   :heldInCountry  
 
 OrganisedEvent  --> Registration   :hasRegistration  
 
+OrganisedEvent  --> Flyer   :hasFlyer  
+
 Author  --> Award   :takesAward  
 
-OrganisedEvent  --> EventSeries   :belongsToSeries  
+EventSeries  --> OrganisedEvent   :hasEvent  
+
+Agent  --> OrganisedEvent   :participatesIn  
+
+AcademicEvent  --> DCTERMSAgentClass   :DCTERMSaudience  
+
+OrganisedEvent  --> TravelInformation   :providesTravelInformation  
 
 OrganisedEvent  --> Award   :offersAward  
 
+OrganisedEvent  --> Sponsor   :hasSponsor  
+
 OrganisedEvent  --> City   :heldInCity  
+
+OrganisedEvent  --> OrganisedEvent   :colocatedWith  
+
+OrganisedEvent  --> EventSeries   :belongsToSeries  
+
+Sponsor  --> OrganisedEvent   :isSponsorOf  
+
+OrganisedEvent  --> Keynote   :hasKeynote  
 
 Keynote  --> OrganisedEvent   :keynoteIn  
 

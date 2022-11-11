@@ -44,143 +44,99 @@
 
 
 
-ReferenceCoinLegend  --> NumismaticProperty   :isReferenceCoinLegendOf  
+CartographicTheme  --> CartographicClassification   :isCartographicThemeOf  
 
-CulturalProperty  --> CulturalPropertyResidual   :hasCulturalPropertyResidual  
-
-ArchaeologicalMaterialCategory  --> ArchaeologicalMaterial   :isArchaeologicalMaterialCategoryOf  
-
-NumismaticProperty  --> NumismaticPropertyCategory   :hasNumismaticPropertyCategory  
-
-CulturalProperty  --> SubjectDiscipline   :hasAlternativeDiscipline  
-
-CartographicClassification  --> CartographicSymbol   :hasCartographicSymbol  
-
-CulturalProperty  --> Agent   :hasHeritageProtectionAgency  
-
-CulturalPropertyCategory  --> CulturalProperty   :isCulturalPropertyCategoryOf  
-
-CulturalPropertyInventoryCategory  --> CulturalProperty   :isCulturalPropertyInventoryCategoryOf  
+PhotographicHeritageClassification  --> PhotographicHeritage   :isPhotographicHeritageClassificationOf  
 
 CulturalProperty  --> Agent   :hasCataloguingAgency  
 
 ArchaeologicalMaterial  --> ArchaeologicalMaterialCategory   :hasArchaeologicalMaterialCategory  
 
-CartographicClassification  --> CartographicTheme   :hasCartographicTheme  
-
-PhotographicHeritage  --> PhotographicHeritageClassification   :hasPhotographicHeritageClassification  
-
-CartographicTheme  --> CartographicClassification   :isCartographicThemeOf  
-
 CulturalProperty  --> MibacScopeOfProtection   :hasMibacScopeOfProtection  
-
-MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
-
-CulturalProperty  --> Agent   :hasRelatedAgency  
-
-SubjectDiscipline  --> CulturalProperty   :isAlternativeDisciplineOf  
-
-CartographicClassification  --> ThematicCategory   :hasThematicCategory  
-
-CulturalProperty  --> CulturalPropertyInventoryCategory   :hasCulturalPropertyInventoryCategory  
-
-NumismaticProperty  --> ReferenceCoinLegend   :hasReferenceCoinLegend  
-
-PhotographicHeritageClassification  --> PhotographicHeritage   :isPhotographicHeritageClassificationOf  
-
-SubjectDiscipline  --> CulturalProperty   :isMainDisciplineOf  
-
-Agent  --> CulturalProperty   :isHeritageProtectionAgencyOf  
-
-ThematicCategory  --> CartographicClassification   :isThematicCategoryOf  
-
-CulturalProperty  --> CulturalPropertyCataloguingCategory   :hasCulturalPropertyCataloguingCategory  
-
-CulturalProperty  --> CulturalPropertyCategory   :hasCulturalPropertyCategory  
-
-Agent  --> CulturalProperty   :isCataloguingAgencyOf  
-
-Agent  --> CulturalProperty   :isRelatedAgencyOf  
-
-PhotographicHeritageClassificationType  --> PhotographicHeritageClassification   :isPhotographicHeritageClassificationTypeOf  
-
-CulturalProperty  --> CartographicClassification   :hasCartographicClassification  
-
-NumismaticPropertyCategory  --> NumismaticProperty   :isNumismaticPropertyCategoryOf  
-
-CulturalPropertyResidual  --> CulturalProperty   :isCulturalPropertyResidualOf  
 
 PhotographicHeritageClassification  --> PhotographicHeritageClassificationType   :hasPhotographicHeritageClassificationType  
 
-CulturalProperty  --> SubjectDiscipline   :hasMainDiscipline  
+CulturalPropertyResidual  --> CulturalProperty   :isCulturalPropertyResidualOf  
+
+MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
+
+Agent  --> CulturalProperty   :isRelatedAgencyOf  
+
+CulturalProperty  --> CulturalPropertyInventoryCategory   :hasCulturalPropertyInventoryCategory  
+
+CulturalProperty  --> Agent   :hasHeritageProtectionAgency  
+
+SubjectDiscipline  --> CulturalProperty   :isMainDisciplineOf  
+
+PhotographicHeritage  --> PhotographicHeritageClassification   :hasPhotographicHeritageClassification  
+
+CulturalPropertyCategory  --> CulturalProperty   :isCulturalPropertyCategoryOf  
+
+NumismaticProperty  --> NumismaticPropertyCategory   :hasNumismaticPropertyCategory  
 
 CartographicClassification  --> CulturalProperty   :isCartographicClassificationOf  
 
-CartographicSymbol  --> CartographicClassification   :isCartographicSymbolOf  
+CulturalProperty  --> SubjectDiscipline   :hasMainDiscipline  
+
+NumismaticPropertyCategory  --> NumismaticProperty   :isNumismaticPropertyCategoryOf  
+
+Agent  --> CulturalProperty   :isHeritageProtectionAgencyOf  
+
+CulturalProperty  --> CulturalPropertyResidual   :hasCulturalPropertyResidual  
+
+ArchaeologicalMaterialCategory  --> ArchaeologicalMaterial   :isArchaeologicalMaterialCategoryOf  
+
+CulturalProperty  --> Agent   :hasRelatedAgency  
+
+CartographicClassification  --> CartographicTheme   :hasCartographicTheme  
+
+NumismaticProperty  --> ReferenceCoinLegend   :hasReferenceCoinLegend  
+
+CulturalProperty  --> CulturalPropertyCataloguingCategory   :hasCulturalPropertyCataloguingCategory  
+
+CartographicClassification  --> ThematicCategory   :hasThematicCategory  
 
 CulturalPropertyCataloguingCategory  --> CulturalProperty   :isCulturalPropertyCataloguingCategoryOf  
 
+CulturalProperty  --> CulturalPropertyCategory   :hasCulturalPropertyCategory  
+
+PhotographicHeritageClassificationType  --> PhotographicHeritageClassification   :isPhotographicHeritageClassificationTypeOf  
+
+CartographicSymbol  --> CartographicClassification   :isCartographicSymbolOf  
+
+ReferenceCoinLegend  --> NumismaticProperty   :isReferenceCoinLegendOf  
+
+Agent  --> CulturalProperty   :isCataloguingAgencyOf  
+
+SubjectDiscipline  --> CulturalProperty   :isAlternativeDisciplineOf  
+
+CulturalProperty  --> SubjectDiscipline   :hasAlternativeDiscipline  
+
+CulturalProperty  --> CartographicClassification   :hasCartographicClassification  
+
+CartographicClassification  --> CartographicSymbol   :hasCartographicSymbol  
+
+CulturalPropertyInventoryCategory  --> CulturalProperty   :isCulturalPropertyInventoryCategoryOf  
+
+ThematicCategory  --> CartographicClassification   :isThematicCategoryOf  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
 h  --> s   :a  
 
 i  --> C   :s  
-
-h  --> s   :a  
-
-i  --> C   :s  
-
-i  --> C   :s  
-
-h  --> s   :a  
-
-h  --> s   :a  
-
-h  --> s   :a  
-
-h  --> s   :a  
-
-h  --> s   :a  
 
 i  --> R   :s  
-
-h  --> s   :a  
-
-i  --> R   :s  
-
-h  --> s   :a  
-
-h  --> s   :a  
-
-h  --> s   :a  
-
-h  --> s   :a  
-
-i  --> M   :s  
-
-h  --> s   :a  
-
-i  --> C   :s  
-
-i  --> P   :s  
-
-i  --> C   :s  
-
-h  --> s   :a  
-
-i  --> R   :s  
-
-h  --> s   :a  
-
-i  --> P   :s  
-
-h  --> s   :a  
-
-h  --> s   :a  
-
-h  --> s   :a  
-
-h  --> s   :a  
-
-h  --> s   :a  
 
 h  --> s   :a  
 
@@ -190,9 +146,7 @@ i  --> A   :s
 
 h  --> s   :a  
 
-h  --> s   :a  
-
-h  --> s   :a  
+i  --> C   :s  
 
 h  --> s   :a  
 
@@ -210,13 +164,9 @@ i  --> C   :s
 
 h  --> s   :a  
 
-i  --> T   :s  
+i  --> C   :s  
 
-h  --> s   :a  
-
-h  --> s   :a  
-
-h  --> s   :a  
+i  --> R   :s  
 
 h  --> s   :a  
 
@@ -236,6 +186,40 @@ h  --> s   :a
 
 h  --> s   :a  
 
+h  --> s   :a  
+
+h  --> s   :a  
+
+i  --> C   :s  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+i  --> R   :s  
+
+i  --> C   :s  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
 i  --> M   :s  
 
 h  --> s   :a  
@@ -246,11 +230,27 @@ h  --> s   :a
 
 h  --> s   :a  
 
+h  --> s   :a  
+
+h  --> s   :a  
+
+i  --> P   :s  
+
+h  --> s   :a  
+
+h  --> s   :a  
+
 i  --> C   :s  
 
+i  --> P   :s  
+
 h  --> s   :a  
 
 h  --> s   :a  
+
+i  --> M   :s  
+
+i  --> T   :s  
 
 h  --> s   :a  
 

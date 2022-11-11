@@ -24,52 +24,52 @@
 
 
 
-Relation  --> NetElement   :element  
-
-AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :end  
-
-n64cb82f2c90342969fe091a8f7d8d571b24  --> NetElement   :elementPart  
-
-AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :start  
-
-PositionedRelation  --> PositioningNetElement   :elementA  
-
-NetElement  --> Relation   :relation  
-
 PositionedRelation  --> PositioningNetElement   :elementB  
 
 LinearPositioningSystem  --> LinearAnchorPoint   :anchor  
 
-n64cb82f2c90342969fe091a8f7d8d571b27  --> PositioningNetElement   :netElement  
+nfe502903a72a4958a72cae6a2d7ed2f2b20  --> PositioningSystemCoordinate   :coordinate  
 
 PositioningNetElement  --> AssociatedPositioningSystem   :associatedPositioningSystem  
 
+Relation  --> NetElement   :element  
+
+nfe502903a72a4958a72cae6a2d7ed2f2b24  --> NetElement   :elementPart  
+
 AssociatedPositioningSystem  --> IntrinsicCoordinate   :intrinsicCoordinate  
+
+PositionedRelation  --> PositioningNetElement   :elementA  
 
 IntrinsicCoordinate  --> IntrinsicCoordinate   :reaches  
 
-n64cb82f2c90342969fe091a8f7d8d571b20  --> PositioningSystemCoordinate   :coordinate  
+AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :start  
 
-s  --> a   :t  
+nfe502903a72a4958a72cae6a2d7ed2f2b27  --> PositioningNetElement   :netElement  
 
-e  --> e   :l  
+NetElement  --> Relation   :relation  
 
-e  --> d   :n  
+AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :end  
 
 n  --> t   :e  
 
-i  --> t   :n  
+r  --> l   :e  
 
 a  --> s   :s  
 
 e  --> e   :l  
 
-e  --> e   :l  
+s  --> a   :t  
 
-r  --> l   :e  
+p  --> s   :o  
 
 c  --> o   :o  
 
-p  --> s   :o  
+i  --> t   :n  
+
+e  --> d   :n  
+
+e  --> e   :l  
+
+e  --> e   :l  
 
 ```

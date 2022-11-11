@@ -24,56 +24,56 @@
 
 
 
-UserProfile  --> Accessibility   :accessibility  
-
-Methodology  --> KnowledgeTopic   :hasKnowledgeTopic  
-
-Question  --> Answer   :hasAnswer  
-
-Recommendation  --> UserProfile   :generatedFrom  
-
-LearningGoal  --> UserProfile   :storedIn  
+Exercise  --> KnowledgeTopic   :hasKnowledgeTopic  
 
 UserProfile  --> LearningPath   :definesLearningPath  
 
-EducationalResource  --> Accessibility   :accessibility  
-
-Skill  --> KnowledgeTopic   :hasKnowledgeTopic  
-
-User  --> Exercise   :solves  
-
-Theory  --> KnowledgeTopic   :hasKnowledgeTopic  
-
-User  --> UserProfile   :hasProfile  
-
-User  --> Answer   :givesAnswer  
-
-PsycologicalParameter  --> UserProfile   :storedIn  
-
-KnowledgeTopic  --> Exercise   :hasExercise  
-
-KnowledgeTopic  --> Theory   :hasTheory  
+KnowledgeTopic  --> LearningOutcome   :hasLearningOutcome  
 
 KnowledgeTopic  --> EducationalResource   :hasEducationalResource  
 
-Exercise  --> KnowledgeTopic   :hasKnowledgeTopic  
+Skill  --> KnowledgeTopic   :hasKnowledgeTopic  
 
-Test  --> KnowledgeTopic   :testKnowledgeTopic  
+KnowledgeTopic  --> Theory   :hasTheory  
 
-KnowledgeTopic  --> LearningOutcome   :hasLearningOutcome  
-
-EducationalResource  --> KnowledgeTopic   :hasKnowledgeTopic  
-
-Exercise  --> Question   :hasQuestion  
-
-Skill  --> KnowledgeTopic   :requiresKnowledge  
-
-KnowledgeTopic  --> Methodology   :hasMethodology  
-
-LearningPreference  --> UserProfile   :storedIn  
+EducationalResource  --> Accessibility   :accessibility  
 
 LearningPath  --> KnowledgeTopic   :consistsOfKnowledge  
 
+Recommendation  --> UserProfile   :generatedFrom  
+
 AcademicParameter  --> UserProfile   :storedIn  
+
+PsycologicalParameter  --> UserProfile   :storedIn  
+
+Question  --> Answer   :hasAnswer  
+
+Skill  --> KnowledgeTopic   :requiresKnowledge  
+
+Test  --> KnowledgeTopic   :testKnowledgeTopic  
+
+LearningPreference  --> UserProfile   :storedIn  
+
+EducationalResource  --> KnowledgeTopic   :hasKnowledgeTopic  
+
+Methodology  --> KnowledgeTopic   :hasKnowledgeTopic  
+
+Theory  --> KnowledgeTopic   :hasKnowledgeTopic  
+
+KnowledgeTopic  --> Exercise   :hasExercise  
+
+UserProfile  --> Accessibility   :accessibility  
+
+User  --> Answer   :givesAnswer  
+
+User  --> UserProfile   :hasProfile  
+
+User  --> Exercise   :solves  
+
+KnowledgeTopic  --> Methodology   :hasMethodology  
+
+Exercise  --> Question   :hasQuestion  
+
+LearningGoal  --> UserProfile   :storedIn  
 
 ```
