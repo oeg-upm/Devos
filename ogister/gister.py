@@ -202,9 +202,14 @@ def get_freq_classes(g, topn, only_object_property):
         p = (d[k], k)
         freq_cls_pairs.append(p)
     freq_cls_pairs.sort(reverse=True, key=itemgetter(0))
+
+    # DEBUG
+    for p in freq_cls_pairs:
+        print("%3d -- %s" % (p[0], p[1]))
+
     freq_cls_pairs = freq_cls_pairs[:topn]
     top_classes = [p[1] for p in freq_cls_pairs]
-    # print(freq_cls_pairs)
+    print(freq_cls_pairs)
     return top_classes
 
 
@@ -238,15 +243,14 @@ def freq_workflow(input_path, out_path, topn, only_object_property):
     constraints = fetcher.get_classes_constraints(g, top_classes)
     class_relations += constraints
 
-    # print("\nTop classes: ")
-    # for c in top_classes:
-    #     print("\t%s" % c)
-    # print("\nrelations: ")
-    # for r in class_relations:
-    #     print(r)
-    # print("\nconstraints: ")
-    # for c in constraints:
-    #     print(c)
+    print("\nTop classes: ")
+    for c in top_classes:
+        print("\t%s" % c)
+    print("\nrelations: ")
+    util.print_relations(class_relations)
+    print("\nconstraints: ")
+    for c in constraints:
+        print(c)
 
     top_relations = shorten_relations(class_relations)
     top_classes = shorten_uris(top_classes)

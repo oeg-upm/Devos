@@ -42,3 +42,9 @@ def split_text_manual(text, splitters=[" ", ".", ",", ":", "(", ")", ">", "<"]):
     for t in tokens:
         toks += split_text_manual(t, splitters[1:])
     return toks
+
+
+def print_relations(relations):
+    for r in relations:
+        s, p, o = r
+        print("%s  ----( %s )---->  %s" % (s, p, o))

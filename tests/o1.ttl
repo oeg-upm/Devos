@@ -1,0 +1,35 @@
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix dbp: <http://dbpedia.org/property/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+
+dbr:r1 rdf:type dbo:football.
+dbr:r2 rdf:type dbo:basket.
+dbr:r3 rdf:type dbo:basket.
+dbr:r4 rdf:type dbo:basket.
+dbr:r5 rdf:type dbo:basket.
+dbr:r6 rdf:type dbo:basket.
+dbr:r7 rdf:type dbo:golf.
+
+
+
+dbp:hasFoot  rdf:type owl:ObjectProperty.
+dbp:hasFootBall  rdf:type owl:ObjectProperty.
+
+dbp:hasFoot rdfs:domain dbo:football.
+dbp:hasFoot rdfs:range dbo:foot.
+
+dbp:hasFootBall rdfs:domain dbo:football.
+dbp:hasFootBall rdfs:range dbo:football.
+
+dbp:hasBasket rdf:type owl:ObjectProperty.
+dbp:hasBasket rdfs:domain dbo:basket.
+dbp:hasBasket rdfs:range dbo:basket.
+
+

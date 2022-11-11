@@ -51,10 +51,10 @@ def get_class_freq(g, only_object_property):
         if class_uri not in d:
             d[class_uri] = 0
         d[class_uri] += num
+    print(d)
     # range
     q = t % """ {?property rdfs:range ?class.}"""
     results = g.query(q)
-    d = dict()
     for res in results:
         class_uri = str(res["class"])
         num = int(str(res["num"]))
