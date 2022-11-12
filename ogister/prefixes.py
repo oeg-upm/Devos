@@ -6,6 +6,7 @@ RDF = "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 SKOS = "http://www.w3.org/2004/02/skos/core#"
 OBO = "http://purl.obolibrary.org/obo/"
 XSD = "http://www.w3.org/2001/XMLSchema#"
+DBO = "http://dbpedia.org/ontology/"
 
 prefs = {
     "DC": DC,
@@ -15,5 +16,6 @@ prefs = {
     "RDF": RDF,
     "SKOS": SKOS,
     "OBO": OBO,
-    "XSD": XSD
+    "XSD": XSD,
+    "DBO": DBO
 }
