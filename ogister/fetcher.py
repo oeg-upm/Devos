@@ -64,9 +64,13 @@ def get_class_freq(g, only_object_property):
     return d
 
 
-def get_class_leng(g, label_uris=["rdfs:label", "rdfs:comment", "%sdefinition" % prefixes.SKOS]):
+def get_class_leng(g):
     """
+    Term labels and definitions are based on
+    https://dgarijo.github.io/Widoco/doc/bestPractices/index-en.html#desc-term
     """
+    label_uris = ["rdfs:label", "rdfs:comment", prefixes.SKOS + "definition",
+                  prefixes.SKOS + "prefLabel", prefixes.OBO + "IAO_0000118"]
     label_uris_formatted = []
     for uri in label_uris:
         if uri.startswith('http'):
