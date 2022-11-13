@@ -2,11 +2,15 @@
 	classDiagram
 
     
+    class Mention {
+    
+    }
+
     class Context {
     
     }
 
-    class Mention {
+    class Quotation {
     
     }
 

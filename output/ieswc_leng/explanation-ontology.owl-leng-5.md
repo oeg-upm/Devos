@@ -2,7 +2,11 @@
 	classDiagram
 
     
-    class DeductiveTask {
+    class Explanation {
+    
+    }
+
+    class SystemRecommendation {
     
     }
 
@@ -14,20 +18,30 @@
     
     }
 
-    class SystemRecommendation {
-    
-    }
-
-    class Characteristic {
+    class DeductiveTask {
     
     }
 
 
 
-S  --> O   :I  
+Explanation  --> SIO000085   :addresses  
 
-i  --> B   :s  
+ExplanationCollection  --> Explanation   :SIO000059  
 
-S  --> O   :I  
+Explanation  --> ExplanationModality   :hasPresentation  
+
+Explanation  --> SystemRecommendation   :isBasedOn  
+
+Explanation  --> SystemRecommendation   :isBasedOn  
+
+Explanation  --> ExplanationGoal   :SIO000008  
+
+user  --> Explanation   :consumes  
+
+SystemRecommendation  --> objectrecord   :SIO001277  
+
+SystemRecommendation  --> ArtificialIntelligenceMethod   :SIO000232  
+
+Explanation  --> knowledge   :isBasedOn  
 
 ```

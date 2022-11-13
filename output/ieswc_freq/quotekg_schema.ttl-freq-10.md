@@ -2,18 +2,22 @@
 	classDiagram
 
     
-    class Context {
-    
-    }
-
     class Mention {
     
     }
 
+    class Context {
+    
+    }
+
+    class Quotation {
+    
+    }
 
 
-Quotation  --> Mention   :hasMention  
 
 Mention  --> Context   :hasContext  
+
+Quotation  --> Mention   :hasMention  
 
 ```

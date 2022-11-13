@@ -2,123 +2,7 @@
 	classDiagram
 
     
-    class OBOOMIT_0006327 {
-    
-    }
-
-    class ExplanationMethod {
-    
-    }
-
-    class SystemDesigner {
-    
-    }
-
-    class StaticExplanationType {
-    
-    }
-
-    class Reasoning_Mode {
-    
-    }
-
-    class StaticExplanation {
-    
-    }
-
-    class EverydayExplanation {
-    
-    }
-
-    class LocalExplanation {
-    
-    }
-
-    class SystemTrace {
-    
-    }
-
-    class Evidence_Based_Explanation {
-    
-    }
-
-    class ContextualExplanation {
-    
-    }
-
-    class GlobalExplanationType {
-    
-    }
-
-    class CaseBasedExplanation {
-    
-    }
-
-    class ExplanationType {
-    
-    }
-
-    class TraceBasedExplanation {
-    
-    }
-
-    class ExplanationGoal {
-    
-    }
-
-    class GlobalExplanationOutput {
-    
-    }
-
-    class ResponsibilityExplanation {
-    
-    }
-
-    class System {
-    
-    }
-
-    class LocalExplanationType {
-    
-    }
-
-    class Mechanistic_Explanation {
-    
-    }
-
-    class SimulationBasedExplanation {
-    
-    }
-
-    class StatisticalExplanation {
-    
-    }
-
-    class InteractiveExplanation {
-    
-    }
-
-    class SystemRecommendation {
-    
-    }
-
-    class InterprationAndExplanationTask {
-    
-    }
-
-    class ContrastiveExplanation {
-    
-    }
-
-    class ImpactExplanation {
-    
-    }
-
-    class KnowledgeBasedSystems {
-    
-    }
-
-    class SystemDeveloper {
+    class Explanation {
     
     }
 
@@ -126,96 +10,30 @@
     
     }
 
-    class Situation {
-    
-    }
-
-    class RationaleExplanation {
-    
-    }
-
-    class InteractiveExplanationType {
-    
-    }
-
-    class OBOOMIT_0028314 {
-    
-    }
-
-    class Explanation {
-    
-    }
-
-    class ModelExplanationOutputs {
-    
-    }
-
-    class FairnessExplanation {
-    
-    }
-
-    class scientificExplanation {
-    
-    }
-
-    class DataExplanation {
-    
-    }
-
-    class ExplanationModality {
-    
-    }
-
-    class OBOOMIT_0010354 {
-    
-    }
-
-    class SafetyAndPerformanceExplanation {
-    
-    }
-
-    class OBOOMIT_0017046 {
-    
-    }
-
-    class SystemCharacteristic {
+    class SystemRecommendation {
     
     }
 
 
 
-S  --> O   :I  
+Explanation  --> ExplanationGoal   :SIO000008  
 
-h  --> s   :a  
+SystemRecommendation  --> ArtificialIntelligenceMethod   :SIO000232  
 
-h  --> s   :a  
+SystemRecommendation  --> objectrecord   :SIO001277  
 
-S  --> O   :I  
+Explanation  --> SystemRecommendation   :isBasedOn  
 
-S  --> O   :I  
+Explanation  --> knowledge   :isBasedOn  
 
-S  --> O   :I  
+Explanation  --> SystemRecommendation   :isBasedOn  
 
-h  --> s   :a  
+user  --> Explanation   :consumes  
 
-a  --> d   :d  
+Explanation  --> ExplanationModality   :hasPresentation  
 
-i  --> B   :s  
+ExplanationCollection  --> Explanation   :SIO000059  
 
-S  --> O   :I  
-
-c  --> n   :o  
-
-S  --> O   :I  
-
-S  --> O   :I  
-
-u  --> e   :s  
-
-h  --> s   :a  
-
-S  --> O   :I  
-
-S  --> O   :I  
+Explanation  --> SIO000085   :addresses  
 
 ```

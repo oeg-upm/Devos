@@ -12,8 +12,8 @@
 
 
 
-Publication  --> Accessibility   :publicationAccessibility  
-
 Contributor  --> Role   :contributorRole  
+
+Publication  --> Accessibility   :publicationAccessibility  
 
 ```

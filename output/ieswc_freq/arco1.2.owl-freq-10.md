@@ -14,7 +14,7 @@
     
     }
 
-    class SubjectDiscipline {
+    class NumismaticProperty {
     
     }
 
@@ -22,236 +22,274 @@
     
     }
 
-    class NumismaticProperty {
+    class SubjectDiscipline {
     
     }
 
-    class ArchaeologicalMaterialCategory {
+    class ArchaeologicalMaterial {
     
     }
 
-    class CartographicSymbol {
+    class ComplexCulturalProperty {
     
     }
 
-    class CartographicTheme {
+    class MusicHeritage {
     
     }
 
-    class CulturalPropertyCataloguingCategory {
+    class PhotographicHeritage {
     
     }
 
 
-
-CartographicTheme  --> CartographicClassification   :isCartographicThemeOf  
-
-PhotographicHeritageClassification  --> PhotographicHeritage   :isPhotographicHeritageClassificationOf  
 
 CulturalProperty  --> Agent   :hasCataloguingAgency  
 
-ArchaeologicalMaterial  --> ArchaeologicalMaterialCategory   :hasArchaeologicalMaterialCategory  
+CulturalProperty  --> SubjectDiscipline   :hasAlternativeDiscipline  
 
-CulturalProperty  --> MibacScopeOfProtection   :hasMibacScopeOfProtection  
-
-PhotographicHeritageClassification  --> PhotographicHeritageClassificationType   :hasPhotographicHeritageClassificationType  
-
-CulturalPropertyResidual  --> CulturalProperty   :isCulturalPropertyResidualOf  
-
-MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
-
-Agent  --> CulturalProperty   :isRelatedAgencyOf  
-
-CulturalProperty  --> CulturalPropertyInventoryCategory   :hasCulturalPropertyInventoryCategory  
-
-CulturalProperty  --> Agent   :hasHeritageProtectionAgency  
-
-SubjectDiscipline  --> CulturalProperty   :isMainDisciplineOf  
-
-PhotographicHeritage  --> PhotographicHeritageClassification   :hasPhotographicHeritageClassification  
-
-CulturalPropertyCategory  --> CulturalProperty   :isCulturalPropertyCategoryOf  
-
-NumismaticProperty  --> NumismaticPropertyCategory   :hasNumismaticPropertyCategory  
+PhotographicHeritageClassification  --> PhotographicHeritage   :isPhotographicHeritageClassificationOf  
 
 CartographicClassification  --> CulturalProperty   :isCartographicClassificationOf  
-
-CulturalProperty  --> SubjectDiscipline   :hasMainDiscipline  
-
-NumismaticPropertyCategory  --> NumismaticProperty   :isNumismaticPropertyCategoryOf  
-
-Agent  --> CulturalProperty   :isHeritageProtectionAgencyOf  
 
 CulturalProperty  --> CulturalPropertyResidual   :hasCulturalPropertyResidual  
 
 ArchaeologicalMaterialCategory  --> ArchaeologicalMaterial   :isArchaeologicalMaterialCategoryOf  
 
-CulturalProperty  --> Agent   :hasRelatedAgency  
-
-CartographicClassification  --> CartographicTheme   :hasCartographicTheme  
-
-NumismaticProperty  --> ReferenceCoinLegend   :hasReferenceCoinLegend  
-
-CulturalProperty  --> CulturalPropertyCataloguingCategory   :hasCulturalPropertyCataloguingCategory  
-
-CartographicClassification  --> ThematicCategory   :hasThematicCategory  
-
-CulturalPropertyCataloguingCategory  --> CulturalProperty   :isCulturalPropertyCataloguingCategoryOf  
+ComplexCulturalProperty  --> CulturalPropertyComponent   :hasCulturalPropertyComponent  
 
 CulturalProperty  --> CulturalPropertyCategory   :hasCulturalPropertyCategory  
 
-PhotographicHeritageClassificationType  --> PhotographicHeritageClassification   :isPhotographicHeritageClassificationTypeOf  
+CartographicTheme  --> CartographicClassification   :isCartographicThemeOf  
 
-CartographicSymbol  --> CartographicClassification   :isCartographicSymbolOf  
+MusicalInstrumentClassification  --> MusicHeritage   :isMusicalInstrumentClassificationOf  
 
-ReferenceCoinLegend  --> NumismaticProperty   :isReferenceCoinLegendOf  
-
-Agent  --> CulturalProperty   :isCataloguingAgencyOf  
-
-SubjectDiscipline  --> CulturalProperty   :isAlternativeDisciplineOf  
-
-CulturalProperty  --> SubjectDiscipline   :hasAlternativeDiscipline  
-
-CulturalProperty  --> CartographicClassification   :hasCartographicClassification  
-
-CartographicClassification  --> CartographicSymbol   :hasCartographicSymbol  
+CulturalProperty  --> CulturalPropertyCataloguingCategory   :hasCulturalPropertyCataloguingCategory  
 
 CulturalPropertyInventoryCategory  --> CulturalProperty   :isCulturalPropertyInventoryCategoryOf  
 
+CulturalPropertyComponent  --> ComplexCulturalProperty   :isCulturalPropertyComponentOf  
+
 ThematicCategory  --> CartographicClassification   :isThematicCategoryOf  
 
-h  --> s   :a  
+CulturalPropertyCataloguingCategory  --> CulturalProperty   :isCulturalPropertyCataloguingCategoryOf  
 
-h  --> s   :a  
+CulturalProperty  --> Agent   :hasHeritageProtectionAgency  
 
-h  --> s   :a  
+CulturalProperty  --> CartographicClassification   :hasCartographicClassification  
 
-h  --> s   :a  
+CulturalProperty  --> SubjectDiscipline   :hasMainDiscipline  
 
-h  --> s   :a  
+CartographicClassification  --> CartographicTheme   :hasCartographicTheme  
 
-h  --> s   :a  
+SubjectDiscipline  --> CulturalProperty   :isMainDisciplineOf  
 
-h  --> s   :a  
+NumismaticProperty  --> NumismaticPropertyCategory   :hasNumismaticPropertyCategory  
 
-i  --> C   :s  
+PhotographicHeritageClassificationType  --> PhotographicHeritageClassification   :isPhotographicHeritageClassificationTypeOf  
 
-i  --> R   :s  
+CulturalPropertyResidual  --> CulturalProperty   :isCulturalPropertyResidualOf  
 
-h  --> s   :a  
+ArchaeologicalMaterial  --> ArchaeologicalMaterialCategory   :hasArchaeologicalMaterialCategory  
 
-h  --> s   :a  
+CulturalPropertyCategory  --> CulturalProperty   :isCulturalPropertyCategoryOf  
 
-i  --> A   :s  
+NumismaticPropertyCategory  --> NumismaticProperty   :isNumismaticPropertyCategoryOf  
 
-h  --> s   :a  
+Agent  --> CulturalProperty   :isCataloguingAgencyOf  
 
-i  --> C   :s  
+NumismaticProperty  --> ReferenceCoinLegend   :hasReferenceCoinLegend  
 
-h  --> s   :a  
+MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
 
-h  --> s   :a  
+ReferenceCoinLegend  --> NumismaticProperty   :isReferenceCoinLegendOf  
 
-h  --> s   :a  
+PhotographicHeritageClassification  --> PhotographicHeritageClassificationType   :hasPhotographicHeritageClassificationType  
 
-h  --> s   :a  
+PhotographicHeritage  --> PhotographicHeritageClassification   :hasPhotographicHeritageClassification  
 
-h  --> s   :a  
+MusicHeritage  --> MusicalInstrumentClassification   :hasMusicalInstrumentClassification  
 
-h  --> s   :a  
+CartographicClassification  --> CartographicSymbol   :hasCartographicSymbol  
 
-i  --> C   :s  
+SubjectDiscipline  --> CulturalProperty   :isAlternativeDisciplineOf  
 
-h  --> s   :a  
+CartographicSymbol  --> CartographicClassification   :isCartographicSymbolOf  
 
-i  --> C   :s  
+Agent  --> CulturalProperty   :isHeritageProtectionAgencyOf  
 
-i  --> R   :s  
+CulturalProperty  --> CulturalPropertyInventoryCategory   :hasCulturalPropertyInventoryCategory  
 
-h  --> s   :a  
+CulturalProperty  --> Agent   :hasRelatedAgency  
 
-h  --> s   :a  
+Agent  --> CulturalProperty   :isRelatedAgencyOf  
 
-h  --> s   :a  
+CulturalProperty  --> MibacScopeOfProtection   :hasMibacScopeOfProtection  
 
-h  --> s   :a  
+CartographicClassification  --> ThematicCategory   :hasThematicCategory  
 
-i  --> N   :s  
+MusicHeritage  --> Agent   :hasMusicalEnsemble  
 
-h  --> s   :a  
+MusicHeritage  --> Agent   :hasMusicalEnsemble  
 
-i  --> C   :s  
+CulturalProperty  --> ProtectiveMeasure   :hasProtectiveMeasure  
 
-h  --> s   :a  
+CulturalProperty  --> RelatedWorkSituation   :hasRelatedWorkSituation  
 
-h  --> s   :a  
+PhotographicHeritage  --> N111a82d75d5748f5aa6de45a9b23f865   :hasPart  
 
-h  --> s   :a  
+MusicHeritage  --> MusicalInstrumentClassification   :hasMusicalInstrumentClassification  
 
-h  --> s   :a  
+AlternativeMusicalInstrumentClassification  --> Agent   :hasAuthor  
 
-i  --> C   :s  
+CulturalProperty  --> CulturalPropertyResidual   :hasCulturalPropertyResidual  
 
-h  --> s   :a  
+NumismaticPropertyCategory  --> NumismaticProperty   :isNumismaticPropertyCategoryOf  
 
-h  --> s   :a  
+CartographicSymbol  --> CartographicClassification   :isCartographicSymbolOf  
 
-h  --> s   :a  
+CulturalProperty  --> FunctionalPurpose   :hasFunctionalPurpose  
 
-h  --> s   :a  
+CulturalProperty  --> LegalSituation   :hasLegalSituation  
 
-h  --> s   :a  
+CulturalPropertyCataloguingCategory  --> CulturalProperty   :isCulturalPropertyCataloguingCategoryOf  
 
-h  --> s   :a  
+CulturalProperty  --> TimeIndexedTypedLocation   :hasLocationSubject  
 
-h  --> s   :a  
+CulturalProperty  --> CadastralIdentity   :hasCadastralIdentity  
 
-h  --> s   :a  
+NumismaticPropertyTypologicalCategory  --> NumismaticProperty   :isNumismaticPropertyCategoryOf  
 
-i  --> R   :s  
+PhotographicHeritage  --> PhotographicHeritageClassification   :hasPhotographicHeritageClassification  
 
-i  --> C   :s  
+PhotographicHeritage  --> PhotographicHeritageClassification   :hasPhotographicHeritageClassification  
 
-h  --> s   :a  
+NumismaticProperty  --> NumismaticProperty   :hasNumismaticPropertyCategory  
 
-h  --> s   :a  
+NumismaticProperty  --> NumismaticProperty   :hasNumismaticPropertyCategory  
 
-h  --> s   :a  
+CulturalProperty  --> InformationForm   :isRelatedToInformationForm  
 
-h  --> s   :a  
+CulturalProperty  --> Inventory   :hasInventory  
 
-i  --> M   :s  
+CulturalProperty  --> CulturalPropertyType   :hasCulturalPropertyType  
 
-h  --> s   :a  
+MusicHeritage  --> Research   :hasResearch  
 
-h  --> s   :a  
+CulturalPropertyInventoryCategory  --> CulturalProperty   :isCulturalPropertyInventoryCategoryOf  
 
-h  --> s   :a  
+MusicHeritage  --> Accessory   :hasAccessory  
 
-h  --> s   :a  
+CartographicClassification  --> CulturalProperty   :isCartographicClassificationOf  
 
-h  --> s   :a  
+CartographicClassification  --> CulturalProperty   :isCartographicClassificationOf  
 
-h  --> s   :a  
+CartographicClassification  --> ThematicCategory   :hasThematicCategory  
 
-i  --> P   :s  
+MusicalInstrumentClassification  --> MusicHeritage   :isMusicalInstrumentClassificationOf  
 
-h  --> s   :a  
+ThematicCategory  --> CartographicClassification   :isThematicCategoryOf  
 
-h  --> s   :a  
+PhotographicHeritageClassification  --> PhotographicHeritageClassificationType   :hasPhotographicHeritageClassificationType  
 
-i  --> C   :s  
+CartographicClassification  --> CartographicSymbol   :hasCartographicSymbol  
 
-i  --> P   :s  
+CulturalProperty  --> ChangeOfAvailability   :hasChangeOfAvailability  
 
-h  --> s   :a  
+CulturalProperty  --> AuthorshipAttribution   :hasAuthorshipAttribution  
 
-h  --> s   :a  
+CulturalProperty  --> TypeOfContext   :hasTypeOfContext  
 
-i  --> M   :s  
+CulturalProperty  --> Acquisition   :hasAcquisition  
 
-i  --> T   :s  
+CulturalProperty  --> Bibliography   :hasBibliography  
 
-h  --> s   :a  
+CulturalProperty  --> DetectionMethod   :hasDetectionMethod  
+
+CulturalProperty  --> Commission   :hasCommission  
+
+CulturalProperty  --> Survey   :hasSurvey  
+
+PhotographicHeritage  --> PhotographicSeriesMembership   :isMemberOfPhotographicSeries  
+
+ReferenceCoinLegend  --> NumismaticProperty   :isReferenceCoinLegendOf  
+
+NumismaticPropertyFunctionalCategory  --> NumismaticProperty   :isNumismaticPropertyCategoryOf  
+
+ArchaeologicalMaterialCategory  --> ArchaeologicalMaterial   :isArchaeologicalMaterialCategoryOf  
+
+CulturalProperty  --> Orientation   :hasOrientation  
+
+CulturalProperty  --> ExportImportCertification   :hasExportImportCertification  
+
+CulturalPropertyResidual  --> CulturalProperty   :isCulturalPropertyResidualOf  
+
+CulturalProperty  --> AdditionalForm   :isRelatedToAdditionalForm  
+
+CulturalProperty  --> Subject   :hasSubject  
+
+CulturalProperty  --> DesignationInTime   :hasDesignationInTime  
+
+CulturalProperty  --> Title   :hasTitle  
+
+CulturalProperty  --> AffixedElement   :hasAffixedElement  
+
+CulturalProperty  --> CollectionMembership   :isMemberOfCollection  
+
+ArchaeologicalMaterial  --> ArchaeologicalMaterialCategory   :hasArchaeologicalMaterialCategory  
+
+CulturalProperty  --> MeasurementCollection   :hasMeasurementCollection  
+
+CulturalProperty  --> CulturalPropertyAvailability   :hasCulturalPropertyAvailability  
+
+MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
+
+PhotographicHeritageClassification  --> PhotographicHeritage   :isPhotographicHeritageClassificationOf  
+
+PhotographicHeritageClassification  --> PhotographicHeritage   :isPhotographicHeritageClassificationOf  
+
+MusicHeritage  --> Agent   :hasMusician  
+
+MusicHeritage  --> Agent   :hasMusician  
+
+NumismaticProperty  --> CoinIssuance   :hasCoinIssuance  
+
+CulturalProperty  --> Address   :hasCulturalPropertyAddress  
+
+NumismaticProperty  --> NumismaticSeries   :isCoinMemberOf  
+
+CulturalProperty  --> CulturalPropertyAccessibility   :hasCulturalPropertyAccessibility  
+
+PhotographicHeritageClassificationType  --> PhotographicHeritageClassification   :isPhotographicHeritageClassificationTypeOf  
+
+CulturalProperty  --> TimeIndexedTypedLocation   :hasTimeIndexedTypedLocation  
+
+CulturalProperty  --> Use   :hasUse  
+
+CulturalProperty  --> Geometry   :hasGeometry  
+
+PhotographicHeritage  --> Responsibility   :hasResponsibility  
+
+CulturalProperty  --> Intervention   :hasIntervention  
+
+CulturalProperty  --> UrbanPlanningInstrument   :hasUrbanPlanningInstrument  
+
+CulturalProperty  --> ConservationStatus   :hasConservationStatus  
+
+CulturalPropertyComponent  --> ComplexCulturalProperty   :isCulturalPropertyComponentOf  
+
+CulturalProperty  --> CulturalEntityTechnicalStatus   :hasTechnicalStatus  
+
+CulturalProperty  --> CulturalPropertyComponent   :hasCulturalPropertyComponent  
+
+CulturalPropertyCategory  --> CulturalProperty   :isCulturalPropertyCategoryOf  
+
+CulturalProperty  --> IconographicOrDecorativeApparatus   :hasIconographicOrDecorativeApparatus  
+
+CulturalProperty  --> Documentation   :hasDocumentation  
+
+CartographicClassification  --> CartographicTheme   :hasCartographicTheme  
+
+CulturalProperty  --> Dating   :hasDating  
 
 ```

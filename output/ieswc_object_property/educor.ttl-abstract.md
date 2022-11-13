@@ -2,106 +2,34 @@
 	classDiagram
 
     
-    class UserLogs {
-    
-    }
-
-    class UserProfile {
-    
-    }
-
-    class TaxonPath {
-    
-    }
-
-    class LearningPreference {
-    
-    }
-
-    class EducationalResource {
-    
-    }
-
-    class AcademicParameter {
-    
-    }
-
-    class Recommendation {
-    
-    }
-
-    class User {
-    
-    }
-
-    class LearningOutcome {
-    
-    }
-
-    class LearningGoal {
-    
-    }
-
-    class LearningPath {
-    
-    }
 
 
+Skill  --> KnowledgeTopic   :hasKnowledgeTopic  
 
-KnowledgeTopic  --> EducationalResource   :hasEducationalResource  
-
-UserProfile  --> LearningPath   :definesLearningPath  
-
-Recommendation  --> LearningPath   :definesLearningPath  
-
-LearningPath  --> LearningGoal   :hasLearningGoal  
-
-User  --> UserLogs   :generatesLogs  
-
-UserProfile  --> Accessibility   :accessibility  
-
-User  --> Test   :solves  
+Methodology  --> KnowledgeTopic   :hasKnowledgeTopic  
 
 KnowledgeTopic  --> LearningOutcome   :hasLearningOutcome  
 
-User  --> UserProfile   :hasProfile  
-
-Recommendation  --> LearningPath   :definesLearningPath  
-
-LearningGoal  --> UserProfile   :storedIn  
-
-EducationalResource  --> QualityIndicator   :hasQuality  
-
-User  --> Answer   :givesAnswer  
-
-KnowledgeTopic  --> LearningOutcome   :hasLearningOutcome  
-
-EducationalResource  --> MultimediaData   :hasMultimediaData  
+Skill  --> KnowledgeTopic   :requiresKnowledge  
 
 KnowledgeTopic  --> EducationalResource   :hasEducationalResource  
+
+Recommendation  --> LearningPath   :definesLearningPath  
 
 EducationalResource  --> KnowledgeTopic   :hasKnowledgeTopic  
-
-User  --> Exercise   :solves  
-
-LearningPath  --> LearningGoal   :hasLearningGoal  
-
-Skill  --> LearningOutcome   :hasLearningOutcome  
-
-Recommendation  --> UserProfile   :generatedFrom  
 
 LearningPath  --> KnowledgeTopic   :consistsOfKnowledge  
 
 Skill  --> LearningOutcome   :hasLearningOutcome  
 
-AcademicParameter  --> UserProfile   :storedIn  
-
-EducationalResource  --> Accessibility   :accessibility  
-
-LearningPreference  --> UserProfile   :storedIn  
-
 UserProfile  --> LearningPath   :definesLearningPath  
 
-PsycologicalParameter  --> UserProfile   :storedIn  
+Test  --> KnowledgeTopic   :testKnowledgeTopic  
+
+LearningPath  --> LearningGoal   :hasLearningGoal  
+
+Theory  --> KnowledgeTopic   :hasKnowledgeTopic  
+
+Exercise  --> KnowledgeTopic   :hasKnowledgeTopic  
 
 ```

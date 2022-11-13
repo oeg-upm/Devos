@@ -6,11 +6,11 @@
     
     }
 
-    class Measure {
+    class Model {
     
     }
 
-    class DataSource {
+    class LinkedVariables {
     
     }
 
@@ -18,58 +18,58 @@
     
     }
 
-    class Person {
-    
-    }
-
-    class LinkType {
-    
-    }
-
-    class ModelType {
-    
-    }
-
-    class Concept {
-    
-    }
-
-    class nd2a534a6414c4856b5890c088e75d1f6b9 {
-    
-    }
-
     class Dataset {
     
     }
 
+    class Measure {
+    
+    }
+
+    class n4faddac093dd41e58f57522fd375ef94b1 {
+    
+    }
+
+    class n4faddac093dd41e58f57522fd375ef94b5 {
+    
+    }
+
+    class n4faddac093dd41e58f57522fd375ef94b13 {
+    
+    }
+
+    class DataSource {
+    
+    }
 
 
-Variable  --> Concept   :operationalize  
-
-Model  --> Variable   :independentVariable  
-
-LinkedVariables  --> Variable   :secondVariable  
-
-Model  --> Variable   :dependentVariable  
-
-DatasetStructure  --> DataSource   :dataSource  
 
 DatasetStructure  --> Measure   :containMeasure  
 
-Dataset  --> DatasetStructure   :datasetStructure  
-
-nd2a534a6414c4856b5890c088e75d1f6b1  --> Person   :fromExpert  
-
 LinkedVariables  --> LinkType   :linkType  
-
-Model  --> ModelType   :modelType  
-
-Model  --> Variable   :controlVariable  
 
 LinkedVariables  --> Variable   :firstVariable  
 
-Model  --> Dataset   :trainingSet  
+LinkedVariables  --> Model   :viaModel  
+
+Model  --> ModelType   :modelType  
+
+DatasetStructure  --> DataSource   :dataSource  
+
+Variable  --> Concept   :operationalize  
 
 Variable  --> Measure   :measuredBy  
+
+LinkedVariables  --> Variable   :secondVariable  
+
+Model  --> Variable   :independentVariable  
+
+Dataset  --> DatasetStructure   :datasetStructure  
+
+Model  --> Variable   :controlVariable  
+
+Model  --> Dataset   :trainingSet  
+
+Model  --> Variable   :dependentVariable  
 
 ```

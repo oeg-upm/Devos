@@ -1,0 +1,1 @@
+{"classes": ["MibacScopeOfProtection"], "relations": [["MibacScopeOfProtection", "isMibacScopeOfProtectionOf", "CulturalProperty"], ["CulturalProperty", "hasMibacScopeOfProtection", "MibacScopeOfProtection"], ["MibacScopeOfProtection", "isMibacScopeOfProtectionOf", "CulturalProperty"]], "meta": "leng-10"}

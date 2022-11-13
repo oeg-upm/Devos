@@ -2,11 +2,7 @@
 	classDiagram
 
     
-    class Issue {
-    
-    }
-
-    class ContributorList {
+    class Publication {
     
     }
 
@@ -14,32 +10,44 @@
     
     }
 
-    class Category {
-    
-    }
-
     class Journal {
     
     }
 
+    class Series {
+    
+    }
+
+    class Volume {
+    
+    }
 
 
-Series  --> Category   :category  
+
+Isssue  --> Volume   :issueInVolume  
 
 Publication  --> ContributorList   :publicationEditorList  
 
-List  --> List   :first  
+Publication  --> Accessibility   :publicationAccessibility  
 
-Volume  --> Journal   :volumeInJournal  
+Publication  --> Chapter   :publicationInChapter  
+
+Publication  --> XSDstring   :sourceFile  
 
 List  --> List   :rest  
 
-Journal  --> Category   :category  
+Series  --> Category   :category  
 
-Publication  --> ContributorList   :publicationAuthorList  
+Book  --> Series   :bookInSeries  
 
-Article  --> Issue   :articleInIssue  
+List  --> List   :first  
 
 Publication  --> Issue   :publicationInIssue  
+
+Journal  --> Category   :category  
+
+Volume  --> Journal   :volumeInJournal  
+
+Publication  --> ContributorList   :publicationAuthorList  
 
 ```

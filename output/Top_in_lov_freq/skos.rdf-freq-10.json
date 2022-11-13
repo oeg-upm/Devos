@@ -1,1 +1,0 @@
-{"classes": ["SKOSConceptScheme", "SKOSConcept", "Nd4710cac099d4d70a1427f142be80884", "RDFList"], "relations": [["SKOSConcept", "SKOSsemanticRelation", "SKOSConcept"], ["SKOSOrderedCollection", "SKOSmemberList", "RDFList"], ["SKOSConcept", "SKOStopConceptOf", "SKOSConceptScheme"], ["SKOSConceptScheme", "SKOShasTopConcept", "SKOSConcept"]], "meta": "freq-10"}

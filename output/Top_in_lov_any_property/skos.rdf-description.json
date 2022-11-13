@@ -1,1 +1,0 @@
-{"classes": ["SKOSConcept", "SKOSConceptScheme"], "relations": [["SKOSConceptScheme", "SKOShasTopConcept", "SKOSConcept"], ["SKOSConcept", "SKOSsemanticRelation", "SKOSConcept"], ["SKOSConcept", "SKOStopConceptOf", "SKOSConceptScheme"]], "meta": "description"}

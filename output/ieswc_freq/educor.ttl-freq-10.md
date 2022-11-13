@@ -6,11 +6,19 @@
     
     }
 
+    class EducationalResource {
+    
+    }
+
     class UserProfile {
     
     }
 
-    class Answer {
+    class User {
+    
+    }
+
+    class Skill {
     
     }
 
@@ -18,94 +26,90 @@
     
     }
 
-    class Accessibility {
-    
-    }
-
     class LearningPath {
     
     }
 
-    class UserLogs {
+    class Recommendation {
     
     }
 
-    class Classification {
+    class Question {
     
     }
 
-    class EducationalResource {
-    
-    }
-
-    class LearningGoal {
+    class Methodology {
     
     }
 
 
-
-UserProfile  --> Accessibility   :accessibility  
-
-EducationalResource  --> QualityIndicator   :hasQuality  
-
-UserProfile  --> LearningPath   :definesLearningPath  
-
-Theory  --> KnowledgeTopic   :hasKnowledgeTopic  
-
-KnowledgeTopic  --> EducationalResource   :hasEducationalResource  
-
-Test  --> KnowledgeTopic   :testKnowledgeTopic  
 
 Exercise  --> Question   :hasQuestion  
 
-Exercise  --> KnowledgeTopic   :hasKnowledgeTopic  
+Recommendation  --> UserProfile   :generatedFrom  
 
-Skill  --> KnowledgeTopic   :requiresKnowledge  
+Methodology  --> KnowledgeTopic   :hasKnowledgeTopic  
 
 PsycologicalParameter  --> UserProfile   :storedIn  
 
-AcademicParameter  --> UserProfile   :storedIn  
+User  --> Exercise   :solves  
 
-KnowledgeTopic  --> Exercise   :hasExercise  
+Exercise  --> KnowledgeTopic   :hasKnowledgeTopic  
+
+User  --> Answer   :givesAnswer  
+
+Skill  --> Classification   :hasClassification  
+
+KnowledgeTopic  --> LearningOutcome   :hasLearningOutcome  
+
+LearningPreference  --> UserProfile   :storedIn  
 
 Recommendation  --> LearningPath   :definesLearningPath  
-
-EducationalResource  --> Accessibility   :accessibility  
-
-KnowledgeTopic  --> Methodology   :hasMethodology  
-
-User  --> Exercise   :solves  
 
 EducationalResource  --> KnowledgeTopic   :hasKnowledgeTopic  
 
 LearningGoal  --> UserProfile   :storedIn  
 
-User  --> Answer   :givesAnswer  
-
-LearningPath  --> KnowledgeTopic   :consistsOfKnowledge  
-
-Methodology  --> KnowledgeTopic   :hasKnowledgeTopic  
-
-Recommendation  --> UserProfile   :generatedFrom  
-
-User  --> UserProfile   :hasProfile  
-
-User  --> UserLogs   :generatesLogs  
-
-KnowledgeTopic  --> Theory   :hasTheory  
-
-KnowledgeTopic  --> LearningOutcome   :hasLearningOutcome  
-
-LearningPath  --> LearningGoal   :hasLearningGoal  
+EducationalResource  --> QualityIndicator   :hasQuality  
 
 Skill  --> KnowledgeTopic   :hasKnowledgeTopic  
 
+EducationalResource  --> Accessibility   :accessibility  
+
+User  --> UserProfile   :hasProfile  
+
 Question  --> Answer   :hasAnswer  
 
-LearningPreference  --> UserProfile   :storedIn  
+Theory  --> KnowledgeTopic   :hasKnowledgeTopic  
+
+AcademicParameter  --> UserProfile   :storedIn  
+
+Skill  --> KnowledgeTopic   :requiresKnowledge  
+
+KnowledgeTopic  --> Methodology   :hasMethodology  
+
+KnowledgeTopic  --> EducationalResource   :hasEducationalResource  
+
+LearningPath  --> LearningGoal   :hasLearningGoal  
+
+KnowledgeTopic  --> Theory   :hasTheory  
+
+User  --> UserLogs   :generatesLogs  
+
+UserProfile  --> LearningPath   :definesLearningPath  
 
 EducationalResource  --> MultimediaData   :hasMultimediaData  
 
-Skill  --> Classification   :hasClassification  
+User  --> Test   :solves  
+
+Skill  --> LearningOutcome   :hasLearningOutcome  
+
+KnowledgeTopic  --> Exercise   :hasExercise  
+
+Test  --> KnowledgeTopic   :testKnowledgeTopic  
+
+LearningPath  --> KnowledgeTopic   :consistsOfKnowledge  
+
+UserProfile  --> Accessibility   :accessibility  
 
 ```

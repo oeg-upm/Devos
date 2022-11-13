@@ -6,54 +6,68 @@
     
     }
 
+    class AcademicEvent {
+    
+    }
+
     class DCTERMSAgent {
     
     }
 
-    class DCTERMSAgentClass {
+    class Collection {
     
     }
 
-    class DCTERMSRightsStatement {
-    
-    }
-
-    class Award {
+    class Track {
     
     }
 
 
-
-OrganisedEvent  --> EventSeries   :belongsToSeries  
-
-EventSeries  --> OrganisedEvent   :hasEvent  
-
-OrganisedEvent  --> TravelInformation   :providesTravelInformation  
-
-Author  --> Award   :takesAward  
-
-OrganisedEvent  --> Country   :heldInCountry  
-
-OrganisedEvent  --> Award   :offersAward  
-
-OrganisedEvent  --> Registration   :hasRegistration  
-
-Agent  --> OrganisedEvent   :participatesIn  
-
-AcademicEvent  --> DCTERMSAgentClass   :DCTERMSaudience  
-
-Sponsor  --> OrganisedEvent   :isSponsorOf  
-
-OrganisedEvent  --> City   :heldInCity  
 
 OrganisedEvent  --> Keynote   :hasKeynote  
 
+AcademicEvent  --> Track   :hasTrack  
+
+OrganisedEvent  --> TravelInformation   :providesTravelInformation  
+
+Sponsor  --> OrganisedEvent   :isSponsorOf  
+
+OrganisedEvent  --> DBOCity   :heldInCity  
+
+AcademicEvent  --> DCTERMSAgentClass   :DCTERMSaudience  
+
+OrganisedEvent  --> Sponsor   :hasSponsor  
+
 OrganisedEvent  --> Flyer   :hasFlyer  
+
+AcademicEvent  --> SocialEvent   :hasSocialEvent  
 
 OrganisedEvent  --> OrganisedEvent   :colocatedWith  
 
 Keynote  --> OrganisedEvent   :keynoteIn  
 
-OrganisedEvent  --> Sponsor   :hasSponsor  
+OrganisedEvent  --> EventSeries   :belongsToSeries  
+
+AcademicEvent  --> SubmissionGuidelines   :hasSubmissionGuidelines  
+
+AcademicEvent  --> BestPaperAward   :offersBestPaperAward  
+
+EventSeries  --> OrganisedEvent   :hasEvent  
+
+Agent  --> OrganisedEvent   :participatesIn  
+
+Track  --> Chair   :hasChair  
+
+OrganisedEvent  --> DBOCountry   :heldInCountry  
+
+Track  --> AcademicEvent   :isTrackOf  
+
+OrganisedEvent  --> Registration   :hasRegistration  
+
+OrganisedEvent  --> Award   :offersAward  
+
+AcademicEvent  --> ImportantDates   :hasImportantDates  
+
+AcademicEvent  --> Person   :hasProgramCommitteeMember  
 
 ```
