@@ -40,11 +40,13 @@ def get_class_freq(g, only_object_property):
     if only_object_property:
         t = "select ?class (COUNT(?property) as ?num ) where { ?property rdf:type owl:ObjectProperty.  %s } group by ?class"
     else:
-        t = "select ?class (COUNT(?property) as ?num )  where { ?a ?property ?b.  %s } group by ?class"
+        t = "select ?class (COUNT(?property) as ?num )  where { %s } group by ?class"
+        # t = "select ?class (COUNT(?property) as ?num )  where { ?a ?property ?b.  %s } group by ?class"
     # Domain
-    q = t % """ {?property rdfs:domain ?class.}"""
+    q = t % """ ?property rdfs:domain ?class. """
 
     # q = """select (count(?s) as ?c) ?p where {?s ?p ?o}"""
+    # print(q)
     results = g.query(q)
     d = dict()
     for res in results:
@@ -53,9 +55,10 @@ def get_class_freq(g, only_object_property):
         if class_uri not in d:
             d[class_uri] = 0
         d[class_uri] += num
-    print(d)
+    # print(d)
     # range
-    q = t % """ {?property rdfs:range ?class.}"""
+    q = t % """ ?property rdfs:range ?class. """
+    # print(q)
     results = g.query(q)
     for res in results:
         class_uri = str(res["class"])
