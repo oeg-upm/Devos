@@ -9,7 +9,7 @@ from ogister.util import split_text_manual
 split_text = split_text_manual
 
 
-class TestGister(unittest.TestCase):
+class TestMeta(unittest.TestCase):
 
     def setUp(self) -> None:
         pass
@@ -20,7 +20,7 @@ class TestGister(unittest.TestCase):
         classes, relations = workflow(input_path=ont_path, title=True, desc=True, abstract=True, only_object_property=True,
                  out_path=None, lang=None, max_options=0)
 
-        classes = shorten_uris(classes)
+        # classes = shorten_uris(classes)
         self.assertEqual(1, len(classes))
         self.assertEqual(classes[0], "football")
 

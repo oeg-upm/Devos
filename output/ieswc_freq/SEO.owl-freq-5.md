@@ -10,7 +10,7 @@
     
     }
 
-    class DCTERMSAgent {
+    class Agent {
     
     }
 
@@ -24,50 +24,50 @@
 
 
 
-OrganisedEvent  --> Keynote   :hasKeynote  
-
-AcademicEvent  --> Track   :hasTrack  
+Keynote  --> OrganisedEvent   :keynoteIn  
 
 OrganisedEvent  --> TravelInformation   :providesTravelInformation  
 
+AcademicEvent  --> SubmissionGuidelines   :hasSubmissionGuidelines  
+
 Sponsor  --> OrganisedEvent   :isSponsorOf  
 
-OrganisedEvent  --> DBOCity   :heldInCity  
-
-AcademicEvent  --> DCTERMSAgentClass   :DCTERMSaudience  
-
-OrganisedEvent  --> Sponsor   :hasSponsor  
-
-OrganisedEvent  --> Flyer   :hasFlyer  
+AcademicEvent  --> Person   :hasProgramCommitteeMember  
 
 AcademicEvent  --> SocialEvent   :hasSocialEvent  
 
 OrganisedEvent  --> OrganisedEvent   :colocatedWith  
 
-Keynote  --> OrganisedEvent   :keynoteIn  
+AcademicEvent  --> Track   :hasTrack  
+
+OrganisedEvent  --> Flyer   :hasFlyer  
 
 OrganisedEvent  --> EventSeries   :belongsToSeries  
 
-AcademicEvent  --> SubmissionGuidelines   :hasSubmissionGuidelines  
+OrganisedEvent  --> Country   :heldInCountry  
+
+OrganisedEvent  --> Sponsor   :hasSponsor  
 
 AcademicEvent  --> BestPaperAward   :offersBestPaperAward  
 
-EventSeries  --> OrganisedEvent   :hasEvent  
-
-Agent  --> OrganisedEvent   :participatesIn  
-
 Track  --> Chair   :hasChair  
-
-OrganisedEvent  --> DBOCountry   :heldInCountry  
-
-Track  --> AcademicEvent   :isTrackOf  
-
-OrganisedEvent  --> Registration   :hasRegistration  
 
 OrganisedEvent  --> Award   :offersAward  
 
+EventSeries  --> OrganisedEvent   :hasEvent  
+
+Track  --> AcademicEvent   :isTrackOf  
+
+Agent  --> OrganisedEvent   :participatesIn  
+
+AcademicEvent  --> AgentClass   :audience  
+
 AcademicEvent  --> ImportantDates   :hasImportantDates  
 
-AcademicEvent  --> Person   :hasProgramCommitteeMember  
+OrganisedEvent  --> Keynote   :hasKeynote  
+
+OrganisedEvent  --> City   :heldInCity  
+
+OrganisedEvent  --> Registration   :hasRegistration  
 
 ```

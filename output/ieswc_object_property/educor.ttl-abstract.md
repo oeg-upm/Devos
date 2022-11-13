@@ -4,31 +4,31 @@
     
 
 
-Skill  --> KnowledgeTopic   :hasKnowledgeTopic  
-
-Methodology  --> KnowledgeTopic   :hasKnowledgeTopic  
+EducationalResource  --> KnowledgeTopic   :hasKnowledgeTopic  
 
 KnowledgeTopic  --> LearningOutcome   :hasLearningOutcome  
 
 Skill  --> KnowledgeTopic   :requiresKnowledge  
 
-KnowledgeTopic  --> EducationalResource   :hasEducationalResource  
+LearningPath  --> KnowledgeTopic   :consistsOfKnowledge  
 
 Recommendation  --> LearningPath   :definesLearningPath  
 
-EducationalResource  --> KnowledgeTopic   :hasKnowledgeTopic  
+LearningPath  --> LearningGoal   :hasLearningGoal  
 
-LearningPath  --> KnowledgeTopic   :consistsOfKnowledge  
+KnowledgeTopic  --> EducationalResource   :hasEducationalResource  
 
-Skill  --> LearningOutcome   :hasLearningOutcome  
+Skill  --> KnowledgeTopic   :hasKnowledgeTopic  
 
 UserProfile  --> LearningPath   :definesLearningPath  
 
-Test  --> KnowledgeTopic   :testKnowledgeTopic  
+Methodology  --> KnowledgeTopic   :hasKnowledgeTopic  
 
-LearningPath  --> LearningGoal   :hasLearningGoal  
+Skill  --> LearningOutcome   :hasLearningOutcome  
 
 Theory  --> KnowledgeTopic   :hasKnowledgeTopic  
+
+Test  --> KnowledgeTopic   :testKnowledgeTopic  
 
 Exercise  --> KnowledgeTopic   :hasKnowledgeTopic  
 

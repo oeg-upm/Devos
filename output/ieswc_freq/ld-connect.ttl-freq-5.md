@@ -24,30 +24,30 @@
 
 
 
-Isssue  --> Volume   :issueInVolume  
+Journal  --> Category   :category  
+
+Publication  --> ContributorList   :publicationAuthorList  
+
+Book  --> Series   :bookInSeries  
 
 Publication  --> ContributorList   :publicationEditorList  
+
+Publication  --> Issue   :publicationInIssue  
+
+List  --> List   :first  
+
+List  --> List   :rest  
 
 Publication  --> Accessibility   :publicationAccessibility  
 
 Publication  --> Chapter   :publicationInChapter  
 
-Publication  --> XSDstring   :sourceFile  
-
-List  --> List   :rest  
-
 Series  --> Category   :category  
 
-Book  --> Series   :bookInSeries  
-
-List  --> List   :first  
-
-Publication  --> Issue   :publicationInIssue  
-
-Journal  --> Category   :category  
+Isssue  --> Volume   :issueInVolume  
 
 Volume  --> Journal   :volumeInJournal  
 
-Publication  --> ContributorList   :publicationAuthorList  
+Publication  --> string   :sourceFile  
 
 ```

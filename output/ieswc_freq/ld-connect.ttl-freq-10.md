@@ -44,40 +44,40 @@
 
 
 
-Volume  --> Journal   :volumeInJournal  
-
-Contributor  --> Organization   :contributorAffiliation  
-
-Contributor  --> Role   :contributorRole  
-
-Publication  --> XSDstring   :sourceFile  
-
-List  --> List   :rest  
-
-Publication  --> ContributorList   :publicationEditorList  
-
-Publication  --> Issue   :publicationInIssue  
-
-Publication  --> Accessibility   :publicationAccessibility  
+Journal  --> Category   :category  
 
 Isssue  --> Volume   :issueInVolume  
 
-Book  --> Series   :bookInSeries  
-
-Organization  --> GeocodedLocation   :geocodingOutput  
-
-GeocodedLocation  --> Geometry   :geometry  
+Contributor  --> Organization   :contributorAffiliation  
 
 Publication  --> Chapter   :publicationInChapter  
 
+Volume  --> Journal   :volumeInJournal  
+
+Chapter  --> Book   :chapterInBook  
+
 List  --> List   :first  
 
-Journal  --> Category   :category  
+Publication  --> string   :sourceFile  
 
-Publication  --> ContributorList   :publicationAuthorList  
+Publication  --> Accessibility   :publicationAccessibility  
+
+GeocodedLocation  --> Geometry   :geometry  
+
+Publication  --> Issue   :publicationInIssue  
+
+Publication  --> ContributorList   :publicationEditorList  
 
 Series  --> Category   :category  
 
-Chapter  --> Book   :chapterInBook  
+Organization  --> GeocodedLocation   :geocodingOutput  
+
+Book  --> Series   :bookInSeries  
+
+Contributor  --> Role   :contributorRole  
+
+List  --> List   :rest  
+
+Publication  --> ContributorList   :publicationAuthorList  
 
 ```

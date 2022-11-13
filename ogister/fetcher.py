@@ -6,8 +6,10 @@ from owl2diagram.main import get_classes, get_class_hierarchy, get_object_prop, 
 
 def shorten_url(url):
     for pref in prefixes.prefs:
-        if url.startswith(prefixes.prefs[pref]):
-            return url.replace(prefixes.prefs[pref], pref)
+        pref_txt = prefixes.prefs[pref]
+        if url.startswith(pref_txt):
+            return url[len(pref_txt):]
+            # return url.replace(prefixes.prefs[pref], pref)
     return get_name(url)
 
 

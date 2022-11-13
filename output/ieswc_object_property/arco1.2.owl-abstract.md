@@ -8,88 +8,88 @@
 
 
 
-MusicalInstrumentClassification  --> MusicHeritage   :isMusicalInstrumentClassificationOf  
-
-ComplexCulturalProperty  --> CulturalPropertyComponent   :hasCulturalPropertyComponent  
-
-CartographicSymbol  --> CartographicClassification   :isCartographicSymbolOf  
-
-CulturalPropertyComponent  --> ComplexCulturalProperty   :isCulturalPropertyComponentOf  
-
-CulturalProperty  --> CartographicClassification   :hasCartographicClassification  
-
-CulturalProperty  --> SubjectDiscipline   :hasMainDiscipline  
-
-NumismaticProperty  --> NumismaticPropertyCategory   :hasNumismaticPropertyCategory  
+MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
 
 CartographicClassification  --> CartographicSymbol   :hasCartographicSymbol  
-
-MusicHeritage  --> MusicalInstrumentClassification   :hasMusicalInstrumentClassification  
-
-CulturalPropertyInventoryCategory  --> CulturalProperty   :isCulturalPropertyInventoryCategoryOf  
-
-CulturalProperty  --> MibacScopeOfProtection   :hasMibacScopeOfProtection  
-
-CulturalProperty  --> MibacScopeOfProtection   :hasMibacScopeOfProtection  
-
-CulturalProperty  --> CulturalPropertyResidual   :hasCulturalPropertyResidual  
-
-SubjectDiscipline  --> CulturalProperty   :isAlternativeDisciplineOf  
-
-MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
 
 MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
 
 CartographicTheme  --> CartographicClassification   :isCartographicThemeOf  
 
-Agent  --> CulturalProperty   :isRelatedAgencyOf  
+PhotographicHeritageClassificationType  --> PhotographicHeritageClassification   :isPhotographicHeritageClassificationTypeOf  
 
-SubjectDiscipline  --> CulturalProperty   :isMainDisciplineOf  
+NumismaticProperty  --> NumismaticPropertyCategory   :hasNumismaticPropertyCategory  
 
-CulturalPropertyCategory  --> CulturalProperty   :isCulturalPropertyCategoryOf  
+CulturalProperty  --> Agent   :hasHeritageProtectionAgency  
 
-PhotographicHeritageClassification  --> PhotographicHeritageClassificationType   :hasPhotographicHeritageClassificationType  
+CulturalProperty  --> CartographicClassification   :hasCartographicClassification  
 
 NumismaticPropertyCategory  --> NumismaticProperty   :isNumismaticPropertyCategoryOf  
 
+ReferenceCoinLegend  --> NumismaticProperty   :isReferenceCoinLegendOf  
+
+CulturalProperty  --> MibacScopeOfProtection   :hasMibacScopeOfProtection  
+
+CulturalPropertyResidual  --> CulturalProperty   :isCulturalPropertyResidualOf  
+
+CulturalProperty  --> MibacScopeOfProtection   :hasMibacScopeOfProtection  
+
+MusicalInstrumentClassification  --> MusicHeritage   :isMusicalInstrumentClassificationOf  
+
+CulturalPropertyComponent  --> ComplexCulturalProperty   :isCulturalPropertyComponentOf  
+
+CulturalProperty  --> CulturalPropertyResidual   :hasCulturalPropertyResidual  
+
 CulturalProperty  --> CulturalPropertyCataloguingCategory   :hasCulturalPropertyCataloguingCategory  
 
-Agent  --> CulturalProperty   :isCataloguingAgencyOf  
+CulturalPropertyCataloguingCategory  --> CulturalProperty   :isCulturalPropertyCataloguingCategoryOf  
 
-Agent  --> CulturalProperty   :isHeritageProtectionAgencyOf  
-
-MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
-
-CulturalProperty  --> CulturalPropertyInventoryCategory   :hasCulturalPropertyInventoryCategory  
-
-PhotographicHeritageClassificationType  --> PhotographicHeritageClassification   :isPhotographicHeritageClassificationTypeOf  
-
-ReferenceCoinLegend  --> NumismaticProperty   :isReferenceCoinLegendOf  
+CulturalPropertyCategory  --> CulturalProperty   :isCulturalPropertyCategoryOf  
 
 PhotographicHeritage  --> PhotographicHeritageClassification   :hasPhotographicHeritageClassification  
 
-CulturalProperty  --> CulturalPropertyCategory   :hasCulturalPropertyCategory  
-
-ArchaeologicalMaterial  --> ArchaeologicalMaterialCategory   :hasArchaeologicalMaterialCategory  
+CulturalProperty  --> SubjectDiscipline   :hasAlternativeDiscipline  
 
 CartographicClassification  --> CulturalProperty   :isCartographicClassificationOf  
 
 RFId  --> Thing   :isRFIdOf  
 
-CulturalProperty  --> Agent   :hasHeritageProtectionAgency  
+CulturalProperty  --> CulturalPropertyCategory   :hasCulturalPropertyCategory  
 
-CulturalPropertyResidual  --> CulturalProperty   :isCulturalPropertyResidualOf  
+MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
 
 PhotographicHeritageClassification  --> PhotographicHeritage   :isPhotographicHeritageClassificationOf  
 
-CulturalProperty  --> SubjectDiscipline   :hasAlternativeDiscipline  
+SubjectDiscipline  --> CulturalProperty   :isAlternativeDisciplineOf  
+
+ArchaeologicalMaterial  --> ArchaeologicalMaterialCategory   :hasArchaeologicalMaterialCategory  
+
+CulturalPropertyInventoryCategory  --> CulturalProperty   :isCulturalPropertyInventoryCategoryOf  
+
+Agent  --> CulturalProperty   :isRelatedAgencyOf  
+
+SubjectDiscipline  --> CulturalProperty   :isMainDisciplineOf  
 
 ThematicCategory  --> CartographicClassification   :isThematicCategoryOf  
 
+CulturalProperty  --> Agent   :hasCataloguingAgency  
+
 ArchaeologicalMaterialCategory  --> ArchaeologicalMaterial   :isArchaeologicalMaterialCategoryOf  
 
-CulturalPropertyCataloguingCategory  --> CulturalProperty   :isCulturalPropertyCataloguingCategoryOf  
+CulturalProperty  --> CulturalPropertyInventoryCategory   :hasCulturalPropertyInventoryCategory  
 
-CulturalProperty  --> Agent   :hasCataloguingAgency  
+PhotographicHeritageClassification  --> PhotographicHeritageClassificationType   :hasPhotographicHeritageClassificationType  
+
+CulturalProperty  --> SubjectDiscipline   :hasMainDiscipline  
+
+MusicHeritage  --> MusicalInstrumentClassification   :hasMusicalInstrumentClassification  
+
+ComplexCulturalProperty  --> CulturalPropertyComponent   :hasCulturalPropertyComponent  
+
+CartographicSymbol  --> CartographicClassification   :isCartographicSymbolOf  
+
+Agent  --> CulturalProperty   :isHeritageProtectionAgencyOf  
+
+Agent  --> CulturalProperty   :isCataloguingAgencyOf  
 
 ```

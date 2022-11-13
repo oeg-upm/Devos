@@ -1,1 +1,1 @@
-{"classes": ["AiiClassification", "IicfConnectivityLayer", "DataSharingInitiative", "ArchitectureDescription", "IotaPerspective"], "relations": [["StandardClassification", "isDescribedin", "StandardizationFramework"], ["Standard", "relatedTo", "Standard"]], "meta": "abstract"}
+{"classes": ["ArchitectureDescription", "IotaPerspective", "DataSharingInitiative", "IicfConnectivityLayer", "AiiClassification"], "relations": [["StandardClassification", "isDescribedin", "StandardizationFramework"], ["Standard", "relatedTo", "Standard"]], "meta": "abstract"}

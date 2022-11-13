@@ -10,7 +10,7 @@
     
     }
 
-    class DCTERMSAgent {
+    class Agent {
     
     }
 
@@ -30,7 +30,7 @@
     
     }
 
-    class DCTERMSAgentClass {
+    class AgentClass {
     
     }
 
@@ -44,127 +44,127 @@
 
 
 
-Publication  --> DiscourseElement   :hasAppendix  
+Publication  --> N2c5fa3ad78ff483fa29edf9951b3f4ed   :hasAppendix  
 
-Publication  --> N21defa915998452b82ca0882640df94d   :hasAppendix  
-
-Publication  --> N399ab5e2ed3a4c21bfc56423d8e0fe6f   :hasAppendix  
-
-Publication  --> Pattern   :hasAppendix  
-
-Agent  --> OrganisedEvent   :participatesIn  
-
-Publication  --> Ne2f3c40103f944159b044740096da607   :hasAppendix  
-
-OrganisedEvent  --> Award   :offersAward  
-
-AcademicEvent  --> SubmissionGuidelines   :hasSubmissionGuidelines  
-
-Publication  --> N1e130d91b0df459a8fa54f74aa5514f6   :hasAppendix  
-
-Publication  --> Nb0ba8ecbdf264941ba4fde58606992ee   :hasAppendix  
-
-Publication  --> Section   :hasAppendix  
-
-Publication  --> N6a758256945e4922a323f7f72ff94dca   :hasAppendix  
-
-OrganisedEvent  --> Flyer   :hasFlyer  
-
-Publication  --> N0bd6e260218d43f888a7a384dc6b348f   :hasAppendix  
-
-Publication  --> N868a92cd55454d91a3650132fe449bd7   :hasAppendix  
-
-OrganisedEvent  --> EventSeries   :belongsToSeries  
-
-Publication  --> NonTextual   :hasAppendix  
-
-Publication  --> Bucket   :hasAppendix  
-
-Publication  --> Appendix   :hasAppendix  
-
-Author  --> Nc28f812c8de64b7b990de2d020bd9c38   :hasRegistrationType  
-
-Author  --> AuthorRegistration   :registeredAs  
-
-Publication  --> Ndf015e944a1d4436a2745aa4c40656ba   :hasAppendix  
-
-OrganisedEvent  --> Sponsor   :hasSponsor  
-
-OrganisedEvent  --> DBOCity   :heldInCity  
-
-AcademicEvent  --> ImportantDates   :hasImportantDates  
-
-AcademicEvent  --> SocialEvent   :hasSocialEvent  
-
-Publication  --> N8ec33574d88043a3b3a5093e466eeecb   :hasAppendix  
-
-Publication  --> Nfcbfbe0a4f954d93986721066d23ab85   :hasAppendix  
-
-Publication  --> Na9bfc7181a454e558d99dbf45e666ed1   :hasAppendix  
-
-Sponsor  --> OrganisedEvent   :isSponsorOf  
-
-Author  --> Award   :takesAward  
+OrganisedEvent  --> Country   :heldInCountry  
 
 Sponsor  --> Sponsorship   :sponsorshipType  
 
-OrganisedEvent  --> DBOCountry   :heldInCountry  
+Person  --> N0731304d888c4cd4a1197f5003167284   :participatesAs  
 
-Publication  --> N73e718863fd24a5d878c075a43c63b35   :hasAppendix  
+Publication  --> NonTextual   :hasAppendix  
 
-Publication  --> Neb898e099717429593c639274777c300   :hasAppendix  
+Publication  --> Na7f6d3a39f834ba5becb85e7cd639f32   :hasAppendix  
 
-Person  --> Organization   :hasAffiliation  
+Author  --> AuthorRegistration   :registeredAs  
 
-Publication  --> N172dcc83c5f5462d95816e5b54f83b03   :hasAppendix  
+Author  --> Award   :takesAward  
+
+Publication  --> DiscourseElement   :hasAppendix  
+
+Track  --> AcademicEvent   :isTrackOf  
+
+Publication  --> Nb1b1608a7e8d438c8cfd43d2e52afe2e   :hasAppendix  
+
+Publication  --> N4b68172f8b084e2a8130b69b19a1f1a6   :hasAppendix  
+
+Publication  --> Nef02098df20b4dd78b54e0b188218e43   :hasAppendix  
 
 AcademicEvent  --> BestPaperAward   :offersBestPaperAward  
 
 OrganisedEvent  --> Registration   :hasRegistration  
 
+OrganisedEvent  --> TravelInformation   :providesTravelInformation  
+
+Publication  --> N191dc40c397d42ba9a8d716724de1bdd   :hasAppendix  
+
+Publication  --> N4bcfde8b5fd64527a245b56be8720ae4   :hasAppendix  
+
+OrganisedEvent  --> City   :heldInCity  
+
 OrganisedEvent  --> OrganisedEvent   :colocatedWith  
 
-AcademicEvent  --> Track   :hasTrack  
+Publication  --> N15885aef07eb418d960b50381d98d66a   :hasAppendix  
+
+OrganisedEvent  --> EventSeries   :belongsToSeries  
+
+AcademicEvent  --> SubmissionGuidelines   :hasSubmissionGuidelines  
+
+Person  --> Organization   :hasAffiliation  
+
+AcademicEvent  --> ImportantDates   :hasImportantDates  
+
+Publication  --> Nb5c0f5ddbb2b486b88834ebfdccdb811   :hasAppendix  
 
 Keynote  --> OrganisedEvent   :keynoteIn  
 
-Publication  --> Proceedings   :belongsToProceedings  
+Publication  --> Ndc2ea9d9262546db8d3c9c1f0917c452   :hasAppendix  
 
-Publication  --> Container   :hasAppendix  
+Sponsor  --> OrganisedEvent   :isSponsorOf  
 
-Publication  --> N06107f2973da4b4bb6b9af092d10d14c   :hasAppendix  
-
-Publication  --> N1ee765fea08445a2814fb48bc0c06a70   :hasAppendix  
-
-Publication  --> N2693a21c940b4aaca5db39abc7d43bf2   :hasAppendix  
+Agent  --> OrganisedEvent   :participatesIn  
 
 Publication  --> Error2   :hasAppendix  
 
-OrganisedEvent  --> Keynote   :hasKeynote  
+Publication  --> Appendix   :hasAppendix  
 
-Publication  --> Structured   :hasAppendix  
+Publication  --> Nb617386d8ee54306a8db3b93b60e983c   :hasAppendix  
 
-Publication  --> Ne9c91e3b387a4dbd8d2500fa4e97ba0d   :hasAppendix  
+Publication  --> N167fba99ea6e4e29b2b29046412317f2   :hasAppendix  
 
-Publication  --> N627e0ba8e76b4f7089f4cb8a486006dc   :hasAppendix  
-
-Publication  --> N0fd4f32fc28c41e78e2426f1fa019ea3   :hasAppendix  
+Publication  --> Nd634c0b7538849b4a9283b705c6f5c3d   :hasAppendix  
 
 EventSeries  --> OrganisedEvent   :hasEvent  
 
-OrganisedEvent  --> TravelInformation   :providesTravelInformation  
+AcademicEvent  --> Person   :hasProgramCommitteeMember  
+
+Publication  --> N9ef7a8a5010d44948fc9d28ea711385e   :hasAppendix  
+
+AcademicEvent  --> Track   :hasTrack  
+
+Author  --> N3d9b5e64d2a04998975e534b3a9e5522   :hasRegistrationType  
+
+Publication  --> Ne6b4bfcbe5d74aa4a3a373a7e96f01d1   :hasAppendix  
+
+AcademicEvent  --> AgentClass   :audience  
+
+OrganisedEvent  --> Flyer   :hasFlyer  
+
+Publication  --> Nb0cc6a3364c34a4b962dc48f088b684e   :hasAppendix  
+
+OrganisedEvent  --> Award   :offersAward  
+
+Publication  --> Ndd5cf54e82b041c0ac111263e2957bb8   :hasAppendix  
+
+Publication  --> Container   :hasAppendix  
+
+Publication  --> Nd91c58b0af0446249c4abf070e09ae85   :hasAppendix  
+
+AcademicEvent  --> SocialEvent   :hasSocialEvent  
+
+Publication  --> Structured   :hasAppendix  
+
+Publication  --> Ne4bbe5dbef3b4372b73b4f91780c8a05   :hasAppendix  
+
+Publication  --> Section   :hasAppendix  
+
+Publication  --> Bucket   :hasAppendix  
+
+Publication  --> Nb7ad653f21d14ea289796b36281dc453   :hasAppendix  
+
+Publication  --> Pattern   :hasAppendix  
+
+OrganisedEvent  --> Sponsor   :hasSponsor  
+
+Track  --> Chair   :hasChair  
 
 Publication  --> HeadedContainer   :hasAppendix  
 
-AcademicEvent  --> Person   :hasProgramCommitteeMember  
+OrganisedEvent  --> Keynote   :hasKeynote  
 
-AcademicEvent  --> DCTERMSAgentClass   :DCTERMSaudience  
+Publication  --> Nb89cc6a35cac4bf2a33f1cdda434cc0c   :hasAppendix  
 
-Track  --> AcademicEvent   :isTrackOf  
-
-Person  --> Nf44f30a4d4f14ed7a6941e7ec105c921   :participatesAs  
-
-Track  --> Chair   :hasChair  
+Publication  --> Proceedings   :belongsToProceedings  
 
 Proceedings  --> Publication   :cite  
 
