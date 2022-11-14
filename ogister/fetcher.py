@@ -468,7 +468,8 @@ def get_class_relation(g, class_uri):
     }"""
     results = g.query(class_as_domain % class_uri)
     for r in results:
-        rel = (shorten_url(class_uri), shorten_url(r["prop"]), shorten_url(r["range"]))
+        # rel = (shorten_url(class_uri), shorten_url(r["prop"]), shorten_url(r["range"]))
+        rel = (class_uri, str(r["prop"]), str(r["range"]))
         relations.append(rel)
         # data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
         # data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["range"]))
@@ -480,7 +481,8 @@ def get_class_relation(g, class_uri):
     }"""
     results = g.query(class_as_range % class_uri)
     for r in results:
-        rel = (shorten_url(r["domain"]), shorten_url(r["prop"]), shorten_url(class_uri))
+        # rel = (shorten_url(r["domain"]), shorten_url(r["prop"]), shorten_url(class_uri))
+        rel = (str(r["domain"]), str(r["prop"]), class_uri)
         relations.append(rel)
     return relations
 
@@ -494,6 +496,8 @@ def get_property_relation(g, property_uri):
     q = class_as_domain % (property_uri, property_uri)
     results = g.query(q)
     for r in results:
-        rel = (shorten_url(r["domain"]), property_uri, shorten_url(r["range"]))
+        # rel = (shorten_url(r["domain"]), property_uri, shorten_url(r["range"]))
+        rel = (str(r["domain"]), property_uri, str(r["range"]))
         relations.append(rel)
+
     return relations

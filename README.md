@@ -11,7 +11,11 @@ A tool to generate a gist of the ontology
 
 ## Tutorial
 
-* In Progress
+1. Use meta data as the signal for importance
+```
+python -m ogister.gister -i data/cocoon.ttl -o out.md -t -d -a 
+```
+
 
 
 

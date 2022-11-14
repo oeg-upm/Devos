@@ -1,4 +1,6 @@
 import argparse
+import math
+
 import rdflib
 from owl2diagram.main import get_class_diagram, get_object_diagram
 from owl2diagram.main import save_diagram
@@ -10,6 +12,8 @@ from ogister import fetcher
 from ogister import util
 from nltk.corpus import stopwords
 
+META_INCLUDE_PROP = False  # Whether to look for the property labels.
+
 stopwords = stopwords.words('english')
 
 
@@ -20,8 +24,32 @@ def parse_ontology(input_path):
     return g
 
 
-def label_len(classes):
-    pass
+def get_top_relations(classes, relations, topr):
+    if topr <= 0:
+        return relations
+    per_class = dict()
+
+    rmax = math.ceil(topr/len(classes))
+
+    for c in classes:
+        per_class[c] = 0
+
+    top_relations = []
+
+    for r in relations:
+        if r[0] in per_class:
+            c = r[0]
+        elif r[2] in per_class:
+            c = r[2]
+        else:
+            print("Relation %s is not in the top classes" % str(r))
+            raise Exception("unrelated relation is discovered")
+
+        if per_class[c] < rmax:
+            per_class[c] += 1
+            top_relations.append(r)
+
+    return top_relations
 
 
 def get_meta_text(input_path, title, desc, abstract, lang=None, max_options=0):
@@ -61,7 +89,9 @@ def get_meta_text(input_path, title, desc, abstract, lang=None, max_options=0):
 
 def keyword_in_ontology(keyword, g, only_object_property=True):
     classes = fetcher.get_classes_with_keyword(g, keyword)
-    properties = fetcher.get_properties_with_keyword(g, keyword, only_object_property)
+    properties = []
+    if META_INCLUDE_PROP:
+        properties = fetcher.get_properties_with_keyword(g, keyword, only_object_property)
     return classes, properties
 
 
@@ -131,22 +161,32 @@ def get_matched(meta, max_num_tok, g, only_object_property):
     return mkeywords, mclasses, mproperties
 
 
-def get_primary_classes_and_relations(input_path, title, desc, abstract, only_object_property, lang=None,
-                                      max_options=0):
+def get_classes_and_relations(input_path, title, desc, abstract, only_object_property, topn=0, lang=None,
+                              max_options=0):
     """
-    Get relations, classes and properties related to the meta.
+    Get relations, classes related from the meta properties.
     """
 
     meta, g = get_meta_text(input_path=input_path, title=title, desc=desc, abstract=abstract, lang=lang,
                             max_options=max_options)
     keywords, classes, properties = get_matched(meta=meta, max_num_tok=5, g=g,
                                                 only_object_property=only_object_property)
+    if topn > 0:
+        classes = classes[:topn]
+        properties = properties[:topn]
     class_relations = fetcher.get_relations(g, classes)
+    print("class relations: ")
+    print(class_relations)
     property_relations = fetcher.get_properties_relations(g, properties)
+    print("property relations: ")
     constraints = fetcher.get_classes_constraints(g, classes)
+    print("constraints: ")
+    print(constraints)
     class_relations += constraints
 
-    return class_relations, property_relations, classes, properties, g
+    relations = list(set(class_relations + property_relations))
+
+    return relations, classes, g
 
 
 def draw_diagrams(classes, relations, out_path):
@@ -176,20 +216,19 @@ def shorten_relations(rels):
     return shortented_rels
 
 
-def workflow(input_path, title, desc, abstract, only_object_property, out_path=None, lang=None, max_options=0):
+def meta_workflow(input_path, title, desc, abstract, only_object_property, out_path=None, lang=None, max_options=0,
+                  topn=0, topr=0):
     """
     meta: either "title", "description", or "abstract". It is only used for the json files
     """
-    class_relations, property_relations, classes, properties, g = get_primary_classes_and_relations(input_path, title,
-                                                                                                    desc, abstract,
-                                                                                                    lang=lang,
-                                                                                                    max_options=max_options,
-                                                                                                    only_object_property=only_object_property)
-    relations = list(set(class_relations + property_relations))
+    relations, classes, g = get_classes_and_relations(input_path, title, desc, abstract, topn=topn, lang=lang,
+                                                      max_options=max_options,
+                                                      only_object_property=only_object_property)
 
-    top_relations = shorten_relations(relations)
+    top_relations = get_top_relations(classes, relations, topr)
+    top_relations = shorten_relations(top_relations)
     top_classes = shorten_uris(classes)
-    # classes_top, relations_top = get_top(topn=topn, classes=classes, relations=relations)
+
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
     return top_classes, top_relations
@@ -233,7 +272,7 @@ def get_leng_classes(g, topn):
     return top_classes, d_top_classes
 
 
-def freq_workflow(input_path, out_path, topn, only_object_property):
+def freq_workflow(input_path, out_path, topn, only_object_property, topr=0):
     """
 
     """
@@ -243,24 +282,25 @@ def freq_workflow(input_path, out_path, topn, only_object_property):
     constraints = fetcher.get_classes_constraints(g, top_classes)
     class_relations += constraints
 
+    top_relations = get_top_relations(top_classes, class_relations, topr)
+    top_relations = shorten_relations(top_relations)
+    top_classes = shorten_uris(top_classes)
+
     print("\nTop classes: ")
     for c in top_classes:
         print("\t%s" % c)
     print("\nrelations: ")
-    util.print_relations(class_relations)
+    util.print_relations(top_relations)
     print("\nconstraints: ")
     for c in constraints:
         print(c)
-
-    top_relations = shorten_relations(class_relations)
-    top_classes = shorten_uris(top_classes)
 
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
     return top_classes, top_relations
 
 
-def leng_workflow(input_path, out_path, topn):
+def leng_workflow(input_path, out_path, topn, topr):
     """
     Workflow using the comments length as the signal for importance
     """
@@ -270,7 +310,8 @@ def leng_workflow(input_path, out_path, topn):
     constraints = fetcher.get_classes_constraints(g, top_classes)
     class_relations += constraints
 
-    top_relations = shorten_relations(class_relations)
+    top_relations = get_top_relations(top_classes, class_relations, topr)
+    top_relations = shorten_relations(top_relations)
     top_classes = shorten_uris(top_classes)
 
     if out_path:
@@ -298,21 +339,32 @@ def parse_arguments():
                         help="Use frequency to fetch the most relevant classes and properties")
     parser.add_argument('-g', '--leng', action="store_true",
                         help="Use the length to fetch the most relevant classes and properties")
+    parser.add_argument('--topr', type=int, default=0, help="The maximum number of relations")
 
     args = parser.parse_args()
-    return args.input, args.output, args.title, args.description, args.abstract, args.topn, args.lang, args.maxoptions, args.object_property, args.freq, args.leng
+    parsed_args = {
+        "input": args.input, "output": args.output,
+        "title": args.title, "description": args.description, "abstract": args.abstract,
+        "topn": args.topn, "topr": args.topr,
+        "lang": args.lang, "maxoptions": args.maxoptions, "object_property": args.object_property,
+        "freq": args.freq, "leng": args.leng
+    }
+    return parsed_args
 
 
 def main():
     a = datetime.now()
-    input_path, out_path, title, desc, abstract, topn, lang, max_options, only_object_property, freq, leng = parse_arguments()
-    if freq:
-        freq_workflow(input_path=input_path, out_path=out_path, topn=topn, only_object_property=only_object_property)
-    elif leng:
-        leng_workflow(input_path=input_path, out_path=out_path, topn=topn)
+    args = parse_arguments()
+
+    if args["freq"]:
+        freq_workflow(input_path=args["input"], out_path=args["output"], topn=args["topn"], topr=args["topr"],
+                      only_object_property=args["only_object_property"])
+    elif args["leng"]:
+        leng_workflow(input_path=args["input"], out_path=args["output"], topn=args["topn"], topr=args["topr"])
     else:
-        workflow(input_path=input_path, out_path=out_path, title=title, desc=desc, abstract=abstract, topn=topn,
-                 lang=lang, max_options=max_options, only_object_property=only_object_property)
+        meta_workflow(input_path=args["input"], out_path=args["output"], topn=args["topn"], topr=args["topr"],
+                      title=args["title"], desc=args["description"], abstract=args["abstract"],
+                      lang=args["lang"], max_options=args["maxoptions"], only_object_property=args["object_property"])
     b = datetime.now()
     print("\n\nTime it took: %.1f minutes\n\n" % ((b - a).total_seconds() / 60.0))
 

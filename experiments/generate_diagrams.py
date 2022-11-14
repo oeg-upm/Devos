@@ -1,7 +1,7 @@
 import argparse
 import traceback
 
-from ogister.gister import workflow, draw_diagrams, freq_workflow, leng_workflow
+from ogister.gister import meta_workflow, draw_diagrams, freq_workflow, leng_workflow
 import os
 import json
 from datetime import datetime
@@ -80,7 +80,7 @@ def experiment(input_files, output_path, only_object_property, freq, topn, leng,
                     label_len_path = os.path.join(output_path, graph_fname_base + ".csv")
                     save_label_len(class_leng_dict, label_len_path)
                 else:
-                    classes, relations = workflow(input_path=inp, out_path=None, lang=lang, max_options=max_options,
+                    classes, relations = meta_workflow(input_path=inp, out_path=None, lang=lang, max_options=max_options,
                                                   title=titl, desc=desc, abstract=abst,
                                                   only_object_property=only_object_property)
             except Exception as e:
