@@ -1,0 +1,1 @@
+{"classes": ["Explanation", "SystemRecommendation", "CounterfactualExplanation", "ScientificKnowledge", "DeductiveTask"], "relations": [["user", "consumes", "Explanation"], ["SystemRecommendation", "SIO000232", "ArtificialIntelligenceMethod"], ["Explanation", "hasPresentation", "ExplanationModality"], ["SystemRecommendation", "SIO001277", "objectrecord"]], "meta": "leng"}

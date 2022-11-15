@@ -33,7 +33,7 @@ def save_label_len(d, out_path):
             f.write("%s,%d\n" % (k, d[k]))
 
 
-def experiment(input_files, output_path, only_object_property, freq, topn, leng, lang=None, max_options=0):
+def experiment(input_files, output_path, only_object_property, freq, topn, topr, leng, lang=None, max_options=0):
     """
     Experiment
     """
@@ -43,9 +43,11 @@ def experiment(input_files, output_path, only_object_property, freq, topn, leng,
         os.mkdir(output_path)
 
     if freq:
-        meta_srcs = ["freq-%d" % topn]
+        # meta_srcs = ["freq-%d" % topn]
+        meta_srcs = ["freq"]
     elif leng:
-        meta_srcs = ["leng-%d" % topn]
+        # meta_srcs = ["leng-%d" % topn]
+        meta_srcs = ["leng"]
 
     for inp in input_files:
         if os.path.isdir(inp):
@@ -66,23 +68,24 @@ def experiment(input_files, output_path, only_object_property, freq, topn, leng,
             else:
                 raise Exception("invalid meta src")
 
-            graph_fname_base = inp.split(os.sep)[-1]+"-"+m
+            graph_fname_base = inp.split(os.sep)[-1] + "-" + m + "-%d-%d" % (topn, topr)
             check_diagram_fpath = os.path.join(output_path, graph_fname_base + ".md")
             if os.path.exists(check_diagram_fpath):
                 print("\n%s already exists" % check_diagram_fpath)
                 continue
             try:
                 if freq:
-                    classes, relations = freq_workflow(input_path=inp, out_path=None,
+                    classes, relations = freq_workflow(input_path=inp, out_path=None, topr=topr,
                                                        only_object_property=only_object_property, topn=topn)
                 elif leng:
-                    classes, relations, class_leng_dict = leng_workflow(input_path=inp, out_path=None, topn=topn)
+                    classes, relations, class_leng_dict = leng_workflow(input_path=inp, out_path=None, topn=topn,
+                                                                        topr=topr)
                     label_len_path = os.path.join(output_path, graph_fname_base + ".csv")
                     save_label_len(class_leng_dict, label_len_path)
                 else:
-                    classes, relations = meta_workflow(input_path=inp, out_path=None, lang=lang, max_options=max_options,
-                                                  title=titl, desc=desc, abstract=abst,
-                                                  only_object_property=only_object_property)
+                    classes, relations = meta_workflow(input_path=inp, out_path=None, lang=lang,
+                                                       max_options=max_options, title=titl, desc=desc, abstract=abst,
+                                                       topr=topr, topn=topn, only_object_property=only_object_property)
             except Exception as e:
                 print("Error processing: %s" % inp)
                 print("Exception: %s" % str(e))
@@ -105,14 +108,26 @@ def parse_arguments():
     parser.add_argument('-i', '--input', nargs="+", required=True, help="ontology files")
     parser.add_argument('-o', '--output', default="output", help="Output path")
     parser.add_argument('-l', '--lang', default=None, help="language tag. e.g., en")
-    parser.add_argument('-m', '--maxoptions', default=0, help="Maximum number of meta literal for each meta type (e.g., title)")
-    parser.add_argument('--object-property', action="store_true", help="Whether to only use object property for getting the relevant properties relenvant to the given meta")
-    parser.add_argument('-f', '--freq', action="store_true", help="Use frequency to fetch the most relative classes and properties")
-    parser.add_argument('-g', '--leng', action="store_true", help="Use the length to fetch the most relevant classes and properties")
+    parser.add_argument('-m', '--maxoptions', default=0,
+                        help="Maximum number of meta literal for each meta type (e.g., title)")
+    parser.add_argument('--object-property', action="store_true",
+                        help="Whether to only use object property for getting the relevant properties relenvant to the given meta")
+    parser.add_argument('-f', '--freq', action="store_true",
+                        help="Use frequency to fetch the most relative classes and properties")
+    parser.add_argument('-g', '--leng', action="store_true",
+                        help="Use the length to fetch the most relevant classes and properties")
     parser.add_argument('-n', '--topn', default=0, type=int, help="The maximum number of relevant classes.")
+    parser.add_argument('-r', '--topr', default=0, type=int, help="The maximum number of relations.")
 
     args = parser.parse_args()
-    return args.output, args.input, args.lang, int(args.maxoptions), args.object_property, args.freq, args.topn, args.leng
+    parsed_args = {
+        "output": args.output, "input": args.input, "lang": args.lang,
+        "maxoptions": int(args.maxoptions), "object_property": args.object_property,
+        "freq": args.freq, "leng": args.leng,
+        "topn": args.topn, "topr": args.topr
+    }
+    return parsed_args
+    # return args.output, args.input, args.lang, int(args.maxoptions), args.object_property, args.freq, args.topn, args.leng
 
 
 def main():
@@ -120,13 +135,16 @@ def main():
     Parse Arguments
     """
     a = datetime.now()
-    output_path, input_files, lang, max_options, only_object_property, freq, topn, leng = parse_arguments()
-    experiment(input_files, output_path, lang=lang, max_options=max_options, only_object_property=only_object_property,
-               freq=freq, topn=topn, leng=leng)
+    # output_path, input_files, lang, max_options, only_object_property, freq, topn, leng = parse_arguments()
+    args = parse_arguments()
+    experiment(args["input"], args["output"], lang=args["lang"], max_options=args["maxoptions"],
+               only_object_property=args["object_property"], freq=args["freq"], topn=args["topn"], topr=args["topr"],
+               leng=args["leng"])
+    # experiment(input_files, output_path, lang=lang, max_options=max_options, only_object_property=only_object_property,
+    #            freq=freq, topn=topn, leng=leng)
     b = datetime.now()
     print("\n\nTime it took: %.1f minutes\n\n" % ((b - a).total_seconds() / 60.0))
 
 
 if __name__ == "__main__":
     main()
-

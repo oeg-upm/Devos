@@ -54,8 +54,11 @@ Group  --> Agent   :member
 
 
 ##### IESWC (ISWC and ESWC)
-```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_object_property --object-property```
+* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_object_property --object-property --topn 5```
 
+* Top 5 classes 10 references: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_object_property --object-property --topn 5 --topr 10```
+
+* Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_object_property --object-property --topn 10```
 
 
 #### From Frequency
@@ -69,14 +72,23 @@ Group  --> Agent   :member
 
 
 ##### IESWC (ISWC and ESWC)
-* Top 5: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 5```
 
-* Top 10: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 10```
+* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 5```
+
+* Top 5 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 5 --topr 10```
+
+* Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 10```
+
+[//]: # (* Top 10 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 10 --topr 10```)
 
 
 #### Label Length
 ##### IESWC (ISWC and ESWC)
-* Top 5: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_leng --leng --topn 5```
+
+* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_leng --leng --topn 5```
+
+* Top 5 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_leng --leng --topn 5 --topr 10```
+
 
 * Top 10: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_leng --leng --topn 10```
 

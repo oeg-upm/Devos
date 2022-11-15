@@ -1,0 +1,11 @@
+```mermaid
+	classDiagram
+
+    
+    class UnitOfMeasure {
+    
+    }
+
+
+
+```

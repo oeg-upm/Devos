@@ -25,7 +25,7 @@ def parse_ontology(input_path):
 
 
 def get_top_relations(classes, relations, topr):
-    if topr <= 0:
+    if topr <= 0 or len(classes) == 0:
         return relations
     per_class = dict()
 
