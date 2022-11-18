@@ -24,19 +24,19 @@
 
 
 
+List  --> List   :rest  
+
+Volume  --> Journal   :volumeInJournal  
+
 List  --> List   :first  
 
 Isssue  --> Volume   :issueInVolume  
 
-Publication  --> Accessibility   :publicationAccessibility  
-
 Series  --> Category   :category  
-
-Volume  --> Journal   :volumeInJournal  
 
 Publication  --> ContributorList   :publicationEditorList  
 
-List  --> List   :rest  
+Publication  --> Issue   :publicationInIssue  
 
 Book  --> Series   :bookInSeries  
 

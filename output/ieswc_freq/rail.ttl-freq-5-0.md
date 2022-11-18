@@ -24,56 +24,56 @@
 
 
 
-PositioningNetElement  --> AssociatedPositioningSystem   :associatedPositioningSystem  
-
 PositionedRelation  --> PositioningNetElement   :elementB  
-
-AssociatedPositioningSystem  --> IntrinsicCoordinate   :intrinsicCoordinate  
-
-AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :end  
 
 IntrinsicCoordinate  --> IntrinsicCoordinate   :reaches  
 
-na589ecd4ba234f49aa6ed84d8ce36901b20  --> PositioningSystemCoordinate   :coordinate  
-
-AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :start  
-
-Relation  --> NetElement   :element  
-
-na589ecd4ba234f49aa6ed84d8ce36901b24  --> NetElement   :elementPart  
+PositioningNetElement  --> AssociatedPositioningSystem   :associatedPositioningSystem  
 
 NetElement  --> Relation   :relation  
 
-na589ecd4ba234f49aa6ed84d8ce36901b27  --> PositioningNetElement   :netElement  
+n973efe6fd3fd4729a4c1ed46215ef54cb24  --> NetElement   :elementPart  
+
+n973efe6fd3fd4729a4c1ed46215ef54cb20  --> PositioningSystemCoordinate   :coordinate  
+
+n973efe6fd3fd4729a4c1ed46215ef54cb27  --> PositioningNetElement   :netElement  
+
+AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :end  
 
 PositionedRelation  --> PositioningNetElement   :elementA  
+
+Relation  --> NetElement   :element  
+
+AssociatedPositioningSystem  --> IntrinsicCoordinate   :intrinsicCoordinate  
+
+AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :start  
+
+PositionedRelation  --> PositioningNetElement   :elementB  
+
+LinearLocationCoordinate  --> PositioningSystemCoordinate   :coordinate  
 
 PositioningNetElement  --> AssociatedPositioningSystem   :associatedPositioningSystem  
 
 NetElement  --> Relation   :relation  
 
-PositionedRelation  --> PositioningNetElement   :elementB  
-
-AssociatedPositioningSystem  --> IntrinsicCoordinate   :intrinsicCoordinate  
-
-AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :end  
-
-LinearLocationCoordinate  --> PositioningSystemCoordinate   :coordinate  
-
-UnorderedCollection  --> NetElement   :elementPart  
-
-AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :start  
-
-PositioningSystemCoordinate  --> PositioningSystem   :positioningSystem  
-
 SpotLocationCoordinate  --> PositioningSystemCoordinate   :coordinate  
-
-NetElement  --> Relation   :relation  
-
-PositionedRelation  --> PositioningNetElement   :elementA  
 
 OrderedCollection  --> NetElement   :elementPart  
 
+NetElement  --> Relation   :relation  
+
+UnorderedCollection  --> NetElement   :elementPart  
+
+PositionedRelation  --> PositioningNetElement   :elementA  
+
+AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :end  
+
 AssociatedNetElement  --> PositioningNetElement   :netElement  
+
+AssociatedPositioningSystem  --> IntrinsicCoordinate   :intrinsicCoordinate  
+
+PositioningSystemCoordinate  --> PositioningSystem   :positioningSystem  
+
+AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :start  
 
 ```

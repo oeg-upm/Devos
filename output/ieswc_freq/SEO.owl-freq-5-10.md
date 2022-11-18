@@ -24,16 +24,16 @@
 
 
 
+Track  --> AcademicEvent   :isTrackOf  
+
+OrganisedEvent  --> OrganisedEvent   :colocatedWith  
+
 AcademicEvent  --> Track   :hasTrack  
 
-OrganisedEvent  --> City   :heldInCity  
-
-OrganisedEvent  --> Sponsor   :hasSponsor  
+OrganisedEvent  --> Keynote   :hasKeynote  
 
 AcademicEvent  --> AgentClass   :audience  
 
 Track  --> Chair   :hasChair  
-
-Track  --> AcademicEvent   :isTrackOf  
 
 ```

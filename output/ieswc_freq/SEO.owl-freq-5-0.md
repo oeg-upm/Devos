@@ -26,48 +26,48 @@
 
 Sponsor  --> OrganisedEvent   :isSponsorOf  
 
-OrganisedEvent  --> OrganisedEvent   :colocatedWith  
+OrganisedEvent  --> Sponsor   :hasSponsor  
 
-OrganisedEvent  --> TravelInformation   :providesTravelInformation  
+OrganisedEvent  --> EventSeries   :belongsToSeries  
 
-OrganisedEvent  --> Country   :heldInCountry  
+AcademicEvent  --> Track   :hasTrack  
 
-OrganisedEvent  --> Award   :offersAward  
+AcademicEvent  --> SocialEvent   :hasSocialEvent  
 
-OrganisedEvent  --> City   :heldInCity  
+AcademicEvent  --> SubmissionGuidelines   :hasSubmissionGuidelines  
 
 Track  --> Chair   :hasChair  
 
 OrganisedEvent  --> Keynote   :hasKeynote  
 
-AcademicEvent  --> Person   :hasProgramCommitteeMember  
+OrganisedEvent  --> Award   :offersAward  
 
-OrganisedEvent  --> Registration   :hasRegistration  
+OrganisedEvent  --> Country   :heldInCountry  
 
-AcademicEvent  --> ImportantDates   :hasImportantDates  
-
-EventSeries  --> OrganisedEvent   :hasEvent  
+OrganisedEvent  --> TravelInformation   :providesTravelInformation  
 
 Keynote  --> OrganisedEvent   :keynoteIn  
 
-Track  --> AcademicEvent   :isTrackOf  
-
-AcademicEvent  --> SocialEvent   :hasSocialEvent  
+AcademicEvent  --> Person   :hasProgramCommitteeMember  
 
 OrganisedEvent  --> Flyer   :hasFlyer  
 
-Agent  --> OrganisedEvent   :participatesIn  
+EventSeries  --> OrganisedEvent   :hasEvent  
+
+OrganisedEvent  --> City   :heldInCity  
+
+OrganisedEvent  --> Registration   :hasRegistration  
 
 AcademicEvent  --> AgentClass   :audience  
 
-OrganisedEvent  --> EventSeries   :belongsToSeries  
+AcademicEvent  --> ImportantDates   :hasImportantDates  
 
-OrganisedEvent  --> Sponsor   :hasSponsor  
+Agent  --> OrganisedEvent   :participatesIn  
 
 AcademicEvent  --> BestPaperAward   :offersBestPaperAward  
 
-AcademicEvent  --> SubmissionGuidelines   :hasSubmissionGuidelines  
+Track  --> AcademicEvent   :isTrackOf  
 
-AcademicEvent  --> Track   :hasTrack  
+OrganisedEvent  --> OrganisedEvent   :colocatedWith  
 
 ```

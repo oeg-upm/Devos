@@ -24,23 +24,23 @@
 
 
 
-NetElement  --> Relation   :relation  
-
-ncbedf0863a3e49cda15a355925086642b24  --> NetElement   :elementPart  
-
-ncbedf0863a3e49cda15a355925086642b27  --> PositioningNetElement   :netElement  
-
-PositionedRelation  --> PositioningNetElement   :elementB  
-
-AssociatedPositioningSystem  --> IntrinsicCoordinate   :intrinsicCoordinate  
-
-ncbedf0863a3e49cda15a355925086642b20  --> PositioningSystemCoordinate   :coordinate  
+Relation  --> NetElement   :element  
 
 IntrinsicCoordinate  --> IntrinsicCoordinate   :reaches  
 
-Relation  --> NetElement   :element  
+NetElement  --> Relation   :relation  
 
-AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :end  
+n8b5f6385b3864070a4d90b20e71e3726b27  --> PositioningNetElement   :netElement  
+
+AssociatedPositioningSystem  --> IntrinsicCoordinate   :intrinsicCoordinate  
+
+n8b5f6385b3864070a4d90b20e71e3726b24  --> NetElement   :elementPart  
+
+n8b5f6385b3864070a4d90b20e71e3726b20  --> PositioningSystemCoordinate   :coordinate  
+
+AssociatedNetElementCoordinate  --> PositioningSystemCoordinate   :start  
+
+PositionedRelation  --> PositioningNetElement   :elementB  
 
 NetElement  --> Relation   :relation  
 

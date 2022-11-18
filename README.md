@@ -13,7 +13,7 @@ A tool to generate a gist of the ontology
 
 1. Use meta data as the signal for importance
 ```
-python -m ogister.gister -i data/cocoon.ttl -o out.md -t -d -a 
+python -m ogister.gister -i data/ieswc/cocoon.ttl -t -d -a  
 ```
 
 
@@ -54,11 +54,11 @@ Group  --> Agent   :member
 
 
 ##### IESWC (ISWC and ESWC)
-* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_object_property --object-property --topn 5```
+* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_meta --object-property --topn 5```
 
-* Top 5 classes 10 references: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_object_property --object-property --topn 5 --topr 10```
+* Top 5 classes 10 references: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_meta --object-property --topn 5 --topr 10```
 
-* Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_object_property --object-property --topn 10```
+* Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_meta --object-property --topn 10```
 
 
 #### From Frequency

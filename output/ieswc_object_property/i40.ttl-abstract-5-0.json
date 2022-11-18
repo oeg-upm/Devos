@@ -1,1 +1,1 @@
-{"classes": ["IicfConnectivityLayer", "IotaPerspective", "ArchitectureDescription", "DataSharingInitiative", "AiiClassification"], "relations": [], "meta": "abstract"}
+{"classes": ["DataSharingInitiative", "IotaPerspective", "AiiClassification", "ArchitectureDescription", "IicfConnectivityLayer"], "relations": [], "meta": "abstract"}

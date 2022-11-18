@@ -8,9 +8,9 @@
 
 
 
-MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
-
 CulturalProperty  --> MibacScopeOfProtection   :hasMibacScopeOfProtection  
+
+MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
 
 MibacScopeOfProtection  --> CulturalProperty   :isMibacScopeOfProtectionOf  
 

@@ -16,8 +16,8 @@
 
 
 
-Mention  --> Context   :hasContext  
-
 Quotation  --> Mention   :hasMention  
+
+Mention  --> Context   :hasContext  
 
 ```

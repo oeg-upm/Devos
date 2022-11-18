@@ -24,24 +24,24 @@
 
 
 
-Explanation  --> ExplanationModality   :hasPresentation  
-
-user  --> Explanation   :consumes  
-
-SystemRecommendation  --> ArtificialIntelligenceMethod   :SIO000232  
-
 Explanation  --> SIO000085   :addresses  
-
-Explanation  --> ExplanationGoal   :SIO000008  
-
-Explanation  --> knowledge   :isBasedOn  
 
 SystemRecommendation  --> objectrecord   :SIO001277  
 
-Explanation  --> SystemRecommendation   :isBasedOn  
+Explanation  --> ExplanationModality   :hasPresentation  
+
+Explanation  --> knowledge   :isBasedOn  
+
+user  --> Explanation   :consumes  
 
 ExplanationCollection  --> Explanation   :SIO000059  
 
 Explanation  --> SystemRecommendation   :isBasedOn  
+
+Explanation  --> SystemRecommendation   :isBasedOn  
+
+Explanation  --> ExplanationGoal   :SIO000008  
+
+SystemRecommendation  --> ArtificialIntelligenceMethod   :SIO000232  
 
 ```

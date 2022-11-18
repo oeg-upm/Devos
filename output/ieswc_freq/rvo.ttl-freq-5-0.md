@@ -24,32 +24,32 @@
 
 
 
-DatasetStructure  --> Measure   :containMeasure  
+Model  --> Variable   :controlVariable  
 
 Model  --> Variable   :dependentVariable  
 
-LinkedVariables  --> Variable   :secondVariable  
+LinkedVariables  --> Variable   :firstVariable  
 
-DatasetStructure  --> DataSource   :dataSource  
-
-Model  --> Variable   :controlVariable  
-
-Variable  --> Concept   :operationalize  
+Model  --> ModelType   :modelType  
 
 LinkedVariables  --> Model   :viaModel  
 
+DatasetStructure  --> DataSource   :dataSource  
+
 Model  --> Dataset   :trainingSet  
 
-LinkedVariables  --> LinkType   :linkType  
+DatasetStructure  --> Measure   :containMeasure  
 
-LinkedVariables  --> Variable   :firstVariable  
-
-Dataset  --> DatasetStructure   :datasetStructure  
-
-Model  --> Variable   :independentVariable  
+Variable  --> Concept   :operationalize  
 
 Variable  --> Measure   :measuredBy  
 
-Model  --> ModelType   :modelType  
+Dataset  --> DatasetStructure   :datasetStructure  
+
+LinkedVariables  --> Variable   :secondVariable  
+
+Model  --> Variable   :independentVariable  
+
+LinkedVariables  --> LinkType   :linkType  
 
 ```

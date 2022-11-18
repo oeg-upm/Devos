@@ -24,24 +24,24 @@
 
 
 
-User  --> UserLogs   :generatesLogs  
+KnowledgeTopic  --> EducationalResource   :hasEducationalResource  
 
-EducationalResource  --> Accessibility   :accessibility  
+EducationalResource  --> KnowledgeTopic   :hasKnowledgeTopic  
 
-Recommendation  --> UserProfile   :generatedFrom  
+Skill  --> KnowledgeTopic   :hasKnowledgeTopic  
 
-User  --> Exercise   :solves  
+User  --> UserProfile   :hasProfile  
 
-KnowledgeTopic  --> Exercise   :hasExercise  
+Skill  --> KnowledgeTopic   :requiresKnowledge  
 
-Test  --> KnowledgeTopic   :testKnowledgeTopic  
+KnowledgeTopic  --> Theory   :hasTheory  
 
-LearningPreference  --> UserProfile   :storedIn  
-
-Skill  --> Classification   :hasClassification  
-
-Skill  --> LearningOutcome   :hasLearningOutcome  
+AcademicParameter  --> UserProfile   :storedIn  
 
 EducationalResource  --> MultimediaData   :hasMultimediaData  
+
+User  --> Test   :solves  
+
+UserProfile  --> Accessibility   :accessibility  
 
 ```

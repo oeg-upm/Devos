@@ -13,13 +13,19 @@ from ogister import util
 from nltk.corpus import stopwords
 
 META_INCLUDE_PROP = False  # Whether to look for the property labels.
+IMPORTANT_CLASS_REF = True  # Whether to prefer relations between important classes
+
+DEBUG = False
 
 stopwords = stopwords.words('english')
+
+labels_cache = dict()
 
 
 def parse_ontology(input_path):
     g = rdflib.Graph()
-    print("\n\n\t\t==============\n\t Parsing: %s (format: %s)" % (input_path, rdflib.util.guess_format(input_path)))
+    if DEBUG:
+        print("\n\n\t\t==============\n\t Parsing: %s (format: %s)" % (input_path, rdflib.util.guess_format(input_path)))
     g.parse(input_path, format=rdflib.util.guess_format(input_path))
     return g
 
@@ -34,9 +40,28 @@ def get_top_relations(classes, relations, topr):
     for c in classes:
         per_class[c] = 0
 
+    rem_relations = []
     top_relations = []
+    if IMPORTANT_CLASS_REF:
+        for r in relations:
+            if r[0] in per_class and r[2] in per_class:
+                if per_class[r[0]] < rmax:
+                    per_class[r[0]] += 1
+                    top_relations.append(r)
+                elif per_class[r[2]] < rmax:
+                    per_class[r[2]] += 1
+                    top_relations.append(r)
+                else:
+                    rem_relations.append(r)
+            else:
+                rem_relations.append(r)
+        if DEBUG:
+            print("important relations: ")
+            print(top_relations)
+    else:
+        rem_relations = relations
 
-    for r in relations:
+    for r in rem_relations:
         if r[0] in per_class:
             c = r[0]
         elif r[2] in per_class:
@@ -61,29 +86,35 @@ def get_meta_text(input_path, title, desc, abstract, lang=None, max_options=0):
     if title:
         titles = fetcher.get_titles(g, lang=lang)
         if max_options > 0:
-            print("%d of titles out of %d" % (min(max_options, len(titles)), len(titles)))
+            if DEBUG:
+                print("%d of titles out of %d" % (min(max_options, len(titles)), len(titles)))
             titles = titles[:max_options]
         meta += titles
-        print("titles: ")
-        # print(len(titles))
-        print(titles)
+        if DEBUG:
+            print("titles: ")
+            print(len(titles))
+            print(titles)
     if desc:
         descs = fetcher.get_descriptions(g, lang=lang)
         if max_options > 0:
-            print("%d of descriptions out of %d" % (min(max_options, len(descs)), len(descs)))
+            if DEBUG:
+                print("%d of descriptions out of %d" % (min(max_options, len(descs)), len(descs)))
             descs = descs[:max_options]
         meta += descs
-        print("descriptions: ")
-        # print(len(descs))
-        print(descs)
+        if DEBUG:
+            print("descriptions: ")
+            print(len(descs))
+            print(descs)
     if abstract:
         absts = fetcher.get_abstracts(g, lang=lang)
         if max_options > 0:
-            print("%d of abstracts out of %d" % (min(max_options, len(absts)), len(absts)))
+            if DEBUG:
+                print("%d of abstracts out of %d" % (min(max_options, len(absts)), len(absts)))
             absts = absts[:max_options]
         meta += absts
-        print("abstracts")
-        print(absts)
+        if DEBUG:
+            print("abstracts")
+            print(absts)
     return meta, g
 
 
@@ -135,12 +166,14 @@ def get_matched_per_text(m, max_num_tok, g, only_object_property, lower=True):
     matched = list(set(matched))
     matched_classes = list(set(matched_classes))
     matched_properties = list(set(matched_properties))
-    # print("Matched keyword: ")
-    # print(matched)
-    # print("matched classes: ")
-    # print(matched_classes)
-    # print("matched properties: ")
-    # print(matched_properties)
+
+    if DEBUG:
+        print("Matched keyword: ")
+        print(matched)
+        print("matched classes: ")
+        print(matched_classes)
+        print("matched properties: ")
+        print(matched_properties)
     return matched, matched_classes, matched_properties
 
 
@@ -175,13 +208,17 @@ def get_classes_and_relations(input_path, title, desc, abstract, only_object_pro
         classes = classes[:topn]
         properties = properties[:topn]
     class_relations = fetcher.get_relations(g, classes)
-    print("class relations: ")
-    print(class_relations)
+    if DEBUG:
+        print("class relations: ")
+        print(class_relations)
     property_relations = fetcher.get_properties_relations(g, properties)
-    print("property relations: ")
+    if DEBUG:
+        print("property relations: ")
+        print(property_relations)
     constraints = fetcher.get_classes_constraints(g, classes)
-    print("constraints: ")
-    print(constraints)
+    if DEBUG:
+        print("constraints: ")
+        print(constraints)
     class_relations += constraints
 
     relations = list(set(class_relations + property_relations))
@@ -201,19 +238,34 @@ def draw_diagrams(classes, relations, out_path):
     save_diagram(diagram, out_path)
 
 
+def get_label(g, uri, lang=None):
+    global labels_cache
+
+    if uri not in labels_cache:
+        labels_cache[uri] = fetcher.get_print_label(g, uri, lang)
+    else:
+        print("cached: %s => %s" % (uri, labels_cache[uri]))
+    return labels_cache[uri]
+
+
 def shorten_uris(uris):
     shortened_uris = [fetcher.shorten_url(u) for u in uris]
     return shortened_uris
 
 
-def shorten_relations(rels):
-    # # DEBUG
-    # for r in rels:
-    #     print(r)
-    #     print("%s\t%s\t%s" % (r[0], r[1], r[2]))
+def label_uris(g, uris, lang=None):
+    labeled_uris = [get_label(g, u, lang) for u in uris]
+    return labeled_uris
 
+
+def shorten_relations(rels):
     shortented_rels = [(fetcher.shorten_url(r[0]), fetcher.shorten_url(r[1]), fetcher.shorten_url(r[2])) for r in rels]
     return shortented_rels
+
+
+def label_relations(g, rels):
+    labeled_rels = [(get_label(g, r[0]), get_label(g, r[1]), get_label(g, r[2])) for r in rels]
+    return labeled_rels
 
 
 def meta_workflow(input_path, title, desc, abstract, only_object_property, out_path=None, lang=None, max_options=0,
@@ -226,8 +278,8 @@ def meta_workflow(input_path, title, desc, abstract, only_object_property, out_p
                                                       only_object_property=only_object_property)
 
     top_relations = get_top_relations(classes, relations, topr)
-    top_relations = shorten_relations(top_relations)
-    top_classes = shorten_uris(classes)
+    top_relations = label_relations(top_relations)
+    top_classes = label_uris(classes)
 
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
@@ -242,9 +294,10 @@ def get_freq_classes(g, topn, only_object_property):
         freq_cls_pairs.append(p)
     freq_cls_pairs.sort(reverse=True, key=itemgetter(0))
 
-    # DEBUG
-    for p in freq_cls_pairs:
-        print("%3d -- %s" % (p[0], p[1]))
+    if DEBUG:
+        print("\nClasses Frequency")
+        for p in freq_cls_pairs:
+            print("%3d -- %s" % (p[0], p[1]))
 
     freq_cls_pairs = freq_cls_pairs[:topn]
     top_classes = [p[1] for p in freq_cls_pairs]
@@ -274,7 +327,7 @@ def get_leng_classes(g, topn):
 
 def freq_workflow(input_path, out_path, topn, only_object_property, topr=0):
     """
-
+    Use frequency as the importance signal
     """
     g = parse_ontology(input_path)
     top_classes = get_freq_classes(g, topn=topn, only_object_property=only_object_property)
@@ -283,17 +336,20 @@ def freq_workflow(input_path, out_path, topn, only_object_property, topr=0):
     class_relations += constraints
 
     top_relations = get_top_relations(top_classes, class_relations, topr)
-    top_relations = shorten_relations(top_relations)
-    top_classes = shorten_uris(top_classes)
+    top_relations = label_relations(top_relations)
+    top_classes = label_uris(top_classes)
 
-    print("\nTop classes: ")
-    for c in top_classes:
-        print("\t%s" % c)
-    print("\nrelations: ")
+    if DEBUG:
+        print("\nTop classes: ")
+        for c in top_classes:
+            print("\t%s" % c)
+        print("\nrelations: ")
+        print(top_relations)
     util.print_relations(top_relations)
-    print("\nconstraints: ")
-    for c in constraints:
-        print(c)
+    if DEBUG:
+        print("\nconstraints: ")
+        for c in constraints:
+            print(c)
 
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
@@ -311,8 +367,8 @@ def leng_workflow(input_path, out_path, topn, topr):
     class_relations += constraints
 
     top_relations = get_top_relations(top_classes, class_relations, topr)
-    top_relations = shorten_relations(top_relations)
-    top_classes = shorten_uris(top_classes)
+    top_relations = label_relations(g, top_relations)
+    top_classes = label_uris(g, top_classes)
 
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
@@ -323,6 +379,7 @@ def parse_arguments():
     """
     Parse command line arguments
     """
+    global DEBUG
     parser = argparse.ArgumentParser(description='Get a Gist of the ontology')
     parser.add_argument('-i', '--input', required=True, help="Ontology file.")
     parser.add_argument('-o', '--output', help="Output file.")
@@ -339,8 +396,9 @@ def parse_arguments():
                         help="Use frequency to fetch the most relevant classes and properties")
     parser.add_argument('-g', '--leng', action="store_true",
                         help="Use the length to fetch the most relevant classes and properties")
-    parser.add_argument('--topr', type=int, default=0, help="The maximum number of relations")
+    parser.add_argument('-r', '--topr', type=int, default=0, help="The maximum number of relations")
 
+    parser.add_argument('--debug', action="store_true", help="To print debug information")
     args = parser.parse_args()
     parsed_args = {
         "input": args.input, "output": args.output,
@@ -349,6 +407,9 @@ def parse_arguments():
         "lang": args.lang, "maxoptions": args.maxoptions, "object_property": args.object_property,
         "freq": args.freq, "leng": args.leng
     }
+    if args.debug:
+        DEBUG = True
+    fetcher.DEBUG = DEBUG
     return parsed_args
 
 
@@ -358,7 +419,7 @@ def main():
 
     if args["freq"]:
         freq_workflow(input_path=args["input"], out_path=args["output"], topn=args["topn"], topr=args["topr"],
-                      only_object_property=args["only_object_property"])
+                      only_object_property=args["object_property"])
     elif args["leng"]:
         leng_workflow(input_path=args["input"], out_path=args["output"], topn=args["topn"], topr=args["topr"])
     else:

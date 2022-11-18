@@ -24,21 +24,21 @@
 
 
 
-LinkedVariables  --> Model   :viaModel  
-
-Model  --> Dataset   :trainingSet  
-
-Dataset  --> DatasetStructure   :datasetStructure  
-
 LinkedVariables  --> Variable   :secondVariable  
 
 Model  --> Variable   :dependentVariable  
 
+LinkedVariables  --> Variable   :firstVariable  
+
+Model  --> Dataset   :trainingSet  
+
+Model  --> Variable   :independentVariable  
+
+Dataset  --> DatasetStructure   :datasetStructure  
+
+Model  --> Variable   :controlVariable  
+
 DatasetStructure  --> Measure   :containMeasure  
-
-Variable  --> Measure   :measuredBy  
-
-Variable  --> Concept   :operationalize  
 
 DatasetStructure  --> DataSource   :dataSource  
 

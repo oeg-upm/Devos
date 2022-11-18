@@ -26,10 +26,10 @@
 
 user  --> Explanation   :consumes  
 
+SystemRecommendation  --> objectrecord   :SIO001277  
+
 SystemRecommendation  --> ArtificialIntelligenceMethod   :SIO000232  
 
 Explanation  --> ExplanationModality   :hasPresentation  
-
-SystemRecommendation  --> objectrecord   :SIO001277  
 
 ```

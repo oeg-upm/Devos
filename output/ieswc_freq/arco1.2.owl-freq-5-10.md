@@ -24,24 +24,24 @@
 
 
 
-CartographicClassification  --> CartographicTheme   :hasCartographicTheme  
+CulturalProperty  --> Agent   :hasRelatedAgency  
+
+CulturalProperty  --> Agent   :hasHeritageProtectionAgency  
+
+Agent  --> CulturalProperty   :isRelatedAgencyOf  
+
+CulturalProperty  --> CartographicClassification   :hasCartographicClassification  
+
+Agent  --> CulturalProperty   :isHeritageProtectionAgencyOf  
+
+CartographicClassification  --> CulturalProperty   :isCartographicClassificationOf  
 
 PhotographicHeritage  --> PhotographicHeritageClassification   :hasPhotographicHeritageClassification  
 
 NumismaticPropertyCategory  --> NumismaticProperty   :isNumismaticPropertyCategoryOf  
 
-CulturalProperty  --> SubjectDiscipline   :hasAlternativeDiscipline  
+PhotographicHeritageClassification  --> PhotographicHeritage   :isPhotographicHeritageClassificationOf  
 
-CulturalPropertyResidual  --> CulturalProperty   :isCulturalPropertyResidualOf  
-
-CartographicClassification  --> CulturalProperty   :isCartographicClassificationOf  
-
-Agent  --> CulturalProperty   :isHeritageProtectionAgencyOf  
-
-Agent  --> CulturalProperty   :isCataloguingAgencyOf  
-
-PhotographicHeritageClassification  --> PhotographicHeritageClassificationType   :hasPhotographicHeritageClassificationType  
-
-ReferenceCoinLegend  --> NumismaticProperty   :isReferenceCoinLegendOf  
+NumismaticProperty  --> NumismaticPropertyCategory   :hasNumismaticPropertyCategory  
 
 ```

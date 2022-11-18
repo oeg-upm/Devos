@@ -1,1 +1,0 @@
-{"classes": ["Accessibility", "Role"], "relations": [["Contributor", "contributorRole", "Role"], ["Publication", "publicationAccessibility", "Accessibility"]], "meta": "leng"}

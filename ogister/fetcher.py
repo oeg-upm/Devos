@@ -4,6 +4,28 @@ from rdflib import Literal
 from owl2diagram.main import get_classes, get_class_hierarchy, get_object_prop, save_diagram, get_name
 
 
+DEBUG = False
+
+
+def get_labels(g, uri, lang=None):
+    q = "select ?label where{ <%s> rdf:label ?label}" % uri
+    if lang:
+        q += ". FILTER (lang(?label) = '%s')" % lang
+    results = g.query(q)
+    labels = []
+    for res in results:
+        l = res['label']
+        labels.append(l)
+    return labels
+
+
+def get_print_label(g, uri, lang=None):
+    labels = get_labels(g, uri, lang)
+    if labels:
+        return labels[0]
+    return shorten_url(uri)
+
+
 def shorten_url(url):
     for pref in prefixes.prefs:
         pref_txt = prefixes.prefs[pref]
@@ -46,8 +68,13 @@ def get_class_freq(g, only_object_property):
     q = t % """ ?property rdfs:domain ?class. """
 
     # q = """select (count(?s) as ?c) ?p where {?s ?p ?o}"""
-    # print(q)
+
     results = g.query(q)
+    if DEBUG:
+        print("\nget_class_freq> query domain")
+        print(q)
+        for res in results:
+            print(res)
     d = dict()
     for res in results:
         class_uri = str(res["class"])
@@ -58,8 +85,14 @@ def get_class_freq(g, only_object_property):
     # print(d)
     # range
     q = t % """ ?property rdfs:range ?class. """
-    # print(q)
+
     results = g.query(q)
+
+    if DEBUG:
+        print("\nget_class_freq> query domain")
+        print(q)
+        for res in results:
+            print(res)
     for res in results:
         class_uri = str(res["class"])
         num = int(str(res["num"]))
@@ -123,6 +156,7 @@ def get_classes_with_keyword(g, keyword):
         label_query += " UNION "
     label_query += label_query_template % (props[-1], keyword)
     q = t % label_query
+    print(q)
     results = g.query(q)
     for res in results:
         vals.append(str(res["class"]))
@@ -202,6 +236,7 @@ def get_prop_vals(g, properties, lang=None):
     :return: return values
     """
     vals = []
+    # TODO: merge the properties into a single query.
     t = "select ?val where {?s <%s> ?val. ?s rdf:type owl:Ontology}"
     for p in properties:
         results = g.query(t % p)
