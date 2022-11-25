@@ -10,7 +10,7 @@ from ogister.prefixes import DBO
 split_text = split_text_manual
 
 
-class TestGister(unittest.TestCase):
+class TestGisterLeng(unittest.TestCase):
 
     def setUp(self) -> None:
         pass

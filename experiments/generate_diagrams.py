@@ -1,7 +1,7 @@
 import argparse
 import traceback
-
-from ogister.gister import meta_workflow, draw_diagrams, freq_workflow, leng_workflow
+from ogister import gister
+# from ogister.gister import meta_workflow, draw_diagrams, freq_workflow, leng_workflow
 import os
 import json
 from datetime import datetime
@@ -75,17 +75,18 @@ def experiment(input_files, output_path, only_object_property, freq, topn, topr,
                 continue
             try:
                 if freq:
-                    classes, relations = freq_workflow(input_path=inp, out_path=None, topr=topr,
+                    classes, relations = gister.freq_workflow(input_path=inp, out_path=None, topr=topr,
                                                        only_object_property=only_object_property, topn=topn)
                 elif leng:
-                    classes, relations, class_leng_dict = leng_workflow(input_path=inp, out_path=None, topn=topn,
+                    classes, relations, class_leng_dict = gister.leng_workflow(input_path=inp, out_path=None, topn=topn,
                                                                         topr=topr)
                     label_len_path = os.path.join(output_path, graph_fname_base + ".csv")
                     save_label_len(class_leng_dict, label_len_path)
                 else:
-                    classes, relations = meta_workflow(input_path=inp, out_path=None, lang=lang,
+                    classes, relations = gister.meta_workflow(input_path=inp, out_path=None, lang=lang,
                                                        max_options=max_options, title=titl, desc=desc, abstract=abst,
                                                        topr=topr, topn=topn, only_object_property=only_object_property)
+                gister.clear_cache()
             except Exception as e:
                 print("Error processing: %s" % inp)
                 print("Exception: %s" % str(e))
@@ -95,7 +96,7 @@ def experiment(input_files, output_path, only_object_property, freq, topn, topr,
             opath = os.path.join(output_path, graph_fname + ".md")
             json_path = os.path.join(output_path, graph_fname + ".json")
             # label_path = os.path.join(output_path, graph_fname + ".csv")
-            draw_diagrams(classes=classes, relations=relations, out_path=opath)
+            gister.draw_diagrams(classes=classes, relations=relations, out_path=opath)
             save_json(json_path, classes=classes, relations=relations, meta=m)
             # save_label_len(label_path, classes=classes)
 

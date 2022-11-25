@@ -1,0 +1,192 @@
+@prefix ns1: <http://ainf.aau.at/ontodebug#> .
+@prefix ns2: <http://purl.org/vocab/vann/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:axiom a owl:AnnotationProperty ;
+    rdfs:subPropertyOf ns1:testCase .
+
+ns1:type a owl:AnnotationProperty ;
+    rdfs:subPropertyOf ns1:testCase .
+
+ns4:contributor a owl:AnnotationProperty .
+
+ns4:creator a owl:AnnotationProperty .
+
+ns4:title a owl:AnnotationProperty .
+
+ns3:license a owl:AnnotationProperty .
+
+ns2:preferredNamespacePrefix a owl:AnnotationProperty .
+
+<https://purl.org/p2p-o> a owl:Ontology ;
+    rdfs:label "P2P-O: A Purchase-To-Pay Ontology"@en ;
+    ns1:testCase [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ],
+        [ ] ;
+    ns4:description "This ongoing research work is developed at the German Research Center for Artificial Intelligence (Deutsches Forschungszentrum für Künstliche Intelligenz (DFKI) GmbH). It is work in progress and presents a purchase-to-pay ontology and vocabulary for describing purchase-to-pay processes and electronic invoices. It reuses parts of the European Standard EN 16931-1."@en ;
+    ns4:title "P2P-O: A Purchase-To-Pay Ontology"@en ;
+    ns3:license "https://opensource.org/licenses/MIT" ;
+    ns2:preferredNamespacePrefix "p2p-o" ;
+    ns2:preferredNamespaceUri "https://purl.org/p2p-o" ;
+    owl:imports <https://purl.org/p2p-o/invoice>,
+        <https://purl.org/p2p-o/process> ;
+    owl:versionIRI <https://purl.org/p2p-o/0.9.0> .
+
+<https://purl.org/p2p-o/organization#globalLocationNumber> a owl:AnnotationProperty .
+
+<https://spec.edmcouncil.org/fibo/ontology/FND/Relations/Relations/hasFormalName> a owl:AnnotationProperty .
+
+owl:Ontology rdfs:label "Ontology" .
+
+ns1:testCase a owl:AnnotationProperty .
+
+owl:AnnotationProperty rdfs:label "Annotation Property" .
+
+[] ns1:axiom "CommercialInvoiceLine SubClassOf DocumentLine" ;
+    ns1:type true .
+
+[] ns1:axiom "IncidentalPurchaseOrderProcess SubClassOf PurchaseToPayProcess" ;
+    ns1:type true .
+
+[] ns1:axiom "CommercialInvoiceLine SubClassOf DocumentLine" ;
+    ns1:type true .
+
+[] ns1:axiom "E-PrePaymentInvoice SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "E-PrePaymentInvoice SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "PurchaseOrderLine SubClassOf DocumentLine" ;
+    ns1:type true .
+
+[] ns1:axiom "Address EquivalentTo Address" ;
+    ns1:type false .
+
+[] ns1:axiom "Item SubClassOf ItemAttribute" ;
+    ns1:type false .
+
+[] ns1:axiom "Item SubClassOf ItemAttribute" ;
+    ns1:type false .
+
+[] ns1:axiom "CommercialInvoiceLine SubClassOf DocumentLine" ;
+    ns1:type true .
+
+[] ns1:axiom "IncidentalPurchaseOrderProcess SubClassOf PurchaseToPayProcess" ;
+    ns1:type true .
+
+[] ns1:axiom "Item SubClassOf ItemAttribute" ;
+    ns1:type false .
+
+[] ns1:axiom "hasAddress EquivalentTo hasAddress" ;
+    ns1:type false .
+
+[] ns1:axiom "AmountOfMoney SubClassOf E-Invoice" ;
+    ns1:type false .
+
+[] ns1:axiom "E-CreditNote SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "E-CreditNote SubClassOf ReceivingAdvice" ;
+    ns1:type false .
+
+[] ns1:axiom "E-Invoice SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "Address EquivalentTo Address" ;
+    ns1:type false .
+
+[] ns1:axiom "PurchaseOrderLine SubClassOf DocumentLine" ;
+    ns1:type true .
+
+[] ns1:axiom "SupportingDocument SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "SupportingDocument SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "Address EquivalentTo Address" ;
+    ns1:type false .
+
+[] ns1:axiom "E-CreditNote SubClassOf ReceivingAdvice" ;
+    ns1:type false .
+
+[] ns1:axiom "InvoiceLine SubClassOf DocumentLine" ;
+    ns1:type true .
+
+[] ns1:axiom "E-Invoice EquivalentTo AmountOfMoney" ;
+    ns1:type false .
+
+[] ns1:axiom "E-CreditNote SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "hasAddress EquivalentTo hasAddress" ;
+    ns1:type false .
+
+[] ns1:axiom "PurchaseOrderLine SubClassOf DocumentLine" ;
+    ns1:type true .
+
+[] ns1:axiom "E-Invoice SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "AmountOfMoney SubClassOf E-Invoice" ;
+    ns1:type false .
+
+[] ns1:axiom "E-CreditNote SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "E-CreditNote SubClassOf ReceivingAdvice" ;
+    ns1:type false .
+
+[] ns1:axiom "E-Invoice SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "InvoiceLine SubClassOf DocumentLine" ;
+    ns1:type true .
+
+[] ns1:axiom "SupportingDocument SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "hasAddress EquivalentTo hasAddress" ;
+    ns1:type false .
+
+[] ns1:axiom "IncidentalPurchaseOrderProcess SubClassOf PurchaseToPayProcess" ;
+    ns1:type true .
+
+[] ns1:axiom "E-Invoice EquivalentTo AmountOfMoney" ;
+    ns1:type false .
+
+[] ns1:axiom "E-PrePaymentInvoice SubClassOf Document" ;
+    ns1:type true .
+
+[] ns1:axiom "InvoiceLine SubClassOf DocumentLine" ;
+    ns1:type true .
+

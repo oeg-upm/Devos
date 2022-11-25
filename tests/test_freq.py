@@ -9,7 +9,7 @@ from ogister.util import split_text_manual
 split_text = split_text_manual
 
 
-class TestGister(unittest.TestCase):
+class TestGisterFreq(unittest.TestCase):
 
     def setUp(self) -> None:
         pass

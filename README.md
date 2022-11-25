@@ -19,6 +19,7 @@ python -m ogister.gister -i data/ieswc/cocoon.ttl -t -d -a
 
 
 
+
 **Example**:
 
 
@@ -41,6 +42,16 @@ Group  --> Agent   :member
 
 ## Experiment
 
+### Preprocessing 
+We perform ontology enrichment by adding labels from class names for the classes that do not
+have labels.
+
+#### IESWC (ISWC and ESWC)
+```
+python -m experiments.enrich -i data/ieswc/* -o data/ieswc_enriched
+```
+
+
 ### Run the experiment (NEW)
 
 #### From Meta data
@@ -54,11 +65,11 @@ Group  --> Agent   :member
 
 
 ##### IESWC (ISWC and ESWC)
-* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_meta --object-property --topn 5```
+* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_meta --object-property --topn 5```
 
-* Top 5 classes 10 references: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_meta --object-property --topn 5 --topr 10```
+* Top 5 classes 10 references: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_meta --object-property --topn 5 --topr 10```
 
-* Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_meta --object-property --topn 10```
+* Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_meta --object-property --topn 10```
 
 
 #### From Frequency
@@ -73,11 +84,11 @@ Group  --> Agent   :member
 
 ##### IESWC (ISWC and ESWC)
 
-* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 5```
+* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 5```
 
-* Top 5 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 5 --topr 10```
+* Top 5 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 5 --topr 10```
 
-* Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 10```
+* Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 10```
 
 [//]: # (* Top 10 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 10 --topr 10```)
 
@@ -85,12 +96,12 @@ Group  --> Agent   :member
 #### Label Length
 ##### IESWC (ISWC and ESWC)
 
-* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_leng --leng --topn 5```
+* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_leng --leng --topn 5```
 
-* Top 5 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_leng --leng --topn 5 --topr 10```
+* Top 5 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_leng --leng --topn 5 --topr 10```
 
 
-* Top 10: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_leng --leng --topn 10```
+* Top 10: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_leng --leng --topn 10```
 
 
 

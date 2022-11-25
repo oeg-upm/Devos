@@ -1,0 +1,907 @@
+@prefix : <https://w3id.org/rail/topo#> .
+@prefix ns1: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix ns4: <http://purl.org/vocab/vann/> .
+@prefix ns5: <http://purl.org/ontology/bibo/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns2:contributor a owl:AnnotationProperty .
+
+ns2:created a owl:AnnotationProperty .
+
+ns2:creator a owl:AnnotationProperty .
+
+ns2:description a owl:AnnotationProperty .
+
+ns2:license a owl:AnnotationProperty .
+
+ns2:modified a owl:AnnotationProperty .
+
+ns2:title a owl:AnnotationProperty .
+
+ns5:status a owl:AnnotationProperty .
+
+ns4:preferredNamespacePrefix a owl:AnnotationProperty .
+
+ns4:preferredNamespaceUri a owl:AnnotationProperty .
+
+ns3:term_status a owl:AnnotationProperty .
+
+ns1:definition a owl:AnnotationProperty .
+
+: a owl:Ontology ;
+    ns2:contributor "Gottfried Schenner" ;
+    ns2:created "2020-11-16" ;
+    ns2:creator "Stefan Bischof <bischof.stefan@siemens.com>" ;
+    ns2:description "The Rail Topology Ontology models foundational rail topology concepts.." ;
+    ns2:license "Mozilla Public License, Version 2.0" ;
+    ns2:modified "2021-04-20" ;
+    ns2:title "Rail Topology Ontology" ;
+    ns5:status "Published" ;
+    ns4:preferredNamespacePrefix "topo" ;
+    ns4:preferredNamespaceUri "https://w3id.org/rail/topo#" ;
+    rdfs:seeAlso <https://www.railtopomodel.org/> ;
+    owl:imports <http://standards.iso.org/iso/15926/part14/1.0> ;
+    owl:versionIRI <https://w3id.org/rail/topo/v1.0#> ;
+    owl:versionInfo "v1.0" .
+
+:LinearElement a owl:Class ;
+    rdfs:label "LinearElement" ;
+    rdfs:subClassOf :PositioningNetElement ;
+    owl:disjointWith :NonLinearElement ;
+    ns1:definition "One-dimensional \"PositioningNetElement\" with a start (intrinsic coordinate 0.0) and an end (intrinsic coordinate 1.0)." .
+
+:Orientation a rdfs:Datatype ;
+    rdfs:label "Orientation" ;
+    owl:equivalentClass [ a rdfs:Datatype ;
+            owl:oneOf [ a rdf:List ;
+                    rdf:first -1 ;
+                    rdf:rest [ a rdf:List ;
+                            rdf:first 1 ;
+                            rdf:rest () ] ] ] .
+
+:anchor a owl:AsymmetricProperty,
+        owl:InverseFunctionalProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "anchor" ;
+    rdfs:domain :LinearPositioningSystem ;
+    rdfs:range :LinearAnchorPoint .
+
+:anchorName a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "anchorName" ;
+    rdfs:domain :LinearAnchorPoint ;
+    rdfs:range rdfs:Literal ;
+    ns1:definition "Name of the “LinearAnchorPoint” instance which is unique within the given \"LinearPositioningSystem\"" .
+
+:crsDefininition a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "crsDefininition" ;
+    rdfs:domain :GeometricPositioningSystem ;
+    rdfs:range rdfs:Literal ;
+    ns1:definition "coordinate reference system" .
+
+:elementCollection a owl:AsymmetricProperty,
+        owl:InverseFunctionalProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "elementCollection" ;
+    rdfs:domain :CompositionNetElement ;
+    rdfs:range :ElementPartCollection .
+
+:elementPartList a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "elementPartList" ;
+    rdfs:domain :OrderedCollection ;
+    rdfs:range rdf:List .
+
+:endMeasure a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "endMeasure" ;
+    rdfs:domain :LinearPositioningSystem ;
+    rdfs:range xsd:double ;
+    ns1:definition "Value for measurement at the end of the \"LinearPositioningSystem\"" .
+
+:id a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "id" ;
+    rdfs:domain :BaseObject ;
+    rdfs:range rdfs:Literal ;
+    ns1:definition "unique identifier" .
+
+:intrinsicCoord a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "intrinsicCoord" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :IntrinsicCoordinate :SpotLocationIntrinsic ) ] ;
+    rdfs:range xsd:double ;
+    ns1:definition "Location in reference to the chosen NetElement, given as value in the interval from 0 to 1." .
+
+:intrinsicCoordBegin a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "intrinsicCoordBegin" ;
+    rdfs:domain :AssociatedNetElementIntrinsic ;
+    rdfs:range xsd:double ;
+    ns1:definition "Start location of the \"NetEntity\" instance in relation to the PositioningNetElement\" which is used for positioning within the network." .
+
+:intrinsicCoordEnd a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "intrinsicCoordEnd" ;
+    rdfs:domain :AssociatedNetElementIntrinsic ;
+    rdfs:range xsd:double ;
+    ns1:definition "End location of the \"NetEntity\" instance in relation to the \"PositioningNetElement\" which is used for positioning within the network." .
+
+:keepsOrientation a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "keepsOrientation" ;
+    rdfs:domain :AssociatedNetElement ;
+    rdfs:range xsd:boolean ;
+    ns1:definition "child `LinearElement` keeps same Orientation as parent `LinearElement`. `false`: Orientation is not relevant, `true`: Orientation is relevant"@en .
+
+:lateralOffset a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "lateralOffset" ;
+    rdfs:domain :LinearCoordinate ;
+    rdfs:range xsd:double ;
+    ns1:definition "distance perpendicular to the \"line of reference\""@en .
+
+:longname a owl:AnnotationProperty ;
+    rdfs:label "longname" ;
+    rdfs:domain :NamedResource ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf rdfs:comment ;
+    ns1:definition "Longer name of a resource" .
+
+:measure a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "measure" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :LinearAnchorPoint :LinearCoordinate ) ] ;
+    rdfs:range xsd:double ;
+    ns1:definition """For LinearCoordinate: location at the "line of reference" (possibly adjusted to local anomalies using "LinearAnchorPosition")
+For LinearAnchorPoint: Measure of the Anchor Point within the given“LinearPositioningSystem”"""@en .
+
+:measureToNext a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "measureToNext" ;
+    rdfs:domain :LinearAnchorPoint ;
+    rdfs:range xsd:double ;
+    ns1:definition "Basis for modified interpolation of location in the interval up to the next “LinearAnchorPoint” of the given  \"LinearPositioningSystem”." .
+
+:name a owl:AnnotationProperty ;
+    rdfs:label "name" ;
+    rdfs:domain :NamedResource ;
+    rdfs:range rdfs:Literal ;
+    rdfs:subPropertyOf rdfs:label ;
+    ns1:definition "short name of a resource" .
+
+:networkResource a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "networkResource" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :LevelNetwork :Network ) ] ;
+    rdfs:range :NetworkResource ;
+    rdfs:subPropertyOf <http://standards.iso.org/iso/15926/part14/hasFunctionalPart> .
+
+:reaches a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "reaches" ;
+    rdfs:domain :IntrinsicCoordinate ;
+    rdfs:range :IntrinsicCoordinate ;
+    ns3:term_status "testing" ;
+    ns1:definition "Asserts that one end of a <#LinearElement> given as subject <#IntrinsicCoordinate> can reach the object <#IntrinsicCoordinate> and its corresponding <#LinearElement> without change of direction" .
+
+:sequence a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "sequence" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :OrderedAssociatedNetElement :OrderedCollection ) ] ;
+    rdfs:range xsd:nonNegativeInteger ;
+    ns1:definition "Sequence of the child element within the ordered collection" .
+
+:startMeasure a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "startMeasure" ;
+    rdfs:domain :LinearPositioningSystem ;
+    rdfs:range xsd:double ;
+    ns1:definition "Value for measurement at the beginning of the \"LinearPositioningSystem\"" .
+
+:unit a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "unit" ;
+    rdfs:domain :LinearPositioningSystem ;
+    rdfs:range rdfs:Literal ;
+    ns1:definition "unit for measurement" .
+
+:validFrom a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "validFrom" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :AssociatedPositioningSystem :NetworkResource :PositioningSystem ) ] ;
+    rdfs:range xsd:dateTime ;
+    ns1:definition "Point in time where the object is available for usage for train operations (if empty, then the object is valid till the [validTo](#validTo) date)." .
+
+:validTo a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "validTo" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :AssociatedPositioningSystem :NetworkResource :PositioningSystem ) ] ;
+    rdfs:range xsd:dateTime ;
+    ns1:definition "Point in time where the object is no longer available for functional usage (if empty, then the object is valid since the [validFrom](#validFrom) date)." .
+
+:verticalOffset a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "verticalOffset" ;
+    rdfs:domain :LinearCoordinate ;
+    rdfs:range xsd:double ;
+    ns1:definition "height above the \"line of reference\" at the position defined by \"measure\""@en .
+
+:x a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "x" ;
+    rdfs:domain :GeometricCoordinate ;
+    rdfs:range xsd:double ;
+    ns1:definition "x value of cartesian coordinate, longitude of spherical coordinate"@en .
+
+:y a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "y" ;
+    rdfs:domain :GeometricCoordinate ;
+    rdfs:range xsd:double ;
+    ns1:definition "y value of cartesian coordinate, latitude of spherical coordinate"@en .
+
+:z a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "z" ;
+    rdfs:domain :GeometricCoordinate ;
+    rdfs:range xsd:double ;
+    ns1:definition "z value of cartesian coordinate, altitude of spherical coordinate"@en .
+
+<http://standards.iso.org/iso/15926/part14/InanimatePhysicalObject> a owl:Class .
+
+<http://standards.iso.org/iso/15926/part14/Location> a owl:Class .
+
+<http://standards.iso.org/iso/15926/part14/Object> a owl:Class .
+
+<http://standards.iso.org/iso/15926/part14/Role> a owl:Class .
+
+owl:Ontology rdfs:label "Ontology" .
+
+:LinearLocationCoordinate a owl:Class ;
+    rdfs:label "LinearLocationCoordinate" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :coordinate ;
+            owl:someValuesFrom :PositioningSystemCoordinate ],
+        :LinearLocation ;
+    ns1:definition "Relation between a \"LinearLocation\" and \"PositioningSystemCoordinate\" instances." .
+
+:LocatedNetEntity a owl:Class ;
+    rdfs:label "LocatedNetEntity" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :location ;
+            owl:someValuesFrom :EntityLocation ],
+        :NetEntity ;
+    ns1:definition """The class “LocatedNetEntity” is a parent class for information that can definitely be localized, which is the case of most infrastructure-related objects.
+
+Note: this class has been introduced for semantic clarification, as one may expect “UnlocatedNetEntitites” to also be introduced in the future. Possible derived classes would be “StructureNetEntity”, “SignallingNetEntity”, “DressingNetEntity”, etc. The RailTopoModel user may create such classes, according to use cases. Further class definitions, resulting from common use cases, may be added to the present Standard in the future.
+
+"LocatedNetEntity" is a generic docking station for all relevant domain information which can be located in the context of the network in question:""" .
+
+:NonLinearElement a owl:Class ;
+    rdfs:label "NonLinearElement" ;
+    rdfs:subClassOf :PositioningNetElement ;
+    ns1:definition "\"PositioningNetElement\" without any extenstion, a spot or point." .
+
+:SpotLocationCoordinate a owl:Class ;
+    rdfs:label "SpotLocationCoordinate" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :coordinate ;
+            owl:someValuesFrom :PositioningSystemCoordinate ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :PositioningSystemCoordinate ;
+            owl:onProperty :coordinate ],
+        :SpotLocation ;
+    owl:disjointWith :SpotLocationIntrinsic ;
+    ns1:definition "The class \"SpotLocationCoordinate\" defines the relation between a \"SpotLocation\" and \"PositioningSystemCoordinate\"." .
+
+:associatedElement a owl:AsymmetricProperty,
+        owl:InverseFunctionalProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "associatedElement" ;
+    rdfs:domain :LinearLocation ;
+    rdfs:range :OrderedAssociatedNetElement .
+
+:associatedNetElement a owl:AsymmetricProperty,
+        owl:InverseFunctionalProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "associatedNetElement" ;
+    rdfs:domain :AreaLocation ;
+    rdfs:range :AssociatedNetElement .
+
+:associatedPositioningSystem a owl:AsymmetricProperty,
+        owl:InverseFunctionalProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "associatedPositioningSystem" ;
+    rdfs:domain :PositioningNetElement ;
+    rdfs:range :AssociatedPositioningSystem .
+
+:intrinsicCoordinate a owl:AsymmetricProperty,
+        owl:InverseFunctionalProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "intrinsicCoordinate" ;
+    rdfs:domain :AssociatedPositioningSystem ;
+    rdfs:range :IntrinsicCoordinate .
+
+:level a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "level" ;
+    rdfs:domain :Network ;
+    rdfs:range :LevelNetwork .
+
+:location a owl:AsymmetricProperty,
+        owl:InverseFunctionalProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "location" ;
+    rdfs:domain :LocatedNetEntity ;
+    rdfs:range :EntityLocation .
+
+<http://standards.iso.org/iso/15926/part14/FunctionalObject> a owl:Class .
+
+<http://standards.iso.org/iso/15926/part14/PointInSpace> a owl:Class .
+
+<http://standards.iso.org/iso/15926/part14/RegionInSpace> a owl:Class .
+
+<http://standards.iso.org/iso/15926/part14/System> a owl:Class .
+
+<http://standards.iso.org/iso/15926/part14/hasFunctionalPart> a owl:ObjectProperty .
+
+:AreaLocation a owl:Class ;
+    rdfs:label "AreaLocation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :associatedNetElement ;
+            owl:someValuesFrom :AssociatedNetElement ],
+        <http://standards.iso.org/iso/15926/part14/RegionInSpace>,
+        :EntityLocation ;
+    ns1:definition "Set of \"AssociatedNetElement\" instances which together represent an area of interest. Each “AssociatedNetElement” instance contains attributes which designate the extent of the related “PositioningNetElement” instance using intrinsic coordinates." .
+
+:CompositionNetElement a owl:Class ;
+    rdfs:label "CompositionNetElement" ;
+    rdfs:subClassOf :NetElement ;
+    ns1:definition "A topological element that aggregates some other topological element from another level (e.g. a macro element aggregates micro elements)." .
+
+:GeometricPositioningSystem a owl:Class ;
+    rdfs:label "GeometricPositioningSystem" ;
+    rdfs:subClassOf :PositioningSystem ;
+    owl:disjointWith :LinearPositioningSystem ;
+    ns1:definition """Schematic, geographic or geodetic coordinate reference system to position instances of [NetElement](#NetElement) or [NetEntity](#NetEntity).
+
+"GeometricPositioningSystem" instances are used to support the transformation between intrinsic locations and geometric coordinates.""" .
+
+:NetEntity a owl:Class ;
+    rdfs:label "NetEntity" ;
+    rdfs:subClassOf <http://standards.iso.org/iso/15926/part14/InanimatePhysicalObject>,
+        :NetworkResource ;
+    ns1:definition "\"NetEntity\" is a generic parent class for all information that can be associated with the network considered. Information may be, for instance: tunnels, signals, level crossings, track circuits, speed limits, etc." .
+
+:SpotLocationIntrinsic a owl:Class ;
+    rdfs:label "SpotLocationIntrinsic" ;
+    rdfs:subClassOf :SpotLocation ;
+    ns1:definition "Additional Information in respect of intrinsic positioning for a \"SpotLocation\" instance." .
+
+:UnorderedCollection a owl:Class ;
+    rdfs:label "UnorderedCollection" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :elementPart ;
+            owl:someValuesFrom :NetElement ],
+        :ElementPartCollection ;
+    ns1:definition "Collection of unordered NetElements" .
+
+:descriptionLevel a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "descriptionLevel" ;
+    rdfs:domain :LevelNetwork ;
+    rdfs:range :DescriptionLevel ;
+    ns1:definition "Name of the description level, recommended values: `macro`, `meso` and `micro`." .
+
+:element a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "element" ;
+    rdfs:domain :Relation ;
+    rdfs:range :NetElement ;
+    owl:inverseOf :relation ;
+    ns3:term_status "unstable" ;
+    ns1:definition "superproperty of [elementA](#elementA) and [elementB](#elementB) to infer inverse [relation](#relation)" .
+
+:elementA a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "elementA" ;
+    rdfs:domain :PositionedRelation ;
+    rdfs:range :PositioningNetElement ;
+    rdfs:subPropertyOf :element .
+
+:elementB a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "elementB" ;
+    rdfs:domain :PositionedRelation ;
+    rdfs:range :PositioningNetElement ;
+    rdfs:subPropertyOf :element .
+
+:elementPart a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "elementPart" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :OrderedCollection :UnorderedCollection ) ] ;
+    rdfs:range :NetElement ;
+    rdfs:subPropertyOf <http://standards.iso.org/iso/15926/part14/hasFunctionalPart> .
+
+:end a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "end" ;
+    rdfs:domain :AssociatedNetElementCoordinate ;
+    rdfs:range :PositioningSystemCoordinate .
+
+:linearReferencingMethod a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "linearReferencingMethod" ;
+    rdfs:domain :LinearPositioningSystem ;
+    rdfs:range :LrsMethod ;
+    ns1:definition "Method for linear referencing, `absolute`, `relative` or `interpolation`." .
+
+:navigability a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "navigability" ;
+    rdfs:domain :PositionedRelation ;
+    rdfs:range :Navigability ;
+    ns1:definition """if "AB" it is possible to move a train from NetElement "A" to NetElement "B". It is not possible to move it from NetElement B to NetElement A
+If "BA" it is possible to move a train from NetElement "B" to NetElement "A". It is not possible to move it from NetElement A to NetElement B
+If "Both" it is possible to move a train from "A" to "B" as well as from "B" to "A".
+If "None" it is not possible to move a train across this "Relation" in any direction.""" .
+
+:netElement a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "netElement" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :AssociatedNetElement :SpotLocation ) ] ;
+    rdfs:range :PositioningNetElement .
+
+:positionOnA a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "positionOnA" ;
+    rdfs:domain :PositionedRelation ;
+    rdfs:range :Usage ;
+    ns1:definition """if "0" then the "Relation" is using the start of NetElement A
+if "1" then the "Relation" is using the end of NetElement A""" .
+
+:positionOnB a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "positionOnB" ;
+    rdfs:domain :PositionedRelation ;
+    rdfs:range :Usage ;
+    ns1:definition """if "0" then the "Relation" is using the start of NetElement B
+if "1" then the "Relation" is using the end of NetElement B""" .
+
+:relation a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "relation" ;
+    rdfs:domain :NetElement ;
+    rdfs:range :Relation .
+
+:start a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "start" ;
+    rdfs:domain :AssociatedNetElementCoordinate ;
+    rdfs:range :PositioningSystemCoordinate .
+
+:AssociatedNetElementCoordinate a owl:Class ;
+    rdfs:label "AssociatedNetElementCoordinate" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :end ;
+            owl:someValuesFrom :PositioningSystemCoordinate ],
+        [ a owl:Restriction ;
+            owl:onProperty :start ;
+            owl:someValuesFrom :PositioningSystemCoordinate ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :PositioningSystemCoordinate ;
+            owl:onProperty :end ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :PositioningSystemCoordinate ;
+            owl:onProperty :start ],
+        :AssociatedNetElement ;
+    ns1:definition "Locates a NetEntity on a NetElement using a pair of positioning system coordinates." .
+
+:AssociatedNetElementIntrinsic a owl:Class ;
+    rdfs:label "AssociatedNetElementIntrinsic" ;
+    rdfs:subClassOf :AssociatedNetElement ;
+    ns1:definition "Locates a NetEntity on a NetElement using a pair of intrinsic coordinates." .
+
+:DescriptionLevel a rdfs:Datatype ;
+    rdfs:label "DescriptionLevel" ;
+    owl:equivalentClass xsd:string ;
+    ns1:definition "recommended, predefined description levels: \"macro\", \"meso\" and \"micro\"" .
+
+:GeometricCoordinate a owl:Class ;
+    rdfs:label "GeometricCoordinate" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :GeometricPositioningSystem ;
+            owl:onProperty :positioningSystem ],
+        :PositioningSystemCoordinate ;
+    owl:disjointWith :LinearCoordinate ;
+    ns1:definition "One coordinate using a \"GeometricPositioningSystem\" as reference system. Depending on the properties of the coordinate system used, a coordinate consists of cartesian or spherical values. In case of 2D coordinate systems, the attribute z is undefined." .
+
+:LrsMethod a rdfs:Datatype ;
+    rdfs:label "LrsMethod" ;
+    owl:equivalentClass [ a rdfs:Datatype ;
+            owl:oneOf [ a rdf:List ;
+                    rdf:first "absolute" ;
+                    rdf:rest [ a rdf:List ;
+                            rdf:first "interpolation" ;
+                            rdf:rest [ a rdf:List ;
+                                    rdf:first "relative" ;
+                                    rdf:rest () ] ] ] ] .
+
+:Navigability a rdfs:Datatype ;
+    rdfs:label "Navigability" ;
+    owl:equivalentClass [ a rdfs:Datatype ;
+            owl:oneOf [ a rdf:List ;
+                    rdf:first "AB" ;
+                    rdf:rest [ a rdf:List ;
+                            rdf:first "BA" ;
+                            rdf:rest [ a rdf:List ;
+                                    rdf:first "Both" ;
+                                    rdf:rest [ a rdf:List ;
+                                            rdf:first "None" ;
+                                            rdf:rest () ] ] ] ] ] .
+
+:Network a owl:Class ;
+    rdfs:label "Network" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :level ;
+            owl:someValuesFrom :LevelNetwork ],
+        <http://standards.iso.org/iso/15926/part14/System>,
+        :NamedResource ;
+    ns1:definition "The network being considered. It includes all resources that compose it (all Levels included), inter alia the topological, structural and positional properties exhibited by any railway network." .
+
+:OrderedCollection a owl:Class ;
+    rdfs:label "OrderedCollection" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :elementPart ;
+            owl:someValuesFrom :NetElement ],
+        :ElementPartCollection ;
+    owl:disjointWith :UnorderedCollection ;
+    ns1:definition "Collection of ordered NetElements" .
+
+:coordinate a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "coordinate" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :IntrinsicCoordinate :LinearLocationCoordinate :SpotLocationCoordinate ) ] ;
+    rdfs:range :PositioningSystemCoordinate .
+
+<http://standards.iso.org/iso/15926/part14/InformationObject> a owl:Class .
+
+:ElementPartCollection a owl:Class ;
+    rdfs:label "ElementPartCollection" ;
+    rdfs:subClassOf <http://standards.iso.org/iso/15926/part14/FunctionalObject>,
+        :BaseObject ;
+    ns1:definition "Collection of Net elements to be aggregated into the higher level NetElement (Generic class)." .
+
+:LinearCoordinate a owl:Class ;
+    rdfs:label "LinearCoordinate" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :LinearPositioningSystem ;
+            owl:onProperty :positioningSystem ],
+        :PositioningSystemCoordinate ;
+    ns1:definition "Location in reference to a given \"LinearPositioningSystem\"." .
+
+:LinearLocation a owl:Class ;
+    rdfs:label "LinearLocation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :associatedElement ;
+            owl:someValuesFrom :OrderedAssociatedNetElement ],
+        [ a owl:Restriction ;
+            owl:onProperty :applicationDirection ;
+            owl:someValuesFrom :ApplicationDirection ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange :ApplicationDirection ;
+            owl:onProperty :applicationDirection ],
+        <http://standards.iso.org/iso/15926/part14/RegionInSpace>,
+        :EntityLocation ;
+    ns1:definition "Location information with a startpoint and an endpoint for \"LocatedNetEntity\" instances in reference to one or more \"PositioningNetElement\" instances. The set of associated \"PositioningNetElement\" instances is ordered." .
+
+:OrderedAssociatedNetElement a owl:Class ;
+    rdfs:label "OrderedAssociatedNetElement" ;
+    rdfs:subClassOf :AssociatedNetElement ;
+    ns1:definition "Ordered sequences of “AssociatedNetElement” instances which together describe the complete structure of a “LinearLocation” instance." .
+
+:applicationDirection a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "applicationDirection" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :LinearLocation :SpotLocation ) ] ;
+    rdfs:range :ApplicationDirection ;
+    ns1:definition """if `normal`: the located object is valid in the direction of the LinearLocation
+if `reverse`: the located object is valid in the reverse direction of LinearLocation
+if `both`: the located object is valid in both directions""" .
+
+owl:AllDisjointClasses rdfs:label "All Disjoint Classes" .
+
+:ApplicationDirection a rdfs:Datatype ;
+    rdfs:label "ApplicationDirection" ;
+    owl:equivalentClass [ a rdfs:Datatype ;
+            owl:oneOf [ a rdf:List ;
+                    rdf:first "both" ;
+                    rdf:rest [ a rdf:List ;
+                            rdf:first "normal" ;
+                            rdf:rest [ a rdf:List ;
+                                    rdf:first "reverse" ;
+                                    rdf:rest () ] ] ] ] .
+
+:LevelNetwork a owl:Class ;
+    rdfs:label "LevelNetwork" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :descriptionLevel ;
+            owl:someValuesFrom :DescriptionLevel ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange :DescriptionLevel ;
+            owl:onProperty :descriptionLevel ],
+        <http://standards.iso.org/iso/15926/part14/System>,
+        :BaseObject ;
+    ns1:definition "A consistent \"view\" of a Network at a certain level of granularity. An instance of this class therefore includes all resources that are required to define the corresponding level (e.g. micro/track, or macro/line)." .
+
+:LinearAnchorPoint a owl:Class ;
+    rdfs:label "LinearAnchorPoint" ;
+    rdfs:subClassOf <http://standards.iso.org/iso/15926/part14/PointInSpace>,
+        :BaseObject ;
+    ns1:definition """Ordered set of named points within a "LinearPositioningSystem", which are used to transform between LRS based locations suitable for field work and locations using intrinsic coordinates. Each point contains an LRS measure and the distance to next “LinearAnchorPoint” instance.
+
+This information allows the mapping of LRS locations to intrinsic locations.""" .
+
+:PositionedRelation a owl:Class ;
+    rdfs:label "PositionedRelation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :elementA ;
+            owl:someValuesFrom :PositioningNetElement ],
+        [ a owl:Restriction ;
+            owl:onProperty :elementB ;
+            owl:someValuesFrom :PositioningNetElement ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :PositioningNetElement ;
+            owl:onProperty :elementA ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :PositioningNetElement ;
+            owl:onProperty :elementB ],
+        [ a owl:Restriction ;
+            owl:onProperty :navigability ;
+            owl:someValuesFrom :Navigability ],
+        [ a owl:Restriction ;
+            owl:onProperty :positionOnA ;
+            owl:someValuesFrom :Usage ],
+        [ a owl:Restriction ;
+            owl:onProperty :positionOnB ;
+            owl:someValuesFrom :Usage ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange :Navigability ;
+            owl:onProperty :navigability ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange :Usage ;
+            owl:onProperty :positionOnA ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange :Usage ;
+            owl:onProperty :positionOnB ],
+        :Relation ;
+    ns1:definition "Oriented relation between exactly two PositioningNetElements." .
+
+:Relation a owl:Class ;
+    rdfs:label "Relation" ;
+    rdfs:subClassOf :NetworkResource ;
+    ns1:definition "Connexity relation between two NetElements in the connexity graph of the network." .
+
+:SpotLocation a owl:Class ;
+    rdfs:label "SpotLocation" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :applicationDirection ;
+            owl:someValuesFrom :ApplicationDirection ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange :ApplicationDirection ;
+            owl:onProperty :applicationDirection ],
+        <http://standards.iso.org/iso/15926/part14/PointInSpace>,
+        :EntityLocation ;
+    ns1:definition "Point location information for \"LocatedNetEntity\" instances in reference to one \"PositioningNetElement\" instance." .
+
+:EntityLocation a owl:Class ;
+    rdfs:label "EntityLocation" ;
+    rdfs:subClassOf <http://standards.iso.org/iso/15926/part14/Location>,
+        :BaseObject ;
+    ns1:definition "Topological and positional location information for \"NetEntity\" instances." .
+
+:NamedResource a owl:Class ;
+    rdfs:label "NamedResource" ;
+    rdfs:subClassOf :BaseObject ;
+    ns1:definition "class for named resources, e.g., NetworkResources, Networks, PositioningSystems" .
+
+:Usage a rdfs:Datatype ;
+    rdfs:label "Usage" ;
+    owl:equivalentClass [ a rdfs:Datatype ;
+            owl:oneOf [ a rdf:List ;
+                    rdf:first 0 ;
+                    rdf:rest [ a rdf:List ;
+                            rdf:first 1 ;
+                            rdf:rest () ] ] ] .
+
+:positioningSystem a owl:AsymmetricProperty,
+        owl:IrreflexiveProperty,
+        owl:ObjectProperty ;
+    rdfs:label "positioningSystem" ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :AssociatedPositioningSystem :PositioningSystemCoordinate ) ] ;
+    rdfs:range :PositioningSystem ;
+    ns1:definition "should be PropertyChain \"intrinsicCoordinate o coordinate o positioningSystem\"" .
+
+owl:InverseFunctionalProperty rdfs:label "Inverse Functional Property" .
+
+:AssociatedNetElement a owl:Class ;
+    rdfs:label "AssociatedNetElement" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :netElement ;
+            owl:someValuesFrom :PositioningNetElement ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :PositioningNetElement ;
+            owl:onProperty :netElement ],
+        <http://standards.iso.org/iso/15926/part14/Role> ;
+    ns1:definition "The class \"AssociatedNetElement\" defines topological structures and location information in relation relation between one \"NetElement\" instance and location information for \"NetEntity\" instances." .
+
+:AssociatedPositioningSystem a owl:Class ;
+    rdfs:label "AssociatedPositioningSystem" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :intrinsicCoordinate ;
+            owl:someValuesFrom :IntrinsicCoordinate ],
+        [ a owl:Restriction ;
+            owl:onProperty :positioningSystem ;
+            owl:someValuesFrom :PositioningSystem ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :PositioningSystem ;
+            owl:onProperty :positioningSystem ],
+        <http://standards.iso.org/iso/15926/part14/InformationObject>,
+        :BaseObject ;
+    ns1:definition """The class "AssociatedPositioningSystem" defines the relation between a "PositioningNetElement" instance and a "PositioningSystem" instance.
+
+The associated set of “IntrinsicCoordinate” together with the related “PositioningSystemCoordinate” instances define the translation parameters between “IntrinsicCoordinate” based locations, and locations based on external coordinates (“LinearLocationCoordinate” or “SpotLocationCoordinate”) using
+“LinearPositioningSystem” or “GeometricPositioningSystem” as a coordinate system.""" .
+
+:IntrinsicCoordinate a owl:Class ;
+    rdfs:label "IntrinsicCoordinate" ;
+    rdfs:subClassOf <http://standards.iso.org/iso/15926/part14/InformationObject>,
+        :BaseObject ;
+    ns1:definition "Coordinate which is used to specify locations in reference to \"NetElement\" instances. An intrinsic coordinate may have an arbitrary real number in interval [0,1] of associated “PositioningSystemCoordinate” instances. 0 and 1 correspond to the extremities of the element." .
+
+:LinearPositioningSystem a owl:Class ;
+    rdfs:label "LinearPositioningSystem" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :linearReferencingMethod ;
+            owl:someValuesFrom :LrsMethod ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange :LrsMethod ;
+            owl:onProperty :linearReferencingMethod ],
+        :PositioningSystem ;
+    ns1:definition """A "PositioningSystem" where a "line of reference" together with a single number allows a location within a railway network to be defined. 
+
+In railway business a “line of reference” is very often represented with a line number or a track number together with a start mileage and an end mileage.""" .
+
+:NetElement a owl:Class ;
+    rdfs:label "NetElement" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :relation ;
+            owl:someValuesFrom :Relation ],
+        :NetworkResource ;
+    ns1:definition "A base member of topology in a connexity graph of a network (at any level)." .
+
+:NetworkResource a owl:Class ;
+    rdfs:label "NetworkResource" ;
+    rdfs:subClassOf <http://standards.iso.org/iso/15926/part14/FunctionalObject>,
+        :NamedResource ;
+    ns1:definition "Every object of the network is qualified as a resource." .
+
+:BaseObject a owl:Class ;
+    rdfs:label "BaseObject" ;
+    rdfs:subClassOf <http://standards.iso.org/iso/15926/part14/Object> ;
+    ns1:definition "base class" .
+
+:PositioningSystem a owl:Class ;
+    rdfs:label "PositioningSystem" ;
+    rdfs:subClassOf <http://standards.iso.org/iso/15926/part14/InformationObject>,
+        :NamedResource ;
+    ns1:definition "generic concept of a positioning system." .
+
+rdfs:Datatype rdfs:label "Datatype" .
+
+:PositioningNetElement a owl:Class ;
+    rdfs:label "PositioningNetElement" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :associatedPositioningSystem ;
+            owl:someValuesFrom :AssociatedPositioningSystem ],
+        :CompositionNetElement ;
+    ns1:definition "NetElement requiring at least one Positioning System, with orientation (carried by IntrinsicCoordinate)." .
+
+:PositioningSystemCoordinate a owl:Class ;
+    rdfs:label "PositioningSystemCoordinate" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :positioningSystem ;
+            owl:someValuesFrom :PositioningSystem ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass :PositioningSystem ;
+            owl:onProperty :positioningSystem ],
+        <http://standards.iso.org/iso/15926/part14/InformationObject> ;
+    ns1:definition "Generic concept of a coordinate in a positioning system that is used to specify locations for \"NetEntity\", “PositioningNetElement”, and all other objects of the network. These coordinates are either expressed as “GeometricCoordinate”, or “LinearCoordinate”, or any future type of coordinate." .
+
+owl:AnnotationProperty rdfs:label "Annotation Property" .
+
+rdf:List a owl:Class ;
+    rdfs:label "List" .
+
+owl:AsymmetricProperty rdfs:label "Asymmetric Property" .
+
+owl:IrreflexiveProperty rdfs:label "Irreflexive Property" .
+
+owl:ObjectProperty rdfs:label "Object Property" .
+
+owl:DatatypeProperty rdfs:label "Datatype Property" .
+
+owl:FunctionalProperty rdfs:label "Functional Property" .
+
+owl:Restriction rdfs:label "Restriction" .
+
+owl:Class rdfs:label "Class" .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :AssociatedNetElementCoordinate :AssociatedNetElementIntrinsic :OrderedAssociatedNetElement ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :AssociatedPositioningSystem :ElementPartCollection :EntityLocation :IntrinsicCoordinate :LevelNetwork :LinearAnchorPoint :NamedResource ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :NetElement :NetEntity :Relation ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :Network :NetworkResource :PositioningSystem ) .
+
+[] a owl:AllDisjointClasses ;
+    owl:members ( :AreaLocation :LinearLocation :SpotLocation ) .
+

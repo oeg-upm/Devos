@@ -1,0 +1,39 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qkg: <https://quotekg.l3s.uni-hannover.de/resource/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+qkg:contextText a owl:DatatypeProperty ;
+    rdfs:domain qkg:Context ;
+    rdfs:range rdf:langString .
+
+qkg:hasContext a owl:ObjectProperty ;
+    rdfs:domain qkg:Mention ;
+    rdfs:range qkg:Context .
+
+qkg:hasMention a owl:ObjectProperty ;
+    rdfs:domain <https://schema.org/Quotation> ;
+    rdfs:range qkg:Mention .
+
+qkg:isMisattributed a owl:DatatypeProperty ;
+    rdfs:domain <https://schema.org/Quotation> ;
+    rdfs:range xsd:boolean .
+
+qkg:mentions a owl:ObjectProperty ;
+    rdfs:domain qkg:Context .
+
+owl:Class rdfs:label "Class" .
+
+owl:DatatypeProperty rdfs:label "Datatype Property" .
+
+qkg:Mention a owl:Class ;
+    rdfs:label "quotation text"@en ;
+    rdfs:comment "An occurrence of a quotation"@en .
+
+owl:ObjectProperty rdfs:label "Object Property" .
+
+qkg:Context a owl:Class ;
+    rdfs:label "context"@en ;
+    rdfs:comment "The context of a quotation occurrence"@en .
+

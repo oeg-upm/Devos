@@ -6,11 +6,38 @@ from owl2diagram.main import get_classes, get_class_hierarchy, get_object_prop, 
 
 DEBUG = False
 
+LABEL_PROPS = [
+        prefixes.RDFS+"label",
+        prefixes.SKOS+"prefLabel",
+        prefixes.OBO+"IAO_0000118"
+]
+
+
+def get_all_classes(g):
+    """
+    To get the uri for all classes.
+    """
+    q = "select distinct ?class where { [] a ?class}"
+    results = g.query(q)
+    classes = []
+    for res in results:
+        l = res['class']
+        classes.append(l)
+    return classes
+
 
 def get_labels(g, uri, lang=None):
-    q = "select ?label where{ <%s> rdf:label ?label}" % uri
+    # q = "select ?label where{ <%s> rdf:label ?label}" % uri
+    ps = ['<%s>' % l for l in LABEL_PROPS]
+    q = "select ?label where{ <%s> ?p ?label. FILTER(?p IN (%s))}" % (uri, ",".join(ps))
+
     if lang:
         q += ". FILTER (lang(?label) = '%s')" % lang
+
+    if DEBUG:
+        print("\n")
+        print(q)
+
     results = g.query(q)
     labels = []
     for res in results:
@@ -145,7 +172,7 @@ def get_classes_with_keyword(g, keyword):
         prefixes.SKOS+"prefLabel",
         prefixes.OBO+"IAO_0000118"
     ]
-    vals = []
+
     t = "select ?class where {[] a ?class .  %s }"
     # t = "select ?class where { ?class a owl:Class.  %s }"
 
@@ -156,11 +183,15 @@ def get_classes_with_keyword(g, keyword):
         label_query += " UNION "
     label_query += label_query_template % (props[-1], keyword)
     q = t % label_query
-    print(q)
+    # print("keyword: %s" % keyword)
+    # if DEBUG:
+    #     print(q)
+    vals = []
     results = g.query(q)
+    # print("\n\n\n\n\n\n\n===============\n\n\n\n\n")
     for res in results:
         vals.append(str(res["class"]))
-
+        print(res)
     return vals
 
 
@@ -236,15 +267,28 @@ def get_prop_vals(g, properties, lang=None):
     :return: return values
     """
     vals = []
+    prop_filter = ",".join(["<%s>" % p for p in properties])
     # TODO: merge the properties into a single query.
-    t = "select ?val where {?s <%s> ?val. ?s rdf:type owl:Ontology}"
-    for p in properties:
-        results = g.query(t % p)
+    # t = "select ?val where {?s <%s> ?val. ?s rdf:type owl:Ontology}"
+    t = "select ?val where {?s ?p ?val. ?s rdf:type owl:Ontology. FILTER(?p IN (%s))}" % prop_filter
+    results = g.query(t)
+    if DEBUG:
+        print(t)
         for res in results:
-            if lang:
-                if not res["val"].language or (type(res["val"]) == Literal and res["val"].language.lower() != lang.lower()):
-                    continue
-            vals.append(str(res["val"]))
+            print(res)
+    for res in results:
+        if lang:
+            if not res["val"].language or (type(res["val"]) == Literal and res["val"].language.lower() != lang.lower()):
+                continue
+        vals.append(str(res["val"]))
+
+    # for p in properties:
+    #     results = g.query(t % p)
+    #     for res in results:
+    #         if lang:
+    #             if not res["val"].language or (type(res["val"]) == Literal and res["val"].language.lower() != lang.lower()):
+    #                 continue
+    #         vals.append(str(res["val"]))
     return vals
 
 
@@ -256,11 +300,13 @@ def get_classes_related_to_properties_with_keyword(g, keyword):
     :param keyword:
     :return:
     """
-    props = [
-        prefixes.RDFS+"label",
-        prefixes.SKOS+"prefLabel",
-        prefixes.OBO+"IAO_0000118"
-    ]
+    # props = [
+    #     prefixes.RDFS+"label",
+    #     prefixes.SKOS+"prefLabel",
+    #     prefixes.OBO+"IAO_0000118"
+    # ]
+    global LABEL_PROPS
+    props = LABEL_PROPS
     vals = []
     t = "select ?class where { ?class a owl:Class. { {?prop rdfs:domain ?class} UNION {?prop rdfs:range ?class} }  %s }"
     label_query_template = "{?prop <%s> ?label. FILTER CONTAINS(lcase(?label), \"%s\") }"
@@ -301,12 +347,6 @@ def get_relations(g, classes):
     for class_uri in classes:
         relations += get_class_relation(g, class_uri)
     relations = list(set(relations))
-
-    # # DEBUG
-    # print("\n\n==== get_relations: ")
-    # for r in relations:
-    #     print(r)
-
     return relations
 
 
@@ -323,10 +363,7 @@ def get_classes_constraints(g, classes):
     Return constraints which is kind of a relation
     """
     consts = []
-    # print("\n\nget_classes_constraints> classes: ")
-    # print(classes)
     for class_uri in classes:
-        # print("\t%s" % str(class_uri))
         consts += get_class_constraints(g, class_uri)
     consts = list(set(consts))
     return consts
@@ -355,10 +392,6 @@ def get_class_domain_constraints(g, class_uri):
 
         results = g.query(q_domain)
         for r in results:
-            # # DEBUG
-            # print("\n**get_class_domain_constraints> ")
-            # print(r)
-
             rel = (class_uri, r["prop"], r["range"])
             relations.append(rel)
 
@@ -370,7 +403,8 @@ def get_class_range_constraints(g, class_uri):
     """
     relations = []
     for restr in ["owl:allValuesFrom", "owl:someValuesFrom"]:
-        q_range = """ SELECT ?domain ?prop WHERE{
+        q_range = """
+            SELECT ?domain ?prop WHERE{
                 {
                 ?domain rdf:type owl:Class.
                 ?domain rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -388,10 +422,6 @@ def get_class_range_constraints(g, class_uri):
 
         results = g.query(q_range)
         for r in results:
-            # # DEBUG
-            # print("\n**get_class_range_constraints> ")
-            # print(r)
-
             rel = (r["domain"], r["prop"], class_uri)
             relations.append(rel)
 
@@ -503,11 +533,8 @@ def get_class_relation(g, class_uri):
     }"""
     results = g.query(class_as_domain % class_uri)
     for r in results:
-        # rel = (shorten_url(class_uri), shorten_url(r["prop"]), shorten_url(r["range"]))
         rel = (class_uri, str(r["prop"]), str(r["range"]))
         relations.append(rel)
-        # data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(class_uri))
-        # data.setdefault(shorten_url(r["prop"]), []).append(shorten_url(r["range"]))
 
     class_as_range = """ select ?prop ?domain where { 
       ?prop rdf:type owl:ObjectProperty.
@@ -516,7 +543,6 @@ def get_class_relation(g, class_uri):
     }"""
     results = g.query(class_as_range % class_uri)
     for r in results:
-        # rel = (shorten_url(r["domain"]), shorten_url(r["prop"]), shorten_url(class_uri))
         rel = (str(r["domain"]), str(r["prop"]), class_uri)
         relations.append(rel)
     return relations
@@ -531,7 +557,6 @@ def get_property_relation(g, property_uri):
     q = class_as_domain % (property_uri, property_uri)
     results = g.query(q)
     for r in results:
-        # rel = (shorten_url(r["domain"]), property_uri, shorten_url(r["range"]))
         rel = (str(r["domain"]), property_uri, str(r["range"]))
         relations.append(rel)
 

@@ -11,6 +11,7 @@ from datetime import datetime
 from ogister import fetcher
 from ogister import util
 from nltk.corpus import stopwords
+from string import punctuation
 
 META_INCLUDE_PROP = False  # Whether to look for the property labels.
 IMPORTANT_CLASS_REF = True  # Whether to prefer relations between important classes
@@ -18,8 +19,42 @@ IMPORTANT_CLASS_REF = True  # Whether to prefer relations between important clas
 DEBUG = False
 
 stopwords = stopwords.words('english')
+special_chars = set(punctuation.replace('.', ''))
 
 labels_cache = dict()
+
+
+def print_classes(classes):
+    for c in classes:
+        print(c)
+
+
+def print_relations(relations):
+    for c1, r, c2 in relations:
+        print("%s\t==(%s)==>\t%s" % (c1, r, c2))
+
+
+def print_results(classes, relations):
+    print("\n\n============================\nSelected Classes: ")
+    print_classes(classes)
+    print("\nSelected Relations: ")
+    print_relations(relations)
+
+
+def debug_classes(g):
+    """
+    Print the labels for the classes
+    """
+    classes = fetcher.get_all_classes(g)
+    print("\nClasses Labels: %d" % len(classes))
+    for c in classes:
+        labels = fetcher.get_labels(g, c)
+        print(labels)
+
+
+def clear_cache():
+    global labels_cache
+    labels_cache = dict()
 
 
 def parse_ontology(input_path):
@@ -83,6 +118,7 @@ def get_meta_text(input_path, title, desc, abstract, lang=None, max_options=0):
     """
     g = parse_ontology(input_path)
     meta = []
+    print("get_meta_text> ")
     if title:
         titles = fetcher.get_titles(g, lang=lang)
         if max_options > 0:
@@ -134,20 +170,30 @@ def all_stop_words(tokens):
 
 
 def get_matched_per_text(m, max_num_tok, g, only_object_property, lower=True):
-    tokens = util.split_text(m)
+    tokens = util.split_text(m.strip())
+
+    if DEBUG:
+        print("\nTokens: ")
+        print(tokens)
+
+    # max_num_tok = min(max_num_tok, len(tokens))
     i = 0
     matched = []
     matched_classes = []
     matched_properties = []
     while i < len(tokens):
         token_added = False
+        max_num_tok = min(max_num_tok, len(tokens)-i)
         for l in range(max_num_tok, 0, -1):
             tks = tokens[i:i + l]
-            if tks[0] in [',', '.']:
-                continue
+            # print("----- [%d, %d]" % (i, l))
+            # print(tks)
+            if tks[0][0] in special_chars:
+                # print("\nskip special char: %s" % kw)
+                break
             kw = " ".join(tks)
             if all_stop_words(tks):
-                # print("skip: %s" % kw)
+                # print("\nskip stopword: %s" % kw)
                 continue
             kw_processed = kw
             if lower:
@@ -167,13 +213,13 @@ def get_matched_per_text(m, max_num_tok, g, only_object_property, lower=True):
     matched_classes = list(set(matched_classes))
     matched_properties = list(set(matched_properties))
 
-    if DEBUG:
-        print("Matched keyword: ")
-        print(matched)
-        print("matched classes: ")
-        print(matched_classes)
-        print("matched properties: ")
-        print(matched_properties)
+    # if DEBUG:
+    #     print("\nmatched keyword: ")
+    #     print(matched)
+    #     print("matched classes: ")
+    #     print(matched_classes)
+    #     print("matched properties: ")
+    #     print(matched_properties)
     return matched, matched_classes, matched_properties
 
 
@@ -181,6 +227,8 @@ def get_matched(meta, max_num_tok, g, only_object_property):
     mkeywords = []
     mclasses = []
     mproperties = []
+    print("get_matched> ")
+    print(meta)
     for m in meta:
         keywords, classes, properties = get_matched_per_text(m, max_num_tok, g,
                                                              only_object_property=only_object_property)
@@ -199,23 +247,26 @@ def get_classes_and_relations(input_path, title, desc, abstract, only_object_pro
     """
     Get relations, classes related from the meta properties.
     """
-
     meta, g = get_meta_text(input_path=input_path, title=title, desc=desc, abstract=abstract, lang=lang,
                             max_options=max_options)
     keywords, classes, properties = get_matched(meta=meta, max_num_tok=5, g=g,
                                                 only_object_property=only_object_property)
+
     if topn > 0:
         classes = classes[:topn]
         properties = properties[:topn]
     class_relations = fetcher.get_relations(g, classes)
+
     if DEBUG:
         print("class relations: ")
         print(class_relations)
     property_relations = fetcher.get_properties_relations(g, properties)
+
     if DEBUG:
         print("property relations: ")
         print(property_relations)
     constraints = fetcher.get_classes_constraints(g, classes)
+
     if DEBUG:
         print("constraints: ")
         print(constraints)
@@ -255,7 +306,8 @@ def shorten_uris(uris):
 
 def label_uris(g, uris, lang=None):
     labeled_uris = [get_label(g, u, lang) for u in uris]
-    return labeled_uris
+    labels = [str(l) for l in labeled_uris]
+    return labels
 
 
 def shorten_relations(rels):
@@ -265,7 +317,8 @@ def shorten_relations(rels):
 
 def label_relations(g, rels):
     labeled_rels = [(get_label(g, r[0]), get_label(g, r[1]), get_label(g, r[2])) for r in rels]
-    return labeled_rels
+    rels = [(str(a), str(b), str(c)) for a, b, c in labeled_rels]
+    return rels
 
 
 def meta_workflow(input_path, title, desc, abstract, only_object_property, out_path=None, lang=None, max_options=0,
@@ -278,11 +331,17 @@ def meta_workflow(input_path, title, desc, abstract, only_object_property, out_p
                                                       only_object_property=only_object_property)
 
     top_relations = get_top_relations(classes, relations, topr)
-    top_relations = label_relations(top_relations)
-    top_classes = label_uris(classes)
+    top_relations = label_relations(g, top_relations)
+    top_classes = label_uris(g, classes)
 
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
+
+    if DEBUG:
+        debug_classes(g)
+
+    print_results(top_classes, top_relations)
+
     return top_classes, top_relations
 
 
@@ -336,8 +395,8 @@ def freq_workflow(input_path, out_path, topn, only_object_property, topr=0):
     class_relations += constraints
 
     top_relations = get_top_relations(top_classes, class_relations, topr)
-    top_relations = label_relations(top_relations)
-    top_classes = label_uris(top_classes)
+    top_relations = label_relations(g, top_relations)
+    top_classes = label_uris(g, top_classes)
 
     if DEBUG:
         print("\nTop classes: ")
@@ -353,6 +412,12 @@ def freq_workflow(input_path, out_path, topn, only_object_property, topr=0):
 
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
+
+    if DEBUG:
+        debug_classes(g)
+
+    print_results(top_classes, top_relations)
+
     return top_classes, top_relations
 
 
@@ -372,6 +437,12 @@ def leng_workflow(input_path, out_path, topn, topr):
 
     if out_path:
         draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
+
+    if DEBUG:
+        debug_classes(g)
+
+    print_results(top_classes, top_relations)
+
     return top_classes, top_relations, class_leng_dict
 
 
