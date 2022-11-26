@@ -74,6 +74,7 @@ def experiment(input_files, output_path, only_object_property, freq, topn, topr,
                 print("\n%s already exists" % check_diagram_fpath)
                 continue
             try:
+                print("\n\n===== Ontology: %s =====" % inp)
                 if freq:
                     classes, relations = gister.freq_workflow(input_path=inp, out_path=None, topr=topr,
                                                        only_object_property=only_object_property, topn=topn)

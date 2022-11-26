@@ -4,6 +4,14 @@ from nltk.tokenize import word_tokenize
 # stopwords = stopwords.words('english')
 
 
+def ordered_unique_list(items):
+    """
+    To get a unique list. This is similar to list(set(items)). But the difference is that it preserves the order
+    source: https://stackoverflow.com/questions/480214/how-do-i-remove-duplicates-from-a-list-while-preserving-order
+    """
+    return list(dict.fromkeys(items))
+
+
 def remove_quotes(keywords):
     return [k.replace('"', '') for k in keywords]
 

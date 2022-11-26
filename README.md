@@ -14,6 +14,8 @@ A tool to generate a gist of the ontology
 1. Use meta data as the signal for importance
 ```
 python -m ogister.gister -i data/ieswc/cocoon.ttl -t -d -a  
+python -m ogister.gister -i data/ieswc_enriched/ck.ttl -t -d -a  
+
 ```
 
 
@@ -57,6 +59,7 @@ python -m experiments.enrich -i data/ieswc/* -o data/ieswc_enriched
 #### From Meta data
 
 * To only use `owl:ObjectProperty` when getting the relevant properties to the given meta
+
 ##### Top in Lov
 ```python -m experiments.generate_diagrams -i data/Top_in_lov/* -o output/Top_in_lov_object_property --object-property```
 
@@ -65,11 +68,10 @@ python -m experiments.enrich -i data/ieswc/* -o data/ieswc_enriched
 
 
 ##### IESWC (ISWC and ESWC)
-* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_meta --object-property --topn 5```
+* Top 7 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_meta --object-property --topn 7```
 
-* Top 5 classes 10 references: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_meta --object-property --topn 5 --topr 10```
+* Top 7 classes 14 references: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_meta --object-property --topn 7 --topr 14```
 
-* Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_meta --object-property --topn 10```
 
 
 #### From Frequency

@@ -191,7 +191,7 @@ def get_classes_with_keyword(g, keyword):
     # print("\n\n\n\n\n\n\n===============\n\n\n\n\n")
     for res in results:
         vals.append(str(res["class"]))
-        print(res)
+        # print(res)
     return vals
 
 

@@ -16,7 +16,7 @@ from string import punctuation
 META_INCLUDE_PROP = False  # Whether to look for the property labels.
 IMPORTANT_CLASS_REF = True  # Whether to prefer relations between important classes
 
-DEBUG = False
+DEBUG = True
 
 stopwords = stopwords.words('english')
 special_chars = set(punctuation.replace('.', ''))
@@ -118,7 +118,6 @@ def get_meta_text(input_path, title, desc, abstract, lang=None, max_options=0):
     """
     g = parse_ontology(input_path)
     meta = []
-    print("get_meta_text> ")
     if title:
         titles = fetcher.get_titles(g, lang=lang)
         if max_options > 0:
@@ -213,13 +212,13 @@ def get_matched_per_text(m, max_num_tok, g, only_object_property, lower=True):
     matched_classes = list(set(matched_classes))
     matched_properties = list(set(matched_properties))
 
-    # if DEBUG:
-    #     print("\nmatched keyword: ")
-    #     print(matched)
-    #     print("matched classes: ")
-    #     print(matched_classes)
-    #     print("matched properties: ")
-    #     print(matched_properties)
+    if DEBUG:
+        print("\nmatched keyword: ")
+        print(matched)
+        print("matched classes: ")
+        print(matched_classes)
+        print("matched properties: ")
+        print(matched_properties)
     return matched, matched_classes, matched_properties
 
 
@@ -227,8 +226,9 @@ def get_matched(meta, max_num_tok, g, only_object_property):
     mkeywords = []
     mclasses = []
     mproperties = []
-    print("get_matched> ")
-    print(meta)
+    if DEBUG:
+        print("\nget_matched> ")
+        print(meta)
     for m in meta:
         keywords, classes, properties = get_matched_per_text(m, max_num_tok, g,
                                                              only_object_property=only_object_property)
@@ -237,7 +237,8 @@ def get_matched(meta, max_num_tok, g, only_object_property):
         mproperties += properties
 
     mkeywords = list(set(mkeywords))  # to remove duplicates
-    mclasses = list(set(mclasses))
+    # mclasses = list(set(mclasses))
+    mclasses = util.ordered_unique_list(mclasses)
     mproperties = list(set(mproperties))
     return mkeywords, mclasses, mproperties
 
@@ -251,6 +252,9 @@ def get_classes_and_relations(input_path, title, desc, abstract, only_object_pro
                             max_options=max_options)
     keywords, classes, properties = get_matched(meta=meta, max_num_tok=5, g=g,
                                                 only_object_property=only_object_property)
+
+    classes = util.ordered_unique_list(classes)
+    properties = util.ordered_unique_list(properties)
 
     if topn > 0:
         classes = classes[:topn]
@@ -360,14 +364,13 @@ def get_freq_classes(g, topn, only_object_property):
 
     freq_cls_pairs = freq_cls_pairs[:topn]
     top_classes = [p[1] for p in freq_cls_pairs]
-    print(freq_cls_pairs)
+    if DEBUG:
+        print(freq_cls_pairs)
     return top_classes
 
 
 def get_leng_classes(g, topn):
     d = fetcher.get_class_leng(g)
-    # print("get_leng_classes: ")
-    # print(d)
     freq_cls_pairs = []
     for k in d:
         p = (d[k], k)
@@ -375,7 +378,6 @@ def get_leng_classes(g, topn):
     freq_cls_pairs.sort(reverse=True, key=itemgetter(0))
     freq_cls_pairs = freq_cls_pairs[:topn]
     top_classes = [p[1] for p in freq_cls_pairs]
-    # print(freq_cls_pairs)
 
     d_top_classes = dict()
     for c in top_classes:
@@ -487,7 +489,6 @@ def parse_arguments():
 def main():
     a = datetime.now()
     args = parse_arguments()
-
     if args["freq"]:
         freq_workflow(input_path=args["input"], out_path=args["output"], topn=args["topn"], topr=args["topr"],
                       only_object_property=args["object_property"])
