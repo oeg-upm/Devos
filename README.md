@@ -13,7 +13,7 @@ A tool to generate a gist of the ontology
 
 1. Use meta data as the signal for importance
 ```
-python -m ogister.gister -i data/ieswc/cocoon.ttl -t -d -a  
+python -m ogister.gister -i data/ieswc/cocoon.ttl --freq
 python -m ogister.gister -i data/ieswc_enriched/ck.ttl -t -d -a  
 
 ```
@@ -86,9 +86,9 @@ python -m experiments.enrich -i data/ieswc/* -o data/ieswc_enriched
 
 ##### IESWC (ISWC and ESWC)
 
-* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 5```
+* Top 7 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 7```
 
-* Top 5 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 5 --topr 10```
+* Top 7 classes and 14 relations: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 7 --topr 14```
 
 * Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 10```
 
@@ -98,9 +98,9 @@ python -m experiments.enrich -i data/ieswc/* -o data/ieswc_enriched
 #### Label Length
 ##### IESWC (ISWC and ESWC)
 
-* Top 5 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_leng --leng --topn 5```
+* Top 7 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_leng --leng --topn 7```
 
-* Top 5 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_leng --leng --topn 5 --topr 10```
+* Top 7 classes and 14 relations: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_leng --leng --topn 7 --topr 14```
 
 
 * Top 10: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_leng --leng --topn 10```

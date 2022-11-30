@@ -1,0 +1,1 @@
+{"classes": ["Architecture Description", "BDVA Concern", "Technical Report", "Technical Specification", "Fiware Chapter", "IIRA Crosscutting Function", "Standard"], "relations": [["Standard", "related To", "Standard"], ["Standard", "is Component Of", "n11ef355d716846f78c36228757ff55c1b9"]], "meta": "leng"}
