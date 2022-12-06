@@ -33,7 +33,8 @@ def save_label_len(d, out_path):
             f.write("%s,%d\n" % (k, d[k]))
 
 
-def experiment(input_files, output_path, only_object_property, freq, topn, topr, leng, lang=None, max_options=0):
+def experiment(input_files, output_path, only_object_property, freq, topn, topr, leng, lang=None, max_options=0,
+               soft=False):
     """
     Experiment
     """
@@ -69,6 +70,10 @@ def experiment(input_files, output_path, only_object_property, freq, topn, topr,
                 raise Exception("invalid meta src")
 
             graph_fname_base = inp.split(os.sep)[-1] + "-" + m + "-%d-%d" % (topn, topr)
+            if soft:
+                graph_fname_base += "-soft"
+            else:
+                graph_fname_base += "-hard"
             check_diagram_fpath = os.path.join(output_path, graph_fname_base + ".md")
             if os.path.exists(check_diagram_fpath):
                 print("\n%s already exists" % check_diagram_fpath)
@@ -76,15 +81,15 @@ def experiment(input_files, output_path, only_object_property, freq, topn, topr,
             try:
                 print("\n\n===== Ontology: %s =====" % inp)
                 if freq:
-                    classes, relations = gister.freq_workflow(input_path=inp, out_path=None, topr=topr,
+                    classes, relations = gister.freq_workflow(input_path=inp, out_path=None, topr=topr, soft=soft,
                                                        only_object_property=only_object_property, topn=topn)
                 elif leng:
                     classes, relations, class_leng_dict = gister.leng_workflow(input_path=inp, out_path=None, topn=topn,
-                                                                        topr=topr)
+                                                                        soft=soft,topr=topr)
                     label_len_path = os.path.join(output_path, graph_fname_base + ".csv")
                     save_label_len(class_leng_dict, label_len_path)
                 else:
-                    classes, relations = gister.meta_workflow(input_path=inp, out_path=None, lang=lang,
+                    classes, relations = gister.meta_workflow(input_path=inp, out_path=None, lang=lang, soft=soft,
                                                        max_options=max_options, title=titl, desc=desc, abstract=abst,
                                                        topr=topr, topn=topn, only_object_property=only_object_property)
                 gister.clear_cache()
@@ -120,13 +125,14 @@ def parse_arguments():
                         help="Use the length to fetch the most relevant classes and properties")
     parser.add_argument('-n', '--topn', default=0, type=int, help="The maximum number of relevant classes.")
     parser.add_argument('-r', '--topr', default=0, type=int, help="The maximum number of relations.")
-
+    parser.add_argument('--soft', action="store_true", help="Also include classes related to the important classes")
     args = parser.parse_args()
     parsed_args = {
         "output": args.output, "input": args.input, "lang": args.lang,
         "maxoptions": int(args.maxoptions), "object_property": args.object_property,
         "freq": args.freq, "leng": args.leng,
-        "topn": args.topn, "topr": args.topr
+        "topn": args.topn, "topr": args.topr,
+        "soft": args.soft
     }
     return parsed_args
     # return args.output, args.input, args.lang, int(args.maxoptions), args.object_property, args.freq, args.topn, args.leng
@@ -139,7 +145,7 @@ def main():
     a = datetime.now()
     # output_path, input_files, lang, max_options, only_object_property, freq, topn, leng = parse_arguments()
     args = parse_arguments()
-    experiment(args["input"], args["output"], lang=args["lang"], max_options=args["maxoptions"],
+    experiment(args["input"], args["output"], lang=args["lang"], max_options=args["maxoptions"], soft=args["soft"],
                only_object_property=args["object_property"], freq=args["freq"], topn=args["topn"], topr=args["topr"],
                leng=args["leng"])
     # experiment(input_files, output_path, lang=lang, max_options=max_options, only_object_property=only_object_property,

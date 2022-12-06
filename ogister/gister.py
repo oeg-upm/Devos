@@ -1,5 +1,7 @@
 import argparse
 import math
+import os
+import subprocess
 
 import rdflib
 from owl2diagram.main import get_class_diagram, get_object_diagram
@@ -65,9 +67,65 @@ def parse_ontology(input_path):
     return g
 
 
-def get_top_relations(classes, relations, topr):
-    if topr <= 0 or len(classes) == 0:
+def get_top_relations_hard(classes, relations, topr, topn=0):
+    """
+    Get the top relations between the important classes only
+    """
+    if len(classes) == 0:
         return relations
+
+    per_class = dict()
+    top_relations = []
+
+    if len(classes) < topn or topn==0:
+        num_rem = topn - len(classes)
+        classes_list = []
+        for r in relations:
+            if r[0] not in classes:
+                classes_list.append(r[0])
+            if r[2] not in classes:
+                classes_list.append(r[2])
+        c = Counter(classes_list)
+        if topn==0:
+            for p in c:
+                if p not in classes:
+                    classes.append(p)
+        else:
+            pairs = c.most_common(num_rem)
+            for p in pairs:
+                print(p)
+                classes.append(p[0])
+
+    if topr > 0:
+        rmax = math.ceil(topr/len(classes))
+        for c in classes:
+            per_class[c] = 0
+
+        for r in relations:
+            if r[0] in per_class and r[2] in per_class:
+                if per_class[r[0]] < rmax and per_class[r[2]] < rmax:
+                    per_class[r[0]] += 1
+                    per_class[r[2]] += 1
+                    top_relations.append(r)
+
+    else:
+        top_relations = relations
+
+    if DEBUG:
+        print("important relations: ")
+        print(top_relations)
+
+    return top_relations
+
+
+def get_top_relations_soft(classes, relations, topr):
+    """
+    Get the top relations
+    """
+
+    if len(classes) == 0 or topr <= 0:
+        return relations
+
     per_class = dict()
 
     rmax = math.ceil(topr/len(classes))
@@ -258,7 +316,7 @@ def get_classes_and_relations(input_path, title, desc, abstract, only_object_pro
 
     if topn > 0:
         classes = classes[:topn]
-        properties = properties[:topn]
+        # properties = properties[:topn]
     class_relations = fetcher.get_relations(g, classes)
 
     if DEBUG:
@@ -291,6 +349,23 @@ def draw_diagrams(classes, relations, out_path):
     diagram = get_class_diagram(classes)
     diagram += get_object_diagram(relations)
     save_diagram(diagram, out_path)
+    # out_path = out_path[:-2]+"mmd"
+    # with open(out_path, "w") as f:
+    #     f.write(diagram)
+    png_input = out_path
+    # png_output = out_path[:-3]+"png"
+    png_output = out_path[:-2]+"png"
+    generate_png(png_input, png_output)
+
+
+def generate_png(input_path, output_path):
+    try:
+        comm = "mmdc -i %s -o %s " % (input_path, output_path)
+        print(comm)
+        ret = subprocess.call(comm, shell=True)
+    except Exception as e:
+        print(e)
+        print("unable to generate png for: %s" % input_path)
 
 
 def get_label(g, uri, lang=None):
@@ -326,15 +401,25 @@ def label_relations(g, rels):
 
 
 def meta_workflow(input_path, title, desc, abstract, only_object_property, out_path=None, lang=None, max_options=0,
-                  topn=0, topr=0):
+                  topn=0, topr=0, soft=False):
     """
     meta: either "title", "description", or "abstract". It is only used for the json files
     """
     relations, classes, g = get_classes_and_relations(input_path, title, desc, abstract, topn=topn, lang=lang,
-                                                      max_options=max_options,
-                                                      only_object_property=only_object_property)
+                                                      max_options=max_options, only_object_property=only_object_property)
 
-    top_relations = get_top_relations(classes, relations, topr)
+    print("\n\n\nDEBUG1: ")
+    print("relations: ")
+    print(relations)
+    print("classes: ")
+    print(classes)
+    if soft:
+        top_relations = get_top_relations_soft(classes, relations, topr)
+    else:
+        top_relations = get_top_relations_hard(classes, relations, topr, topn)
+        print("\n\n\nDEBUG2: ")
+        print("relations: ")
+        print(top_relations)
     top_relations = label_relations(g, top_relations)
     top_classes = label_uris(g, classes)
 
@@ -396,7 +481,10 @@ def freq_workflow(input_path, out_path, topn, only_object_property, topr=0):
     constraints = fetcher.get_classes_constraints(g, top_classes)
     class_relations += constraints
 
-    top_relations = get_top_relations(top_classes, class_relations, topr)
+    if soft:
+        top_relations = get_top_relations_soft(top_classes, class_relations, topr)
+    else:
+        top_relations = get_top_relations_hard(top_classes, class_relations, topr, topn)
     top_relations = label_relations(g, top_relations)
     top_classes = label_uris(g, top_classes)
 
@@ -433,7 +521,10 @@ def leng_workflow(input_path, out_path, topn, topr):
     constraints = fetcher.get_classes_constraints(g, top_classes)
     class_relations += constraints
 
-    top_relations = get_top_relations(top_classes, class_relations, topr)
+    if soft:
+        top_relations = get_top_relations_soft(top_classes, class_relations, topr)
+    else:
+        top_relations = get_top_relations_hard(top_classes, class_relations, topr, topn)
     top_relations = label_relations(g, top_relations)
     top_classes = label_uris(g, top_classes)
 
@@ -470,7 +561,7 @@ def parse_arguments():
     parser.add_argument('-g', '--leng', action="store_true",
                         help="Use the length to fetch the most relevant classes and properties")
     parser.add_argument('-r', '--topr', type=int, default=0, help="The maximum number of relations")
-
+    parser.add_argument('--soft', action="store_true", help="Also include classes related to the important classes")
     parser.add_argument('--debug', action="store_true", help="To print debug information")
     args = parser.parse_args()
     parsed_args = {
@@ -478,7 +569,8 @@ def parse_arguments():
         "title": args.title, "description": args.description, "abstract": args.abstract,
         "topn": args.topn, "topr": args.topr,
         "lang": args.lang, "maxoptions": args.maxoptions, "object_property": args.object_property,
-        "freq": args.freq, "leng": args.leng
+        "freq": args.freq, "leng": args.leng,
+        "soft": args.soft,
     }
     if args.debug:
         DEBUG = True
@@ -491,12 +583,13 @@ def main():
     args = parse_arguments()
     if args["freq"]:
         freq_workflow(input_path=args["input"], out_path=args["output"], topn=args["topn"], topr=args["topr"],
-                      only_object_property=args["object_property"])
+                      only_object_property=args["object_property"], soft=args["soft"])
     elif args["leng"]:
-        leng_workflow(input_path=args["input"], out_path=args["output"], topn=args["topn"], topr=args["topr"])
+        leng_workflow(input_path=args["input"], out_path=args["output"], topn=args["topn"], topr=args["topr"],
+                      soft=args["soft"])
     else:
         meta_workflow(input_path=args["input"], out_path=args["output"], topn=args["topn"], topr=args["topr"],
-                      title=args["title"], desc=args["description"], abstract=args["abstract"],
+                      title=args["title"], desc=args["description"], abstract=args["abstract"], soft=args["soft"],
                       lang=args["lang"], max_options=args["maxoptions"], only_object_property=args["object_property"])
     b = datetime.now()
     print("\n\nTime it took: %.1f minutes\n\n" % ((b - a).total_seconds() / 60.0))

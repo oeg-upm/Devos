@@ -1,1 +1,0 @@
-{"classes": ["Ambito di tutela MiBAC", "All Disjoint Classes", "Object Property", "Datatype Property", "Functional Property", "Named Individual", "Annotation Property"], "relations": [["Ambito di tutela MiBAC", "is MiBAC scope of protection of", "Bene culturale"], ["Bene culturale", "ha ambito di tutela", "Ambito di tutela MiBAC"]], "meta": "leng"}

@@ -167,11 +167,12 @@ def get_classes_with_keyword(g, keyword):
     :param keyword:
     :return:
     """
-    props = [
-        prefixes.RDFS+"label",
-        prefixes.SKOS+"prefLabel",
-        prefixes.OBO+"IAO_0000118"
-    ]
+    props = LABEL_PROPS
+    # props = [
+    #     prefixes.RDFS+"label",
+    #     prefixes.SKOS+"prefLabel",
+    #     prefixes.OBO+"IAO_0000118"
+    # ]
 
     t = "select ?class where {[] a ?class .  %s }"
     # t = "select ?class where { ?class a owl:Class.  %s }"
@@ -273,6 +274,7 @@ def get_prop_vals(g, properties, lang=None):
     t = "select ?val where {?s ?p ?val. ?s rdf:type owl:Ontology. FILTER(?p IN (%s))}" % prop_filter
     results = g.query(t)
     if DEBUG:
+        print("get_prop_vals> ")
         print(t)
         for res in results:
             print(res)

@@ -1,0 +1,1 @@
+{"classes": ["Datatype Property", "Type And Quantity Node", "Ontology", "ComputeService"], "relations": [["ComputeService", "hasStorage", "Type And Quantity Node"]], "meta": "abstract"}
