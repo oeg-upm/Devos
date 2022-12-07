@@ -102,7 +102,8 @@ def experiment(input_files, output_path, only_object_property, freq, topn, topr,
             opath = os.path.join(output_path, graph_fname + ".md")
             json_path = os.path.join(output_path, graph_fname + ".json")
             # label_path = os.path.join(output_path, graph_fname + ".csv")
-            gister.draw_diagrams(classes=classes, relations=relations, out_path=opath)
+
+            gister.draw_diagrams(classes=gister.escape_spaces_in_classes(classes), relations=gister.escape_spaces_in_relations(relations), out_path=opath)
             save_json(json_path, classes=classes, relations=relations, meta=m)
             # save_label_len(label_path, classes=classes)
 

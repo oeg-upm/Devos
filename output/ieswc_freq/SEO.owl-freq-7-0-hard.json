@@ -1,0 +1,1 @@
+{"classes": ["OrganisedEvent", "AcademicEvent", "Agent", "Author", "Track", "Collection", "Sponsor"], "relations": [["Sponsor", "isSponsorOf", "OrganisedEvent"], ["Track", "isTrackOf", "AcademicEvent"], ["OrganisedEvent", "colocatedWith", "OrganisedEvent"], ["AcademicEvent", "hasTrack", "Track"], ["OrganisedEvent", "hasSponsor", "Sponsor"]], "meta": "freq"}

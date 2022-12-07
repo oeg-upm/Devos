@@ -2,19 +2,19 @@
 	classDiagram
 
     
-    class Ontology {
+    class `Ontology` {
     
     }
 
-    class Datatype Property {
+    class `Datatype` {
     
     }
 
-    class Datavalued Property Atom {
+    class `Datatype Property` {
     
     }
 
-    class Datatype {
+    class `Datavalued Property Atom` {
     
     }
 

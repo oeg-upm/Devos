@@ -1,0 +1,1 @@
+{"classes": ["Explanation", "System Recommendation", "Counterfactual Explanation", "Scientific Knowledge", "Named Individual", "Object Property", "Datatype Property"], "relations": [["Explanation", "is based on", "System Recommendation"], ["Explanation", "is based on", "System Recommendation"]], "meta": "leng"}

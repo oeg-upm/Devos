@@ -26,6 +26,22 @@ special_chars = set(punctuation.replace('.', ''))
 labels_cache = dict()
 
 
+def escape_spaces_in_class(item):
+    return "`"+item.strip()+"`"
+
+
+def escape_spaces_in_classes(classes):
+    return [escape_spaces_in_class(c) for c in classes]
+
+
+def escape_spaces_in_relations(relations):
+    rels = []
+    for r in relations:
+        t = (escape_spaces_in_class(r[0]), r[1], escape_spaces_in_class(r[2]))
+        rels.append(t)
+    return rels
+
+
 def to_string_relations(relations):
     rels = []
     for r in relations:
@@ -97,7 +113,6 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
 
     if len(classes) < topn or topn==0:
         num_rem = topn - len(classes)
-        print("\n\n XXXXXXXXXXXX topn(%d) - len(%d) num_rem: %d" % (topn, len(classes), num_rem))
         classes_list = []
         for r in relations:
             if r[0] not in classes:
@@ -110,8 +125,6 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
                 if p not in classes:
                     classes.append(p)
         else:
-            print("Counter: ")
-            print(c)
             pairs = c.most_common(num_rem)
 
             print(pairs)
@@ -119,14 +132,10 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
                 print(p)
                 classes.append(p[0])
 
-    else:
-        print("\n\n XXXXXXXXXXXX Nope")
-
     print("number of classes: %d" % len(classes))
 
     for c in classes:
         per_class[c] = 0
-        print("c: <%s>" % c)
 
     if topr > 0:
         rmax = math.ceil(topr/len(classes))
@@ -140,13 +149,6 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
     else:
         print(per_class)
         for r in relations:
-            if "https://purl.org/heals/eo#SystemRecommendation" not in [r[0], r[2]]:
-                print("\n\n Checking: ")
-                print(r[0] in per_class)
-                print(r[2] in per_class)
-                print(r)
-                for k in per_class:
-                    print(k)
 
             if r[0] in per_class and r[2] in per_class:
                 top_relations.append(r)
@@ -158,10 +160,8 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
                 else:
                     print("strange: ")
                     print(r)
+                # print("Eliminating: <%s>" % sk)
 
-                print("Eliminating: <%s>" % sk)
-                # print(per_class)
-            sysrec = False
     if DEBUG:
         print("important relations: ")
         print(top_relations)
@@ -431,8 +431,9 @@ def get_label(g, uri, lang=None):
 
     if uri not in labels_cache:
         labels_cache[uri] = fetcher.get_print_label(g, uri, lang)
+        print("get_label> %s =>\t %s" % (uri, labels_cache[uri]))
     else:
-        print("cached: %s => %s" % (uri, labels_cache[uri]))
+        print("cached: %s =>\t %s" % (uri, labels_cache[uri]))
     return labels_cache[uri]
 
 
@@ -466,21 +467,21 @@ def meta_workflow(input_path, title, desc, abstract, only_object_property, out_p
     relations, classes, g = get_classes_and_relations(input_path, title, desc, abstract, topn=topn, lang=lang,
                                                       max_options=max_options, only_object_property=only_object_property)
 
-    # print("\n\n\nDEBUG1: ")
-    # print("relations: ")
-    # print_relations(relations, short=True)
-    # print("classes: ")
-    # print(classes)
-
     if soft:
         top_relations = get_top_relations_soft(classes, relations, topr)
     else:
         top_relations = get_top_relations_hard(classes, relations, topr, topn)
 
     top_classes = label_uris(g, classes)
+    top_relations = label_relations(g, top_relations)
+
+    # DEBUG2
+    print("\n\nTop relations 2: ")
+    for r in top_relations:
+        print(r)
 
     if out_path:
-        draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
+        draw_diagrams(classes=escape_spaces_in_classes(top_classes), relations=escape_spaces_in_relations(top_relations), out_path=out_path)
 
     if DEBUG:
         debug_classes(g)
@@ -527,7 +528,7 @@ def get_leng_classes(g, topn):
     return top_classes, d_top_classes
 
 
-def freq_workflow(input_path, out_path, topn, only_object_property, topr=0):
+def freq_workflow(input_path, out_path, topn, only_object_property, topr=0, soft=False):
     """
     Use frequency as the importance signal
     """
@@ -559,7 +560,7 @@ def freq_workflow(input_path, out_path, topn, only_object_property, topr=0):
             print(c)
 
     if out_path:
-        draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
+        draw_diagrams(classes=escape_spaces_in_classes(top_classes), relations=escape_spaces_in_relations(top_relations), out_path=out_path)
 
     if DEBUG:
         debug_classes(g)
@@ -569,7 +570,7 @@ def freq_workflow(input_path, out_path, topn, only_object_property, topr=0):
     return top_classes, top_relations
 
 
-def leng_workflow(input_path, out_path, topn, topr):
+def leng_workflow(input_path, out_path, topn, topr, soft=False):
     """
     Workflow using the comments length as the signal for importance
     """
@@ -589,7 +590,7 @@ def leng_workflow(input_path, out_path, topn, topr):
     top_classes = label_uris(g, top_classes)
 
     if out_path:
-        draw_diagrams(classes=top_classes, relations=top_relations, out_path=out_path)
+        draw_diagrams(classes=escape_spaces_in_classes(top_classes), relations=escape_spaces_in_relations(top_relations), out_path=out_path)
 
     if DEBUG:
         debug_classes(g)

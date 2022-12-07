@@ -2,42 +2,42 @@
 	classDiagram
 
     
-    class Counterfactual Explanation {
+    class `Ontology` {
     
     }
 
-    class Ontology {
+    class `Explanation` {
     
     }
 
-    class Explanation {
+    class `Counterfactual Explanation` {
     
     }
 
-    class System Recommendation {
+    class `System Recommendation` {
     
     }
 
-    class SIO_000085 {
+    class `User` {
     
     }
 
-    class User {
+    class `Explanation Goal` {
     
     }
 
-    class Object Record {
+    class `SIO_000085` {
     
     }
 
 
 
-http://linkedu.eu/dedalo/explanationPattern.owl#Explanation  --> http://semanticscience.org/resource/SIO_000085   :https://purl.org/heals/eo#addresses  
+`Explanation`  --> `System Recommendation`   :is based on  
 
-https://purl.org/heals/eo#user  --> http://linkedu.eu/dedalo/explanationPattern.owl#Explanation   :https://purl.org/heals/eo#consumes  
+`User`  --> `Explanation`   :is consumer of  
 
-https://purl.org/heals/eo#SystemRecommendation  --> https://purl.org/heals/eo#object_record   :http://semanticscience.org/resource/SIO_001277  
+`Explanation`  --> `Explanation Goal`   :SIO000008  
 
-http://linkedu.eu/dedalo/explanationPattern.owl#Explanation  --> https://purl.org/heals/eo#SystemRecommendation   :http://linkedu.eu/dedalo/explanationPattern.owl#isBasedOn  
+`Explanation`  --> `SIO_000085`   :addresses  
 
 ```

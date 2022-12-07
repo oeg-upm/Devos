@@ -2,34 +2,34 @@
 	classDiagram
 
     
-    class Ontology {
+    class `Ontology` {
     
     }
 
-    class Ambito di tutela MiBAC {
+    class `Named Individual` {
     
     }
 
-    class Functional Property {
+    class `Ambito di tutela MiBAC` {
     
     }
 
-    class All Disjoint Classes {
+    class `All Disjoint Classes` {
     
     }
 
-    class Named Individual {
+    class `Functional Property` {
     
     }
 
-    class Bene culturale {
+    class `Bene culturale` {
     
     }
 
 
 
-https://w3id.org/arco/ontology/arco/CulturalProperty  --> https://w3id.org/arco/ontology/arco/MibacScopeOfProtection   :https://w3id.org/arco/ontology/arco/hasMibacScopeOfProtection  
+`Bene culturale`  --> `Ambito di tutela MiBAC`   :ha ambito di tutela  
 
-https://w3id.org/arco/ontology/arco/MibacScopeOfProtection  --> https://w3id.org/arco/ontology/arco/CulturalProperty   :https://w3id.org/arco/ontology/arco/isMibacScopeOfProtectionOf  
+`Ambito di tutela MiBAC`  --> `Bene culturale`   :is MiBAC scope of protection of  
 
 ```

@@ -1,1 +1,1 @@
-{"classes": ["Ontology", "Datatype Property", "Datavalued Property Atom", "Datatype"], "relations": [], "meta": "abstract"}
+{"classes": ["Ontology", "Datatype", "Datatype Property", "Datavalued Property Atom"], "relations": [], "meta": "abstract"}

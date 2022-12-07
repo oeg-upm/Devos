@@ -2,7 +2,7 @@
 	classDiagram
 
     
-    class Ontology {
+    class `Ontology` {
     
     }
 
