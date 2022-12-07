@@ -2,10 +2,6 @@
 	classDiagram
 
     
-    class Explanation {
-    
-    }
-
     class Counterfactual Explanation {
     
     }
@@ -14,14 +10,6 @@
     
     }
 
-    class System Recommendation {
-    
-    }
-
-    class Explanation Modality {
-    
-    }
-
     class Explanation {
     
     }
@@ -30,26 +18,26 @@
     
     }
 
+    class SIO_000085 {
+    
+    }
+
+    class User {
+    
+    }
+
+    class Object Record {
+    
+    }
 
 
-Explanation  --> Explanation Modality   :has presentation  
 
-Explanation  --> System Recommendation   :is based on  
+http://linkedu.eu/dedalo/explanationPattern.owl#Explanation  --> http://semanticscience.org/resource/SIO_000085   :https://purl.org/heals/eo#addresses  
 
-Explanation  --> System Recommendation   :is based on  
+https://purl.org/heals/eo#user  --> http://linkedu.eu/dedalo/explanationPattern.owl#Explanation   :https://purl.org/heals/eo#consumes  
 
-Explanation  --> Knowledge   :is based on  
+https://purl.org/heals/eo#SystemRecommendation  --> https://purl.org/heals/eo#object_record   :http://semanticscience.org/resource/SIO_001277  
 
-Explanation  --> Explanation Goal   :SIO000008  
-
-Explanation  --> SIO_000085   :addresses  
-
-User  --> Explanation   :is consumer of  
-
-System Recommendation  --> Object Record   :SIO001277  
-
-ExplanationCollection  --> Explanation   :SIO000059  
-
-System Recommendation  --> AI Method   :SIO000232  
+http://linkedu.eu/dedalo/explanationPattern.owl#Explanation  --> https://purl.org/heals/eo#SystemRecommendation   :http://linkedu.eu/dedalo/explanationPattern.owl#isBasedOn  
 
 ```

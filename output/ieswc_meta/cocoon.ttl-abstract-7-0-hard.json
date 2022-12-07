@@ -1,1 +1,1 @@
-{"classes": ["Datatype Property", "Type And Quantity Node", "Ontology", "ComputeService"], "relations": [["ComputeService", "hasStorage", "Type And Quantity Node"]], "meta": "abstract"}
+{"classes": ["Ontology", "Type And Quantity Node", "Datatype Property", "ComputeService"], "relations": [["https://w3id.org/cocoon/v1.0.1#ComputeService", "https://w3id.org/cocoon/v1.0.1#hasStorage", "https://schema.org/TypeAndQuantityNode"]], "meta": "abstract"}

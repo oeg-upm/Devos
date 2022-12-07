@@ -26,13 +26,31 @@ special_chars = set(punctuation.replace('.', ''))
 labels_cache = dict()
 
 
+def to_string_relations(relations):
+    rels = []
+    for r in relations:
+        t = (str(r[0]), str(r[1]), str(r[2]))
+        rels.append(t)
+    return rels
+
+
+def to_string_items(items):
+    print(items)
+    return [str(item) for item in items]
+
+
 def print_classes(classes):
     for c in classes:
         print(c)
 
 
-def print_relations(relations):
+def print_relations(relations, short=False):
     for c1, r, c2 in relations:
+        if short:
+            c1 = c1.split('/')[-1].split('#')[-1]
+            c2 = c2.split('/')[-1].split('#')[-1]
+            r = r.split('/')[-1].split('#')[-1]
+
         print("%s\t==(%s)==>\t%s" % (c1, r, c2))
 
 
@@ -79,6 +97,7 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
 
     if len(classes) < topn or topn==0:
         num_rem = topn - len(classes)
+        print("\n\n XXXXXXXXXXXX topn(%d) - len(%d) num_rem: %d" % (topn, len(classes), num_rem))
         classes_list = []
         for r in relations:
             if r[0] not in classes:
@@ -91,16 +110,26 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
                 if p not in classes:
                     classes.append(p)
         else:
+            print("Counter: ")
+            print(c)
             pairs = c.most_common(num_rem)
+
+            print(pairs)
             for p in pairs:
                 print(p)
                 classes.append(p[0])
 
+    else:
+        print("\n\n XXXXXXXXXXXX Nope")
+
+    print("number of classes: %d" % len(classes))
+
+    for c in classes:
+        per_class[c] = 0
+        print("c: <%s>" % c)
+
     if topr > 0:
         rmax = math.ceil(topr/len(classes))
-        for c in classes:
-            per_class[c] = 0
-
         for r in relations:
             if r[0] in per_class and r[2] in per_class:
                 if per_class[r[0]] < rmax and per_class[r[2]] < rmax:
@@ -109,8 +138,30 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
                     top_relations.append(r)
 
     else:
-        top_relations = relations
+        print(per_class)
+        for r in relations:
+            if "https://purl.org/heals/eo#SystemRecommendation" not in [r[0], r[2]]:
+                print("\n\n Checking: ")
+                print(r[0] in per_class)
+                print(r[2] in per_class)
+                print(r)
+                for k in per_class:
+                    print(k)
 
+            if r[0] in per_class and r[2] in per_class:
+                top_relations.append(r)
+            else:
+                if r[0] not in per_class:
+                    sk = r[0]
+                elif r[2] not in per_class:
+                    sk = r[2]
+                else:
+                    print("strange: ")
+                    print(r)
+
+                print("Eliminating: <%s>" % sk)
+                # print(per_class)
+            sysrec = False
     if DEBUG:
         print("important relations: ")
         print(top_relations)
@@ -311,6 +362,9 @@ def get_classes_and_relations(input_path, title, desc, abstract, only_object_pro
     keywords, classes, properties = get_matched(meta=meta, max_num_tok=5, g=g,
                                                 only_object_property=only_object_property)
 
+    classes = to_string_items(classes)
+    properties = to_string_items(properties)
+
     classes = util.ordered_unique_list(classes)
     properties = util.ordered_unique_list(properties)
 
@@ -318,16 +372,20 @@ def get_classes_and_relations(input_path, title, desc, abstract, only_object_pro
         classes = classes[:topn]
         # properties = properties[:topn]
     class_relations = fetcher.get_relations(g, classes)
+    class_relations = to_string_relations(class_relations)
 
     if DEBUG:
         print("class relations: ")
         print(class_relations)
+
     property_relations = fetcher.get_properties_relations(g, properties)
+    property_relations = to_string_relations(property_relations)
 
     if DEBUG:
         print("property relations: ")
         print(property_relations)
     constraints = fetcher.get_classes_constraints(g, classes)
+    constraints = to_string_relations(constraints)
 
     if DEBUG:
         print("constraints: ")
@@ -408,19 +466,17 @@ def meta_workflow(input_path, title, desc, abstract, only_object_property, out_p
     relations, classes, g = get_classes_and_relations(input_path, title, desc, abstract, topn=topn, lang=lang,
                                                       max_options=max_options, only_object_property=only_object_property)
 
-    print("\n\n\nDEBUG1: ")
-    print("relations: ")
-    print(relations)
-    print("classes: ")
-    print(classes)
+    # print("\n\n\nDEBUG1: ")
+    # print("relations: ")
+    # print_relations(relations, short=True)
+    # print("classes: ")
+    # print(classes)
+
     if soft:
         top_relations = get_top_relations_soft(classes, relations, topr)
     else:
         top_relations = get_top_relations_hard(classes, relations, topr, topn)
-        print("\n\n\nDEBUG2: ")
-        print("relations: ")
-        print(top_relations)
-    top_relations = label_relations(g, top_relations)
+
     top_classes = label_uris(g, classes)
 
     if out_path:
@@ -478,7 +534,9 @@ def freq_workflow(input_path, out_path, topn, only_object_property, topr=0):
     g = parse_ontology(input_path)
     top_classes = get_freq_classes(g, topn=topn, only_object_property=only_object_property)
     class_relations = fetcher.get_relations(g, top_classes)
+    class_relations = to_string_relations(class_relations)
     constraints = fetcher.get_classes_constraints(g, top_classes)
+    constraints = to_string_relations(constraints)
     class_relations += constraints
 
     if soft:
@@ -518,7 +576,9 @@ def leng_workflow(input_path, out_path, topn, topr):
     g = parse_ontology(input_path)
     top_classes, class_leng_dict = get_leng_classes(g, topn=topn)
     class_relations = fetcher.get_relations(g, top_classes)
+    class_relations = to_string_relations(class_relations)
     constraints = fetcher.get_classes_constraints(g, top_classes)
+    constraints = to_string_relations(constraints)
     class_relations += constraints
 
     if soft:

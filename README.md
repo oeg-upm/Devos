@@ -16,6 +16,8 @@ A tool to generate a gist of the ontology
 python -m ogister.gister -i data/ieswc/cocoon.ttl --freq
 python -m ogister.gister -i data/ieswc_enriched/ck.ttl -t -d -a  
 
+
+python -m ogister.gister -i data/ieswc_enriched/explanation-ontology.owl  -t -d -a --topn 7
 ```
 
 

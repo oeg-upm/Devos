@@ -2,7 +2,7 @@
 	classDiagram
 
     
-    class Datatype Property {
+    class Ontology {
     
     }
 
@@ -10,7 +10,7 @@
     
     }
 
-    class Ontology {
+    class Datatype Property {
     
     }
 
@@ -20,6 +20,6 @@
 
 
 
-ComputeService  --> Type And Quantity Node   :hasStorage  
+https://w3id.org/cocoon/v1.0.1#ComputeService  --> https://schema.org/TypeAndQuantityNode   :https://w3id.org/cocoon/v1.0.1#hasStorage  
 
 ```

@@ -34,9 +34,9 @@ def get_labels(g, uri, lang=None):
     if lang:
         q += ". FILTER (lang(?label) = '%s')" % lang
 
-    if DEBUG:
-        print("\n")
-        print(q)
+    # if DEBUG:
+    #     print("\n")
+    #     print(q)
 
     results = g.query(q)
     labels = []

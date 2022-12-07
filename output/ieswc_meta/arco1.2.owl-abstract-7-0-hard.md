@@ -6,14 +6,6 @@
     
     }
 
-    class Named Individual {
-    
-    }
-
-    class All Disjoint Classes {
-    
-    }
-
     class Ambito di tutela MiBAC {
     
     }
@@ -22,7 +14,11 @@
     
     }
 
-    class Bene culturale {
+    class All Disjoint Classes {
+    
+    }
+
+    class Named Individual {
     
     }
 
@@ -32,10 +28,8 @@
 
 
 
-Ambito di tutela MiBAC  --> Bene culturale   :is MiBAC scope of protection of  
+https://w3id.org/arco/ontology/arco/CulturalProperty  --> https://w3id.org/arco/ontology/arco/MibacScopeOfProtection   :https://w3id.org/arco/ontology/arco/hasMibacScopeOfProtection  
 
-Bene culturale  --> Ambito di tutela MiBAC   :ha ambito di tutela  
-
-Ambito di tutela MiBAC  --> Bene culturale   :is MiBAC scope of protection of  
+https://w3id.org/arco/ontology/arco/MibacScopeOfProtection  --> https://w3id.org/arco/ontology/arco/CulturalProperty   :https://w3id.org/arco/ontology/arco/isMibacScopeOfProtectionOf  
 
 ```

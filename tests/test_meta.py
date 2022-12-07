@@ -47,5 +47,26 @@ class TestGisterMeta(unittest.TestCase):
         self.assertEqual(classes[0], "foot ball")
         self.assertEqual(1, len(relations))
 
+    def test_meta_rtop_hard_topn0(self):
+        ont_path = os.path.join("tests", "o2.ttl")
+        classes, relations = meta_workflow(input_path=ont_path, title=True, desc=True, abstract=True, topn=1,
+                                           soft=False,
+                                           only_object_property=True, out_path=None, lang=None, max_options=0)
+        self.assertEqual(1, len(classes))
+        self.assertEqual(classes[0], "foot ball")
+        # self.assertEqual(1, len(relations))
+
+    def test_meta_explanation_top7(self):
+        ont_path = os.path.join("data", "ieswc_enriched", "explanation-ontology.owl")
+        classes, relations = meta_workflow(input_path=ont_path, title=True, desc=True, abstract=True, topn=7,
+                                           soft=False,
+                                           only_object_property=True, out_path=None, lang=None, max_options=0)
+        self.assertEqual(7, len(classes))
+        from_classes = [r[0] for r in relations]
+        to_classes = [r[2] for r in relations]
+        rclasses = list(set(from_classes+to_classes))
+        self.assertLessEqual(len(rclasses), 7)
+
+
 if __name__ == '__main__':
     unittest.main()
