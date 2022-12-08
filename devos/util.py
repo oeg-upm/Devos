@@ -1,7 +1,5 @@
-from ogister import prefixes
+from devos import prefixes
 from nltk.tokenize import word_tokenize
-# from nltk.corpus import stopwords
-# stopwords = stopwords.words('english')
 
 
 def ordered_unique_list(items):
@@ -16,7 +14,6 @@ def remove_quotes(keywords):
     return [k.replace('"', '') for k in keywords]
 
 
-# def get_possible_joins(tokens, joiners=[" ", "", "."]):
 def get_possible_joins(tokens, joiners=[" "]):
 
     """

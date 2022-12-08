@@ -1,0 +1,398 @@
+@prefix : <http://w3id.org/devops-infra/product#> .
+@prefix ns1: <http://purl.org/dc/elements/1.1/> .
+@prefix ns2: <http://purl.org/vocab/vann/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:creator a owl:AnnotationProperty .
+
+ns1:identifier a owl:AnnotationProperty .
+
+ns1:title a owl:AnnotationProperty .
+
+ns3:hasFormat a owl:AnnotationProperty .
+
+ns3:issued a owl:AnnotationProperty .
+
+ns3:license a owl:AnnotationProperty .
+
+ns2:preferredNamespacePrefix a owl:AnnotationProperty .
+
+ns2:preferredNamespaceUri a owl:AnnotationProperty .
+
+<http://w3id.org/devops-infra/product> a owl:Ontology ;
+    ns1:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Hu Peng (Huawei Research Ireland)",
+        "Jhon Toledo (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "José Mora (Huawei Research Ireland)",
+        "Julián Arenas-Guerrero (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Mingxue Wang (Huawei Research Ireland)",
+        "Nicholas Burrett (Huawei Research Ireland)",
+        "Oscar Corcho (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Puchao Zhang (Huawei Research Ireland)",
+        "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
+    ns1:identifier "http://w3id.org/devops-infra/product" ;
+    ns1:title "Ontology for the representation of the business offering of a company, including the services and microservices that are being used to provide such business offering"@en ;
+    ns3:hasFormat "http://w3id.org/devops-infra/product.owl" ;
+    ns3:issued "2021-04-16" ;
+    ns3:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns2:preferredNamespacePrefix "devopsprod" ;
+    ns2:preferredNamespaceUri "http://w3id.org/devops-infra/product#" ;
+    rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
+    owl:imports <http://w3id.org/devops-infra/core/1.0.0>,
+        <http://www.w3.org/2004/02/skos/core> ;
+    owl:versionIRI <http://w3id.org/devops-infra/product/1.0.0> ;
+    owl:versionInfo "First official release"@en .
+
+<http://w3id.org/devops-infra/organisation#Site> a owl:Class .
+
+<http://w3id.org/devops-infra/organisation#Tenant> a owl:Class .
+
+<http://w3id.org/devops-infra/organisation#scope> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/organisation#site> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/organisation#tenant> a owl:ObjectProperty .
+
+:BusinessProductInstance a owl:Class ;
+    rdfs:label "Business Product Instance"@en ;
+    rdfs:comment "Instance of a business product running/deployed on a specific infrastructure (e.g., TerraForm)"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/organisation#Site> ;
+            owl:onProperty <http://w3id.org/devops-infra/organisation#site> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/organisation#Tenant> ;
+            owl:onProperty <http://w3id.org/devops-infra/organisation#tenant> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :BusinessProduct ;
+            owl:onProperty :deployedInstanceOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :ServiceInstance ;
+            owl:onProperty :uses ],
+        [ a owl:Restriction ;
+            owl:onClass :BusinessProduct ;
+            owl:onProperty :deployedInstanceOf ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty :isDeleted ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:clusterType a owl:ObjectProperty ;
+    rdfs:label "cluster type"@en ;
+    rdfs:comment "The type of a Service Cluster. The allowed values will be represented in a SKOS codelist. They can be, for example, production, redundancy, grey, etc."@en ;
+    rdfs:domain :ServiceCluster ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/cluster-type> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:hasProductOffering a owl:ObjectProperty ;
+    rdfs:label "A Business Product may have a number of commercial product offerings, which are usually made available in a product catalogue"@en,
+        "has product offering"@en ;
+    rdfs:domain :BusinessProduct ;
+    rdfs:range :ProductOffering .
+
+:hasProductVersion a owl:ObjectProperty ;
+    rdfs:label "has product version"@en ;
+    rdfs:comment "A Product Offering may have different Product Versions offered in the corresponding catalogue"@en ;
+    rdfs:domain :ProductOffering ;
+    rdfs:range :ProductVersion .
+
+:serviceType a owl:ObjectProperty ;
+    rdfs:label "service type"@en ;
+    rdfs:comment "The type of a service. It can be any of the following, according to the corresponding SKOS Concept Scheme: common, middleware, HWS"@en ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/service-type> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:usesServiceModuleVersion a owl:ObjectProperty ;
+    rdfs:label "uses service module version"@en ;
+    rdfs:comment "A product version may use several versions of the service modules that are being used by the product"@en ;
+    rdfs:domain :ProductVersion ;
+    rdfs:range <http://w3id.org/devops-infra/software#ServiceModuleVersion> .
+
+<http://w3id.org/devops-infra/server#Server> a owl:Class .
+
+<http://w3id.org/devops-infra/server#ServerLoadBalancer> a owl:Class .
+
+<http://w3id.org/devops-infra/server#autoScalingHostConfig> a owl:ObjectProperty ;
+    rdfs:label "autoscaling host config"@en ;
+    rdfs:comment "Auto scaling host configuration for a microservice"@en ;
+    rdfs:domain :MicroService ;
+    rdfs:range <http://w3id.org/devops-infra/server#AutoScalingHostConfig> .
+
+<http://w3id.org/devops-infra/server#balancedBy> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/server#deployedInServer> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/software#ServiceModuleVersion> a owl:Class .
+
+owl:Ontology rdfs:label "Ontology" .
+
+<http://w3id.org/devops-infra/core#dependsOn> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/data-center#DataCenter> a owl:Class .
+
+<http://w3id.org/devops-infra/data-center#hostedInDataCenter> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/kos/cluster-type> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://w3id.org/devops-infra/kos/service-type> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+:calls a owl:ObjectProperty ;
+    rdfs:label "calls"@en ;
+    rdfs:comment "A service or a service instance may call other services or microservices, or their corresponding instances"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Service :ServiceInstance ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( :MicroService :MicroServiceInstance :Service :ServiceInstance ) ] ;
+    rdfs:subPropertyOf <http://w3id.org/devops-infra/core#dependsOn> .
+
+:ip a owl:DatatypeProperty ;
+    rdfs:label "IP"@en ;
+    rdfs:comment "IP address where a service or microservice instance is running"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :MicroServiceInstance :ServiceInstance ) ] ;
+    rdfs:range xsd:string .
+
+:port a owl:DatatypeProperty ;
+    rdfs:label "port"@en ;
+    rdfs:comment "Port where a service instance or microservice instance is running"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :MicroServiceInstance :ServiceInstance ) ] ;
+    rdfs:range xsd:string .
+
+:runsInServiceCluster a owl:ObjectProperty ;
+    rdfs:label "runs in service cluster"@en ;
+    rdfs:comment "A Microservice may run in a service cluster"@en ;
+    rdfs:domain :MicroService ;
+    rdfs:range :ServiceCluster .
+
+:usesServiceModule a owl:ObjectProperty ;
+    rdfs:label "uses service module"@en ;
+    rdfs:comment "The service modules that are being used by a product, a product offering, a service or a microservice"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :MicroService :Service ) ] ;
+    rdfs:range <http://w3id.org/devops-infra/software#ServiceModule> .
+
+<http://w3id.org/devops-infra/server#AutoScalingHostConfig> a owl:Class .
+
+owl:NamedIndividual rdfs:label "Named Individual" .
+
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdfs:label "Concept Scheme" .
+
+:ProductOffering a owl:Class ;
+    rdfs:label "Product Offering"@en ;
+    rdfs:comment "For a Business Product, this is the specific offer that is done in a catalogue. A Business Product may have several Product Offering associated to them, and an offering may be described in commercial terms. In this ontology, we do not restrict/propose any specific set of attributes to be used for such description, since each organisation may have different attributes to define their offering."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ProductVersion ;
+            owl:onProperty :hasProductVersion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/organisation#Scope> ;
+            owl:onProperty :offeredBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Service ;
+            owl:onProperty :uses ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty :isDeleted ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:ProductVersion a owl:Class ;
+    rdfs:label "Product Version"@en ;
+    rdfs:comment "A specific version of a Business Product that is being offered through a Product Offering"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom owl:Thing ;
+            owl:onProperty :usesServiceModuleVersion ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:offeredBy a owl:ObjectProperty ;
+    rdfs:label "offered by"@en ;
+    rdfs:comment "Business products, product offerings and services are offered by a scope (and its corresponding business department)"@en ;
+    rdfs:range <http://w3id.org/devops-infra/organisation#Scope> ;
+    rdfs:subPropertyOf <http://w3id.org/devops-infra/organisation#scope> .
+
+:uses a owl:ObjectProperty ;
+    rdfs:label "uses"@en ;
+    rdfs:comment "A Product Offering or a Business Product use services"@en ;
+    rdfs:range :Service ;
+    rdfs:subPropertyOf <http://w3id.org/devops-infra/core#dependsOn> .
+
+<http://w3id.org/devops-infra/software#ServiceModule> a owl:Class .
+
+owl:DatatypeProperty rdfs:label "Datatype Property" .
+
+<http://w3id.org/devops-infra/organisation#Scope> a owl:Class .
+
+:BusinessProduct a owl:Class ;
+    rdfs:label "Business Product"@en ;
+    rdfs:comment "A Business Product that is offered in the catalogue of an organisation (e.g., a content delivery network, an application, etc.)"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ProductOffering ;
+            owl:onProperty :hasProductOffering ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/organisation#Scope> ;
+            owl:onProperty :offeredBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Service ;
+            owl:onProperty :uses ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty :isDeleted ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:ServiceCluster a owl:Class ;
+    rdfs:label "Service Cluster"@en ;
+    rdfs:comment "A Service Cluster is a logical cluster that provides high availability to services and microservices"@en ;
+    rdfs:subClassOf [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:allValuesFrom <http://w3id.org/devops-infra/data-center#DataCenter> ;
+                        owl:onProperty <http://w3id.org/devops-infra/data-center#hostedInDataCenter> ] [ a owl:Restriction ;
+                        owl:onClass <http://w3id.org/devops-infra/data-center#DataCenter> ;
+                        owl:onProperty <http://w3id.org/devops-infra/data-center#hostedInDataCenter> ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/cluster-type> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :clusterType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/server#ServerLoadBalancer> ;
+            owl:onProperty <http://w3id.org/devops-infra/server#balancedBy> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/server#Server> ;
+            owl:onProperty <http://w3id.org/devops-infra/server#deployedInServer> ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:MicroServiceInstance a owl:Class ;
+    rdfs:label "Microservice Instance"@en ;
+    rdfs:comment "Instance of a MicroService running/deployed on a specific infrastructure (e.g., TerraForm)"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :MicroService ;
+            owl:onProperty :deployedInstanceOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :ServiceCluster ;
+            owl:onProperty :runsInServiceCluster ],
+        [ a owl:Restriction ;
+            owl:onClass :MicroService ;
+            owl:onProperty :deployedInstanceOf ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :ip ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty :isDeleted ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :port ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:deployedInstanceOf a owl:ObjectProperty ;
+    rdfs:label "deployed instance of"@en ;
+    rdfs:comment "A microservice instance, a service instance or a business product instance are instances of microservices, services or business products deployed in some infrastructure"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :BusinessProductInstance :MicroServiceInstance :ServiceInstance ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( :BusinessProduct :MicroService :Service ) ] .
+
+:ServiceInstance a owl:Class ;
+    rdfs:label "Service Instance"@en ;
+    rdfs:comment "Instance of a Service running/deployed on a specific infrastructure (e.g., TerraForm)"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :MicroServiceInstance :ServiceInstance ) ] ;
+            owl:onProperty :calls ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Service ;
+            owl:onProperty :deployedInstanceOf ],
+        [ a owl:Restriction ;
+            owl:onClass :Service ;
+            owl:onProperty :deployedInstanceOf ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :ip ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty :isDeleted ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :port ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:isDeleted a owl:DatatypeProperty ;
+    rdfs:label "is deleted"@en ;
+    rdfs:comment "Property used to determine whether a (business) product offering, a service or a microservice are currently running or available, or they have been deleted from the corresponding catalogues and/or infrastructure"@en ;
+    rdfs:range xsd:boolean .
+
+:MicroService a owl:Class ;
+    rdfs:label "Microservice"@en ;
+    rdfs:comment "A Microservice is a type of Service that runs a unique process and communicates through a well-defined, lightweight mechanism, such as a container, to serve a business goal."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ServiceCluster ;
+            owl:onProperty :runsInServiceCluster ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/software#ServiceModule> ;
+            owl:onProperty :usesServiceModule ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/server#AutoScalingHostConfig> ;
+            owl:onProperty <http://w3id.org/devops-infra/server#autoScalingHostConfig> ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty :isDeleted ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+owl:AnnotationProperty rdfs:label "Annotation Property" .
+
+<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+
+:Service a owl:Class ;
+    rdfs:label "Service"@en ;
+    rdfs:comment "A Service that provides support to one or more business products. It may make use (call) other services or microservices."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :MicroService :Service ) ] ;
+            owl:onProperty :calls ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/organisation#Scope> ;
+            owl:onProperty :offeredBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/service-type> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :serviceType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/software#ServiceModule> ;
+            owl:onProperty :usesServiceModule ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:boolean ;
+            owl:onProperty :isDeleted ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+owl:ObjectProperty rdfs:label "Object Property" .
+
+owl:Class rdfs:label "Class" .
+
+owl:Restriction rdfs:label "Restriction" .
+

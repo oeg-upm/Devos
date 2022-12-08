@@ -2,9 +2,8 @@ import unittest
 
 import rdflib
 import os
-from ogister.gister import get_freq_classes, shorten_uris
-from ogister.util import split_text_manual
-# from ogister.util import split_text
+from devos.gister import get_freq_classes, shorten_uris
+from devos.util import split_text_manual
 
 split_text = split_text_manual
 

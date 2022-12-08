@@ -1,0 +1,352 @@
+@prefix : <http://w3id.org/devops-infra/hardware#> .
+@prefix ns1: <http://purl.org/vocab/vann/> .
+@prefix ns2: <http://purl.org/dc/elements/1.1/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns2:creator a owl:AnnotationProperty .
+
+ns2:identifier a owl:AnnotationProperty .
+
+ns2:title a owl:AnnotationProperty .
+
+ns3:hasFormat a owl:AnnotationProperty .
+
+ns3:issued a owl:AnnotationProperty .
+
+ns3:license a owl:AnnotationProperty .
+
+ns1:preferredNamespacePrefix a owl:AnnotationProperty .
+
+ns1:preferredNamespaceUri a owl:AnnotationProperty .
+
+<http://w3id.org/devops-infra/core#status> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/data-center#DataCenter> a owl:Class .
+
+<http://w3id.org/devops-infra/data-center#inDataCenter> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/hardware> a owl:Ontology ;
+    ns2:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Hu Peng (Huawei Research Ireland)",
+        "Jhon Toledo (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "José Mora (Huawei Research Ireland)",
+        "Julián Arenas-Guerrero (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Mingxue Wang (Huawei Research Ireland)",
+        "Nicholas Burrett (Huawei Research Ireland)",
+        "Oscar Corcho (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Puchao Zhang (Huawei Research Ireland)",
+        "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
+    ns2:identifier "http://w3id.org/devops-infra/hardware" ;
+    ns2:title "Ontology for the representation of the hardware items related to a DevOps infrastructure"@en ;
+    ns3:hasFormat "http://w3id.org/devops-infra/hardware.owl" ;
+    ns3:issued "2021-04-15" ;
+    ns3:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns1:preferredNamespacePrefix "devopsnet" ;
+    ns1:preferredNamespaceUri "http://w3id.org/devops-infra/hardware#" ;
+    rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
+    owl:imports <http://w3id.org/devops-infra/core/1.0.0>,
+        <http://www.w3.org/2004/02/skos/core> ;
+    owl:versionIRI <http://w3id.org/devops-infra/hardware/1.0.0> ;
+    owl:versionInfo "First official release"@en .
+
+:bandwidth a owl:DatatypeProperty ;
+    rdfs:label "bandwidth"@en ;
+    rdfs:comment "Bandwidth associated to a Network Card"@en ;
+    rdfs:domain :NetworkCard ;
+    rdfs:range xsd:string .
+
+:batch a owl:ObjectProperty ;
+    rdfs:label "batch"@en ;
+    rdfs:comment "Batch in which a hardware item was acquired"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range :HardwareBatch .
+
+:f5Type a owl:DatatypeProperty ;
+    rdfs:label "F5 type"@en ;
+    rdfs:comment "Type of F5 hardware"@en ;
+    rdfs:domain :F5Hardware ;
+    rdfs:range xsd:string .
+
+:firewallType a owl:DatatypeProperty ;
+    rdfs:label "firewall type"@en ;
+    rdfs:comment "Type of firewall"@en ;
+    rdfs:domain :Firewall ;
+    rdfs:range xsd:string .
+
+:highAvailabilityStatus a owl:ObjectProperty ;
+    rdfs:label "high availability status"@en ;
+    rdfs:comment "It determines the status of high availability of any servder hardware item. Normally it will be Standby or Active"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range <http://www.w3.org/2004/02/skos/core#Concept> .
+
+:hostedInFrame a owl:ObjectProperty ;
+    rdfs:label "hosted in frame"@en ;
+    rdfs:comment "Frame where a Server Hardware Item is physically located"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range :Frame .
+
+:macAddress a owl:DatatypeProperty ;
+    rdfs:label "mac address"@en ;
+    rdfs:comment "MAC address associated to a Network Card"@en ;
+    rdfs:domain :NetworkCard ;
+    rdfs:range xsd:string .
+
+:networkCard a owl:ObjectProperty ;
+    rdfs:label "network card"@en ;
+    rdfs:comment "The network card to which a Hardware Item (e.g., Switch, Physical Server, etc.) is connected"@en ;
+    rdfs:domain :HardwareItem ;
+    rdfs:range :NetworkCard .
+
+:port a owl:DatatypeProperty ;
+    rdfs:label "port"@en ;
+    rdfs:comment "port associated to a Network Card"@en ;
+    rdfs:domain :NetworkCard ;
+    rdfs:range xsd:string .
+
+:power a owl:DatatypeProperty ;
+    rdfs:label "power"@en ;
+    rdfs:comment "Power connections for a frame"@en ;
+    rdfs:domain :Frame ;
+    rdfs:range xsd:string .
+
+:switch a owl:ObjectProperty ;
+    rdfs:label "switch"@en ;
+    rdfs:comment "A switch to which a network card is attached"@en ;
+    rdfs:domain :NetworkCard ;
+    rdfs:range :Switch .
+
+:switchType a owl:DatatypeProperty ;
+    rdfs:label "switch type"@en ;
+    rdfs:comment "Type of switch"@en ;
+    rdfs:domain :Switch ;
+    rdfs:range xsd:string .
+
+:uplinkBandwidth a owl:DatatypeProperty ;
+    rdfs:label "uplink bandwidth"@en ;
+    rdfs:comment "Uplink bandwidth of a switch"@en ;
+    rdfs:domain :Switch ;
+    rdfs:range xsd:string .
+
+:vlanID a owl:DatatypeProperty ;
+    rdfs:label "VLAN ID"@en ;
+    rdfs:comment "ID of the VLAN associated to a Network Card"@en ;
+    rdfs:domain :NetworkCard ;
+    rdfs:range xsd:string .
+
+<http://w3id.org/devops-infra/server#PhysicalServer> a owl:Class .
+
+<http://w3id.org/devops-infra/server#server> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+
+:Disk a owl:Class ;
+    rdfs:label "Disk"@en ;
+    rdfs:comment "A disk, understood as a piece of hardware. It can be of different types, and have size."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :diskSize ],
+        [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :diskSize ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :diskType ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        :HardwareItem .
+
+:F5Hardware a owl:Class ;
+    rdfs:label "F5 Hardware"@en ;
+    rdfs:comment "A specific type of hardware from the company F5."@en ;
+    rdfs:subClassOf :ServerHardware .
+
+:Firewall a owl:Class ;
+    rdfs:label "Firewall"@en ;
+    rdfs:comment "A specific type of hardware (network security device, which may be virtualised in some cases) that monitors incoming and outgoing network traffic and permits or blocks data packets based on a set of security rules. Its purpose is to establish a barrier between the internal network and incoming traffic from external sources (such as the internet) in order to block malicious traffic like viruses and hackers."@en ;
+    rdfs:subClassOf :ServerHardware .
+
+:cabPosition a owl:DatatypeProperty ;
+    rdfs:label "cab position"@en ;
+    rdfs:comment "Cabinet where the Server Hardware Item is"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range xsd:string .
+
+:contractNumber a owl:DatatypeProperty ;
+    rdfs:label "contract number"@en ;
+    rdfs:comment "Contract number for a batch of hardware items"@en ;
+    rdfs:domain :HardwareBatch ;
+    rdfs:range xsd:string .
+
+:dateEnabled a owl:DatatypeProperty ;
+    rdfs:label "date enabled"@en ;
+    rdfs:comment "Date and time when the Hardware Item was enabled"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range xsd:dateTime .
+
+:dateOnShelf a owl:DatatypeProperty ;
+    rdfs:label "date on shelf"@en ;
+    rdfs:comment "Date and time when the Hardware Item was put in a frame"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range xsd:dateTime .
+
+:diskType a owl:DatatypeProperty ;
+    rdfs:label "The type of a disk (SAS, SATA, etc.). This may be converted in the future to a SKOS theasurus"@en,
+        "disk type"@en .
+
+:frameType a owl:DatatypeProperty ;
+    rdfs:label "The type of frame"@en,
+        "frame type"@en ;
+    rdfs:domain :Frame ;
+    rdfs:range xsd:string .
+
+:hardwareType a owl:DatatypeProperty ;
+    rdfs:label "hardware type"@en ;
+    rdfs:comment "Type of hardware for a batch of hardware items, or for any hardware item"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :HardwareBatch :HardwareItem ) ] ;
+    rdfs:range xsd:string .
+
+:machineType a owl:DatatypeProperty ;
+    rdfs:label "machine type"@en ;
+    rdfs:comment "Type of machine"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range xsd:string .
+
+:managementIP a owl:DatatypeProperty ;
+    rdfs:label "management IP"@en ;
+    rdfs:comment "IP where management of the Server Hardware Item can be done"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range xsd:string .
+
+:managementLink a owl:DatatypeProperty ;
+    rdfs:label "management link"@en ;
+    rdfs:comment "Link (URL) where management of the Hardware Item can be done"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range xsd:string .
+
+:managementPort a owl:DatatypeProperty ;
+    rdfs:label "management port"@en ;
+    rdfs:comment "Port where management of the Hardware Item can be done"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range xsd:string .
+
+:serialNumber a owl:DatatypeProperty ;
+    rdfs:label "serial number"@en ;
+    rdfs:comment "Serial number of a hardware item (server hardware, frames, network cards, etc.)"@en ;
+    rdfs:domain :HardwareItem ;
+    rdfs:range xsd:string .
+
+:unitPosition a owl:DatatypeProperty ;
+    rdfs:label "unit position"@en ;
+    rdfs:comment "Unit where the Server Hardware Item is"@en ;
+    rdfs:domain :ServerHardware ;
+    rdfs:range xsd:string .
+
+:unitPrice a owl:DatatypeProperty ;
+    rdfs:label "unit price"@en ;
+    rdfs:comment "Unit price for hardware items, frames, servers, etc."@en ;
+    rdfs:domain :HardwareItem ;
+    rdfs:range xsd:float .
+
+owl:Ontology rdfs:label "Ontology" .
+
+:diskSize a owl:DatatypeProperty ;
+    rdfs:label "disk size"@en ;
+    rdfs:comment "The size (in GB) of a hard disk"@en ;
+    rdfs:domain :Disk ;
+    rdfs:range xsd:string .
+
+:Frame a owl:Class ;
+    rdfs:label "Frame"@en ;
+    rdfs:comment "A frame, also known as rack, is a supporting framework that holds hardware modules. In this context, racks typically contain servers, hard disk drives and other computing equipment. Racks make it possible to contain a lot of equipment in a small physical footprint without requiring shelving."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :frameType ],
+        :HardwareItem .
+
+:HardwareBatch a owl:Class ;
+    rdfs:label "Hardware Batch"@en ;
+    rdfs:comment "A Hardware Batch is a batch under which some hardware infrastructure was bought, kept for administrative purposes or to detect potential problems in the same batch"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:float ;
+            owl:onProperty :unitPrice ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :contractNumber ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :hardwareType ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+:Switch a owl:Class ;
+    rdfs:label "Switch"@en ;
+    rdfs:comment "A network switch (also called switching hub, bridging hub, and, by the IEEE, MAC bridge) is networking hardware that connects devices on a computer network by using packet switching to receive and forward data to the destination device"@en ;
+    rdfs:subClassOf :ServerHardware .
+
+:NetworkCard a owl:Class ;
+    rdfs:label "Network Card"@en ;
+    rdfs:comment "A network interface controller (NIC, also known as a network interface card, network adapter, LAN adapter or physical network interface, and by similar terms) is a computer hardware component that connects a computer to a computer network, usually a LAN. It is considered a piece of computer hardware. Most modern computers support an internal network interface controller embedded in the motherboard directly rather than provided as an external component."@en ;
+    rdfs:subClassOf :HardwareItem .
+
+:HardwareItem a owl:Class ;
+    rdfs:label "Hardware Item"@en ;
+    rdfs:comment "A piece of hardware that can be found in the context of a DevOps infrastructure"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :cabPosition ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty :dateEnabled ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:dateTime ;
+            owl:onProperty :dateOnShelf ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :machineType ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :managementIP ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :managementLink ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :managementPort ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :unitPosition ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :serialNumber ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+owl:AnnotationProperty rdfs:label "Annotation Property" .
+
+owl:ObjectProperty rdfs:label "Object Property" .
+
+owl:Class rdfs:label "Class" .
+
+:ServerHardware a owl:Class ;
+    rdfs:label "Server Hardware"@en ;
+    rdfs:comment "A Server Hardware is any type of hardware that can be found inside a frame. It includes firewalls, switches, F5 machines, etc."@en ;
+    rdfs:subClassOf :HardwareItem .
+
+owl:Restriction rdfs:label "Restriction" .
+
+owl:DatatypeProperty rdfs:label "Datatype Property" .
+

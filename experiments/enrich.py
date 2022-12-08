@@ -1,7 +1,7 @@
 import argparse
 from datetime import datetime
 import os
-from ogister import enricher
+from devos import enricher
 
 
 def parse_arguments():

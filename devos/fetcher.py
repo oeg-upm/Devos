@@ -1,4 +1,4 @@
-from ogister import prefixes
+from devos import prefixes
 import rdflib
 from rdflib import Literal
 from owl2diagram.main import get_classes, get_class_hierarchy, get_object_prop, save_diagram, get_name

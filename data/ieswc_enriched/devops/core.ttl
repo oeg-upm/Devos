@@ -1,0 +1,183 @@
+@prefix : <http://w3id.org/devops-infra/core#> .
+@prefix ns1: <http://purl.org/dc/elements/1.1/> .
+@prefix ns2: <http://purl.org/vocab/vann/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:creator a owl:AnnotationProperty .
+
+ns1:identifier a owl:AnnotationProperty .
+
+ns1:title a owl:AnnotationProperty .
+
+ns3:hasFormat a owl:AnnotationProperty .
+
+ns3:issued a owl:AnnotationProperty .
+
+ns3:license a owl:AnnotationProperty .
+
+ns2:preferredNamespacePrefix a owl:AnnotationProperty .
+
+ns2:preferredNamespaceUri a owl:AnnotationProperty .
+
+<http://w3id.org/devops-infra/core> a owl:Ontology ;
+    ns1:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Hu Peng (Huawei Research Ireland)",
+        "Jhon Toledo (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "José Mora (Huawei Research Ireland)",
+        "Julián Arenas-Guerrero (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Mingxue Wang (Huawei Research Ireland)",
+        "Nicholas Burrett (Huawei Research Ireland)",
+        "Oscar Corcho (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Puchao Zhang (Huawei Research Ireland)",
+        "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
+    ns1:identifier "http://w3id.org/devops-infra/core" ;
+    ns1:title "Ontology for the representation of core elements, such as Resources and Resource Groups, in the ICT infrastructure for DevOps ontology network" ;
+    ns3:hasFormat "http://w3id.org/devops-infra/core.owl" ;
+    ns3:issued "2021-02-17" ;
+    ns3:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns2:preferredNamespacePrefix "devopscore" ;
+    ns2:preferredNamespaceUri "http://w3id.org/devops-infra/core#" ;
+    rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
+    owl:versionIRI <http://w3id.org/devops-infra/core/1.0.0> ;
+    owl:versionInfo "First official release"@en .
+
+ns3:created a owl:DatatypeProperty ;
+    rdfs:label "date created"@en ;
+    rdfs:comment "Date of creation of the resource"@en .
+
+ns3:identifier a owl:DatatypeProperty ;
+    rdfs:label "identifier"@en ;
+    rdfs:comment "An unambiguous reference to the resource within a given context"@en .
+
+ns3:modified a owl:DatatypeProperty ;
+    rdfs:label "date modified"@en ;
+    rdfs:comment "Date on which the resource was changed"@en .
+
+:created a owl:DatatypeProperty ;
+    rdfs:label "created"@en ;
+    rdfs:comment "Date and time when a Resource or Resource Group was created"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Resource :ResourceGroup ) ] ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf ns3:created .
+
+:dependsOn a owl:ObjectProperty ;
+    rdfs:label "depends on"@en ;
+    rdfs:comment "A Resource or Resource Group (a Configuration Item) may depend on zero to many other Resources or Resource Groups (Configuration Items). For example, a Service may depend on a number of microservices to run, as well as on some specific hardware or software infrastructure"@en ;
+    rdfs:domain :ConfigurationItem ;
+    rdfs:range :ConfigurationItem .
+
+:modified a owl:DatatypeProperty ;
+    rdfs:label "last modified"@en ;
+    rdfs:comment "Date and time when a Resource or ResourceGroup experience a modification"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Resource :ResourceGroup ) ] ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf ns3:modified .
+
+:parentResourceGroup a owl:ObjectProperty ;
+    rdfs:label "parent Resource Group"@en ;
+    rdfs:comment "This property relates a Resource Group with its parent Resource Group, if any"@en ;
+    rdfs:domain :ResourceGroup ;
+    rdfs:range :ResourceGroup ;
+    rdfs:subPropertyOf :belongsToResourceGroup .
+
+:status a owl:ObjectProperty ;
+    rdfs:label "status"@en ;
+    rdfs:comment "This property refers to the status of any Resource or Resource Group (Configuration Item), and its value is determined by a SKOS of different types of status that may be considered"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Resource :ResourceGroup ) ] ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/status> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:version a owl:DatatypeProperty ;
+    rdfs:label "version"@en ;
+    rdfs:comment "This property allows representing the version of any entity (Resource or ResourceGroup)"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Resource :ResourceGroup ) ] ;
+    rdfs:range xsd:string .
+
+<http://w3id.org/devops-infra/organisation#Scope> a owl:Class .
+
+<http://w3id.org/devops-infra/organisation#scope> a owl:ObjectProperty .
+
+owl:NamedIndividual rdfs:label "Named Individual" .
+
+owl:Ontology rdfs:label "Ontology" .
+
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> a owl:Class ;
+    rdfs:label "Concept Scheme" .
+
+:belongsToResourceGroup a owl:ObjectProperty ;
+    rdfs:label "belongs to resource group"@en ;
+    rdfs:comment "This property relates a Resource or a Resource Group (that is, a Configuration Item) with another Resource Group that it belongs to"@en ;
+    rdfs:domain :ConfigurationItem ;
+    rdfs:range :ResourceGroup .
+
+<http://w3id.org/devops-infra/kos/status> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://www.w3.org/2004/02/skos/core#Concept> a owl:Class .
+
+<http://www.w3.org/2004/02/skos/core#inScheme> a owl:ObjectProperty .
+
+:Resource a owl:Class ;
+    rdfs:label "Resource"@en ;
+    rdfs:comment "A Resource is any relevant entity that is managed in the context of a DevOps infrastructure in this ontology network. This term is also known as a Configuration Item in many Configuration Management Databases."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ResourceGroup ;
+            owl:onProperty :belongsToResourceGroup ],
+        :ConfigurationItem .
+
+:ConfigurationItem a owl:Class ;
+    rdfs:label "Configuration Item"@en ;
+    rdfs:comment "A Configuration Item identifies an entity (Resource) or a group of entities (Resource Group) that are managed in the context of a DevOps infrastructure in this ontology network."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ConfigurationItem ;
+            owl:onProperty :dependsOn ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/status> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :status ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/organisation#Scope> ;
+            owl:onProperty <http://w3id.org/devops-infra/organisation#scope> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdfs:Literal ;
+            owl:onProperty ns3:identifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty :created ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty :modified ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :version ] .
+
+owl:DatatypeProperty rdfs:label "Datatype Property" .
+
+owl:ObjectProperty rdfs:label "Object Property" .
+
+owl:AnnotationProperty rdfs:label "Annotation Property" .
+
+:ResourceGroup a owl:Class ;
+    rdfs:label "Resource Group"@en ;
+    rdfs:comment "A Resource Group identifies a grouping of entities (resources) that are managed in the context of a DevOps infrastructure in this ontology network. This term is also known as a Configuration Item in many Configuration Management Databases."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ResourceGroup ;
+            owl:onProperty :parentResourceGroup ],
+        :ConfigurationItem .
+
+owl:Restriction rdfs:label "Restriction" .
+
+owl:Class rdfs:label "Class" .
+

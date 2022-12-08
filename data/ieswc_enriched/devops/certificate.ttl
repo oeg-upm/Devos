@@ -1,0 +1,412 @@
+@prefix : <http://w3id.org/devops-infra/certificate#> .
+@prefix ns1: <http://purl.org/dc/elements/1.1/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://purl.org/vocab/vann/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:creator a owl:AnnotationProperty .
+
+ns1:identifier a owl:AnnotationProperty .
+
+ns1:title a owl:AnnotationProperty .
+
+ns2:hasFormat a owl:AnnotationProperty .
+
+ns2:issued a owl:AnnotationProperty .
+
+ns2:license a owl:AnnotationProperty .
+
+ns3:preferredNamespacePrefix a owl:AnnotationProperty .
+
+ns3:preferredNamespaceUri a owl:AnnotationProperty .
+
+<http://w3id.org/devops-infra/certificate> a owl:Ontology ;
+    ns1:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Hu Peng (Huawei Research Ireland)",
+        "Jhon Toledo (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "José Mora (Huawei Research Ireland)",
+        "Julián Arenas-Guerrero (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Mingxue Wang (Huawei Research Ireland)",
+        "Nicholas Burrett (Huawei Research Ireland)",
+        "Oscar Corcho (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Puchao Zhang (Huawei Research Ireland)",
+        "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
+    ns1:identifier "http://w3id.org/devops-infra/certificate" ;
+    ns1:title "Ontology for the representation of aspects related to certificates (SSL, CFCA, etc.)"@en ;
+    ns2:hasFormat "http://w3id.org/devops-infra/certificate.owl" ;
+    ns2:issued "2021-02-15" ;
+    ns2:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns3:preferredNamespacePrefix "devopscert" ;
+    ns3:preferredNamespaceUri "http://w3id.org/devops-infra/certificate#" ;
+    rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
+    owl:imports <http://w3id.org/devops-infra/core/1.0.0>,
+        <http://www.w3.org/2004/02/skos/core> ;
+    owl:versionIRI <http://w3id.org/devops-infra/certificate/1.0.0> ;
+    owl:versionInfo "First official release"@en .
+
+:CFCACertificate a owl:Class ;
+    rdfs:label "CFCA (China Financial Certification Authority) Certificate"@en ;
+    rdfs:comment "CFCA is a national Authority safety Certification organization which is established by the people's bank of China. CFCA certificates are issued by this organisation"@en ;
+    rdfs:subClassOf :DigitalCertificate .
+
+:SSLCertificate a owl:Class ;
+    rdfs:label "SSL Certificate"@en ;
+    rdfs:comment "An SSL certificate is a data file hosted in a website's origin server. SSL certificates make SSL/TLS encryption possible, and they contain the website's public key and the website's identity, along with related information. Devices attempting to communicate with the origin server will reference this file to obtain the public key and verify the server's identity. The private key is kept secret and secure."@en ;
+    rdfs:subClassOf :DigitalCertificate .
+
+:hasCertificateDeployment a owl:ObjectProperty ;
+    rdfs:label "has certificate deployment"@en ;
+    rdfs:comment "A digital certificate can be deployed somewhere, and this is registered as a Digital Certificate Deployment"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range :DigitalCertificateDeployment .
+
+:usesDigitalCertificate a owl:ObjectProperty ;
+    rdfs:label "uses digital certificate"@en ;
+    rdfs:comment "Different types of entities (domains, servers, etc.) make use of one or several digital certificates"@en ;
+    rdfs:range :DigitalCertificate .
+
+:DigitalCertificateBundle a owl:Class ;
+    rdfs:label "Digital Certificate Bundle"@en ;
+    rdfs:comment "A digital certificate bundle is a file that contains root and intermediate certificates."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :containsCertificate ;
+            owl:someValuesFrom :DigitalCertificate ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:certApplyPerson a owl:DatatypeProperty ;
+    rdfs:label "certificate application person"@en ;
+    rdfs:comment "The person in charge of the certificate application"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:certDeployPerson a owl:DatatypeProperty ;
+    rdfs:label "certificate deployment person"@en ;
+    rdfs:comment "The person in charge of the certificate deployment"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:certDeployRegion a owl:DatatypeProperty ;
+    rdfs:label "certificate deployment region"@en ;
+    rdfs:comment "The region for the certificate deployment"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:certPurchaseNumber a owl:DatatypeProperty ;
+    rdfs:label "certificate purchase number"@en ;
+    rdfs:comment "The purchase number of the certificate"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:certType a owl:DatatypeProperty ;
+    rdfs:label "certificate type"@en ;
+    rdfs:comment "The type of certificate"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:certificateContent a owl:DatatypeProperty ;
+    rdfs:label "certificate content"@en ;
+    rdfs:comment "The content of the certificate"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:containsCertificate a owl:ObjectProperty ;
+    rdfs:label "contains certificate"@en ;
+    rdfs:comment "A Digital Certificate Bundle contains several Digital Certificates"@en ;
+    rdfs:domain :DigitalCertificateBundle ;
+    rdfs:range :DigitalCertificate .
+
+:expiryDate a owl:DatatypeProperty ;
+    rdfs:label "expiry date"@en ;
+    rdfs:comment "The expiry date of the certificate"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hasCertificateSigningRequest a owl:ObjectProperty ;
+    rdfs:label "has certificate signing request"@en ;
+    rdfs:comment "A Digital Certificate is obtained after a Certificate Signing Request"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range :CertificateSigningRequest .
+
+:issuer a owl:DatatypeProperty ;
+    rdfs:label "issuer"@en ;
+    rdfs:comment "The issuer of the certificate, also known as issuer common name"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:issuerOrganisation a owl:DatatypeProperty ;
+    rdfs:label "issuer organisation"@en ;
+    rdfs:comment "The organisation that issues the certificate"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:issuerOrganisationUnit a owl:DatatypeProperty ;
+    rdfs:label "issuer organisation unit"@en ;
+    rdfs:comment "The organisational unit that issues the certificate"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:publicKey a owl:DatatypeProperty ;
+    rdfs:label "public key"@en ;
+    rdfs:comment "The public key of the certificate signing request"@en ;
+    rdfs:domain :CertificateSigningRequest ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:realSerialNumber a owl:DatatypeProperty ;
+    rdfs:label "real serial number"@en ;
+    rdfs:comment "The real serial number of the certificate"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:region a owl:DatatypeProperty ;
+    rdfs:label "region"@en ;
+    rdfs:comment "The region for the certificate, the deployment of the certificate, etc."@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:serialNumber a owl:DatatypeProperty ;
+    rdfs:label "serial number"@en ;
+    rdfs:comment "The serial number of the certificate"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:service a owl:DatatypeProperty ;
+    rdfs:label "service"@en ;
+    rdfs:comment "The service for which the Digital Certificate is deployed"@en ;
+    rdfs:domain :DigitalCertificateDeployment ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:site a owl:DatatypeProperty ;
+    rdfs:label "site"@en ;
+    rdfs:comment "The site for which the Digital Certificate is deployed"@en ;
+    rdfs:domain :DigitalCertificateDeployment ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:startDate a owl:DatatypeProperty ;
+    rdfs:label "start date"@en ;
+    rdfs:comment "The start date of the certificate"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:userOrganisationCountry a owl:DatatypeProperty ;
+    rdfs:label "user organisation country"@en ;
+    rdfs:comment "Also referred to as country (C). The two-letter ISO code for the country of the organisation that uses the Digital Certificate or has made the Certificate Signing Request. For instance, ES"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:userOrganisationEmail a owl:DatatypeProperty ;
+    rdfs:label "user organisation email"@en ;
+    rdfs:comment "Also referred to as email address (EMAIL). The email contact (usually the certificate administrator or IT department) for the country of the organisation that uses the Digital Certificate or has made the Certificate Signing Request. For instance, info@example.org"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:userOrganisationLocality a owl:DatatypeProperty ;
+    rdfs:label "user organisation locality"@en ;
+    rdfs:comment "Also referred to as locality (L). The name of the locality (town, city, village, etc.) of the organisation that uses the Digital Certificate or has made the Certificate Signing Request. For instance, Boadilla del Monte"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:userOrganisationState a owl:DatatypeProperty ;
+    rdfs:label "user organisation state"@en ;
+    rdfs:comment "Also referred to as state (S). The name of the locality (province, region, county or state) of the organisation that uses the Digital Certificate or has made the Certificate Signing Requestte or Certificate Signing Request. For instance, Comunidad de Madrid"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:valid a owl:DatatypeProperty ;
+    rdfs:label "valid"@en ;
+    rdfs:comment "It determines whether the certificate is valid"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:vendor a owl:DatatypeProperty ;
+    rdfs:label "vendor"@en ;
+    rdfs:comment "The vendor for the certificate"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+rdfs:Datatype rdfs:label "Datatype" .
+
+owl:Ontology rdfs:label "Ontology" .
+
+:domain a owl:DatatypeProperty ;
+    rdfs:label "domain"@en ;
+    rdfs:comment "Also referred to as common name (CN). It is the fully qualified domain name for the certificate, the deployment of the certificate, or the certificate signing request. For example, *.example.org"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:privateKey a owl:DatatypeProperty ;
+    rdfs:label "private key"@en ;
+    rdfs:comment "The private key of the certificate or the certificate signing request"@en ;
+    rdfs:domain :DigitalCertificate ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:user a owl:DatatypeProperty ;
+    rdfs:label "user"@en ;
+    rdfs:comment "The user of the certificate or certificate signing request, also known as user common name"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:userOrganisation a owl:DatatypeProperty ;
+    rdfs:label "user organisation"@en ;
+    rdfs:comment "Also known as Organization Name (O). It is usually the legal name of a company or entity that is using the certificate, or has made the certificate signing request, and should commonly include any suffixes such as Ltd., Inc., or Corp. For example, Example Organisation, Ltd"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:userOrganisationUnit a owl:DatatypeProperty ;
+    rdfs:label "user organisation unit"@en ;
+    rdfs:comment "Also known as Organizational Unit (OU). It is the organisational unit of the user of the certificate or certificate signing request. It is an internal  department/division name. For example, IT Support"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:CertificateSigningRequest a owl:Class ;
+    rdfs:label "Certificate Signing Request"@en ;
+    rdfs:comment "A Certificate Signing Request (also known as CSR or certification request) is a message sent from an applicant to a registration authority of the public key infrastructure in order to apply for a digital identity certificate. It usually contains the public key for which the certificate should be issued, identifying information (such as a domain name) and integrity protection (e.g., a digital signature). The most common format for CSRs is the PKCS #10 specification; another is the Signed Public Key and Challenge SPKAC format generated by some web browsers."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :privateKey ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :publicKey ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :user ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :userOrganisation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :userOrganisationCountry ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :userOrganisationEmail ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :userOrganisationLocality ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :userOrganisationState ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :userOrganisationUnit ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:DigitalCertificateDeployment a owl:Class ;
+    rdfs:label "Digital Certificate Deployment"@en ;
+    rdfs:comment "A Digital Certificate Deployment is the result of deploying a digital certificate in a specific domain and for a specific service on a site."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :domain ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :service ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :site ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+
+xsd:date a rdfs:Datatype .
+
+owl:ObjectProperty rdfs:label "Object Property" .
+
+owl:Class rdfs:label "Class" .
+
+owl:AnnotationProperty rdfs:label "Annotation Property" .
+
+:DigitalCertificate a owl:Class ;
+    rdfs:label "Digital Certificate"@en ;
+    rdfs:comment "Digital Certificates are electronic credentials that bind the identity of the certificate owner to a pair of electronic encryption keys, (one public and one private), that can be used to encrypt and sign information digitally."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :CertificateSigningRequest ;
+            owl:onProperty :hasCertificateSigningRequest ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :certApplyPerson ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :certDeployPerson ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :certDeployRegion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :certPurchaseNumber ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :certType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :certificateContent ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :domain ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty :expiryDate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :issuer ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :issuerOrganisation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :issuerOrganisationUnit ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :privateKey ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :realSerialNumber ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :region ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :serialNumber ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty :startDate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :user ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :userOrganisation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :userOrganisationUnit ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty :valid ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :vendor ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+owl:DatatypeProperty rdfs:label "Datatype Property" .
+
+owl:Restriction rdfs:label "Restriction" .
+

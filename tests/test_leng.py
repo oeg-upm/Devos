@@ -2,9 +2,9 @@ import unittest
 
 import rdflib
 import os
-from ogister.gister import get_freq_classes, shorten_uris, get_leng_classes
-from ogister.util import split_text_manual
-from ogister.prefixes import DBO
+from devos.gister import get_freq_classes, shorten_uris, get_leng_classes
+from devos.util import split_text_manual
+from devos.prefixes import DBO
 # from ogister.util import split_text
 
 split_text = split_text_manual

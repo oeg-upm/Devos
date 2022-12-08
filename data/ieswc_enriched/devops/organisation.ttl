@@ -1,0 +1,199 @@
+@prefix : <http://w3id.org/devops-infra/organisation#> .
+@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://purl.org/dc/elements/1.1/> .
+@prefix ns3: <http://purl.org/vocab/vann/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns2:creator a owl:AnnotationProperty .
+
+ns2:identifier a owl:AnnotationProperty .
+
+ns2:title a owl:AnnotationProperty .
+
+ns1:hasFormat a owl:AnnotationProperty .
+
+ns1:issued a owl:AnnotationProperty .
+
+ns1:license a owl:AnnotationProperty .
+
+ns3:preferredNamespacePrefix a owl:AnnotationProperty .
+
+ns3:preferredNamespaceUri a owl:AnnotationProperty .
+
+<http://w3id.org/devops-infra/organisation> a owl:Ontology ;
+    ns2:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Hu Peng (Huawei Research Ireland)",
+        "Jhon Toledo (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "José Mora (Huawei Research Ireland)",
+        "Julián Arenas-Guerrero (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Mingxue Wang (Huawei Research Ireland)",
+        "Nicholas Burrett (Huawei Research Ireland)",
+        "Oscar Corcho (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Puchao Zhang (Huawei Research Ireland)",
+        "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
+    ns2:identifier "http://w3id.org/devops-infra/organisation" ;
+    ns2:title "Ontology for the representation of the organisation-related part of the ICT infrastructure for DevOps ontology network" ;
+    ns1:hasFormat "http://w3id.org/devops-infra/organisation.owl" ;
+    ns1:issued "2021-02-15" ;
+    ns1:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns3:preferredNamespacePrefix "devopsorg" ;
+    ns3:preferredNamespaceUri "http://w3id.org/devops-infra/organisation#" ;
+    rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
+    owl:imports <http://w3id.org/devops-infra/core/1.0.0>,
+        <http://www.w3.org/2004/02/skos/core>,
+        <http://www.w3.org/ns/org#> ;
+    owl:versionIRI <http://w3id.org/devops-infra/organisation/1.0.0> ;
+    owl:versionInfo "First official release"@en .
+
+:accessibleToTenant a owl:ObjectProperty ;
+    rdfs:label "accessible to tenant"@en ;
+    rdfs:comment "This propety is use to refer to the Tenants for which a Resource or Resource Group (e.g., a Site according to this ontology) is accessible."@en ;
+    rdfs:domain :Site ;
+    rdfs:range :Tenant .
+
+:domain a owl:DatatypeProperty ;
+    rdfs:label "domain"@en ;
+    rdfs:comment "The domain of a Tenant. It can be China, Asia, Europe, etc."@en ;
+    rdfs:domain :Tenant ;
+    rdfs:range xsd:string .
+
+:account a owl:DatatypeProperty ;
+    rdfs:label "account"@en ;
+    rdfs:comment "The account associated to a tenant"@en ;
+    rdfs:domain :Tenant .
+
+:default a owl:DatatypeProperty ;
+    rdfs:domain :Scope ;
+    rdfs:range xsd:boolean .
+
+:managedBy a owl:ObjectProperty ;
+    rdfs:label "managed by"@en ;
+    rdfs:comment "A scope may be managed by an Organisation (or part of it, e.g., a department)"@en ;
+    rdfs:domain :Scope ;
+    rdfs:range :Organisation .
+
+:password a owl:DatatypeProperty ;
+    rdfs:label "password"@en ;
+    rdfs:comment "The password associated to an account for a tenant. This will not be represented in most knoweldge graphs"@en ;
+    rdfs:domain :Tenant ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:priority a owl:DatatypeProperty ;
+    rdfs:label "priority"@en ;
+    rdfs:comment "A priority associated to a specific Scope, which can be useful to determine the level of priority that the managing department or organisation will assign to it in case of problems."@en ;
+    rdfs:domain :Scope .
+
+:scope a owl:ObjectProperty ;
+    rdfs:label "scope"@en ;
+    rdfs:comment "The Scope where any resource makes sense"@en ;
+    rdfs:range :Scope .
+
+:scopeType a owl:ObjectProperty ;
+    rdfs:label "scope type"@en ;
+    rdfs:comment "The type of scope. It can be any of the following, according to the corresponding SKOS Concept Scheme: area, biz, resource, common, etc."@en ;
+    rdfs:domain :Scope ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/scope-type> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:tenantStatus a owl:DatatypeProperty ;
+    rdfs:label "tenant status"@en ;
+    rdfs:comment "This property describe the status of a tenant. It may be enabled or disabled. In the future, this may be transformed into a SKOS thesaurus"@en ;
+    rdfs:domain :Tenant ;
+    rdfs:range xsd:string .
+
+:tenantType a owl:ObjectProperty ;
+    rdfs:label "tenant type"@en ;
+    rdfs:comment "The type of tenant. Examples of tenants, taken from several cloud providers, are: HWS, AWS, CHINA, EUROPE, RUSSIA, A2, AP, RUSSIA_2, CHINA_NOT_CLOUDSERVICE, FRANCE, etc."@en ;
+    rdfs:domain :Tenant ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/tenant-type> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:timeZone a owl:DatatypeProperty ;
+    rdfs:label "time zone"@en ;
+    rdfs:comment "Time Zone applicable to a Site"@en ;
+    rdfs:domain :Site .
+
+owl:Ontology rdfs:label "Ontology" .
+
+<http://w3id.org/devops-infra/kos/scope-type> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://w3id.org/devops-infra/kos/tenant-type> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+:Organisation a owl:Class ;
+    rdfs:label "Organisation"@en ;
+    rdfs:comment "This concept is generated as a specialisation of the concept Organization from the W3C Organization ontology, so as to refer to any type of organisation or deparment inside an organisation that may be responsible for specific resource, scopes, tenants, etc."@en ;
+    rdfs:subClassOf <http://xmlns.com/foaf/0.1/Organization> .
+
+:Site a owl:Class ;
+    rdfs:label "Site"@en ;
+    rdfs:comment "Tem term Site is commonly used to refer to a group of Configuration Itens (e.g., virtual and physical servers, services, applications, etc.) which are grouped together and connected in order to host specific applications, products or services in a cloud environment."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :timeZone ;
+            owl:someValuesFrom xsd:string ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+owl:NamedIndividual rdfs:label "Named Individual" .
+
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdfs:label "Concept Scheme" .
+
+owl:ObjectProperty rdfs:label "Object Property" .
+
+:Scope a owl:Class ;
+    rdfs:label "Scope"@en ;
+    rdfs:comment "This is a term commonly used to describe the reasons why a Resource or Resource Group (a Configuration Item) are handled or grouped together. It may be related to a geographical area, to some business context, may be part of some common infrastructure form the cloud provider, etc. Generally, a Scope is managed by a specific Department, which is responsible for it."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :scopeType ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/scope-type> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty :default ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :priority ],
+        [ a owl:Restriction ;
+            owl:onProperty :managedBy ;
+            owl:someValuesFrom :Organisation ] .
+
+:Tenant a owl:Class ;
+    rdfs:label "Tenant"@en ;
+    rdfs:comment "A tenant is usually understood as a container for items of an Organisation in a cloud, such as users, domains, subscriptions, etc. In other words, it identifies a group of users (e.g., from an organisation) who share a common access with specific privileges to some resources (configuration items) in the cloud. These resources may be provided by a single or by multiple providers (e.g., AWS, HWS, etc.) and belong to a specifc domain (e.g., normally named after a geographical region, as this is commonly used to provision physical resources from specific data centers)."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :tenantType ;
+            owl:someValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/tenant-type> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Scope ;
+            owl:onProperty :scope ],
+        [ a owl:Restriction ;
+            owl:onProperty :tenantStatus ;
+            owl:someValuesFrom xsd:string ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :account ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :password ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+owl:DatatypeProperty rdfs:label "Datatype Property" .
+
+owl:AnnotationProperty rdfs:label "Annotation Property" .
+
+owl:Class rdfs:label "Class" .
+
+owl:Restriction rdfs:label "Restriction" .
+

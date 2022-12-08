@@ -1,6 +1,6 @@
 import argparse
 import traceback
-from ogister import gister
+from devos import gister
 # from ogister.gister import meta_workflow, draw_diagrams, freq_workflow, leng_workflow
 import os
 import json

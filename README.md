@@ -6,8 +6,9 @@ A tool to generate a gist of the ontology
 
 
 ## Main Features
-
-* In Progress
+* Generate summary diagrams.
+  * Allows the user to use the summarisation technique (e.g., using meta data, class frequency, or label length)
+* Enrich ontologies with labels for the classes that are missing them.
 
 ## Tutorial
 
@@ -54,6 +55,11 @@ have labels.
 ```
 python -m experiments.enrich -i data/ieswc/* -o data/ieswc_enriched
 ```
+```
+python -m experiments.enrich -i data/ieswc/devops/* -o data/ieswc_enriched/devops
+```
+
+
 
 
 ### Run the experiment (NEW)
@@ -71,6 +77,9 @@ python -m experiments.enrich -i data/ieswc/* -o data/ieswc_enriched
 
 ##### IESWC (ISWC and ESWC)
 * Top 7 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_meta --object-property --topn 7```
+
+```python -m experiments.generate_diagrams -i data/ieswc_enriched/devops/* -o output/ieswc_meta --object-property --topn 7```
+
 
 * Top 7 classes 14 references: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_meta --object-property --topn 7 --topr 14```
 
@@ -90,6 +99,8 @@ python -m experiments.enrich -i data/ieswc/* -o data/ieswc_enriched
 
 * Top 7 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 7```
 
+ Top 7 classes from devops: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/devops/* -o output/ieswc_freq --object-property --freq --topn 7```
+
 * Top 7 classes and 14 relations: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 7 --topr 14```
 
 * Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 10```
@@ -101,6 +112,8 @@ python -m experiments.enrich -i data/ieswc/* -o data/ieswc_enriched
 ##### IESWC (ISWC and ESWC)
 
 * Top 7 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_leng --leng --topn 7```
+
+Top 7 classes from devops: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/devops/* -o output/ieswc_leng --leng --topn 7```
 
 * Top 7 classes and 14 relations: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_leng --leng --topn 7 --topr 14```
 
@@ -115,16 +128,23 @@ About the number of classes properties to `stats.csv`
 python -m experiments.analytics
 ```
 
-#### Convert the md diagrams to pngs
-##### Requirement
+[//]: # (#### Convert the md diagrams to pngs)
 
-[mermaid-cli](https://github.com/mermaid-js/mermaid-cli)
+[//]: # (##### Requirement)
 
-##### Generate the pngs
-```
-python -m experiments.convert_diagrams -i output/Top_in_lov_freq_5/*.md
-```
-*Note: the coverted does not look as good as the rendered mermaid diagrams*
+[//]: # ()
+[//]: # ([mermaid-cli]&#40;https://github.com/mermaid-js/mermaid-cli&#41;)
+
+[//]: # ()
+[//]: # (##### Generate the pngs)
+
+[//]: # (```)
+
+[//]: # (python -m experiments.convert_diagrams -i output/Top_in_lov_freq_5/*.md)
+
+[//]: # (```)
+
+[//]: # (*Note: the coverted does not look as good as the rendered mermaid diagrams*)
 
 
 ## Tests

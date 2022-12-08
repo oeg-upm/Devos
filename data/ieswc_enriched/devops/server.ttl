@@ -1,0 +1,504 @@
+@prefix : <http://w3id.org/devops-infra/server#> .
+@prefix ns1: <http://purl.org/dc/elements/1.1/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://purl.org/vocab/vann/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:creator a owl:AnnotationProperty .
+
+ns1:identifier a owl:AnnotationProperty .
+
+ns1:title a owl:AnnotationProperty .
+
+ns2:hasFormat a owl:AnnotationProperty .
+
+ns2:issued a owl:AnnotationProperty .
+
+ns2:license a owl:AnnotationProperty .
+
+ns3:preferredNamespacePrefix a owl:AnnotationProperty .
+
+ns3:preferredNamespaceUri a owl:AnnotationProperty .
+
+<http://w3id.org/devops-infra/data-center#inDataCenter> a owl:ObjectProperty ;
+    rdfs:label "in data center"@en ;
+    rdfs:comment "Property used to indicate that a resource (e.g., a Server) is running or located in a data center"@en ;
+    rdfs:range <http://w3id.org/devops-infra/data-center#DataCenter> .
+
+<http://w3id.org/devops-infra/organisation#site> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/organisation#tenant> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/server> a owl:Ontology ;
+    ns1:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Jhon Toledo (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Julián Arenas-Guerrero (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Oscar Corcho (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Puchao Zhang (Huawei Research Ireland)",
+        "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
+    ns1:identifier "http://w3id.org/devops-infra/server" ;
+    ns1:title "Ontology for the representation of the infrastructure of servers"@en ;
+    ns2:hasFormat "http://w3id.org/devops-infra/server.owl" ;
+    ns2:issued "2021-04-15" ;
+    ns2:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns3:preferredNamespacePrefix "devopsserv" ;
+    ns3:preferredNamespaceUri "http://w3id.org/devops-infra/server#" ;
+    rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
+    owl:imports <http://w3id.org/devops-infra/core/1.0.0>,
+        <http://www.w3.org/2004/02/skos/core> ;
+    owl:versionIRI <http://w3id.org/devops-infra/server/1.0.0> ;
+    owl:versionInfo "First official release"@en .
+
+:AutoExpandHostConfig a owl:Class ;
+    rdfs:label "Auto Expand Host Configuration"@en ;
+    rdfs:comment "A configuration for a Service Module to automatically expand when required"@en ;
+    rdfs:subClassOf :HostConfiguration .
+
+:AutoScalingHostConfig a owl:Class ;
+    rdfs:label "Auto Scaling Host Configuration"@en ;
+    rdfs:comment "A configuration for a Microservice to automatically expand and scale up when required"@en ;
+    rdfs:subClassOf :HostConfiguration .
+
+:BareMetalServer a owl:Class ;
+    rdfs:label "Bare-metal Server"@en ;
+    rdfs:comment "A bare-metal server is a computer server that hosts one tenant, or consumer, only. The term is used for distinguishing between servers that can host multiple tenants and which utilize virtualisation and cloud hosting. Such servers are used by a single consumer and are not shared between consumers. Each server may run any amount of work for a user, or have multiple simultaneous users, but they are dedicated entirely to the entity who is renting them. Unlike servers in a data centre, they are not being shared between multiple customers."@en ;
+    rdfs:subClassOf :PhysicalServer .
+
+:ServerLoadBalancer a owl:Class ;
+    rdfs:label "Server Load Balancer"@en ;
+    rdfs:comment "A Server Load Balancer (SLB) distributes high traffic sites among several servers using a network-based hardware or software-defined appliance. Server load balancers intercept traffic for a website and reroute that traffic to servers"@en ;
+    rdfs:subClassOf <http://w3id.org/devops-infra/core#Resource> .
+
+:assignmentTime a owl:DatatypeProperty ;
+    rdfs:label "Time when the server was assigned"@en,
+        "assignment time"@en ;
+    rdfs:range xsd:dateTime ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:availabilityZone a owl:DatatypeProperty ;
+    rdfs:label "availability zone"@en ;
+    rdfs:comment """The availability zone for which a Virtual Server. Typical values correspond to large regions where services are offered, such as China, North America, Europe, etc.
+This may be converted in the future into a SKOS thesaurus or the property may be converted into an object property whose range is a Zone."""@en ;
+    rdfs:domain :VirtualServer ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:cpu a owl:DatatypeProperty ;
+    rdfs:label "CPU"@en,
+        "The type of CPU of a Server"@en ;
+    rdfs:domain :Server ;
+    rdfs:range xsd:string .
+
+:expireTime a owl:DatatypeProperty ;
+    rdfs:label "expire time"@en ;
+    rdfs:comment "This property identifies the time when an account or its password expires"@en ;
+    rdfs:domain :Account ;
+    rdfs:range xsd:dateTime .
+
+:host a owl:DatatypeProperty ;
+    rdfs:label "host"@en ;
+    rdfs:comment "Property used to determine if a physical server is acting as a host of other servers or not."@en ;
+    rdfs:domain :PhysicalServer ;
+    rdfs:range xsd:boolean ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hostName a owl:DatatypeProperty ;
+    rdfs:label "host name"@en ;
+    rdfs:comment "Name of the host"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:hostedIn a owl:ObjectProperty ;
+    rdfs:label "hosted In"@en ;
+    rdfs:comment "A Virtual Server is hosted in a Physical Server"@en ;
+    rdfs:domain :VirtualServer ;
+    rdfs:range :PhysicalServer ;
+    rdfs:subPropertyOf <http://w3id.org/devops-infra/core#dependsOn> ;
+    owl:inverseOf :hosts .
+
+:ip a owl:DatatypeProperty ;
+    rdfs:label "IP"@en ;
+    rdfs:comment "IP address where a microservice instance, or a server, or any other element, is running"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:ipv6 a owl:DatatypeProperty ;
+    rdfs:label "ipv6"@en ;
+    rdfs:comment "ipv6 address where a server, microservice, etc., is running" ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:kernel a owl:DatatypeProperty ;
+    rdfs:label "kernel"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:macName a owl:DatatypeProperty ;
+    rdfs:domain :Server ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:mainMac a owl:DatatypeProperty ;
+    rdfs:label "main MAC"@en ;
+    rdfs:comment "Main MAC address of a server"@en ;
+    rdfs:domain :Server ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:monitorStatus a owl:DatatypeProperty ;
+    rdfs:label "monitor status"@en ;
+    rdfs:comment "Status of the server"@en ;
+    rdfs:domain :Server ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:netInterface a owl:DatatypeProperty ;
+    rdfs:label "net interface"@en ;
+    rdfs:comment "Network interface"@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:operatingSystem a owl:DatatypeProperty ;
+    rdfs:label "operating system"@en ;
+    rdfs:comment "Operating System installed in a server"@en ;
+    rdfs:domain :Server ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:price a owl:DatatypeProperty ;
+    rdfs:label "price"@en ;
+    rdfs:comment "Price of a Host Flavor"@en ;
+    rdfs:domain :HostFlavor .
+
+:resourceType a owl:DatatypeProperty ;
+    rdfs:label "resource type"@en ;
+    rdfs:comment "The type of resource in the server (for example, idc_pm, idc_pm_xenhost)"@en ;
+    rdfs:domain :Server ;
+    rdfs:range xsd:string .
+
+:serialNumber a owl:DatatypeProperty ;
+    rdfs:label "serial number",
+        "The serial number of the machine corresponding to a Physical Server, as assigned by the corresponding vendor"@en ;
+    rdfs:domain :PhysicalServer ;
+    rdfs:range xsd:string .
+
+:username a owl:DatatypeProperty ;
+    rdfs:label "username"@en ;
+    rdfs:comment "The username for an account"@en ;
+    rdfs:domain :Account ;
+    rdfs:range xsd:string .
+
+<http://w3id.org/devops-infra/core#status> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/data-center#DataCenter> a owl:Class .
+
+<http://w3id.org/devops-infra/hardware#networkCard> a owl:ObjectProperty ;
+    rdfs:range <http://w3id.org/devops-infra/hardware#NetworkCard> ;
+    rdfs:subPropertyOf <http://w3id.org/devops-infra/core#dependsOn> .
+
+<http://w3id.org/devops-infra/kos/status> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://w3id.org/devops-infra/network#SSHChannel> a owl:Class .
+
+<http://w3id.org/devops-infra/network#offersSSHChannel> a owl:ObjectProperty .
+
+:assignmentStatus a owl:ObjectProperty ;
+    rdfs:label "assignment Status"@en ;
+    rdfs:comment "The status related to the assignment of a Server, which can be in use, ready, apply recovery, etc."@en ;
+    rdfs:domain :Server ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/assignment-status> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:chargeMode a owl:ObjectProperty ;
+    rdfs:label "charge mode"@en ;
+    rdfs:comment "The type of charge mode for a virtual server (prepaid or postpaid)"@en ;
+    rdfs:domain :VirtualServer ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/charge-mode> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:containsDisk a owl:ObjectProperty ;
+    rdfs:label "contains disk"@en ;
+    rdfs:comment "This property identifies the disks that are physically mounted in a Physical Server"@en ;
+    rdfs:domain :PhysicalServer ;
+    rdfs:range <http://w3id.org/devops-infra/hardware#Disk> ;
+    rdfs:subPropertyOf <http://w3id.org/devops-infra/core#dependsOn> .
+
+:creationType a owl:ObjectProperty ;
+    rdfs:label "creation type"@en ;
+    rdfs:comment "It specifies how a Virtual Server has been created (single or batch)"@en ;
+    rdfs:domain :VirtualServer ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/creation-type> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:hasAccount a owl:ObjectProperty ;
+    rdfs:label "has account"@en ;
+    rdfs:comment "A server may have user accounts associated to it"@en ;
+    rdfs:domain :Server ;
+    rdfs:range :Account ;
+    owl:inverseOf :isAccountOf .
+
+:hostConfiguration a owl:ObjectProperty ;
+    rdfs:label "host configuration"@en ;
+    rdfs:comment "This property links a Virtual Server with its Host Configuration"@en ;
+    rdfs:domain :VirtualServer ;
+    rdfs:range :HostConfiguration .
+
+:hostImage a owl:ObjectProperty ;
+    rdfs:domain :VirtualServer ;
+    rdfs:range :HostImage .
+
+:hosts a owl:ObjectProperty ;
+    rdfs:label "hosts"@en ;
+    rdfs:comment "A Physical Server can host multiple Virtual Servers"@en ;
+    rdfs:domain :PhysicalServer ;
+    rdfs:range :VirtualServer .
+
+:isAccountOf a owl:ObjectProperty ;
+    rdfs:label "is Account Of"@en ;
+    rdfs:comment "An account is associated to a Server"@en ;
+    rdfs:domain :Account ;
+    rdfs:range :Server .
+
+:memory a owl:DatatypeProperty ;
+    rdfs:label "memory"@en ;
+    rdfs:comment "Amount of memory of a Resource (e.g., Host Flavor, Server, etc.), in GB"@en ;
+    rdfs:range xsd:float ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:networkPerformance a owl:DatatypeProperty ;
+    rdfs:label "network performance"@en ;
+    rdfs:comment "The type of performance of thye network associated to a Resource (e.g., Host Flavor, Server, etc.). This may be an enumerated value (defined in a SKOS Concept Scheme) or any string, as there is no consensus on the values to be used. Commonly used values are: low, moderate, high, etc."@en ;
+    rdfs:range xsd:string .
+
+:numberCPUs a owl:DatatypeProperty ;
+    rdfs:label "number of CPUs"@en ;
+    rdfs:comment "The number of CPUs of a Resource (Host Flavor, Server, etc.)"@en ;
+    rdfs:range xsd:int .
+
+:physicalServerStatus a owl:ObjectProperty ;
+    rdfs:label "physical Server Status"@en ;
+    rdfs:comment "The status of a Physical Server, which can be active, hard reboot, error, etc."@en ;
+    rdfs:domain :PhysicalServer ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/physical-server-status> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:processorArchitecture a owl:DatatypeProperty ;
+    rdfs:label "processor architecture"@en ;
+    rdfs:comment "The type of processor architecture that is used by a Resource (e.g., a Host Flavor, a Server, etc.). It will be usually 32-bit or 64-bit."@en ;
+    rdfs:range xsd:string .
+
+:storageCapacity a owl:DatatypeProperty ;
+    rdfs:label "storage capacity"@en ;
+    rdfs:comment "The amount of storage, in GB, of a Resource (e.g., Host Flavor, Server, etc.). As there may be several virtual or physical disks associated to it, it is represented as a string (e.g., 1x160, 2x40, etc.)"@en ;
+    rdfs:range xsd:string .
+
+:virtualServerStatus a owl:ObjectProperty ;
+    rdfs:label "virtual Server Status"@en ;
+    rdfs:comment "This property allows specifying the status of a virtual server"@en ;
+    rdfs:domain :VirtualServer ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/virtual-server-status> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:vmConfPath a owl:DatatypeProperty ;
+    rdfs:domain :VirtualServer ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:vmFile a owl:DatatypeProperty ;
+    rdfs:domain :VirtualServer ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+:vmImgPath a owl:DatatypeProperty ;
+    rdfs:domain :VirtualServer ;
+    rdfs:subPropertyOf owl:topDataProperty .
+
+owl:Ontology rdfs:label "Ontology" .
+
+<http://w3id.org/devops-infra/hardware#Disk> a owl:Class .
+
+<http://w3id.org/devops-infra/hardware#NetworkCard> a owl:Class .
+
+<http://w3id.org/devops-infra/kos/assignment-status> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://w3id.org/devops-infra/kos/charge-mode> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://w3id.org/devops-infra/kos/creation-type> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://w3id.org/devops-infra/kos/physical-server-status> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://w3id.org/devops-infra/kos/virtual-server-status> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+:HostImage a owl:Class ;
+    rdfs:subClassOf <http://w3id.org/devops-infra/core#Resource> .
+
+:flavor a owl:ObjectProperty ;
+    rdfs:label "flavor"@en ;
+    rdfs:comment "A Virtual Server may have a flavor, which specifies the size of a virtual server that can be launched on a host"@en ;
+    rdfs:domain :VirtualServer ;
+    rdfs:range :HostFlavor .
+
+:runsOnHardware a owl:ObjectProperty ;
+    rdfs:label "runs on hardware"@en ;
+    rdfs:comment "A Physical Server runs on a specific set of Server Hardware"@en ;
+    rdfs:domain :PhysicalServer ;
+    rdfs:range <http://w3id.org/devops-infra/hardware#ServerHardware> .
+
+<http://w3id.org/devops-infra/hardware#ServerHardware> a owl:Class .
+
+:HostConfiguration a owl:Class ;
+    rdfs:label "Host Configuration"@en ;
+    rdfs:comment "General-purpose class to described the potential configuration of a host"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :HostFlavor ;
+            owl:onProperty :flavor ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:HostFlavor a owl:Class ;
+    rdfs:label "Host Flavor"@en ;
+    rdfs:comment "A flavor defines the size of a virtual server that can be launched on a host. That is, it defines the available hardware configuration (compute, memory, storage capacity). An example is the m3.large.8 flavor"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:float ;
+            owl:onProperty :memory ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :networkPerformance ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:int ;
+            owl:onProperty :numberCPUs ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :processorArchitecture ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :storageCapacity ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+
+:Account a owl:Class ;
+    rdfs:label "Account"@en ;
+    rdfs:comment "An account in a server"@en .
+
+owl:NamedIndividual rdfs:label "Named Individual" .
+
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdfs:label "Concept Scheme" .
+
+:PhysicalServer a owl:Class ;
+    rdfs:label "Physical Server"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :runsOnHardware ;
+            owl:someValuesFrom <http://w3id.org/devops-infra/hardware#ServerHardware> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/hardware#NetworkCard> ;
+            owl:onProperty <http://w3id.org/devops-infra/hardware#networkCard> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/hardware#Disk> ;
+            owl:onProperty :containsDisk ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/physical-server-status> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :physicalServerStatus ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/hardware#ServerHardware> ;
+            owl:onProperty :runsOnHardware ],
+        :Server ;
+    owl:disjointWith :VirtualServer .
+
+owl:AnnotationProperty rdfs:label "Annotation Property" .
+
+:Server a owl:Class ;
+    rdfs:label "Server"@en ;
+    rdfs:comment "This class represents all types of servers (physical and virtual)"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/status> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty <http://w3id.org/devops-infra/core#status> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/network#SSHChannel> ;
+            owl:onProperty <http://w3id.org/devops-infra/network#offersSSHChannel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/assignment-status> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :assignmentStatus ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Account ;
+            owl:onProperty :hasAccount ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:VirtualServer a owl:Class ;
+    rdfs:label "VirtualServer"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty :hostConfiguration ;
+            owl:someValuesFrom :HostConfiguration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/charge-mode> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :chargeMode ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/creation-type> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :creationType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :HostFlavor ;
+            owl:onProperty :flavor ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :HostImage ;
+            owl:onProperty :hostImage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/virtual-server-status> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :virtualServerStatus ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :vmConfPath ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :vmFile ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :vmImgPath ],
+        :Server .
+
+owl:ObjectProperty rdfs:label "Object Property" .
+
+owl:DatatypeProperty rdfs:label "Datatype Property" .
+
+owl:Class rdfs:label "Class" .
+
+owl:Restriction rdfs:label "Restriction" .
+

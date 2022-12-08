@@ -1,5 +1,4 @@
-from ogister import fetcher
-from ogister import gister
+from devos import fetcher, gister
 import rdflib
 from rdflib.namespace import RDFS
 import argparse

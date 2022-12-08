@@ -1,0 +1,249 @@
+@prefix : <http://w3id.org/devops-infra/workflow#> .
+@prefix ns1: <http://purl.org/dc/elements/1.1/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://purl.org/vocab/vann/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:creator a owl:AnnotationProperty .
+
+ns1:identifier a owl:AnnotationProperty .
+
+ns1:title a owl:AnnotationProperty .
+
+ns2:hasFormat a owl:AnnotationProperty .
+
+ns2:issued a owl:AnnotationProperty .
+
+ns2:license a owl:AnnotationProperty .
+
+ns3:preferredNamespacePrefix a owl:AnnotationProperty .
+
+ns3:preferredNamespaceUri a owl:AnnotationProperty .
+
+<http://w3id.org/devops-infra/workflow> a owl:Ontology ;
+    ns1:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Hu Peng (Huawei Research Ireland)",
+        "Jhon Toledo (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "José Mora (Huawei Research Ireland)",
+        "Julián Arenas-Guerrero (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Mingxue Wang (Huawei Research Ireland)",
+        "Nicholas Burrett (Huawei Research Ireland)",
+        "Oscar Corcho (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Puchao Zhang (Huawei Research Ireland)",
+        "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
+    ns1:identifier "http://w3id.org/devops-infra/workflow" ;
+    ns1:title "Ontology for the representation of workflows in a DevOps environment"@en ;
+    ns2:hasFormat "http://w3id.org/devops-infra/workflow.owl" ;
+    ns2:issued "2021-06-02" ;
+    ns2:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns3:preferredNamespacePrefix "devopswf" ;
+    ns3:preferredNamespaceUri "http://w3id.org/devops-infra/workflow#" ;
+    rdfs:comment "This ontology defines the terms that can be used to represent the workflows (and their corresponding actions) that are commonly used in a DevOps environment, so as to provide support to tasks related to account management, patch upgrades, scaling up of services, service deployments, etc. This ontology is part of the devops-infra ontology network that has been created in the context of a collaboration between the Ontology Engineering Group at Universidad Politécnica de Madrid and Huawei Research Ireland"@en ;
+    owl:imports <http://w3id.org/devops-infra/core>,
+        <http://www.w3.org/2004/02/skos/core> ;
+    owl:versionIRI <http://w3id.org/devops-infra/workflow/1.0.0> ;
+    owl:versionInfo "First official release"@en .
+
+:DirectWorkflow a owl:Class ;
+    rdfs:label "Direct Workflow"@en ;
+    rdfs:comment "A Direct Workflow consists of tasks combined in a graph where every next task starts after another one depending on produced result. So direct workflow has a notion of transition. Direct workflow is considered to be completed if there aren’t any transitions left that could be used to jump to next tasks."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :DirectWorkflow :DirectWorkflowTask ) ] ;
+            owl:onProperty :consistsOf ],
+        :Workflow .
+
+:ReverseWorkflow a owl:Class ;
+    rdfs:label "Reverse Workflow"@en ;
+    rdfs:comment "In reverse workflow all relationships in workflow task graph are dependencies. In order to run this type of workflow we need to specify a task that needs to be completed, it can be conventionally called ‘target task’. When a workflow engine starts a workflow it recursively identifies all the dependencies that need to be completed first."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :ReverseWorkflow :ReverseWorkflowTask ) ] ;
+            owl:onProperty :consistsOf ],
+        :Workflow .
+
+:context a owl:DatatypeProperty ;
+    rdfs:label "context"@en ;
+    rdfs:comment "Context in which the variable value is maintained. It may be global to the whole workflow execution or specific to an individual task or a set of tasks"@en ;
+    rdfs:domain :Variable ;
+    rdfs:range xsd:string .
+
+:item a owl:ObjectProperty ;
+    rdfs:label "item"@en ;
+    rdfs:comment "A variable used as an input or output of a workflow or task may refer to any Configuration Item, as defined in the Devops-Infra ontology network (more specifically, in the core ontology)"@en ;
+    rdfs:domain :Variable ;
+    rdfs:range <http://w3id.org/devops-infra/core#ConfigurationItem> .
+
+:onComplete a owl:ObjectProperty ;
+    rdfs:label "on Complete"@en ;
+    rdfs:comment "This property points to the next direct workflow tasks to execute if the result of the execution of this task is completed, independently of whether it is successful or not"@en ;
+    rdfs:domain :DirectWorkflowTask ;
+    rdfs:range :DirectWorkflowTask .
+
+:onError a owl:ObjectProperty ;
+    rdfs:label "on Error"@en ;
+    rdfs:comment "This property points to the next direct workflow tasks to execute if the result of the execution of this task is erroneous"@en ;
+    rdfs:domain :DirectWorkflowTask ;
+    rdfs:range :DirectWorkflowTask .
+
+:onSuccess a owl:ObjectProperty ;
+    rdfs:label "on Success"@en ;
+    rdfs:comment "This property points to the next direct workflow tasks to execute if the result of the execution of this task is successfull"@en ;
+    rdfs:domain :DirectWorkflowTask ;
+    rdfs:range :DirectWorkflowTask .
+
+:requires a owl:ObjectProperty ;
+    rdfs:label "requires"@en ;
+    rdfs:comment "A reverse workflow task may require any number of other reverse workflow tasks to be completed"@en ;
+    rdfs:domain :ReverseWorkflowTask ;
+    rdfs:range :ReverseWorkflowTask .
+
+:valueorExpression a owl:DatatypeProperty ;
+    rdfs:label "value or expression"@en ;
+    rdfs:comment "Value or expression that allows obtaining the value during runtime for any variable that may act as input or output of a workflow or task"@en ;
+    rdfs:domain :Variable ;
+    rdfs:range xsd:string .
+
+owl:NamedIndividual rdfs:label "Named Individual" .
+
+owl:Ontology rdfs:label "Ontology" .
+
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdfs:label "Concept Scheme" .
+
+<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+
+:action a owl:ObjectProperty ;
+    rdfs:label "action"@en ;
+    rdfs:comment "The type of a action that the task is performing, according to the corresponding SKOS Concept Scheme on task actions"@en ;
+    rdfs:domain :Task ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/action-type> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:input a owl:ObjectProperty ;
+    rdfs:label "input"@en ;
+    rdfs:comment "A Workflow or a Task may have one or several input variables"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Task :Workflow ) ] ;
+    rdfs:range :Variable .
+
+:output a owl:ObjectProperty ;
+    rdfs:label "output"@en ;
+    rdfs:comment "A Workflow or Task may have one or several output variables"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Task :Workflow ) ] ;
+    rdfs:range :Variable .
+
+:outputOnError a owl:ObjectProperty ;
+    rdfs:label "output on error"@en ;
+    rdfs:comment "A Workflow or Task may have one or several outputs that are generated when its execution generates an error"@en ;
+    rdfs:domain [ a owl:Class ;
+            owl:unionOf ( :Task :Workflow ) ] ;
+    rdfs:range :Variable .
+
+owl:DatatypeProperty rdfs:label "Datatype Property" .
+
+<http://w3id.org/devops-infra/kos/action-type> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+:consistsOf a owl:ObjectProperty ;
+    rdfs:label "consists Of"@en ;
+    rdfs:comment "A Workflow may consist of or make use of several other Workflows or Tasks"@en ;
+    rdfs:domain :Workflow ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( :Task :Workflow ) ] .
+
+:ReverseWorkflowTask a owl:Class ;
+    rdfs:label "Reverse Workflow Task"@en ;
+    rdfs:comment "A task in a reverse workflow, which may indicate the tasks that are required to be finished before this one starts"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :ReverseWorkflowTask ;
+            owl:onProperty :requires ],
+        :Task .
+
+:Task a owl:Class ;
+    rdfs:label "Task"@en ;
+    rdfs:comment "Tasks define specific computational steps in a workflow. When the workflow engine processes entities described in the workflow text it schedules tasks for execution"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :Variable ;
+            owl:onProperty :input ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Variable ;
+            owl:onProperty :output ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Variable ;
+            owl:onProperty :outputOnError ],
+        [ a owl:Restriction ;
+            owl:onClass [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/action-type> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :action ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+:Workflow a owl:Class ;
+    rdfs:label "Workflow"@en ;
+    rdfs:comment "A Workflow is a process that can be described in a various number of ways and that can do some job interesting to the end user. Each workflow consists of tasks (at least one) describing what exact steps should be made during workflow execution."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( :Task :Workflow ) ] ;
+            owl:onProperty :consistsOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Variable ;
+            owl:onProperty :input ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Variable ;
+            owl:onProperty :output ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Variable ;
+            owl:onProperty :outputOnError ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+owl:AnnotationProperty rdfs:label "Annotation Property" .
+
+:DirectWorkflowTask a owl:Class ;
+    rdfs:label "Direct Workflow Task"@en ;
+    rdfs:comment "A Task in a Direct Workflow, which may indicate the next tasks to be done once it is completed, with success or with errors"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :DirectWorkflowTask ;
+            owl:onProperty :onComplete ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :DirectWorkflowTask ;
+            owl:onProperty :onError ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :DirectWorkflowTask ;
+            owl:onProperty :onSuccess ],
+        :Task .
+
+owl:ObjectProperty rdfs:label "Object Property" .
+
+:Variable a owl:Class ;
+    rdfs:label "Variable"@en ;
+    rdfs:comment "A Variable may be used as an input or output of a Workflow or a Task. It is defined in a context, it has some value or can be described with an expression, and may refer to one or several Configuration Items"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/action-type> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :action ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/core#ConfigurationItem> ;
+            owl:onProperty :item ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :context ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty :valueorExpression ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+owl:Class rdfs:label "Class" .
+
+owl:Restriction rdfs:label "Restriction" .
+

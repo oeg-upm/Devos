@@ -2,8 +2,8 @@ import unittest
 
 import rdflib
 import os
-from ogister.gister import get_matched_per_text, get_matched
-from ogister.util import split_text_manual
+from devos.gister import get_matched_per_text, get_matched
+from devos.util import split_text_manual
 # from ogister.util import split_text
 
 split_text = split_text_manual

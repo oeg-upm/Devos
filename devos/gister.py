@@ -10,8 +10,8 @@ from collections import Counter
 from operator import itemgetter
 from datetime import datetime
 
-from ogister import fetcher
-from ogister import util
+from devos import fetcher
+from devos import util
 from nltk.corpus import stopwords
 from string import punctuation
 

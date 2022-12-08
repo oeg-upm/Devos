@@ -1,0 +1,393 @@
+@prefix : <http://w3id.org/devops-infra/data-center#> .
+@prefix ns1: <http://purl.org/vocab/vann/> .
+@prefix ns2: <http://purl.org/dc/elements/1.1/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns2:creator a owl:AnnotationProperty .
+
+ns2:identifier a owl:AnnotationProperty .
+
+ns2:title a owl:AnnotationProperty .
+
+ns3:hasFormat a owl:AnnotationProperty .
+
+ns3:issued a owl:AnnotationProperty .
+
+ns3:license a owl:AnnotationProperty .
+
+ns1:preferredNamespacePrefix a owl:AnnotationProperty .
+
+ns1:preferredNamespaceUri a owl:AnnotationProperty .
+
+<http://w3id.org/devops-infra/core#createTime> a owl:DatatypeProperty .
+
+<http://w3id.org/devops-infra/core#updateTime> a owl:DatatypeProperty .
+
+<http://w3id.org/devops-infra/data-center> a owl:Ontology ;
+    ns2:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Hu Peng (Huawei Research Ireland)",
+        "Jhon Toledo (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "José Mora (Huawei Research Ireland)",
+        "Julián Arenas-Guerrero (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Mingxue Wang (Huawei Research Ireland)",
+        "Nicholas Burrett (Huawei Research Ireland)",
+        "Oscar Corcho (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+        "Puchao Zhang (Huawei Research Ireland)",
+        "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
+    ns2:identifier "http://w3id.org/devops-infra/data-center" ;
+    ns2:title "Ontology for the representation of data centers"@en ;
+    ns3:hasFormat "http://w3id.org/devops-infra/data-center.owl" ;
+    ns3:issued "2021-04-15" ;
+    ns3:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns1:preferredNamespacePrefix "devopsdc" ;
+    ns1:preferredNamespaceUri "http://w3id.org/devops-infra/data-center#" ;
+    rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
+    owl:imports <http://w3id.org/devops-infra/core/1.0.0>,
+        <http://www.w3.org/2004/02/skos/core> ;
+    owl:versionIRI <http://w3id.org/devops-infra/data-center/1.0.0> ;
+    owl:versionInfo "First official release"@en .
+
+:connectionType a owl:ObjectProperty ;
+    rdfs:label "connection type"@en ;
+    rdfs:comment "The type of connection established to a Data Center. It can be MSTP (Multiple Spanning Tree Protocol), IPSecVPN, etc."@en ;
+    rdfs:domain :DataCenterConnection ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/connection-type> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:inDataCenter a owl:ObjectProperty ;
+    rdfs:label "in data center"@en ;
+    rdfs:comment "Property used to relate any Resource (e.g, a Sever) with the Data Center where it is hosted"@en ;
+    rdfs:range :DataCenter .
+
+:supports a owl:ObjectProperty ;
+    rdfs:label "supports"@en ;
+    rdfs:comment "The Data Center may support specific resource requirements or capacity"@en ;
+    rdfs:domain :DataCenter .
+
+<http://w3id.org/devops-infra/hardware#Frame> a owl:Class .
+
+<http://w3id.org/devops-infra/server#Server> a owl:Class .
+
+:allowsConnectionVia a owl:ObjectProperty ;
+    rdfs:label "allows connection via"@en ;
+    rdfs:comment "The Data Center can be connected through a Data Center Connection"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range :DataCenterConnection .
+
+:city a owl:DatatypeProperty ;
+    rdfs:label "city"@en ;
+    rdfs:comment "The city where a location is"@en ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:string .
+
+:cloudAvailabilityZone a owl:DatatypeProperty ;
+    rdfs:label "cloud availability zone"@en ;
+    rdfs:comment "The cloud availability zone for the Data Center"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:cloudRegion a owl:DatatypeProperty ;
+    rdfs:label "cloud region"@en ;
+    rdfs:comment "The cloud region where the Data Center operates"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:dataCenterConnectionType a owl:ObjectProperty .
+
+:dataCenterType a owl:ObjectProperty ;
+    rdfs:label "data center type"@en ;
+    rdfs:comment "The type of a Data Center. For example, it may be and Internet Data Center (IDC) or a Virtual Data Center providing Infrastructure as a Service (IAAS)."@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range [ a owl:Class ;
+            owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                        owl:hasValue <http://w3id.org/devops-infra/kos/data-center-type> ;
+                        owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
+
+:endInternetDataCenter a owl:ObjectProperty .
+
+:hostPrefix a owl:DatatypeProperty ;
+    rdfs:label "host prefix"@en ;
+    rdfs:comment "The host prefix for the Data Center"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:hosts a owl:ObjectProperty ;
+    rdfs:label "hosts"@en ;
+    rdfs:comment "A Data Center may host a number of physical and logical items (frames, servers, service clusters, BGPAS, etc.)"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range [ a owl:Class ;
+            owl:unionOf ( <http://w3id.org/devops-infra/core#Resource> <http://w3id.org/devops-infra/core#ResourceGroup> ) ] .
+
+:linuxPrimaryDataCenterIP a owl:DatatypeProperty ;
+    rdfs:label "Linux primary data center IP address"@en ;
+    rdfs:comment "The IP address of the Linux primary Data Center"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:locatedIn a owl:ObjectProperty ;
+    rdfs:label "located In"@en ;
+    rdfs:comment "The Data Center is placed in a Location, with a specific GPS position, city, region and timezone"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range :Location .
+
+:locatedInSite a owl:ObjectProperty ;
+    rdfs:label "located in site"@en ;
+    rdfs:comment "The Data Center is located in a Site"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range <http://w3id.org/devops-infra/organisation#Site> .
+
+:managementIP a owl:DatatypeProperty ;
+    rdfs:label "management IP address"@en ;
+    rdfs:comment "The IP address to manage the Data Center"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:networkServiceProviderIP a owl:DatatypeProperty ;
+    rdfs:label "network service provider IP address"@en ;
+    rdfs:comment "The IP address of the Network Service Provider of the Data Center"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:networkTimeProtocolIP a owl:DatatypeProperty ;
+    rdfs:label "network time protocol IP address"@en ;
+    rdfs:comment "The IP address of the Network Time Protocol used by the Data Center"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:offersIPAddress a owl:ObjectProperty ;
+    rdfs:label "offers IP Address"@en ;
+    rdfs:comment "The Data Center offers IP Addresses to its customers"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range <http://w3id.org/devops-infra/network#IPAddress> .
+
+:offersIPNetwork a owl:ObjectProperty ;
+    rdfs:label "offers IP Network"@en ;
+    rdfs:comment "The Data Center offers an IP Network to its customers"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range <http://w3id.org/devops-infra/network#IPNetwork> .
+
+:offersNetworkSegment a owl:ObjectProperty ;
+    rdfs:label "offers Network Segment"@en ;
+    rdfs:comment "The Data Center offers a Network Segment to its customers"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range <http://w3id.org/devops-infra/network#NetworkSegment> .
+
+:primaryDataCenterHostname a owl:DatatypeProperty ;
+    rdfs:label "primary data center hostname"@en ;
+    rdfs:comment "The hostname of the primary Data Center"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:primaryDataCenterIP a owl:DatatypeProperty ;
+    rdfs:label "primary data center IP address"@en ;
+    rdfs:comment "The IP address of the primary Data Center"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:region a owl:DatatypeProperty ;
+    rdfs:label "region"@en ;
+    rdfs:comment "The region where a location is"@en ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:string .
+
+:startInternetDataCenter a owl:ObjectProperty .
+
+:timezone a owl:DatatypeProperty ;
+    rdfs:label "timezone"@en ;
+    rdfs:comment "The timezone where a location is"@en ;
+    rdfs:domain :Location ;
+    rdfs:range xsd:string .
+
+:vendorAvailabilityZone a owl:DatatypeProperty ;
+    rdfs:label "vendor availability zone"@en ;
+    rdfs:comment "The vendor availability zone for the Data Center"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:vendorRegion a owl:DatatypeProperty ;
+    rdfs:label "vendor region"@en ;
+    rdfs:comment "The vendor region where the Data Center operates"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+:windowsPrimaryDataCenterIP a owl:DatatypeProperty ;
+    rdfs:label "Windows primary data center IP address"@en ;
+    rdfs:comment "The IP address of the Windows primary Data Center"@en ;
+    rdfs:domain :DataCenter ;
+    rdfs:range xsd:string .
+
+<http://w3id.org/devops-infra/network#SSHChannel> a owl:Class .
+
+<http://w3id.org/devops-infra/network#delay> a owl:DatatypeProperty .
+
+<http://w3id.org/devops-infra/network#offersSSHChannel> a owl:ObjectProperty .
+
+<http://w3id.org/devops-infra/network#packetLoss> a owl:DatatypeProperty .
+
+owl:Ontology rdfs:label "Ontology" .
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#lat> a owl:DatatypeProperty .
+
+<http://www.w3.org/2003/01/geo/wgs84_pos#long> a owl:DatatypeProperty .
+
+<http://w3id.org/devops-infra/core#ResourceGroup> a owl:Class .
+
+<http://w3id.org/devops-infra/kos/connection-type> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://w3id.org/devops-infra/kos/data-center-type> a owl:NamedIndividual,
+        <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+
+<http://w3id.org/devops-infra/network#IPAddress> a owl:Class .
+
+<http://w3id.org/devops-infra/network#IPNetwork> a owl:Class .
+
+<http://w3id.org/devops-infra/network#NetworkSegment> a owl:Class .
+
+<http://w3id.org/devops-infra/network#bandwidth> a owl:DatatypeProperty .
+
+<http://w3id.org/devops-infra/organisation#Site> a owl:Class .
+
+owl:NamedIndividual rdfs:label "Named Individual" .
+
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdfs:label "Concept Scheme" .
+
+:DataCenterConnection a owl:Class ;
+    rdfs:label "Data Center Connection"@en ;
+    rdfs:comment "A Data Center Connection describes the details of connections that may be established to a data center, including the protocol used, bandwidth available, packet loss data and delay data."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/connection-type> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :dataCenterConnectionType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :DataCenter ;
+            owl:onProperty :endInternetDataCenter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :DataCenter ;
+            owl:onProperty :startInternetDataCenter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <http://w3id.org/devops-infra/network#bandwidth> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <http://w3id.org/devops-infra/network#delay> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <http://w3id.org/devops-infra/network#packetLoss> ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+
+:Location a owl:Class ;
+    rdfs:label "Location"@en ;
+    rdfs:comment "A Location where a Data Center is placed. This may be substituted in the future by an equivalent class from a general ontology, such as schema.org"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :city ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :region ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :timezone ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:double ;
+            owl:onProperty <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:double ;
+            owl:onProperty <http://www.w3.org/2003/01/geo/wgs84_pos#long> ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+owl:AnnotationProperty rdfs:label "Annotation Property" .
+
+owl:ObjectProperty rdfs:label "Object Property" .
+
+owl:Class rdfs:label "Class" .
+
+owl:DatatypeProperty rdfs:label "Datatype Property" .
+
+:DataCenter a owl:Class ;
+    rdfs:label "Data Center"@en ;
+    rdfs:comment "A Data Center is a facility that centralizes an organization's shared IT operations and equipment for the purposes of storing, processing, and disseminating data and applications. Because they house an organization's most critical and proprietary assets, data centers are vital to the continuity of daily operations."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom :DataCenterConnection ;
+            owl:onProperty :allowsConnectionVia ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept> [ a owl:Restriction ;
+                                owl:hasValue <http://w3id.org/devops-infra/kos/data-center-type> ;
+                                owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] ;
+            owl:onProperty :dataCenterType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( <http://w3id.org/devops-infra/core#Resource> <http://w3id.org/devops-infra/core#ResourceGroup> ) ] ;
+            owl:onProperty :hosts ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom :Location ;
+            owl:onProperty :locatedIn ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/organisation#Site> ;
+            owl:onProperty :locatedInSite ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/network#IPAddress> ;
+            owl:onProperty :offersIPAddress ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/network#IPNetwork> ;
+            owl:onProperty :offersIPNetwork ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/network#NetworkSegment> ;
+            owl:onProperty :offersNetworkSegment ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <http://w3id.org/devops-infra/network#SSHChannel> ;
+            owl:onProperty <http://w3id.org/devops-infra/network#offersSSHChannel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :cloudAvailabilityZone ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :cloudRegion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :hostPrefix ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :linuxPrimaryDataCenterIP ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :managementIP ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :networkServiceProviderIP ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :networkTimeProtocolIP ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :primaryDataCenterHostname ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :primaryDataCenterIP ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :vendorAvailabilityZone ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :vendorRegion ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty :windowsPrimaryDataCenterIP ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <http://w3id.org/devops-infra/network#bandwidth> ],
+        <http://w3id.org/devops-infra/core#Resource> .
+
+owl:Restriction rdfs:label "Restriction" .
+
