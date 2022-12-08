@@ -1,1 +1,0 @@
-{"classes": ["Object Property", "Datatype Property", "Functional Property", "Contributor List", "Named Individual", "Class", "List"], "relations": [["List", "first", "List"], ["List", "rest", "List"]], "meta": "leng"}

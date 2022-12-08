@@ -416,9 +416,9 @@ def draw_diagrams(classes, relations, out_path):
     generate_png(png_input, png_output)
 
 
-def generate_png(input_path, output_path):
+def generate_png(input_path, output_path, scale=7):
     try:
-        comm = "mmdc -i %s -o %s " % (input_path, output_path)
+        comm = "mmdc -i %s -o %s -s %d" % (input_path, output_path, scale)
         print(comm)
         ret = subprocess.call(comm, shell=True)
     except Exception as e:

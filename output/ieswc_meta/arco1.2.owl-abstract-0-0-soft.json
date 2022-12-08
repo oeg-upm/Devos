@@ -1,1 +1,0 @@
-{"classes": ["Ontology", "All Disjoint Classes", "Functional Property", "Ambito di tutela MiBAC", "Named Individual"], "relations": [["Ambito di tutela MiBAC", "is MiBAC scope of protection of", "Bene culturale"], ["Bene culturale", "ha ambito di tutela", "Ambito di tutela MiBAC"]], "meta": "abstract"}
