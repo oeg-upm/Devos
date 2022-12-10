@@ -2,11 +2,11 @@
 	classDiagram
 
     
-    class `Resource` {
+    class `Resource Group` {
     
     }
 
-    class `Resource Group` {
+    class `Resource` {
     
     }
 
@@ -16,10 +16,10 @@
 
 
 
-`Configuration Item`  --> `Resource Group`   :belongs to resource group  
-
 `Resource`  --> `Resource Group`   :belongs to resource group  
 
 `Resource Group`  --> `Resource Group`   :parent Resource Group  
+
+`Configuration Item`  --> `Resource Group`   :belongs to resource group  
 
 ```

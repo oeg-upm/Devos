@@ -32,9 +32,9 @@
 
 
 
-`IP Address`  --> `IP Network`   :belongs to IP network  
-
 `Network Segment`  --> `IP Network`   :part of an IP network  
+
+`IP Address`  --> `IP Network`   :belongs to IP network  
 
 `Public NAT Entry`  --> `Public IP Address`   :exposes IP Address  
 

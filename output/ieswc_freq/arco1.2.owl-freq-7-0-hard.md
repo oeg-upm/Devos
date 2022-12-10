@@ -32,48 +32,34 @@
 
 
 
-`Bene culturale`  --> `Cartographic classification`   :ha classificazione cartografica  
-
-`Agent`  --> `Bene culturale`   :is cataloguing agency of  
+`Cartographic classification`  --> `Cartographic symbol`   :ha simbolo cartografico  
 
 `Subject Discipline`  --> `Bene culturale`   :is alternative discipline of  
 
-`Agent`  --> `Bene culturale`   :is related agency of  
+`Bene culturale`  --> `Subject Discipline`   :ha disciplina principale  
 
-`Cartographic classification`  --> `Cartographic symbol`   :ha simbolo cartografico  
+`Bene culturale`  --> `Cartographic classification`   :ha classificazione cartografica  
 
-`Bene culturale`  --> `Agent`   :ha ente collegato  
+`Bene culturale`  --> `Agent`   :ha ente schedatore  
 
-`Bene culturale`  --> `Subject Discipline`   :ha altra disciplina  
-
-`Cartographic symbol`  --> `Cartographic classification`   :is cartographic symbol of  
-
-`Subject Discipline`  --> `Bene culturale`   :is main discipline of  
+`Agent`  --> `Bene culturale`   :is cataloguing agency of  
 
 `Cartographic classification`  --> `Bene culturale`   :is cartographic classification of  
 
 `Agent`  --> `Bene culturale`   :is heritage protection agency of  
 
-`Bene culturale`  --> `Subject Discipline`   :ha disciplina principale  
+`Bene culturale`  --> `Subject Discipline`   :ha altra disciplina  
+
+`Bene Numismatico`  --> `Bene Numismatico`   :ha categoria di bene numismatico  
 
 `Bene culturale`  --> `Agent`   :ha ente competente per la tutela  
 
-`Bene culturale`  --> `Agent`   :ha ente schedatore  
-
-`Cartographic classification`  --> `Cartographic symbol`   :ha simbolo cartografico  
-
-`Cartographic classification`  --> `Cartographic symbol`   :ha simbolo cartografico  
+`Bene culturale`  --> `Agent`   :ha ente collegato  
 
 `Cartographic symbol`  --> `Cartographic classification`   :is cartographic symbol of  
 
-`Cartographic symbol`  --> `Cartographic classification`   :is cartographic symbol of  
+`Agent`  --> `Bene culturale`   :is related agency of  
 
-`Cartographic classification`  --> `Bene culturale`   :is cartographic classification of  
-
-`Cartographic classification`  --> `Bene culturale`   :is cartographic classification of  
-
-`Bene Numismatico`  --> `Bene Numismatico`   :ha categoria di bene numismatico  
-
-`Bene Numismatico`  --> `Bene Numismatico`   :ha categoria di bene numismatico  
+`Subject Discipline`  --> `Bene culturale`   :is main discipline of  
 
 ```

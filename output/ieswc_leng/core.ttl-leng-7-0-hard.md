@@ -26,34 +26,22 @@
     
     }
 
-    class `n2d95942b24ba4bc482f5d9d177bbb86ab20` {
+    class `nf534fec15c384d4784a5febdfb5dd745b20` {
     
     }
 
 
 
-`Resource Group`  --> `Resource Group`   :parent Resource Group  
+`Configuration Item`  --> `Scope`   :scope  
 
 `Configuration Item`  --> `Configuration Item`   :depends on  
+
+`Configuration Item`  --> `nf534fec15c384d4784a5febdfb5dd745b20`   :status  
 
 `Configuration Item`  --> `Resource Group`   :belongs to resource group  
 
-`Resource Group`  --> `Resource Group`   :parent Resource Group  
-
-`Resource Group`  --> `Resource Group`   :parent Resource Group  
-
-`Configuration Item`  --> `n2d95942b24ba4bc482f5d9d177bbb86ab20`   :status  
-
-`Configuration Item`  --> `Scope`   :scope  
-
-`Configuration Item`  --> `Configuration Item`   :depends on  
-
-`Configuration Item`  --> `Configuration Item`   :depends on  
-
 `Resource`  --> `Resource Group`   :belongs to resource group  
 
-`Resource`  --> `Resource Group`   :belongs to resource group  
-
-`Configuration Item`  --> `Scope`   :scope  
+`Resource Group`  --> `Resource Group`   :parent Resource Group  
 
 ```

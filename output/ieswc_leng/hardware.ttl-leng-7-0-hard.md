@@ -32,10 +32,10 @@
 
 
 
-`Server Hardware`  --> `Hardware Batch`   :batch  
-
 `Network Card`  --> `Switch`   :switch  
 
 `Server Hardware`  --> `Frame`   :hosted in frame  
+
+`Server Hardware`  --> `Hardware Batch`   :batch  
 
 ```

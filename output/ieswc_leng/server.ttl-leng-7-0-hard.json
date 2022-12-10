@@ -1,1 +1,1 @@
-{"classes": ["Bare-metal Server", "Host Flavor", "Server Load Balancer", "Auto Scaling Host Configuration", "Auto Expand Host Configuration", "Host Configuration", "Server"], "relations": [["Host Configuration", "flavor", "Host Flavor"], ["Host Configuration", "flavor", "Host Flavor"]], "meta": "leng"}
+{"classes": ["Bare-metal Server", "Host Flavor", "Server Load Balancer", "Auto Scaling Host Configuration", "Auto Expand Host Configuration", "Host Configuration", "Server"], "relations": [["Host Configuration", "flavor", "Host Flavor"]], "meta": "leng"}

@@ -109,6 +109,8 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
     if len(classes) == 0:
         return relations
 
+    relations = list(set(relations))
+
     per_class = dict()
     top_relations = []
 
@@ -177,6 +179,8 @@ def get_top_relations_soft(classes, relations, topr):
 
     if len(classes) == 0 or topr <= 0:
         return relations
+
+    relations = list(set(relations))
 
     per_class = dict()
 

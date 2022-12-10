@@ -32,24 +32,24 @@
 
 
 
-`EducationalResource`  --> `KnowledgeTopic`   :hasKnowledgeTopic  
+`UserProfile`  --> `LearningPath`   :definesLearningPath  
 
 `Skill`  --> `KnowledgeTopic`   :requiresKnowledge  
-
-`LearningPath`  --> `KnowledgeTopic`   :consistsOfKnowledge  
-
-`KnowledgeTopic`  --> `Exercise`   :hasExercise  
-
-`UserProfile`  --> `LearningPath`   :definesLearningPath  
 
 `User`  --> `UserProfile`   :hasProfile  
 
 `Skill`  --> `KnowledgeTopic`   :hasKnowledgeTopic  
 
+`EducationalResource`  --> `KnowledgeTopic`   :hasKnowledgeTopic  
+
+`LearningPath`  --> `KnowledgeTopic`   :consistsOfKnowledge  
+
+`User`  --> `Exercise`   :solves  
+
+`KnowledgeTopic`  --> `Exercise`   :hasExercise  
+
 `Exercise`  --> `KnowledgeTopic`   :hasKnowledgeTopic  
 
 `KnowledgeTopic`  --> `EducationalResource`   :hasEducationalResource  
-
-`User`  --> `Exercise`   :solves  
 
 ```

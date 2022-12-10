@@ -26,30 +26,30 @@
     
     }
 
-    class `nf8f00a9a301c441f959c5e6816ffcfedb1` {
+    class `n614092c8fd5643d3ba0c626d2dd2cfa0b1` {
     
     }
 
 
 
-`Variable`  --> `Measure`   :measuredBy  
-
 `Model`  --> `Variable`   :dependentVariable  
-
-`Linked Variables`  --> `Variable`   :firstVariable  
 
 `Linked Variables`  --> `Model`   :viaModel  
 
-`Dataset Structure`  --> `Measure`   :containMeasure  
+`Model`  --> `Dataset`   :trainingSet  
+
+`Linked Variables`  --> `Variable`   :firstVariable  
 
 `Model`  --> `Variable`   :independentVariable  
 
-`Linked Variables`  --> `Variable`   :secondVariable  
-
 `Model`  --> `Variable`   :controlVariable  
 
-`Model`  --> `Dataset`   :trainingSet  
-
 `Dataset`  --> `Dataset Structure`   :datasetStructure  
+
+`Variable`  --> `Measure`   :measuredBy  
+
+`Dataset Structure`  --> `Measure`   :containMeasure  
+
+`Linked Variables`  --> `Variable`   :secondVariable  
 
 ```

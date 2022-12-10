@@ -2,7 +2,7 @@
 	classDiagram
 
     
-    class `F5 Hardware` {
+    class `Hardware Batch` {
     
     }
 
@@ -10,19 +10,11 @@
     
     }
 
+    class `F5 Hardware` {
+    
+    }
+
     class `Server Hardware` {
-    
-    }
-
-    class `Hardware Batch` {
-    
-    }
-
-    class `Network Card` {
-    
-    }
-
-    class `Concept` {
     
     }
 
@@ -30,14 +22,22 @@
     
     }
 
+    class `Concept` {
+    
+    }
+
+    class `Network Card` {
+    
+    }
 
 
-`Hardware Item`  --> `Network Card`   :network card  
 
 `Server Hardware`  --> `Hardware Batch`   :batch  
 
+`Server Hardware`  --> `Frame`   :hosted in frame  
+
 `Server Hardware`  --> `Concept`   :high availability status  
 
-`Server Hardware`  --> `Frame`   :hosted in frame  
+`Hardware Item`  --> `Network Card`   :network card  
 
 ```

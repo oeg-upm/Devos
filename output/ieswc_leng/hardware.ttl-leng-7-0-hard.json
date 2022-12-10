@@ -1,1 +1,1 @@
-{"classes": ["Network Card", "Firewall", "Frame", "Switch", "Hardware Batch", "Server Hardware", "Disk"], "relations": [["Server Hardware", "batch", "Hardware Batch"], ["Network Card", "switch", "Switch"], ["Server Hardware", "hosted in frame", "Frame"]], "meta": "leng"}
+{"classes": ["Network Card", "Firewall", "Frame", "Switch", "Hardware Batch", "Server Hardware", "Disk"], "relations": [["Network Card", "switch", "Switch"], ["Server Hardware", "hosted in frame", "Frame"], ["Server Hardware", "batch", "Hardware Batch"]], "meta": "leng"}

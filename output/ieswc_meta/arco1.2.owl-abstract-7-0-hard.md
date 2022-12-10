@@ -2,15 +2,15 @@
 	classDiagram
 
     
-    class `Archaeological material category` {
+    class `Classificazione tipologica di bene numismatico` {
     
     }
 
-    class `Classificazione di bene numismatico` {
+    class `Bene Culturale Complesso` {
     
     }
 
-    class `Additional Form` {
+    class `Technical Detail Occurrence` {
     
     }
 
@@ -18,15 +18,15 @@
     
     }
 
-    class `Communication Medium` {
+    class `Categoria di bene culturale basata su catalogazione` {
     
     }
 
-    class `Cultural Property Residual` {
+    class `Classificazione Hornbostel-Sachs` {
     
     }
 
-    class `Cartographic classification` {
+    class `Photographic heritage classification type` {
     
     }
 

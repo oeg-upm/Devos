@@ -32,14 +32,14 @@
 
 
 
-`DNS Domain`  --> `IP Address`   :has DNS IP Address  
+`IP Address`  --> `Concept`   :IP status  
 
 `IP Address`  --> `IP Network`   :belongs to IP network  
+
+`DNS Domain`  --> `IP Address`   :has DNS IP Address  
 
 `SSH Channel`  --> `IP Network`   :provides access to IP network  
 
 `IP Address`  --> `Concept`   :SSH status  
-
-`IP Address`  --> `Concept`   :IP status  
 
 ```

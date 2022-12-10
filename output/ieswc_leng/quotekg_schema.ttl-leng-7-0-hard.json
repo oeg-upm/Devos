@@ -1,1 +1,1 @@
-{"classes": ["context", "quotation text", "lang String", "Quotation"], "relations": [["quotation text", "hasContext", "context"], ["Quotation", "hasMention", "quotation text"]], "meta": "leng"}
+{"classes": ["context", "quotation text", "lang String", "Quotation"], "relations": [["Quotation", "hasMention", "quotation text"], ["quotation text", "hasContext", "context"]], "meta": "leng"}

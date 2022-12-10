@@ -26,12 +26,4 @@
 
 `Digital Certificate Bundle`  --> `Digital Certificate`   :contains certificate  
 
-`Digital Certificate Bundle`  --> `Digital Certificate`   :contains certificate  
-
-`Digital Certificate`  --> `Certificate Signing Request`   :has certificate signing request  
-
-`Digital Certificate`  --> `Certificate Signing Request`   :has certificate signing request  
-
-`Digital Certificate Bundle`  --> `Digital Certificate`   :contains certificate  
-
 ```

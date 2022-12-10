@@ -18,36 +18,30 @@
     
     }
 
-    class `n515faf3d1824442d9d8efda5081bcbd0b1` {
+    class `n4a3af5fa52124069a7d67ac77f6de253b1` {
     
     }
 
-    class `n515faf3d1824442d9d8efda5081bcbd0b5` {
+    class `n4a3af5fa52124069a7d67ac77f6de253b5` {
     
     }
 
-    class `n515faf3d1824442d9d8efda5081bcbd0b11` {
+    class `n4a3af5fa52124069a7d67ac77f6de253b11` {
     
     }
 
 
-
-`Tenant`  --> `n515faf3d1824442d9d8efda5081bcbd0b5`   :tenant type  
 
 `Site`  --> `Tenant`   :accessible to tenant  
 
-`Scope`  --> `Organisation`   :managed by  
+`Scope`  --> `n4a3af5fa52124069a7d67ac77f6de253b11`   :scope type  
 
-`Scope`  --> `n515faf3d1824442d9d8efda5081bcbd0b1`   :scope type  
+`Tenant`  --> `n4a3af5fa52124069a7d67ac77f6de253b5`   :tenant type  
+
+`Scope`  --> `Organisation`   :managed by  
 
 `Tenant`  --> `Scope`   :scope  
 
-`Scope`  --> `Organisation`   :managed by  
-
-`Scope`  --> `Organisation`   :managed by  
-
-`Scope`  --> `n515faf3d1824442d9d8efda5081bcbd0b11`   :scope type  
-
-`Tenant`  --> `Scope`   :scope  
+`Scope`  --> `n4a3af5fa52124069a7d67ac77f6de253b1`   :scope type  
 
 ```

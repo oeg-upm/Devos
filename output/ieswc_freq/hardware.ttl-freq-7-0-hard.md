@@ -32,14 +32,14 @@
 
 
 
-`Server Hardware`  --> `Frame`   :hosted in frame  
+`Server Hardware`  --> `Hardware Batch`   :batch  
+
+`Hardware Item`  --> `Network Card`   :network card  
 
 `Network Card`  --> `Switch`   :switch  
 
 `Server Hardware`  --> `Concept`   :high availability status  
 
-`Server Hardware`  --> `Hardware Batch`   :batch  
-
-`Hardware Item`  --> `Network Card`   :network card  
+`Server Hardware`  --> `Frame`   :hosted in frame  
 
 ```

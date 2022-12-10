@@ -34,10 +34,10 @@
 
 `LearningPath`  --> `LearningGoal`   :hasLearningGoal  
 
-`Skill`  --> `Classification`   :hasClassification  
-
 `Recommendation`  --> `LearningPath`   :definesLearningPath  
 
 `Skill`  --> `LearningOutcome`   :hasLearningOutcome  
+
+`Skill`  --> `Classification`   :hasClassification  
 
 ```

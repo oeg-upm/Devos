@@ -32,38 +32,18 @@
 
 
 
-`AssociatedPositioningSystem`  --> `IntrinsicCoordinate`   :intrinsicCoordinate  
+`NetElement`  --> `Relation`   :relation  
 
 `Relation`  --> `NetElement`   :element  
 
+`PositioningNetElement`  --> `AssociatedPositioningSystem`   :associatedPositioningSystem  
+
 `PositionedRelation`  --> `PositioningNetElement`   :elementA  
 
-`PositioningNetElement`  --> `AssociatedPositioningSystem`   :associatedPositioningSystem  
+`AssociatedPositioningSystem`  --> `IntrinsicCoordinate`   :intrinsicCoordinate  
 
 `PositionedRelation`  --> `PositioningNetElement`   :elementB  
 
 `IntrinsicCoordinate`  --> `IntrinsicCoordinate`   :reaches  
-
-`NetElement`  --> `Relation`   :relation  
-
-`PositionedRelation`  --> `PositioningNetElement`   :elementB  
-
-`NetElement`  --> `Relation`   :relation  
-
-`NetElement`  --> `Relation`   :relation  
-
-`PositioningNetElement`  --> `AssociatedPositioningSystem`   :associatedPositioningSystem  
-
-`PositioningNetElement`  --> `AssociatedPositioningSystem`   :associatedPositioningSystem  
-
-`AssociatedPositioningSystem`  --> `IntrinsicCoordinate`   :intrinsicCoordinate  
-
-`AssociatedPositioningSystem`  --> `IntrinsicCoordinate`   :intrinsicCoordinate  
-
-`PositionedRelation`  --> `PositioningNetElement`   :elementA  
-
-`PositionedRelation`  --> `PositioningNetElement`   :elementA  
-
-`PositionedRelation`  --> `PositioningNetElement`   :elementB  
 
 ```

@@ -2,19 +2,7 @@
 	classDiagram
 
     
-    class `Type - Global Explanation` {
-    
-    }
-
-    class `Impact Explanation` {
-    
-    }
-
-    class `Type - Interactive Explanation` {
-    
-    }
-
-    class `Counterfactual Explanation` {
+    class `Trace Based Explanation` {
     
     }
 
@@ -22,11 +10,23 @@
     
     }
 
-    class `Scientific Explanation` {
+    class `Type - Interactive Explanation` {
     
     }
 
-    class `Static Explanation` {
+    class `Case Based Explanation` {
+    
+    }
+
+    class `Contrastive Explanation` {
+    
+    }
+
+    class `Explanation Modality` {
+    
+    }
+
+    class `Simulation Based Explanation` {
     
     }
 

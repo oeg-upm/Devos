@@ -38,8 +38,4 @@
 
 `IntrinsicCoordinate`  --> `IntrinsicCoordinate`   :reaches  
 
-`AssociatedPositioningSystem`  --> `IntrinsicCoordinate`   :intrinsicCoordinate  
-
-`AssociatedPositioningSystem`  --> `IntrinsicCoordinate`   :intrinsicCoordinate  
-
 ```

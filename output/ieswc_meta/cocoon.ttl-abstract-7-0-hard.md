@@ -2,11 +2,11 @@
 	classDiagram
 
     
-    class `Cloud Service` {
+    class `Cloud Service Price Specification` {
     
     }
 
-    class `Cloud Service Price Specification` {
+    class `Cloud Service` {
     
     }
 
@@ -14,11 +14,11 @@
     
     }
 
-    class `Cloud Storage Transactions Price Specification` {
+    class `Cloud Network Price Specification` {
     
     }
 
-    class `Cloud Network Price Specification` {
+    class `Cloud Storage Transactions Price Specification` {
     
     }
 

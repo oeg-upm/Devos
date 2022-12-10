@@ -2,11 +2,11 @@
 	classDiagram
 
     
-    class `Data Center Connection` {
+    class `Data Center` {
     
     }
 
-    class `Data Center` {
+    class `Data Center Connection` {
     
     }
 
@@ -14,7 +14,7 @@
     
     }
 
-    class `Network Segment` {
+    class `SSH Channel` {
     
     }
 
@@ -22,28 +22,28 @@
     
     }
 
-    class `n7196aebe1b1948969e5dfe724e84966ab9` {
+    class `n05fe216a1f654157afaebf5f84ee6139b5` {
     
     }
 
-    class `n7196aebe1b1948969e5dfe724e84966ab34` {
+    class `Network Segment` {
     
     }
 
 
 
-`Data Center`  --> `Network Segment`   :offers Network Segment  
-
-`Data Center Connection`  --> `Data Center`   :endInternetDataCenter  
-
-`Data Center`  --> `Data Center Connection`   :allows connection via  
+`Data Center`  --> `SSH Channel`   :offersSSHChannel  
 
 `Data Center`  --> `Location`   :located In  
 
-`Data Center`  --> `n7196aebe1b1948969e5dfe724e84966ab9`   :hosts  
+`Data Center Connection`  --> `Data Center`   :endInternetDataCenter  
 
-`Data Center`  --> `n7196aebe1b1948969e5dfe724e84966ab34`   :hosts  
+`Data Center`  --> `n05fe216a1f654157afaebf5f84ee6139b5`   :data center type  
+
+`Data Center`  --> `Network Segment`   :offers Network Segment  
 
 `Data Center Connection`  --> `Data Center`   :startInternetDataCenter  
+
+`Data Center`  --> `Data Center Connection`   :allows connection via  
 
 ```

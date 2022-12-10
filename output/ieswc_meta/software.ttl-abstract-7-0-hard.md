@@ -14,11 +14,7 @@
     
     }
 
-    class `n953bbf8373084884b91a94d784570d66b5` {
-    
-    }
-
-    class `n953bbf8373084884b91a94d784570d66b24` {
+    class `n8c3b902ce7ae400f81c72efdb166bbc2b24` {
     
     }
 
@@ -26,20 +22,24 @@
     
     }
 
+    class `n8c3b902ce7ae400f81c72efdb166bbc2b5` {
+    
+    }
 
 
-`Software`  --> `Software Directory`   :in software directory  
 
-`Software`  --> `n953bbf8373084884b91a94d784570d66b5`   :software type  
-
-`File`  --> `Software Directory`   :in software directory  
-
-`Software`  --> `n953bbf8373084884b91a94d784570d66b24`   :software type  
+`Software`  --> `File`   :released as file  
 
 `Software Directory`  --> `Software Directory`   :parent directory  
 
+`Software`  --> `n8c3b902ce7ae400f81c72efdb166bbc2b24`   :software type  
+
+`Software`  --> `Software Directory`   :in software directory  
+
 `Software`  --> `Server`   :installed in server  
 
-`Software`  --> `File`   :released as file  
+`File`  --> `Software Directory`   :in software directory  
+
+`Software`  --> `n8c3b902ce7ae400f81c72efdb166bbc2b5`   :software type  
 
 ```

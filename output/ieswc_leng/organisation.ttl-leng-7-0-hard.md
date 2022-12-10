@@ -22,30 +22,24 @@
     
     }
 
-    class `nf5180a3131294ba28ce66f27b5d75585b1` {
+    class `n1c053530b80943d6937f433ff851bcdeb1` {
     
     }
 
-    class `nf5180a3131294ba28ce66f27b5d75585b5` {
+    class `n1c053530b80943d6937f433ff851bcdeb11` {
     
     }
 
 
 
-`Scope`  --> `nf5180a3131294ba28ce66f27b5d75585b1`   :scope type  
+`Tenant`  --> `Scope`   :scope  
 
-`Scope`  --> `Organisation`   :managed by  
+`Scope`  --> `n1c053530b80943d6937f433ff851bcdeb1`   :scope type  
 
 `Site`  --> `Tenant`   :accessible to tenant  
 
-`Tenant`  --> `nf5180a3131294ba28ce66f27b5d75585b5`   :tenant type  
-
-`Tenant`  --> `Scope`   :scope  
+`Scope`  --> `n1c053530b80943d6937f433ff851bcdeb11`   :scope type  
 
 `Scope`  --> `Organisation`   :managed by  
-
-`Scope`  --> `Organisation`   :managed by  
-
-`Tenant`  --> `Scope`   :scope  
 
 ```

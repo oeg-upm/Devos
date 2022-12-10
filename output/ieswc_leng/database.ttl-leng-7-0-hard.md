@@ -34,6 +34,4 @@
 
 `Database Instance`  --> `Server`   :hostedBy  
 
-`Database Instance`  --> `Server`   :hostedBy  
-
 ```

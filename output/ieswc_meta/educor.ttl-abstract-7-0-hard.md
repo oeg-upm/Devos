@@ -2,6 +2,22 @@
 	classDiagram
 
     
+    class `Recommendation` {
+    
+    }
+
+    class `LearningOutcome` {
+    
+    }
+
+    class `KnowledgeTopic` {
+    
+    }
+
+    class `LearningPreference` {
+    
+    }
+
     class `LearningGoal` {
     
     }
@@ -10,23 +26,7 @@
     
     }
 
-    class `KnowledgeTopic` {
-    
-    }
-
     class `LearningPath` {
-    
-    }
-
-    class `LearningPreference` {
-    
-    }
-
-    class `LearningOutcome` {
-    
-    }
-
-    class `Recommendation` {
     
     }
 
@@ -34,14 +34,14 @@
 
 `EducationalResource`  --> `KnowledgeTopic`   :hasKnowledgeTopic  
 
-`KnowledgeTopic`  --> `LearningOutcome`   :hasLearningOutcome  
-
-`Recommendation`  --> `LearningPath`   :definesLearningPath  
+`LearningPath`  --> `KnowledgeTopic`   :consistsOfKnowledge  
 
 `KnowledgeTopic`  --> `EducationalResource`   :hasEducationalResource  
 
-`LearningPath`  --> `KnowledgeTopic`   :consistsOfKnowledge  
+`KnowledgeTopic`  --> `LearningOutcome`   :hasLearningOutcome  
 
 `LearningPath`  --> `LearningGoal`   :hasLearningGoal  
+
+`Recommendation`  --> `LearningPath`   :definesLearningPath  
 
 ```

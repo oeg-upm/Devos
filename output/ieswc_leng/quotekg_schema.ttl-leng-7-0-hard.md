@@ -20,8 +20,8 @@
 
 
 
-`quotation text`  --> `context`   :hasContext  
-
 `Quotation`  --> `quotation text`   :hasMention  
+
+`quotation text`  --> `context`   :hasContext  
 
 ```

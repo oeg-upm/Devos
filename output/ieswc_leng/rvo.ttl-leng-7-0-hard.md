@@ -32,26 +32,26 @@
 
 
 
-`Linked Variables`  --> `Variable`   :firstVariable  
-
-`Dataset Structure`  --> `Measure`   :containMeasure  
-
 `Model`  --> `Variable`   :dependentVariable  
 
-`Linked Variables`  --> `Variable`   :secondVariable  
-
-`Model`  --> `Variable`   :controlVariable  
-
 `Dataset`  --> `Dataset Structure`   :datasetStructure  
+
+`Model`  --> `Dataset`   :trainingSet  
 
 `Model`  --> `Variable`   :independentVariable  
 
 `Linked Variables`  --> `Model`   :viaModel  
 
-`Dataset Structure`  --> `Data Source`   :dataSource  
+`Linked Variables`  --> `Variable`   :secondVariable  
 
-`Model`  --> `Dataset`   :trainingSet  
+`Model`  --> `Variable`   :controlVariable  
+
+`Linked Variables`  --> `Variable`   :firstVariable  
 
 `Variable`  --> `Measure`   :measuredBy  
+
+`Dataset Structure`  --> `Data Source`   :dataSource  
+
+`Dataset Structure`  --> `Measure`   :containMeasure  
 
 ```

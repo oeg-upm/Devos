@@ -26,28 +26,22 @@
     
     }
 
-    class `n89965ea65ed643b08a81f7932b462f4fb1` {
+    class `nb518821809904ed78b84127a9609b80bb1` {
     
     }
 
 
 
-`Physical Server`  --> `VirtualServer`   :hosts  
-
 `Account`  --> `Server`   :is Account Of  
 
+`Physical Server`  --> `VirtualServer`   :hosts  
+
+`Physical Server`  --> `Network Card`   :networkCard  
+
+`Server`  --> `nb518821809904ed78b84127a9609b80bb1`   :assignment Status  
+
+`Server`  --> `Account`   :has account  
+
 `VirtualServer`  --> `Physical Server`   :hosted In  
-
-`Server`  --> `n89965ea65ed643b08a81f7932b462f4fb1`   :assignment Status  
-
-`Server`  --> `Account`   :has account  
-
-`Physical Server`  --> `Network Card`   :networkCard  
-
-`Server`  --> `Account`   :has account  
-
-`Server`  --> `Account`   :has account  
-
-`Physical Server`  --> `Network Card`   :networkCard  
 
 ```

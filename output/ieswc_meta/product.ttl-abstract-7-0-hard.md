@@ -2,6 +2,10 @@
 	classDiagram
 
     
+    class `Product Offering` {
+    
+    }
+
     class `Business Product Instance` {
     
     }
@@ -10,7 +14,7 @@
     
     }
 
-    class `Product Offering` {
+    class `Service` {
     
     }
 
@@ -18,33 +22,29 @@
     
     }
 
-    class `Service` {
+    class `Site` {
     
     }
 
-    class `Tenant` {
-    
-    }
-
-    class `Product Version` {
+    class `Service Instance` {
     
     }
 
 
 
-`Business Product Instance`  --> `Tenant`   :tenant  
+`Business Product`  --> `Service`   :uses  
 
-`Business Product`  --> `Scope`   :offered by  
-
-`Product Offering`  --> `Product Version`   :has product version  
-
-`Business Product Instance`  --> `Business Product`   :deployed instance of  
+`Business Product Instance`  --> `Site`   :site  
 
 `Product Offering`  --> `Service`   :uses  
 
-`Product Offering`  --> `Scope`   :offered by  
+`Business Product Instance`  --> `Service Instance`   :uses  
 
-`Business Product`  --> `Service`   :uses  
+`Business Product`  --> `Scope`   :offered by  
+
+`Business Product Instance`  --> `Business Product`   :deployed instance of  
+
+`Product Offering`  --> `Scope`   :offered by  
 
 `Business Product`  --> `Product Offering`   :A Business Product may have a number of commercial product offerings, which are usually made available in a product catalogue  
 

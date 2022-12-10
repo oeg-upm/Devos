@@ -34,6 +34,4 @@
 
 `Host Configuration`  --> `Host Flavor`   :flavor  
 
-`Host Configuration`  --> `Host Flavor`   :flavor  
-
 ```
