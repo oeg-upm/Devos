@@ -1,0 +1,7 @@
+http://ld.iospress.nl/rdf/datatype/yearOrYearMonth,4
+http://ld.iospress.nl/rdf/datatype/artifactId,2
+http://ld.iospress.nl/rdf/datatype/eIssn,2
+http://ld.iospress.nl/rdf/datatype/pIssn,2
+http://www.opengis.net/ont/geosparql#wktLiteral,2
+http://ld.iospress.nl/rdf/datatype/pageReference,2
+http://ld.iospress.nl/rdf/datatype/collectionNumber,2

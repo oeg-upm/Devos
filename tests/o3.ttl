@@ -9,22 +9,18 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 
-dbr:r1 rdf:type dbo:football.
-dbr:r2 rdf:type dbo:basket.
-dbr:r3 rdf:type dbo:basket.
-dbr:r4 rdf:type dbo:basket.
-dbr:r5 rdf:type dbo:basket.
-dbr:r6 rdf:type dbo:basket.
-dbr:r7 rdf:type dbo:golf.
-
-
 dbr:O2 rdf:type owl:Ontology.
-dbr:O2 dcterms:title "foot ball is one of the terms".
+dbr:O2 dcterms:title "foot ball is one of the terms in this Ontology".
+
+
+dbo:football a owl:Class.
+dbo:basket a owl:Class.
+dbo:foot a owl:Class.
+
+
 
 dbo:football rdfs:label "foot ball".
 dbo:basket rdfs:label "basket ball sport".
-
-dbr:r1 rdfs:label "R1".
 
 dbp:hasFoot  rdf:type owl:ObjectProperty.
 dbp:hasFootBall  rdf:type owl:ObjectProperty.

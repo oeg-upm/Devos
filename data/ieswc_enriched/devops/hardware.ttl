@@ -25,7 +25,8 @@ ns1:preferredNamespaceUri a owl:AnnotationProperty .
 
 <http://w3id.org/devops-infra/core#status> a owl:ObjectProperty .
 
-<http://w3id.org/devops-infra/data-center#DataCenter> a owl:Class .
+<http://w3id.org/devops-infra/data-center#DataCenter> a owl:Class ;
+    rdfs:label "Data Center" .
 
 <http://w3id.org/devops-infra/data-center#inDataCenter> a owl:ObjectProperty .
 
@@ -137,11 +138,15 @@ ns1:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:domain :NetworkCard ;
     rdfs:range xsd:string .
 
-<http://w3id.org/devops-infra/server#PhysicalServer> a owl:Class .
+<http://w3id.org/devops-infra/server#PhysicalServer> a owl:Class ;
+    rdfs:label "Physical Server" .
 
 <http://w3id.org/devops-infra/server#server> a owl:ObjectProperty .
 
-<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+<n7528814da8f44d8fba2a5baee1ba9995b1> rdfs:label "n7528814da8f44d8fba2a5baee1ba9995b1" .
+
+<http://w3id.org/devops-infra/core#Resource> a owl:Class ;
+    rdfs:label "Resource" .
 
 :Disk a owl:Class ;
     rdfs:label "Disk"@en ;
@@ -252,7 +257,8 @@ ns1:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:domain :HardwareItem ;
     rdfs:range xsd:float .
 
-owl:Ontology rdfs:label "Ontology" .
+<http://www.w3.org/2004/02/skos/core#Concept> a owl:Class ;
+    rdfs:label "Concept" .
 
 :diskSize a owl:DatatypeProperty ;
     rdfs:label "disk size"@en ;
@@ -335,18 +341,8 @@ owl:Ontology rdfs:label "Ontology" .
             owl:onProperty :serialNumber ],
         <http://w3id.org/devops-infra/core#Resource> .
 
-owl:AnnotationProperty rdfs:label "Annotation Property" .
-
-owl:ObjectProperty rdfs:label "Object Property" .
-
-owl:Class rdfs:label "Class" .
-
 :ServerHardware a owl:Class ;
     rdfs:label "Server Hardware"@en ;
     rdfs:comment "A Server Hardware is any type of hardware that can be found inside a frame. It includes firewalls, switches, F5 machines, etc."@en ;
     rdfs:subClassOf :HardwareItem .
-
-owl:Restriction rdfs:label "Restriction" .
-
-owl:DatatypeProperty rdfs:label "Datatype Property" .
 

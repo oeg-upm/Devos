@@ -1,0 +1,1 @@
+{"classes": ["Characteristic", "Question Parameter", "SIO_000085"], "relations": [["SIO_000085", "has parameter", "Question Parameter"]], "meta": "freq"}

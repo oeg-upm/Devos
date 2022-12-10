@@ -1,1 +1,1 @@
-{"classes": ["Annotation Property", "Object Property", "Datatype Property", "Class", "Ontology"], "relations": [], "meta": "leng"}
+{"classes": ["DNS Record", "Public IP Address", "IP Network", "Public NAT Entry", "IP Address", "Network Segment", "Virtual Floating IP Address"], "relations": [["IP Address", "belongs to IP network", "IP Network"], ["Network Segment", "part of an IP network", "IP Network"], ["Public NAT Entry", "exposes IP Address", "Public IP Address"]], "meta": "leng"}

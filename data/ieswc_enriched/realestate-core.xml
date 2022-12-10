@@ -5,7 +5,6 @@
    xmlns:dcterms="http://purl.org/dc/terms/"
    xmlns:owl="http://www.w3.org/2002/07/owl#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
@@ -98,8 +97,5 @@ Version 3.0 is a major and compatibility-breaking refactoring of REC:
 * All entities have been assigned rdfs:labels and the large majority rdfs:comments.
 * The modules have been documented with metadata using DC, CC, VANN, cpannotationschema, etc.
 * All IRI:s are now HTTPS</skos:historyNote>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Ontology">
-    <rdfs:label>Ontology</rdfs:label>
   </rdf:Description>
 </rdf:RDF>

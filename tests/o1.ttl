@@ -17,10 +17,18 @@ dbr:r5 rdf:type dbo:basket.
 dbr:r6 rdf:type dbo:basket.
 dbr:r7 rdf:type dbo:golf.
 
+dbo:football rdfs:label "foot ball".
 
+dbo:football a owl:Class.
+dbo:basket a owl:Class.
+dbo:foot a owl:Class.
+dbo:golf a owl:Class.
 
 dbp:hasFoot  rdf:type owl:ObjectProperty.
 dbp:hasFootBall  rdf:type owl:ObjectProperty.
+
+dbp:hasFoot rdfs:domain dbo:football.
+dbp:hasFoot rdfs:range dbo:foot.
 
 dbp:hasFoot rdfs:domain dbo:football.
 dbp:hasFoot rdfs:range dbo:foot.

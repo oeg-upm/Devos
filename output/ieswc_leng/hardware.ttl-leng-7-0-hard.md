@@ -2,30 +2,40 @@
 	classDiagram
 
     
-    class `Annotation Property` {
+    class `Network Card` {
     
     }
 
-    class `Object Property` {
+    class `Firewall` {
     
     }
 
-    class `Datatype Property` {
+    class `Frame` {
     
     }
 
-    class `Class` {
+    class `Switch` {
     
     }
 
-    class `Ontology` {
+    class `Hardware Batch` {
     
     }
 
-    class `Restriction` {
+    class `Server Hardware` {
+    
+    }
+
+    class `Disk` {
     
     }
 
 
+
+`Server Hardware`  --> `Hardware Batch`   :batch  
+
+`Network Card`  --> `Switch`   :switch  
+
+`Server Hardware`  --> `Frame`   :hosted in frame  
 
 ```

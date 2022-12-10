@@ -1,7 +1,7 @@
-http://www.w3.org/2002/07/owl#AnnotationProperty,2
-http://www.w3.org/2002/07/owl#DatatypeProperty,2
-http://www.w3.org/2002/07/owl#ObjectProperty,2
-http://www.w3.org/2002/07/owl#NamedIndividual,2
-http://www.w3.org/2004/02/skos/core#ConceptScheme,2
-http://www.w3.org/2002/07/owl#Ontology,1
-http://www.w3.org/2002/07/owl#Class,1
+http://w3id.org/devops-infra/data-center#DataCenter,46
+http://w3id.org/devops-infra/data-center#DataCenterConnection,29
+http://w3id.org/devops-infra/data-center#Location,26
+http://w3id.org/devops-infra/network#SSHChannel,2
+http://w3id.org/devops-infra/core#ResourceGroup,2
+http://w3id.org/devops-infra/network#IPAddress,2
+http://w3id.org/devops-infra/network#IPNetwork,2

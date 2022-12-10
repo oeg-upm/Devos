@@ -1,0 +1,1 @@
+{"classes": ["LearningPath", "Test", "Skill", "LearningGoal", "Classification", "LearningOutcome", "Recommendation"], "relations": [["LearningPath", "hasLearningGoal", "LearningGoal"], ["Skill", "hasClassification", "Classification"], ["Recommendation", "definesLearningPath", "LearningPath"], ["Skill", "hasLearningOutcome", "LearningOutcome"]], "meta": "leng"}

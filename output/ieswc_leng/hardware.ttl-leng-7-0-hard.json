@@ -1,1 +1,1 @@
-{"classes": ["Annotation Property", "Object Property", "Datatype Property", "Class", "Ontology", "Restriction"], "relations": [], "meta": "leng"}
+{"classes": ["Network Card", "Firewall", "Frame", "Switch", "Hardware Batch", "Server Hardware", "Disk"], "relations": [["Server Hardware", "batch", "Hardware Batch"], ["Network Card", "switch", "Switch"], ["Server Hardware", "hosted in frame", "Frame"]], "meta": "leng"}

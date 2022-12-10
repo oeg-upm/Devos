@@ -39,12 +39,15 @@ vann:preferredNamespacePrefix a owl:AnnotationProperty .
 vann:preferredNamespaceUri a owl:AnnotationProperty .
 
 qudt:Unit a owl:Class ;
+    rdfs:label "Unit" ;
     owl:equivalentClass cocoon:UnitOfMeasure .
 
 sosa:Observation a owl:Class ;
+    rdfs:label "Observation" ;
     owl:equivalentClass cocoon:Measurement .
 
 ssn-system:SystemProperty a owl:Class ;
+    rdfs:label "System Property" ;
     owl:equivalentClass cocoon:QualityOfService .
 
 foaf:givenname a owl:AnnotationProperty .
@@ -112,26 +115,33 @@ cocoon:Azure a gr:BusinessEntity,
     foaf:page <https://azure.microsoft.com/> .
 
 cocoon:CDNService a owl:Class ;
+    rdfs:label "CDN Service" ;
     rdfs:subClassOf cocoon:PaaS .
 
 cocoon:DNSQueryLatency a owl:Class ;
+    rdfs:label "DNS Query Latency" ;
     rdfs:subClassOf ssn-system:Latency .
 
 cocoon:DNSService a owl:Class ;
+    rdfs:label "DNS Service" ;
     rdfs:subClassOf cocoon:NetworkService .
 
 cocoon:Database a owl:Class ;
+    rdfs:label "Database" ;
     rdfs:subClassOf cocoon:SaaS .
 
 cocoon:DownlinkSpeed a owl:Class ;
+    rdfs:label "Downlink Speed" ;
     rdfs:subClassOf cocoon:DataTransferSpeed ;
     owl:disjointWith cocoon:UplinkSpeed .
 
 cocoon:Egress a owl:Class ;
+    rdfs:label "Egress" ;
     rdfs:subClassOf cocoon:TrafficDirection ;
     owl:disjointWith cocoon:Ingress .
 
 cocoon:ForwardingRule a owl:Class ;
+    rdfs:label "Forwarding Rule" ;
     rdfs:subClassOf cocoon:LoadBalancing .
 
 cocoon:GBPerHour a qudt:DataRateUnit,
@@ -170,6 +180,7 @@ cocoon:IOPsPerHour a qudt:DataRateUnit,
     rdfs:comment "Azure Ultra SSD Managed Disks come in different sizes that provide a configurable range of input/output operations per sec (IOPS), and are billed on an hourly rate."@en .
 
 cocoon:LoadBalancingData a owl:Class ;
+    rdfs:label "Load Balancing Data" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass cocoon:TrafficDirection ;
             owl:onProperty cocoon:hasDirection ;
@@ -177,6 +188,7 @@ cocoon:LoadBalancingData a owl:Class ;
         cocoon:LoadBalancing .
 
 cocoon:LocalStorage a owl:Class ;
+    rdfs:label "Local Storage" ;
     rdfs:comment "Storage that is not detachable from VM"@en ;
     rdfs:subClassOf cocoon:StorageService .
 
@@ -187,10 +199,12 @@ cocoon:MegabitsPerSecondPerHour a qudt:DataRateUnit,
     rdfs:comment "Often describe the throughput usage measured at MB/s within an hour."@en .
 
 cocoon:NetworkStorage a owl:Class ;
+    rdfs:label "Network Storage" ;
     rdfs:comment "Storage can exist independent from VM"@en ;
     rdfs:subClassOf cocoon:StorageService .
 
 cocoon:SystemImage a owl:Class ;
+    rdfs:label "System Image" ;
     rdfs:comment """A system image is a serialized copy of the entire state of a computer system.
 System images can be used for backup.""" ;
     rdfs:subClassOf cocoon:ComputeService .
@@ -209,15 +223,21 @@ cocoon:VcpuPerHour a owl:NamedIndividual,
 cocoon:hasServiceLevelAgreement a owl:ObjectProperty ;
     rdfs:subPropertyOf owl:topObjectProperty .
 
-gn:Feature a owl:Class .
+<nff796518ec1c4f3c9ab3937c6ce25d5fb63> rdfs:label "nff796518ec1c4f3c9ab3937c6ce25d5fb63" .
 
-owl:Ontology rdfs:label "Ontology" .
+<nff796518ec1c4f3c9ab3937c6ce25d5fb77> rdfs:label "nff796518ec1c4f3c9ab3937c6ce25d5fb77" .
 
-sosa:FeatureOfInterest a owl:Class .
+gn:Feature a owl:Class ;
+    rdfs:label "Feature" .
 
-sosa:Sensor a owl:Class .
+sosa:FeatureOfInterest a owl:Class ;
+    rdfs:label "Feature Of Interest" .
+
+sosa:Sensor a owl:Class ;
+    rdfs:label "Sensor" .
 
 ssn-system:Latency a owl:Class ;
+    rdfs:label "Latency" ;
     rdfs:subClassOf cocoon:QualityOfService .
 
 foaf:Person a owl:Class ;
@@ -226,14 +246,18 @@ foaf:Person a owl:Class ;
 schema:Person a owl:Class ;
     rdfs:label "Person" .
 
-schema:Place a owl:Class .
+schema:Place a owl:Class ;
+    rdfs:label "Place" .
 
-schema:Service a owl:Class .
+schema:Service a owl:Class ;
+    rdfs:label "Service" .
 
 cocoon:Ingress a owl:Class ;
+    rdfs:label "Ingress" ;
     rdfs:subClassOf cocoon:TrafficDirection .
 
 cocoon:InternetService a owl:Class ;
+    rdfs:label "Internet Service" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty cocoon:excludesDestination ;
             owl:someValuesFrom cocoon:Location ],
@@ -247,17 +271,21 @@ cocoon:InternetService a owl:Class ;
         cocoon:NetworkService .
 
 cocoon:Measurement a owl:Class ;
+    rdfs:label "Measurement" ;
     rdfs:comment "QoS stats can be stored as Measurements. This is an equivalent class to sosa:Observation."@en .
 
 cocoon:PaaS a owl:Class ;
+    rdfs:label "Paa S" ;
     rdfs:comment "Platform as a Service, i.e. Google App Engine, Heroku."@en ;
     rdfs:subClassOf cocoon:CloudService .
 
 cocoon:Service a owl:Class ;
+    rdfs:label "Service" ;
     owl:equivalentClass [ a owl:Class ;
             owl:unionOf ( sosa:FeatureOfInterest schema:Service ) ] .
 
 cocoon:StaticIPService a owl:Class ;
+    rdfs:label "Static IP Service" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
             owl:onProperty cocoon:inUse ;
@@ -265,6 +293,7 @@ cocoon:StaticIPService a owl:Class ;
         cocoon:NetworkService .
 
 cocoon:UplinkSpeed a owl:Class ;
+    rdfs:label "Uplink Speed" ;
     rdfs:subClassOf cocoon:DataTransferSpeed .
 
 cocoon:city a owl:DatatypeProperty ;
@@ -309,6 +338,7 @@ qudt:InformationEntropyUnit a owl:Class ;
     rdfs:label "Information Entropy Unit" .
 
 cocoon:CloudNetworkPriceSpecification a owl:Class ;
+    rdfs:label "Cloud Network Price Specification" ;
     rdfs:comment "This class can be used to model network services prices, including internet egress traffic, load balancing forwarding rules."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass schema:TypeAndQuantityNode ;
@@ -325,6 +355,7 @@ cocoon:CloudNetworkPriceSpecification a owl:Class ;
         cocoon:CloudServicePriceSpecification .
 
 cocoon:DataTransferSpeed a owl:Class ;
+    rdfs:label "Data Transfer Speed" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass schema:TypeAndQuantityNode ;
             owl:onProperty cocoon:transferedFileSizeMax ;
@@ -336,6 +367,7 @@ cocoon:DataTransferSpeed a owl:Class ;
         cocoon:QualityOfService .
 
 cocoon:Device a owl:Class ;
+    rdfs:label "Device" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onClass cocoon:Location ;
@@ -358,6 +390,7 @@ cocoon:MirandaZhangQian a owl:NamedIndividual,
     schema:url <https://github.com/miranda-zhang> .
 
 cocoon:SaaS a owl:Class ;
+    rdfs:label "Saa S" ;
     rdfs:comment "Software as a Service"@en ;
     rdfs:subClassOf cocoon:CloudService .
 
@@ -427,9 +460,8 @@ Egress between regions within the US (per GB) is 0.01.
 Egress to Google products (such as YouTube, Maps, Drive), whether from a VM in GCP with an external IP address or an internal IP address is no charge."""@en ;
     rdfs:subPropertyOf owl:topDataProperty .
 
-owl:AllDisjointClasses rdfs:label "All Disjoint Classes" .
-
 cocoon:CloudStorageTransactionsPriceSpecification a owl:Class ;
+    rdfs:label "Cloud Storage Transactions Price Specification" ;
     rdfs:comment """Can be used to define a common price spec for multiple cloud service individuals,
 i.e. the storage transaction spec has a different price in a different region,
 but there is a common transaction price spec for a group of cloud storage offers."""@en ;
@@ -445,22 +477,27 @@ cocoon:GB a qudt:InformationEntropyUnit,
     rdfs:comment "Gigabyte (GB): There are 1024MB in one gigabyte."@en .
 
 cocoon:IaaS a owl:Class ;
+    rdfs:label "Iaa S" ;
     rdfs:comment "Infrastructure as a Service"@en ;
     rdfs:subClassOf cocoon:CloudService .
 
 cocoon:LoadBalancing a owl:Class ;
+    rdfs:label "Load Balancing" ;
     rdfs:subClassOf cocoon:NetworkService .
 
 cocoon:QualityOfService a owl:Class ;
+    rdfs:label "Quality Of Service" ;
     rdfs:comment """This is an equivalent class to ssn-system:SystemProperty.
 QoS is more understandable in our context, and we can group related classed under this base class."""@en .
 
 gr:BusinessEntity a owl:Class ;
     rdfs:label "Business Entity" .
 
-gr:UnitPriceSpecification a owl:Class .
+gr:UnitPriceSpecification a owl:Class ;
+    rdfs:label "Unit Price Specification" .
 
 cocoon:CloudOSPriceSpecification a owl:Class ;
+    rdfs:label "Cloud OS Price Specification" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onDataRange xsd:boolean ;
             owl:onProperty cocoon:chargedPerCore ;
@@ -476,6 +513,7 @@ cocoon:CloudOSPriceSpecification a owl:Class ;
         cocoon:CloudServicePriceSpecification .
 
 cocoon:TrafficDirection a owl:Class ;
+    rdfs:label "Traffic Direction" ;
     rdfs:comment "Directions of internet data tranfer, or load balancing data. Can be either Ingress or Egress."@en .
 
 cocoon:inPhysicalLocation a owl:ObjectProperty ;
@@ -490,6 +528,7 @@ qudt:DataRateUnit a owl:Class ;
     rdfs:label "Data Rate Unit" .
 
 cocoon:CloudService a owl:Class ;
+    rdfs:label "Cloud Service" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty gr:hasPriceSpecification ;
             owl:someValuesFrom gr:UnitPriceSpecification ],
@@ -508,6 +547,7 @@ cocoon:CloudService a owl:Class ;
         cocoon:Service .
 
 cocoon:CloudServicePriceSpecification a owl:Class ;
+    rdfs:label "Cloud Service Price Specification" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty cocoon:inRegion ;
             owl:someValuesFrom cocoon:Region ],
@@ -518,9 +558,11 @@ cocoon:CloudServicePriceSpecification a owl:Class ;
         gr:UnitPriceSpecification .
 
 cocoon:NetworkService a owl:Class ;
+    rdfs:label "Network Service" ;
     rdfs:subClassOf cocoon:IaaS .
 
 cocoon:Region a owl:Class ;
+    rdfs:label "Region" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty cocoon:inJurisdiction ;
             owl:someValuesFrom cocoon:Location ],
@@ -547,6 +589,7 @@ cocoon:Region a owl:Class ;
         cocoon:Location .
 
 cocoon:StorageService a owl:Class ;
+    rdfs:label "Storage Service" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty cocoon:canHaveSnapshot ;
             owl:someValuesFrom cocoon:StorageService ],
@@ -565,6 +608,7 @@ cocoon:StorageService a owl:Class ;
         cocoon:IaaS .
 
 cocoon:ComputeService a owl:Class ;
+    rdfs:label "Compute Service" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty cocoon:hasStorage ;
             owl:someValuesFrom schema:TypeAndQuantityNode ],
@@ -595,6 +639,7 @@ cocoon:ComputeService a owl:Class ;
         cocoon:IaaS .
 
 cocoon:Location a owl:Class ;
+    rdfs:label "Location" ;
     owl:equivalentClass [ a owl:Class ;
             owl:unionOf ( gn:Feature schema:Place ) ] .
 
@@ -602,22 +647,8 @@ cocoon:UnitOfMeasure a owl:Class ;
     rdfs:label "Unit Of Measure" ;
     rdfs:comment "Defines custome units. This is an equivalent class to qudt:Unit."@en .
 
-owl:DatatypeProperty rdfs:label "Datatype Property" .
-
-owl:NamedIndividual rdfs:label "Named Individual" .
-
-owl:ObjectProperty rdfs:label "Object Property" .
-
 schema:TypeAndQuantityNode a owl:Class ;
     rdfs:label "Type And Quantity Node" .
-
-owl:Axiom rdfs:label "Axiom" .
-
-owl:AnnotationProperty rdfs:label "Annotation Property" .
-
-owl:Class rdfs:label "Class" .
-
-owl:Restriction rdfs:label "Restriction" .
 
 [] a owl:Axiom ;
     rdfs:comment """For example on Google Cloud, Windows Server images on some machine types are charged based on the number of CPUs, i.e., n1-standard-4, n1-highcpu-4, and n1-highmem-4 are machine-types with 4 vCPUs,

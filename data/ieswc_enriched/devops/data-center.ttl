@@ -1,17 +1,17 @@
 @prefix : <http://w3id.org/devops-infra/data-center#> .
-@prefix ns1: <http://purl.org/vocab/vann/> .
-@prefix ns2: <http://purl.org/dc/elements/1.1/> .
+@prefix ns1: <http://purl.org/dc/elements/1.1/> .
+@prefix ns2: <http://purl.org/vocab/vann/> .
 @prefix ns3: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ns2:creator a owl:AnnotationProperty .
+ns1:creator a owl:AnnotationProperty .
 
-ns2:identifier a owl:AnnotationProperty .
+ns1:identifier a owl:AnnotationProperty .
 
-ns2:title a owl:AnnotationProperty .
+ns1:title a owl:AnnotationProperty .
 
 ns3:hasFormat a owl:AnnotationProperty .
 
@@ -19,16 +19,16 @@ ns3:issued a owl:AnnotationProperty .
 
 ns3:license a owl:AnnotationProperty .
 
-ns1:preferredNamespacePrefix a owl:AnnotationProperty .
+ns2:preferredNamespacePrefix a owl:AnnotationProperty .
 
-ns1:preferredNamespaceUri a owl:AnnotationProperty .
+ns2:preferredNamespaceUri a owl:AnnotationProperty .
 
 <http://w3id.org/devops-infra/core#createTime> a owl:DatatypeProperty .
 
 <http://w3id.org/devops-infra/core#updateTime> a owl:DatatypeProperty .
 
 <http://w3id.org/devops-infra/data-center> a owl:Ontology ;
-    ns2:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+    ns1:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
         "Hu Peng (Huawei Research Ireland)",
         "Jhon Toledo (Ontology Engineering Group - Universidad Politécnica de Madrid)",
         "José Mora (Huawei Research Ireland)",
@@ -38,13 +38,13 @@ ns1:preferredNamespaceUri a owl:AnnotationProperty .
         "Oscar Corcho (Ontology Engineering Group - Universidad Politécnica de Madrid)",
         "Puchao Zhang (Huawei Research Ireland)",
         "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
-    ns2:identifier "http://w3id.org/devops-infra/data-center" ;
-    ns2:title "Ontology for the representation of data centers"@en ;
+    ns1:identifier "http://w3id.org/devops-infra/data-center" ;
+    ns1:title "Ontology for the representation of data centers"@en ;
     ns3:hasFormat "http://w3id.org/devops-infra/data-center.owl" ;
     ns3:issued "2021-04-15" ;
     ns3:license "https://creativecommons.org/licenses/by/4.0" ;
-    ns1:preferredNamespacePrefix "devopsdc" ;
-    ns1:preferredNamespaceUri "http://w3id.org/devops-infra/data-center#" ;
+    ns2:preferredNamespacePrefix "devopsdc" ;
+    ns2:preferredNamespaceUri "http://w3id.org/devops-infra/data-center#" ;
     rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
     owl:imports <http://w3id.org/devops-infra/core/1.0.0>,
         <http://www.w3.org/2004/02/skos/core> ;
@@ -70,9 +70,23 @@ ns1:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:comment "The Data Center may support specific resource requirements or capacity"@en ;
     rdfs:domain :DataCenter .
 
-<http://w3id.org/devops-infra/hardware#Frame> a owl:Class .
+<http://w3id.org/devops-infra/hardware#Frame> a owl:Class ;
+    rdfs:label "Frame" .
 
-<http://w3id.org/devops-infra/server#Server> a owl:Class .
+<http://w3id.org/devops-infra/server#Server> a owl:Class ;
+    rdfs:label "Server" .
+
+<n83c5b8c6e4fa483b94227a7b96b9a80cb1> rdfs:label "n83c5b8c6e4fa483b94227a7b96b9a80cb1" .
+
+<n83c5b8c6e4fa483b94227a7b96b9a80cb14> rdfs:label "n83c5b8c6e4fa483b94227a7b96b9a80cb14" .
+
+<n83c5b8c6e4fa483b94227a7b96b9a80cb19> rdfs:label "n83c5b8c6e4fa483b94227a7b96b9a80cb19" .
+
+<n83c5b8c6e4fa483b94227a7b96b9a80cb42> rdfs:label "n83c5b8c6e4fa483b94227a7b96b9a80cb42" .
+
+<n83c5b8c6e4fa483b94227a7b96b9a80cb5> rdfs:label "n83c5b8c6e4fa483b94227a7b96b9a80cb5" .
+
+<n83c5b8c6e4fa483b94227a7b96b9a80cb9> rdfs:label "n83c5b8c6e4fa483b94227a7b96b9a80cb9" .
 
 :allowsConnectionVia a owl:ObjectProperty ;
     rdfs:label "allows connection via"@en ;
@@ -222,7 +236,8 @@ ns1:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:domain :DataCenter ;
     rdfs:range xsd:string .
 
-<http://w3id.org/devops-infra/network#SSHChannel> a owl:Class .
+<http://w3id.org/devops-infra/network#SSHChannel> a owl:Class ;
+    rdfs:label "SSH Channel" .
 
 <http://w3id.org/devops-infra/network#delay> a owl:DatatypeProperty .
 
@@ -230,13 +245,12 @@ ns1:preferredNamespaceUri a owl:AnnotationProperty .
 
 <http://w3id.org/devops-infra/network#packetLoss> a owl:DatatypeProperty .
 
-owl:Ontology rdfs:label "Ontology" .
-
 <http://www.w3.org/2003/01/geo/wgs84_pos#lat> a owl:DatatypeProperty .
 
 <http://www.w3.org/2003/01/geo/wgs84_pos#long> a owl:DatatypeProperty .
 
-<http://w3id.org/devops-infra/core#ResourceGroup> a owl:Class .
+<http://w3id.org/devops-infra/core#ResourceGroup> a owl:Class ;
+    rdfs:label "Resource Group" .
 
 <http://w3id.org/devops-infra/kos/connection-type> a owl:NamedIndividual,
         <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
@@ -244,19 +258,22 @@ owl:Ontology rdfs:label "Ontology" .
 <http://w3id.org/devops-infra/kos/data-center-type> a owl:NamedIndividual,
         <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
 
-<http://w3id.org/devops-infra/network#IPAddress> a owl:Class .
+<http://w3id.org/devops-infra/network#IPAddress> a owl:Class ;
+    rdfs:label "IP Address" .
 
-<http://w3id.org/devops-infra/network#IPNetwork> a owl:Class .
+<http://w3id.org/devops-infra/network#IPNetwork> a owl:Class ;
+    rdfs:label "IP Network" .
 
-<http://w3id.org/devops-infra/network#NetworkSegment> a owl:Class .
+<http://w3id.org/devops-infra/network#NetworkSegment> a owl:Class ;
+    rdfs:label "Network Segment" .
 
 <http://w3id.org/devops-infra/network#bandwidth> a owl:DatatypeProperty .
 
-<http://w3id.org/devops-infra/organisation#Site> a owl:Class .
+<http://w3id.org/devops-infra/organisation#Site> a owl:Class ;
+    rdfs:label "Site" .
 
-owl:NamedIndividual rdfs:label "Named Individual" .
-
-<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdfs:label "Concept Scheme" .
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> a owl:Class ;
+    rdfs:label "Concept Scheme" .
 
 :DataCenterConnection a owl:Class ;
     rdfs:label "Data Center Connection"@en ;
@@ -284,7 +301,8 @@ owl:NamedIndividual rdfs:label "Named Individual" .
             owl:onProperty <http://w3id.org/devops-infra/network#packetLoss> ],
         <http://w3id.org/devops-infra/core#Resource> .
 
-<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+<http://w3id.org/devops-infra/core#Resource> a owl:Class ;
+    rdfs:label "Resource" .
 
 :Location a owl:Class ;
     rdfs:label "Location"@en ;
@@ -305,14 +323,6 @@ owl:NamedIndividual rdfs:label "Named Individual" .
             owl:allValuesFrom xsd:double ;
             owl:onProperty <http://www.w3.org/2003/01/geo/wgs84_pos#long> ],
         <http://w3id.org/devops-infra/core#Resource> .
-
-owl:AnnotationProperty rdfs:label "Annotation Property" .
-
-owl:ObjectProperty rdfs:label "Object Property" .
-
-owl:Class rdfs:label "Class" .
-
-owl:DatatypeProperty rdfs:label "Datatype Property" .
 
 :DataCenter a owl:Class ;
     rdfs:label "Data Center"@en ;
@@ -388,6 +398,4 @@ owl:DatatypeProperty rdfs:label "Datatype Property" .
             owl:allValuesFrom xsd:string ;
             owl:onProperty <http://w3id.org/devops-infra/network#bandwidth> ],
         <http://w3id.org/devops-infra/core#Resource> .
-
-owl:Restriction rdfs:label "Restriction" .
 

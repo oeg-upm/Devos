@@ -22,11 +22,13 @@ ns3:preferredNamespacePrefix a owl:AnnotationProperty .
 
 ns3:preferredNamespaceUri a owl:AnnotationProperty .
 
-<http://w3id.org/devops-infra/data-center#DataCenter> a owl:Class .
+<http://w3id.org/devops-infra/data-center#DataCenter> a owl:Class ;
+    rdfs:label "Data Center" .
 
 <http://w3id.org/devops-infra/data-center#inDataCenter> a owl:ObjectProperty .
 
-<http://w3id.org/devops-infra/hardware#Firewall> a owl:Class .
+<http://w3id.org/devops-infra/hardware#Firewall> a owl:Class ;
+    rdfs:label "Firewall" .
 
 <http://w3id.org/devops-infra/network> a owl:Ontology ;
     ns1:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
@@ -262,13 +264,15 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:domain :DNSRecord ;
     rdfs:range xsd:float .
 
-<http://w3id.org/devops-infra/organisation#Site> a owl:Class .
+<http://w3id.org/devops-infra/organisation#Site> a owl:Class ;
+    rdfs:label "Site" .
 
 <http://w3id.org/devops-infra/organisation#site> a owl:ObjectProperty .
 
 <http://w3id.org/devops-infra/product#serviceInstanceDeployment> a owl:ObjectProperty .
 
-<http://w3id.org/devops-infra/certificate#DigitalCertificate> a owl:Class .
+<http://w3id.org/devops-infra/certificate#DigitalCertificate> a owl:Class ;
+    rdfs:label "Digital Certificate" .
 
 :FirewallCluster a owl:Class ;
     rdfs:label "Firewall Cluster"@en ;
@@ -290,8 +294,6 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:comment "A virtual (floating) IP address is an IP address that doesn't correspond to an actual physical network interface. Uses for VIPs include network address translation (especially, one-to-many NAT), fault-tolerance, and mobility."@en ;
     rdfs:subClassOf :IPAddress .
 
-owl:Ontology rdfs:label "Ontology" .
-
 :SSHChannel a owl:Class ;
     rdfs:label "SSH Channel"@en ;
     rdfs:comment "A secure channel over an unsecured network by using a client–server architecture, connecting an SSH client application with an SSH server"@en ;
@@ -308,6 +310,9 @@ owl:Ontology rdfs:label "Ontology" .
     rdfs:comment "For a DNS domain, the port where it can be reached"@en ;
     rdfs:domain :DNSDomain ;
     rdfs:range xsd:string .
+
+<http://www.w3.org/2004/02/skos/core#Concept> a owl:Class ;
+    rdfs:label "Concept" .
 
 :PublicIPAddress a owl:Class ;
     rdfs:label "Public IP Address"@en ;
@@ -329,9 +334,8 @@ owl:Ontology rdfs:label "Ontology" .
     rdfs:comment "Network address translation (NAT) is a method of remapping an IP address space into another by modifying network address information in the IP header of packets while they are in transit across a traffic routing device. A Public NAT Entry contains information about the wahy in which a source IP address and port is transformed into a destination IP address and port"@en ;
     rdfs:subClassOf <http://w3id.org/devops-infra/core#Resource> .
 
-<http://w3id.org/devops-infra/core#Resource> a owl:Class .
-
-owl:AnnotationProperty rdfs:label "Annotation Property" .
+<http://w3id.org/devops-infra/core#Resource> a owl:Class ;
+    rdfs:label "Resource" .
 
 :DNSRecord a owl:Class ;
     rdfs:label "DNS Record"@en ;
@@ -342,10 +346,4 @@ owl:AnnotationProperty rdfs:label "Annotation Property" .
     rdfs:label "IP Address"@en ;
     rdfs:comment "An Internet Protocol address (IP address) is a numerical label assigned to each device connected to a computer network that uses the Internet Protocol for communication. An IP address serves two main functions: host or network interface identification and location addressing."@en ;
     rdfs:subClassOf <http://w3id.org/devops-infra/core#Resource> .
-
-owl:ObjectProperty rdfs:label "Object Property" .
-
-owl:Class rdfs:label "Class" .
-
-owl:DatatypeProperty rdfs:label "Datatype Property" .
 

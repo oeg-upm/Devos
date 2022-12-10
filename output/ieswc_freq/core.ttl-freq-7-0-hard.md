@@ -10,15 +10,11 @@
     
     }
 
-    class `ned17e9e1a6044495996b57c68b2fa722b7` {
+    class `nd7f1f7305fd041cca2d9a680634f106bb7` {
     
     }
 
-    class `ned17e9e1a6044495996b57c68b2fa722b10` {
-    
-    }
-
-    class `ned17e9e1a6044495996b57c68b2fa722b20` {
+    class `nd7f1f7305fd041cca2d9a680634f106bb10` {
     
     }
 
@@ -30,26 +26,30 @@
     
     }
 
+    class `nd7f1f7305fd041cca2d9a680634f106bb20` {
+    
+    }
 
 
-`Configuration Item`  --> `Configuration Item`   :depends on  
+
+`Resource Group`  --> `Resource Group`   :parent Resource Group  
 
 `Configuration Item`  --> `Resource Group`   :belongs to resource group  
 
-`Resource Group`  --> `Resource Group`   :parent Resource Group  
+`Configuration Item`  --> `Configuration Item`   :depends on  
 
-`Configuration Item`  --> `ned17e9e1a6044495996b57c68b2fa722b20`   :status  
+`Resource Group`  --> `Resource Group`   :parent Resource Group  
 
 `Configuration Item`  --> `Scope`   :scope  
 
-`Configuration Item`  --> `Configuration Item`   :depends on  
-
 `Resource Group`  --> `Resource Group`   :parent Resource Group  
 
 `Configuration Item`  --> `Configuration Item`   :depends on  
-
-`Resource Group`  --> `Resource Group`   :parent Resource Group  
 
 `Resource`  --> `Resource Group`   :belongs to resource group  
+
+`Configuration Item`  --> `nd7f1f7305fd041cca2d9a680634f106bb20`   :status  
+
+`Configuration Item`  --> `Configuration Item`   :depends on  
 
 ```

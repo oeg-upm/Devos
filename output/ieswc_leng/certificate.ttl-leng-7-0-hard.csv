@@ -1,7 +1,7 @@
-http://www.w3.org/2002/07/owl#AnnotationProperty,2
-http://www.w3.org/2002/07/owl#ObjectProperty,2
-http://www.w3.org/2002/07/owl#DatatypeProperty,2
-http://www.w3.org/2002/07/owl#Ontology,1
-http://www.w3.org/2002/07/owl#Class,1
-http://www.w3.org/2002/07/owl#Restriction,1
+http://w3id.org/devops-infra/certificate#CertificateSigningRequest,89
+http://w3id.org/devops-infra/certificate#SSLCertificate,64
+http://w3id.org/devops-infra/certificate#DigitalCertificate,35
+http://w3id.org/devops-infra/certificate#CFCACertificate,24
+http://w3id.org/devops-infra/certificate#DigitalCertificateDeployment,24
+http://w3id.org/devops-infra/certificate#DigitalCertificateBundle,13
 http://www.w3.org/2000/01/rdf-schema#Datatype,1

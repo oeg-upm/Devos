@@ -2,19 +2,15 @@
 	classDiagram
 
     
-    class `Annotation Property` {
+    class `Database Scan Report` {
     
     }
 
-    class `Datatype Property` {
+    class `Database Big Table` {
     
     }
 
-    class `Object Property` {
-    
-    }
-
-    class `Named Individual` {
+    class `Database Replica` {
     
     }
 
@@ -22,7 +18,11 @@
     
     }
 
-    class `Ontology` {
+    class `Database Instance` {
+    
+    }
+
+    class `Server` {
     
     }
 
@@ -31,5 +31,9 @@
     }
 
 
+
+`Database Instance`  --> `Server`   :hostedBy  
+
+`Database Instance`  --> `Server`   :hostedBy  
 
 ```

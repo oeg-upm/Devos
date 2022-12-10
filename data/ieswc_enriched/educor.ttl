@@ -1,22 +1,22 @@
 @prefix : <https://github.com/tibonto/educor#> .
-@prefix ns1: <http://www.w3.org/2004/02/skos/core#> .
-@prefix ns2: <http://purl.org/dc/elements/1.1/> .
-@prefix ns3: <http://purl.org/dc/terms/> .
-@prefix ns4: <http://schema.org/> .
+@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://purl.org/dc/elements/1.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ns2:description a owl:AnnotationProperty .
+ns4:description a owl:AnnotationProperty .
 
-ns2:source a owl:DatatypeProperty ;
+ns4:source a owl:DatatypeProperty ;
     rdfs:label "source"@en ;
     rdfs:domain :TaxonPath ;
     rdfs:range rdf:langString ;
     rdfs:subPropertyOf owl:topDataProperty .
 
-ns2:title a owl:DatatypeProperty ;
+ns4:title a owl:DatatypeProperty ;
     rdfs:domain :EducationalResource,
         :Exercise,
         :KnowledgeTopic,
@@ -25,7 +25,7 @@ ns2:title a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf owl:topDataProperty .
 
-ns2:type a owl:DatatypeProperty ;
+ns4:type a owl:DatatypeProperty ;
     rdfs:label "type"@en ;
     rdfs:domain :Answer,
         :Exercise,
@@ -35,7 +35,7 @@ ns2:type a owl:DatatypeProperty ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf owl:topDataProperty .
 
-ns3:description a owl:DatatypeProperty ;
+ns1:description a owl:DatatypeProperty ;
     rdfs:label "description"@en ;
     rdfs:domain :Classification,
         :EducationalResource,
@@ -51,50 +51,50 @@ ns3:description a owl:DatatypeProperty ;
     rdfs:range rdfs:Literal ;
     rdfs:seeAlso <https://schema.org/educationalLevel> ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "The educational level a resource is part of. A resource's educational level can vary depending the skill and the domain."@en .
+    ns2:definition "The educational level a resource is part of. A resource's educational level can vary depending the skill and the domain."@en .
 
-ns4:email a owl:DatatypeProperty ;
+ns3:email a owl:DatatypeProperty ;
     rdfs:label "email"@en ;
     rdfs:domain :User ;
     rdfs:range rdf:langString ;
     rdfs:subPropertyOf owl:topDataProperty .
 
-ns4:inverseOf a owl:AnnotationProperty .
+ns3:inverseOf a owl:AnnotationProperty .
 
-ns1:altLabel a owl:AnnotationProperty .
+ns2:altLabel a owl:AnnotationProperty .
 
-ns1:comment a owl:AnnotationProperty .
+ns2:comment a owl:AnnotationProperty .
 
-ns1:definition a owl:AnnotationProperty .
+ns2:definition a owl:AnnotationProperty .
 
-ns1:example a owl:AnnotationProperty .
+ns2:example a owl:AnnotationProperty .
 
-ns1:prefLabel a owl:AnnotationProperty,
+ns2:prefLabel a owl:AnnotationProperty,
         owl:DatatypeProperty ;
     rdfs:label "prefLabel"@en ;
     rdfs:domain :Skill ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:altLabel "preferredLabel"@en .
+    ns2:altLabel "preferredLabel"@en .
 
 : a owl:Ontology ;
-    ns2:contributor "Dr. Gabor Kismihok",
+    ns4:contributor "Dr. Gabor Kismihok",
         "Dr. Sherzod Hakimov",
         "Eleni Ilkou",
         "Hasan Abu-Rasheed",
         "Mohammadreza Tavakoli",
         "Prof. Dr. Soeren Auer",
         "Prof. Dr. Wolfgang Nejdl" ;
-    ns2:creator "Knowgraphs and ScienceGRAPH project" ;
-    ns2:description """EduCOR: An Education Career Oriented Recommendation Ontology
+    ns4:creator "Knowgraphs and ScienceGRAPH project" ;
+    ns4:description """EduCOR: An Education Career Oriented Recommendation Ontology
 
 We introduce the EduCOR ontology for personalised learning recommendation systems linking education with the labour market. The ontology is developed in OWL in Protege 5.0.0."""@en ;
-    ns2:title "EduCOR Ontology"@en ;
-    ns3:abstract "With the increased dependence on online learning platformsand educational resource repositories, a unified representation of digitallearning  resources  becomes  essential  to  support  a  dynamic  and  multi-source learning experience. We introduce the EduCOR ontology, an edu-cational,  career-oriented  ontology  that  provides  a  foundation  for  representing  online  learning  resources  for  personalised  learning  systems.The ontology is designed to enable learning material repositories to offer learning path recommendations, which correspond to the user’s learning goals,  academic  and  psychological  parameters,  and  the  labour-market skills  that  are  achieved  from  the  learning  path.  We  present  the  multi-ple patterns that compose the EduCOR ontology, highlighting its cross-domain applicability and integrability with other ontologies. A demonstration of the proposed ontology on the real-life learning platform eDoer is discussed as a use-case. We evaluate the EduCOR ontology using both gold standard and task-based approaches. The comparison ofEduCOR to three gold schemata, and its application in two use-cases,shows its coverage and adaptability to multiple OER repositories, which allows generating user-centric and labour-market oriented recommendations."@en ;
-    ns3:created "2021-04-19" ;
-    ns3:language "en" ;
-    ns3:license "CC0 1.0 Universal" ;
-    ns3:publisher "TIB – Leibniz Information Centre for Science and Technology, Hannover, Germany" ;
+    ns4:title "EduCOR Ontology"@en ;
+    ns1:abstract "With the increased dependence on online learning platformsand educational resource repositories, a unified representation of digitallearning  resources  becomes  essential  to  support  a  dynamic  and  multi-source learning experience. We introduce the EduCOR ontology, an edu-cational,  career-oriented  ontology  that  provides  a  foundation  for  representing  online  learning  resources  for  personalised  learning  systems.The ontology is designed to enable learning material repositories to offer learning path recommendations, which correspond to the user’s learning goals,  academic  and  psychological  parameters,  and  the  labour-market skills  that  are  achieved  from  the  learning  path.  We  present  the  multi-ple patterns that compose the EduCOR ontology, highlighting its cross-domain applicability and integrability with other ontologies. A demonstration of the proposed ontology on the real-life learning platform eDoer is discussed as a use-case. We evaluate the EduCOR ontology using both gold standard and task-based approaches. The comparison ofEduCOR to three gold schemata, and its application in two use-cases,shows its coverage and adaptability to multiple OER repositories, which allows generating user-centric and labour-market oriented recommendations."@en ;
+    ns1:created "2021-04-19" ;
+    ns1:language "en" ;
+    ns1:license "CC0 1.0 Universal" ;
+    ns1:publisher "TIB – Leibniz Information Centre for Science and Technology, Hannover, Germany" ;
     owl:versionIRI <https://github.com/tibonto/educor#/0.0.1> ;
     owl:versionInfo "0.0.1 - first version"@en .
 
@@ -103,12 +103,12 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:domain :AcademicParameter ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "Represents a measurable metric of the academic performance."@en ;
-    ns1:example "previous test scores."@en .
+    ns2:definition "Represents a measurable metric of the academic performance."@en ;
+    ns2:example "previous test scores."@en .
 
 :accessibility a owl:ObjectProperty ;
     rdfs:label "accessibility"@en ;
-    ns4:inverseOf "accessibilityOf"@en ;
+    ns3:inverseOf "accessibilityOf"@en ;
     rdfs:domain :EducationalResource,
         :UserProfile ;
     rdfs:range :Accessibility ;
@@ -125,7 +125,7 @@ We introduce the EduCOR ontology for personalised learning recommendation system
 
 :consistsOfKnowledge a owl:ObjectProperty ;
     rdfs:label "consistsOfKnowledge"@en ;
-    ns4:inverseOf "hasKnowledgeTopic"@en ;
+    ns3:inverseOf "hasKnowledgeTopic"@en ;
     rdfs:domain :LearningPath ;
     rdfs:range :KnowledgeTopic ;
     rdfs:subPropertyOf owl:topObjectProperty .
@@ -143,16 +143,16 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:range rdfs:Literal ;
     rdfs:seeAlso "http://purl.org/dcx/lrmi-vocabs/alignmentType/complexityLevel" ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "The difficulty level of an Educational Resource"@en ;
-    ns1:example "Easy"@en .
+    ns2:definition "The difficulty level of an Educational Resource"@en ;
+    ns2:example "Easy"@en .
 
 :dynamicIndicator a owl:DatatypeProperty ;
     rdfs:label "dynamicIndicator"@en ;
     rdfs:domain :PsycologicalParameter ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "Represents a Psychological Parameter that changes continuously with time." ;
-    ns1:example "willingness to read long texts" .
+    ns2:definition "Represents a Psychological Parameter that changes continuously with time." ;
+    ns2:example "willingness to read long texts" .
 
 :entry a owl:DatatypeProperty ;
     rdfs:label "entry"@en ;
@@ -165,12 +165,12 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:domain :Recommendation ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "The user's feedback on the recommendation they receive"@en ;
-    ns1:example "4 out of 5 stars"@en .
+    ns2:definition "The user's feedback on the recommendation they receive"@en ;
+    ns2:example "4 out of 5 stars"@en .
 
 :generatedFrom a owl:ObjectProperty ;
     rdfs:label "generatedFrom"@en ;
-    ns4:inverseOf "generates"@en ;
+    ns3:inverseOf "generates"@en ;
     rdfs:domain :Recommendation ;
     rdfs:range :UserProfile ;
     rdfs:subPropertyOf owl:topObjectProperty .
@@ -189,7 +189,7 @@ We introduce the EduCOR ontology for personalised learning recommendation system
 
 :hasAnswer a owl:ObjectProperty ;
     rdfs:label "hasAnswer"@en ;
-    ns4:inverseOf "hasQuestion"@en ;
+    ns3:inverseOf "hasQuestion"@en ;
     rdfs:domain :Question ;
     rdfs:range :Answer ;
     rdfs:subPropertyOf owl:topObjectProperty .
@@ -200,18 +200,18 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:domain :Skill ;
     rdfs:range :Classification ;
     rdfs:subPropertyOf owl:topObjectProperty ;
-    ns1:definition "The skill defines a classification of knowledge topics in order to be mastered"@en .
+    ns2:definition "The skill defines a classification of knowledge topics in order to be mastered"@en .
 
 :hasEducationalResource a owl:ObjectProperty ;
     rdfs:label "hasEducationalResource"@en ;
-    ns4:inverseOf "hasKnowledgeTopic"@en ;
+    ns3:inverseOf "hasKnowledgeTopic"@en ;
     rdfs:domain :KnowledgeTopic ;
     rdfs:range :EducationalResource ;
     rdfs:subPropertyOf owl:topObjectProperty .
 
 :hasExercise a owl:ObjectProperty ;
     rdfs:label "hasExercise"@en ;
-    ns4:inverseOf "hasKnowledgeTopic"@en ;
+    ns3:inverseOf "hasKnowledgeTopic"@en ;
     rdfs:domain :KnowledgeTopic ;
     rdfs:range :Exercise ;
     rdfs:subPropertyOf owl:topObjectProperty .
@@ -228,7 +228,7 @@ We introduce the EduCOR ontology for personalised learning recommendation system
 
 :hasLearningGoal a owl:ObjectProperty ;
     rdfs:label "hasLearningGoal"@en ;
-    ns4:inverseOf "hasLearningPath"@en ;
+    ns3:inverseOf "hasLearningPath"@en ;
     rdfs:domain :LearningPath ;
     rdfs:range :LearningGoal ;
     rdfs:subPropertyOf owl:topObjectProperty .
@@ -243,7 +243,7 @@ We introduce the EduCOR ontology for personalised learning recommendation system
 
 :hasMethodology a owl:ObjectProperty ;
     rdfs:label "hasMethodology"@en ;
-    ns4:inverseOf "hasKnowledgeTopic"@en ;
+    ns3:inverseOf "hasKnowledgeTopic"@en ;
     rdfs:domain :KnowledgeTopic ;
     rdfs:range :Methodology ;
     rdfs:subPropertyOf owl:topObjectProperty .
@@ -274,7 +274,7 @@ We introduce the EduCOR ontology for personalised learning recommendation system
 
 :hasTheory a owl:ObjectProperty ;
     rdfs:label "hasTheory"@en ;
-    ns4:inverseOf "hasKnowledgeTopic"@en ;
+    ns3:inverseOf "hasKnowledgeTopic"@en ;
     rdfs:domain :KnowledgeTopic ;
     rdfs:range :Theory ;
     rdfs:subPropertyOf owl:topObjectProperty .
@@ -284,20 +284,20 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:domain :PsycologicalParameter ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "A high-level representation of the indication of Static Indicator and Dynamic Indicator classes."@en ;
-    ns1:example "level of tiredness"@en .
+    ns2:definition "A high-level representation of the indication of Static Indicator and Dynamic Indicator classes."@en ;
+    ns2:example "level of tiredness"@en .
 
 :requirement a owl:DatatypeProperty ;
     rdfs:label "requirement"@en ;
     rdfs:domain :Recommendation ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "Represents any required process in the generation of a recommendation."@en ;
-    ns1:example "ordering the Educational Topics in the Learning Path based on their difficulty."@en .
+    ns2:definition "Represents any required process in the generation of a recommendation."@en ;
+    ns2:example "ordering the Educational Topics in the Learning Path based on their difficulty."@en .
 
 :requiresKnowledge a owl:ObjectProperty ;
     rdfs:label "requiresKnowledge"@en ;
-    ns4:inverseOf "formulatesSkill"@en ;
+    ns3:inverseOf "formulatesSkill"@en ;
     rdfs:domain :Skill ;
     rdfs:range :KnowledgeTopic ;
     rdfs:subPropertyOf owl:topObjectProperty .
@@ -307,12 +307,12 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:domain :Question ;
     rdfs:range xsd:double ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "The score the user received for an answered question"@en ;
-    ns1:example 0.5 .
+    ns2:definition "The score the user received for an answered question"@en ;
+    ns2:example 0.5 .
 
 :solves a owl:ObjectProperty ;
     rdfs:label "solves"@en ;
-    ns4:inverseOf "isSolved"@en ;
+    ns3:inverseOf "isSolved"@en ;
     rdfs:domain :User ;
     rdfs:range :Exercise,
         :Test ;
@@ -323,12 +323,12 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:domain :PsycologicalParameter ;
     rdfs:range rdfs:Literal ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "Represents a Psychological Parameter that does not rapidly change with time."@en ;
-    ns1:example "User tendency to learn by doing (e.g. performing experiments)."@en .
+    ns2:definition "Represents a Psychological Parameter that does not rapidly change with time."@en ;
+    ns2:example "User tendency to learn by doing (e.g. performing experiments)."@en .
 
 :storedIn a owl:ObjectProperty ;
     rdfs:label "storedIn"@en ;
-    ns4:inverseOf "stores"@en ;
+    ns3:inverseOf "stores"@en ;
     rdfs:domain :AcademicParameter,
         :LearningGoal,
         :LearningPreference,
@@ -344,14 +344,14 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:domain :LearningPath ;
     rdfs:range rdf:langString ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "The knowledge topics and their components a user has mastered in the past"@en .
+    ns2:definition "The knowledge topics and their components a user has mastered in the past"@en .
 
 :studyPlan a owl:DatatypeProperty ;
     rdfs:label "studyPlan"@en ;
     rdfs:domain :LearningPath ;
     rdfs:range rdf:langString ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "The list knowledge topics between the current topic and the learning goal"@en .
+    ns2:definition "The list knowledge topics between the current topic and the learning goal"@en .
 
 :testKnowledgeTopic a owl:ObjectProperty ;
     rdfs:label "testKnowledgeTopic"@en ;
@@ -374,15 +374,15 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:domain :EducationalResource ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "The person who provides the EducationalResource"@en .
+    ns2:definition "The person who provides the EducationalResource"@en .
 
 <https://schema.org/contentRating> a owl:DatatypeProperty ;
     rdfs:label "contentRating"@en ;
     rdfs:domain :EducationalResource ;
     rdfs:range xsd:integer ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:definition "The user rating of the Educational Resource."@en ;
-    ns1:example "7 out of 10 stars." .
+    ns2:definition "The user rating of the Educational Resource."@en ;
+    ns2:example "7 out of 10 stars." .
 
 <https://schema.org/dateCreated> a owl:DatatypeProperty ;
     rdfs:label "dateCreated"@en ;
@@ -395,7 +395,7 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:domain :Taxon ;
     rdfs:range rdf:langString ;
     rdfs:subPropertyOf owl:topDataProperty ;
-    ns1:altLabel "id"@en .
+    ns2:altLabel "id"@en .
 
 <https://schema.org/image> a owl:Class ;
     rdfs:label "Image"@en ;
@@ -442,151 +442,147 @@ We introduce the EduCOR ontology for personalised learning recommendation system
     rdfs:label "Video"@en ;
     rdfs:subClassOf :MultimediaData .
 
-owl:Ontology rdfs:label "Ontology" .
-
 :Accessibility a owl:Class ;
     rdfs:label "Accessibility"@en ;
     rdfs:seeAlso <https://schema.org/accessibilitySummary> ;
-    ns1:definition "It describes the user access and content accessibility rights. It can be used as a plugin point to connect with other ontologies."@en .
+    ns2:definition "It describes the user access and content accessibility rights. It can be used as a plugin point to connect with other ontologies."@en .
 
 :LearningPreference a owl:Class ;
     rdfs:label "LearningPreference"@en ;
     rdfs:comment "It is based on the theory which identifies four learning styles (visual, auditory, reading, and kinesthetic)."@en ;
-    ns1:definition "The learning preference of the user based on the learning styles theory"@en ;
-    ns1:example "Visual"@en .
+    ns2:definition "The learning preference of the user based on the learning styles theory"@en ;
+    ns2:example "Visual"@en .
 
 :QualityIndicator a owl:Class ;
     rdfs:label "QualityIndicator"@en ;
-    ns1:definition "The quality indicator of multimedia, metadata, overall etc"@en ;
-    ns1:example "The overall quality indicator is high"@en .
+    ns2:definition "The quality indicator of multimedia, metadata, overall etc"@en ;
+    ns2:example "The overall quality indicator is high"@en .
 
 :UserLogs a owl:Class ;
     rdfs:label "UserLogs"@en ;
-    ns1:definition "The user's history activity in the system"@en .
+    ns2:definition "The user's history activity in the system"@en .
 
 <https://w3id.org/ccso/ccso#LearningOutcome> a owl:Class ;
     rdfs:label "LearningOutcome"@en ;
-    ns1:definition "The learning outcomes and demonstrable skills or knowledge that will be acquired by a student as a result of the learning goal. It is found in text format."@en ;
-    ns1:example "The learning outcome of \"Python Programming\" could be  \"The student understands the syntax and semantics of the basic Python language elements.\""@en .
+    ns2:definition "The learning outcomes and demonstrable skills or knowledge that will be acquired by a student as a result of the learning goal. It is found in text format."@en ;
+    ns2:example "The learning outcome of \"Python Programming\" could be  \"The student understands the syntax and semantics of the basic Python language elements.\""@en .
 
 :AcademicParameter a owl:Class ;
     rdfs:label "AcademicParameter"@en ;
-    ns1:definition "It contains the quantitative parameters regarding a user performance"@en ;
-    ns1:example "The average score on tests so far"@en .
+    ns2:definition "It contains the quantitative parameters regarding a user performance"@en ;
+    ns2:example "The average score on tests so far"@en .
 
 :LearningGoal a owl:Class ;
     rdfs:label "LearningGoal"@en ;
     rdfs:comment "The Learning Goal can vary depending on the personalisation level. For example a user might care to learn some specific topics and not all the skill set."@en ;
-    ns1:definition "The reach point of a learning path. The completion of a set of knowledge topics which can lead to mastering a skill. The learning goal in our design can be a Skill or a Knowledge Topic"@en ;
-    ns1:example "A learning goal could be the skill \"Python Programming\" or the last Knowledge Topic in this skill set the \"Virtual environments in Python\""@en .
+    ns2:definition "The reach point of a learning path. The completion of a set of knowledge topics which can lead to mastering a skill. The learning goal in our design can be a Skill or a Knowledge Topic"@en ;
+    ns2:example "A learning goal could be the skill \"Python Programming\" or the last Knowledge Topic in this skill set the \"Virtual environments in Python\""@en .
 
 :Methodology a owl:Class ;
     rdfs:label "Methodology"@en ;
-    ns2:description "A way to teach the theory and exercises. Different curricula define different theoretical and solving approaches for the same content, therefore define different methodologies"@en ;
-    ns1:example "In \"Quadratic Equation\" Knowledge Topic, exist the Methodologies \"Vieta's Formula\", \"Discriminant\", \"Completing Square\" etc"@en .
+    ns4:description "A way to teach the theory and exercises. Different curricula define different theoretical and solving approaches for the same content, therefore define different methodologies"@en ;
+    ns2:example "In \"Quadratic Equation\" Knowledge Topic, exist the Methodologies \"Vieta's Formula\", \"Discriminant\", \"Completing Square\" etc"@en .
 
 :TaxonPath a owl:Class ;
     rdfs:label "TaxonPath"@en ;
     rdfs:subClassOf :Classification ;
-    ns1:definition "A classification consists of one or multiple Taxonomy paths. These represent the ways of mastering a skill. It is a list of ordered Knowledge Topics."@en .
+    ns2:definition "A classification consists of one or multiple Taxonomy paths. These represent the ways of mastering a skill. It is a list of ordered Knowledge Topics."@en .
 
 :Theory a owl:Class ;
     rdfs:label "Theory"@en ;
-    ns1:definition "The theoretical part of the knowledge topic"@en ;
-    ns1:example "In the knowledge topic of \"Quadratic Equation\" in the Methodology \"Discriminant\" the Theory is the Δ= b*b-4ac"@en .
+    ns2:definition "The theoretical part of the knowledge topic"@en ;
+    ns2:example "In the knowledge topic of \"Quadratic Equation\" in the Methodology \"Discriminant\" the Theory is the Δ= b*b-4ac"@en .
 
-rdfs:Datatype rdfs:label "Datatype" .
+rdfs:Datatype a owl:Class ;
+    rdfs:label "Datatype" .
 
 :Answer a owl:Class ;
     rdfs:label "Answer"@en ;
-    ns1:definition "The input of a user in an exercise or test. It can have many different types, such as string, integer, or text."@en ;
-    ns1:example "\"4\", 4, \"The answer is 4\""@en .
+    ns2:definition "The input of a user in an exercise or test. It can have many different types, such as string, integer, or text."@en ;
+    ns2:example "\"4\", 4, \"The answer is 4\""@en .
 
 :Taxon a owl:Class ;
     rdfs:label "Taxon"@en ;
     rdfs:subClassOf :TaxonPath ;
-    ns1:definition "The taxonomical entries that create the taxonomy. They are  KnowledgeTopics."@en .
+    ns2:definition "The taxonomical entries that create the taxonomy. They are  KnowledgeTopics."@en .
 
 :Classification a owl:Class ;
     rdfs:label "Classification"@en ;
-    ns1:comment "A skill can have many classifications, depending on which educational domain it refers to."@en ;
-    ns1:definition """Adopted from the IEEE LOM Standard to separate the notions of Skills and Knowledge Topics.
+    ns2:comment "A skill can have many classifications, depending on which educational domain it refers to."@en ;
+    ns2:definition """Adopted from the IEEE LOM Standard to separate the notions of Skills and Knowledge Topics.
 A Skill creates a classification which consist of Knowledge Topics. Once mastering the Knowledge Topics you master the Skill as well."""@en .
 
 :PsycologicalParameter a owl:Class ;
     rdfs:label "PsycologicalParameter"@en ;
-    ns1:definition "The psycological parameters are computed by the student's static and dynamic psychological indicators, such as the current mood of the learner (dynamic), the personality type (static)."@en ;
-    ns1:example "The psychological parameter of the learner is computed to be tired"@en .
+    ns2:definition "The psycological parameters are computed by the student's static and dynamic psychological indicators, such as the current mood of the learner (dynamic), the personality type (static)."@en ;
+    ns2:example "The psychological parameter of the learner is computed to be tired"@en .
 
 :Question a owl:Class ;
     rdfs:label "Question"@en ;
-    ns1:definition "Part of an exercise. A test has one or many exercises and therefore questions. An exercise can have multiple questions too"@en ;
-    ns1:example "\"What is the solution to the equation ln(x-3)=0 ?\""@en .
+    ns2:definition "Part of an exercise. A test has one or many exercises and therefore questions. An exercise can have multiple questions too"@en ;
+    ns2:example "\"What is the solution to the equation ln(x-3)=0 ?\""@en .
 
 :LearningPath a owl:Class ;
     rdfs:label "LearningPath"@en ;
     rdfs:comment "Often here it is mapped the background knowledge too."@en ;
-    ns1:definition "The learning path consists of learner's previously followed topics and future ones in order to reach to the learning goal. It is an ordered list of recommendations, which is personalized to the needs of a certain user and target the accomplishment of a complex skill. It has as a final point a learning goal."@en ;
-    ns1:example "\"Hello world in python\", \"Comments in python\", \"Strings in python\""@en .
+    ns2:definition "The learning path consists of learner's previously followed topics and future ones in order to reach to the learning goal. It is an ordered list of recommendations, which is personalized to the needs of a certain user and target the accomplishment of a complex skill. It has as a final point a learning goal."@en ;
+    ns2:example "\"Hello world in python\", \"Comments in python\", \"Strings in python\""@en .
 
 :MultimediaData a owl:Class ;
     rdfs:label "MultimediaData"@en ;
-    ns1:definition "The type of the data which is classified as video, image, audio, and text."@en .
+    ns2:definition "The type of the data which is classified as video, image, audio, and text."@en .
 
 :Recommendation a owl:Class ;
     rdfs:label "Recommendation"@en ;
     rdfs:comment "The recommendation in advanced systems can also be an action (take a small break), an exercise, a knowledge topic, a skill, or a learning path"@en ;
-    ns1:definition "The output of the recommendation system algorithm. The system that reads user profile, content information, ratings and any available rules, in order to generate a meaningful recommendation."@en ;
-    ns1:example "The recommendation is \"Quadratic Equation\""@en .
+    ns2:definition "The output of the recommendation system algorithm. The system that reads user profile, content information, ratings and any available rules, in order to generate a meaningful recommendation."@en ;
+    ns2:example "The recommendation is \"Quadratic Equation\""@en .
 
 :Test a owl:Class ;
     rdfs:label "Test"@en ;
-    ns1:definition "A test consists of one or many exercises, which have questions and answers. It is the way to evaluate student knowledge for a (set of) knowledge topic(s). It is linked to one or many skills and can have some educational requirements. The test can be consisted of exercises from different skills or domains"@en .
+    ns2:definition "A test consists of one or many exercises, which have questions and answers. It is the way to evaluate student knowledge for a (set of) knowledge topic(s). It is linked to one or many skills and can have some educational requirements. The test can be consisted of exercises from different skills or domains"@en .
 
 :UserProfile a owl:Class ;
     rdfs:label "UserProfile"@en ;
-    ns1:definition "The information related to the user profile"@en .
+    ns2:definition "The information related to the user profile"@en .
 
 :User a owl:Class ;
     rdfs:label "User"@en ;
     rdfs:seeAlso <http://xmlns.com/foaf/0.1/Person> ;
-    ns1:definition "A user in the system. It represents the learner in this context, as in contract to the teacher, mentor, etc."@en .
+    ns2:definition "A user in the system. It represents the learner in this context, as in contract to the teacher, mentor, etc."@en .
 
-rdf:langString a rdfs:Datatype .
+rdf:langString a rdfs:Datatype,
+        owl:Class ;
+    rdfs:label "lang String" .
 
-owl:AnnotationProperty rdfs:label "Annotation Property" .
+rdfs:Literal a owl:Class ;
+    rdfs:label "Literal" .
 
 :Exercise a owl:Class ;
     rdfs:label "Exercise"@en ;
     rdfs:seeAlso <http://purl.org/dcx/lrmi-vocabs/educationalUse/assessment> ;
-    ns1:altLabel "Assignment"@en ;
-    ns1:definition "The exercise a user is asked to address. It may consist of one or multiple parts"@en ;
-    ns1:prefLabel "Exercise"@en .
+    ns2:altLabel "Assignment"@en ;
+    ns2:definition "The exercise a user is asked to address. It may consist of one or multiple parts"@en ;
+    ns2:prefLabel "Exercise"@en .
 
 :KnowledgeTopic a owl:Class ;
     rdfs:label "KnowledgeTopic"@en ;
     rdfs:seeAlso <https://w3id.org/ccso/ccso#Topic> ;
     owl:disjointWith :Skill ;
     owl:equivalentClass :Taxon ;
-    ns1:altLabel "Topic"@en ;
-    ns1:definition "A single node representing a learning module based on the domain ontology. It contains all the learning material for the specific learning module."@en ;
-    ns1:example "A knowledge topic can be the “Quadratic equations” in the domain of Mathematics Algebra"@en ;
-    ns1:prefLabel "KnowledgeTopic"@en .
+    ns2:altLabel "Topic"@en ;
+    ns2:definition "A single node representing a learning module based on the domain ontology. It contains all the learning material for the specific learning module."@en ;
+    ns2:example "A knowledge topic can be the “Quadratic equations” in the domain of Mathematics Algebra"@en ;
+    ns2:prefLabel "KnowledgeTopic"@en .
 
 :Skill a owl:Class ;
     rdfs:label "Skill"@en ;
-    ns1:definition "A learned ability, which consist of a combination of Knowledge Topics. It is described in an abstract way by the Learning Outcomes. A skill can be tested by the accessing set of knowledge topics which define it."@en ;
-    ns1:example "Python Programming"@en .
+    ns2:definition "A learned ability, which consist of a combination of Knowledge Topics. It is described in an abstract way by the Learning Outcomes. A skill can be tested by the accessing set of knowledge topics which define it."@en ;
+    ns2:example "Python Programming"@en .
 
 :EducationalResource a owl:Class ;
     rdfs:label "EducationalResource"@en ;
     rdfs:seeAlso <https://w3id.org/ccso/ccso#Resource> ;
-    ns1:definition "Any educational resources online or offline"@en ;
-    ns1:example "A video describing how lists work in Python programming language"@en .
-
-owl:ObjectProperty rdfs:label "Object Property" .
-
-owl:Class rdfs:label "Class" .
-
-owl:DatatypeProperty rdfs:label "Datatype Property" .
+    ns2:definition "Any educational resources online or offline"@en ;
+    ns2:example "A video describing how lists work in Python programming language"@en .
 

@@ -1,1 +1,1 @@
-{"classes": ["Ontology"], "relations": [], "meta": "abstract"}
+{"classes": ["F5 Hardware", "Hardware Item", "Server Hardware", "Hardware Batch", "Network Card", "Concept", "Frame"], "relations": [["Hardware Item", "network card", "Network Card"], ["Server Hardware", "batch", "Hardware Batch"], ["Server Hardware", "high availability status", "Concept"], ["Server Hardware", "hosted in frame", "Frame"]], "meta": "abstract"}

@@ -1,7 +1,7 @@
 @prefix : <http://w3id.org/devops-infra/database#> .
-@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix ns1: <http://purl.org/vocab/vann/> .
 @prefix ns2: <http://purl.org/dc/elements/1.1/> .
-@prefix ns3: <http://purl.org/vocab/vann/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -13,15 +13,15 @@ ns2:identifier a owl:AnnotationProperty .
 
 ns2:title a owl:AnnotationProperty .
 
-ns1:hasFormat a owl:AnnotationProperty .
+ns3:hasFormat a owl:AnnotationProperty .
 
-ns1:issued a owl:AnnotationProperty .
+ns3:issued a owl:AnnotationProperty .
 
-ns1:license a owl:AnnotationProperty .
+ns3:license a owl:AnnotationProperty .
 
-ns3:preferredNamespacePrefix a owl:AnnotationProperty .
+ns1:preferredNamespacePrefix a owl:AnnotationProperty .
 
-ns3:preferredNamespaceUri a owl:AnnotationProperty .
+ns1:preferredNamespaceUri a owl:AnnotationProperty .
 
 <http://w3id.org/devops-infra/core#createTime> a owl:DatatypeProperty .
 
@@ -40,11 +40,11 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
         "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
     ns2:identifier "http://w3id.org/devops-infra/database" ;
     ns2:title "Ontology for the representation of the database-related infrastructure"@en ;
-    ns1:hasFormat "http://w3id.org/devops-infra/database.owl" ;
-    ns1:issued "2021-04-15" ;
-    ns1:license "https://creativecommons.org/licenses/by/4.0" ;
-    ns3:preferredNamespacePrefix "devopsdb" ;
-    ns3:preferredNamespaceUri "http://w3id.org/devops-infra/database#" ;
+    ns3:hasFormat "http://w3id.org/devops-infra/database.owl" ;
+    ns3:issued "2021-04-15" ;
+    ns3:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns1:preferredNamespacePrefix "devopsdb" ;
+    ns1:preferredNamespaceUri "http://w3id.org/devops-infra/database#" ;
     rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
     owl:imports <http://w3id.org/devops-infra/core/1.0.0>,
         <http://www.w3.org/2004/02/skos/core> ;
@@ -54,6 +54,38 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
 <http://w3id.org/devops-infra/network#ipAddress> a owl:DatatypeProperty .
 
 xsd:date a rdfs:Datatype .
+
+<nc722fd28067d4a38bf94709fa868cc57b1> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b1" .
+
+<nc722fd28067d4a38bf94709fa868cc57b13> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b13" .
+
+<nc722fd28067d4a38bf94709fa868cc57b17> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b17" .
+
+<nc722fd28067d4a38bf94709fa868cc57b21> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b21" .
+
+<nc722fd28067d4a38bf94709fa868cc57b25> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b25" .
+
+<nc722fd28067d4a38bf94709fa868cc57b30> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b30" .
+
+<nc722fd28067d4a38bf94709fa868cc57b43> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b43" .
+
+<nc722fd28067d4a38bf94709fa868cc57b48> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b48" .
+
+<nc722fd28067d4a38bf94709fa868cc57b5> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b5" .
+
+<nc722fd28067d4a38bf94709fa868cc57b53> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b53" .
+
+<nc722fd28067d4a38bf94709fa868cc57b58> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b58" .
+
+<nc722fd28067d4a38bf94709fa868cc57b67> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b67" .
+
+<nc722fd28067d4a38bf94709fa868cc57b72> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b72" .
+
+<nc722fd28067d4a38bf94709fa868cc57b77> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b77" .
+
+<nc722fd28067d4a38bf94709fa868cc57b82> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b82" .
+
+<nc722fd28067d4a38bf94709fa868cc57b9> rdfs:label "nc722fd28067d4a38bf94709fa868cc57b9" .
 
 :DatabaseReplica a owl:Class ;
     rdfs:label "Database Replica"@en ;
@@ -176,13 +208,13 @@ xsd:date a rdfs:Datatype .
                         owl:hasValue <http://w3id.org/devops-infra/kos/status> ;
                         owl:onProperty <http://www.w3.org/2004/02/skos/core#inScheme> ] ) ] .
 
-<http://w3id.org/devops-infra/server#Server> a owl:Class .
+<http://w3id.org/devops-infra/server#Server> a owl:Class ;
+    rdfs:label "Server" .
 
 <http://w3id.org/devops-infra/server#hostedBy> a owl:ObjectProperty .
 
-rdfs:Datatype rdfs:label "Datatype" .
-
-owl:Ontology rdfs:label "Ontology" .
+rdfs:Datatype a owl:Class ;
+    rdfs:label "Datatype" .
 
 :dbBinaryLogChangeStatus a owl:ObjectProperty ;
     rdfs:label "binary log change status"@en ;
@@ -240,9 +272,8 @@ owl:Ontology rdfs:label "Ontology" .
             owl:onProperty :serverIP ],
         <http://w3id.org/devops-infra/core#Resource> .
 
-owl:NamedIndividual rdfs:label "Named Individual" .
-
-<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdfs:label "Concept Scheme" .
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> a owl:Class ;
+    rdfs:label "Concept Scheme" .
 
 :DatabaseInstance a owl:Class ;
     rdfs:label "Database Instance"@en ;
@@ -285,7 +316,8 @@ owl:NamedIndividual rdfs:label "Named Individual" .
     rdfs:range xsd:string ;
     rdfs:subPropertyOf owl:topDataProperty .
 
-<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+<http://w3id.org/devops-infra/core#Resource> a owl:Class ;
+    rdfs:label "Resource" .
 
 :DatabaseBigTable a owl:Class ;
     rdfs:label "Database Big Table"@en ;
@@ -325,16 +357,6 @@ owl:NamedIndividual rdfs:label "Named Individual" .
             owl:onProperty :dbSize ],
         <http://w3id.org/devops-infra/core#Resource> .
 
-owl:AnnotationProperty rdfs:label "Annotation Property" .
-
-owl:DatatypeProperty rdfs:label "Datatype Property" .
-
-owl:ObjectProperty rdfs:label "Object Property" .
-
 <http://w3id.org/devops-infra/kos/status> a owl:NamedIndividual,
         <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
-
-owl:Class rdfs:label "Class" .
-
-owl:Restriction rdfs:label "Restriction" .
 

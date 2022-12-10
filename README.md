@@ -1,8 +1,7 @@
 [![License](https://camo.githubusercontent.com/d6aa9e530d2e113934db4c4c984411041c92b3a120223790c67d37291d373822/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f6d6f7270682d6b67632e737667)](https://github.com/oeg-upm/morph-kgc/blob/main/LICENSE) 
 
-# Ontology-Gister
-
-A tool to generate a gist of the ontology
+# DeVoS
+Depicting Vocabulary Summaries. It is a tool to generate a visual summary of the ontology. 
 
 
 ## Main Features
@@ -14,11 +13,14 @@ A tool to generate a gist of the ontology
 
 1. Use meta data as the signal for importance
 ```
-python -m ogister.gister -i data/ieswc/cocoon.ttl --freq
-python -m ogister.gister -i data/ieswc_enriched/ck.ttl -t -d -a  
+python -m devos.gister -i data/ieswc/cocoon.ttl --freq
+python -m devos.gister -i data/ieswc_enriched/ck.ttl -t -d -a  
 
 
-python -m ogister.gister -i data/ieswc_enriched/explanation-ontology.owl  -t -d -a --topn 7
+python -m devos.gister -i data/ieswc_enriched/explanation-ontology.owl  -t -d -a --topn 7
+
+
+python -m devos.gister -i data/ieswc_enriched/devops/core.ttl   --freq --topn 7
 ```
 
 
@@ -54,8 +56,7 @@ have labels.
 #### IESWC (ISWC and ESWC)
 ```
 python -m experiments.enrich -i data/ieswc/* -o data/ieswc_enriched
-```
-```
+;
 python -m experiments.enrich -i data/ieswc/devops/* -o data/ieswc_enriched/devops
 ```
 

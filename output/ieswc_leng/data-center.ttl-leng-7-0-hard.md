@@ -2,34 +2,70 @@
 	classDiagram
 
     
-    class `Annotation Property` {
+    class `Data Center` {
     
     }
 
-    class `Datatype Property` {
+    class `Data Center Connection` {
     
     }
 
-    class `Object Property` {
+    class `Location` {
     
     }
 
-    class `Named Individual` {
+    class `SSH Channel` {
     
     }
 
-    class `Concept Scheme` {
+    class `Resource Group` {
     
     }
 
-    class `Ontology` {
+    class `IP Address` {
     
     }
 
-    class `Class` {
+    class `IP Network` {
     
     }
 
 
+
+`Data Center`  --> `IP Address`   :offers IP Address  
+
+`Data Center`  --> `IP Network`   :offers IP Network  
+
+`Data Center`  --> `Data Center Connection`   :allows connection via  
+
+`Data Center`  --> `Location`   :located In  
+
+`Data Center`  --> `IP Network`   :offers IP Network  
+
+`Data Center`  --> `IP Network`   :offers IP Network  
+
+`Data Center Connection`  --> `Data Center`   :startInternetDataCenter  
+
+`Data Center Connection`  --> `Data Center`   :startInternetDataCenter  
+
+`Data Center`  --> `Location`   :located In  
+
+`Data Center`  --> `Location`   :located In  
+
+`Data Center`  --> `SSH Channel`   :offersSSHChannel  
+
+`Data Center`  --> `SSH Channel`   :offersSSHChannel  
+
+`Data Center`  --> `IP Address`   :offers IP Address  
+
+`Data Center`  --> `IP Address`   :offers IP Address  
+
+`Data Center`  --> `Data Center Connection`   :allows connection via  
+
+`Data Center`  --> `Data Center Connection`   :allows connection via  
+
+`Data Center Connection`  --> `Data Center`   :endInternetDataCenter  
+
+`Data Center Connection`  --> `Data Center`   :endInternetDataCenter  
 
 ```

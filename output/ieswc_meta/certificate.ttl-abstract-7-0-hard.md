@@ -2,7 +2,11 @@
 	classDiagram
 
     
-    class `Ontology` {
+    class `SSL Certificate` {
+    
+    }
+
+    class `CFCA (China Financial Certification Authority) Certificate` {
     
     }
 

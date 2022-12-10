@@ -1,7 +1,7 @@
-http://www.w3.org/2002/07/owl#AnnotationProperty,2
-http://www.w3.org/2002/07/owl#ObjectProperty,2
-http://www.w3.org/2002/07/owl#DatatypeProperty,2
-http://www.w3.org/2002/07/owl#NamedIndividual,2
-http://www.w3.org/2004/02/skos/core#ConceptScheme,2
-http://www.w3.org/2002/07/owl#Ontology,1
-http://www.w3.org/2002/07/owl#Class,1
+http://w3id.org/devops-infra/server#BareMetalServer,90
+http://w3id.org/devops-infra/server#HostFlavor,34
+http://w3id.org/devops-infra/server#ServerLoadBalancer,33
+http://w3id.org/devops-infra/server#AutoScalingHostConfig,13
+http://w3id.org/devops-infra/server#AutoExpandHostConfig,11
+http://w3id.org/devops-infra/server#HostConfiguration,10
+http://w3id.org/devops-infra/server#Server,10

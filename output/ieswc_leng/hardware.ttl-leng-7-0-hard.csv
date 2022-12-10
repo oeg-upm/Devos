@@ -1,6 +1,7 @@
-http://www.w3.org/2002/07/owl#AnnotationProperty,2
-http://www.w3.org/2002/07/owl#ObjectProperty,2
-http://www.w3.org/2002/07/owl#DatatypeProperty,2
-http://www.w3.org/2002/07/owl#Class,1
-http://www.w3.org/2002/07/owl#Ontology,1
-http://www.w3.org/2002/07/owl#Restriction,1
+http://w3id.org/devops-infra/hardware#NetworkCard,69
+http://w3id.org/devops-infra/hardware#Firewall,66
+http://w3id.org/devops-infra/hardware#Frame,46
+http://w3id.org/devops-infra/hardware#Switch,38
+http://w3id.org/devops-infra/hardware#HardwareBatch,26
+http://w3id.org/devops-infra/hardware#ServerHardware,22
+http://w3id.org/devops-infra/hardware#Disk,17

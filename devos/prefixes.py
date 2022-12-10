@@ -7,6 +7,7 @@ SKOS = "http://www.w3.org/2004/02/skos/core#"
 OBO = "http://purl.obolibrary.org/obo/"
 XSD = "http://www.w3.org/2001/XMLSchema#"
 DBO = "http://dbpedia.org/ontology/"
+OWL = "http://www.w3.org/2002/07/owl#"
 
 prefs = {
     "DC": DC,
@@ -17,5 +18,6 @@ prefs = {
     "SKOS": SKOS,
     "OBO": OBO,
     "XSD": XSD,
-    "DBO": DBO
+    "DBO": DBO,
+    "OWL": OWL
 }

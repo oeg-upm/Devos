@@ -47,6 +47,26 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
     owl:versionIRI <http://w3id.org/devops-infra/workflow/1.0.0> ;
     owl:versionInfo "First official release"@en .
 
+<n295b5ba9e495439b872c018968687d1eb1> rdfs:label "n295b5ba9e495439b872c018968687d1eb1" .
+
+<n295b5ba9e495439b872c018968687d1eb11> rdfs:label "n295b5ba9e495439b872c018968687d1eb11" .
+
+<n295b5ba9e495439b872c018968687d1eb14> rdfs:label "n295b5ba9e495439b872c018968687d1eb14" .
+
+<n295b5ba9e495439b872c018968687d1eb18> rdfs:label "n295b5ba9e495439b872c018968687d1eb18" .
+
+<n295b5ba9e495439b872c018968687d1eb25> rdfs:label "n295b5ba9e495439b872c018968687d1eb25" .
+
+<n295b5ba9e495439b872c018968687d1eb33> rdfs:label "n295b5ba9e495439b872c018968687d1eb33" .
+
+<n295b5ba9e495439b872c018968687d1eb38> rdfs:label "n295b5ba9e495439b872c018968687d1eb38" .
+
+<n295b5ba9e495439b872c018968687d1eb46> rdfs:label "n295b5ba9e495439b872c018968687d1eb46" .
+
+<n295b5ba9e495439b872c018968687d1eb5> rdfs:label "n295b5ba9e495439b872c018968687d1eb5" .
+
+<n295b5ba9e495439b872c018968687d1eb8> rdfs:label "n295b5ba9e495439b872c018968687d1eb8" .
+
 :DirectWorkflow a owl:Class ;
     rdfs:label "Direct Workflow"@en ;
     rdfs:comment "A Direct Workflow consists of tasks combined in a graph where every next task starts after another one depending on produced result. So direct workflow has a notion of transition. Direct workflow is considered to be completed if there aren’t any transitions left that could be used to jump to next tasks."@en ;
@@ -107,13 +127,14 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:domain :Variable ;
     rdfs:range xsd:string .
 
-owl:NamedIndividual rdfs:label "Named Individual" .
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> a owl:Class ;
+    rdfs:label "Concept Scheme" .
 
-owl:Ontology rdfs:label "Ontology" .
+<http://w3id.org/devops-infra/core#ConfigurationItem> a owl:Class ;
+    rdfs:label "Configuration Item" .
 
-<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdfs:label "Concept Scheme" .
-
-<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+<http://w3id.org/devops-infra/core#Resource> a owl:Class ;
+    rdfs:label "Resource" .
 
 :action a owl:ObjectProperty ;
     rdfs:label "action"@en ;
@@ -144,8 +165,6 @@ owl:Ontology rdfs:label "Ontology" .
     rdfs:domain [ a owl:Class ;
             owl:unionOf ( :Task :Workflow ) ] ;
     rdfs:range :Variable .
-
-owl:DatatypeProperty rdfs:label "Datatype Property" .
 
 <http://w3id.org/devops-infra/kos/action-type> a owl:NamedIndividual,
         <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
@@ -204,8 +223,6 @@ owl:DatatypeProperty rdfs:label "Datatype Property" .
             owl:onProperty :outputOnError ],
         <http://w3id.org/devops-infra/core#Resource> .
 
-owl:AnnotationProperty rdfs:label "Annotation Property" .
-
 :DirectWorkflowTask a owl:Class ;
     rdfs:label "Direct Workflow Task"@en ;
     rdfs:comment "A Task in a Direct Workflow, which may indicate the next tasks to be done once it is completed, with success or with errors"@en ;
@@ -219,8 +236,6 @@ owl:AnnotationProperty rdfs:label "Annotation Property" .
             owl:allValuesFrom :DirectWorkflowTask ;
             owl:onProperty :onSuccess ],
         :Task .
-
-owl:ObjectProperty rdfs:label "Object Property" .
 
 :Variable a owl:Class ;
     rdfs:label "Variable"@en ;
@@ -242,8 +257,4 @@ owl:ObjectProperty rdfs:label "Object Property" .
             owl:onDataRange xsd:string ;
             owl:onProperty :valueorExpression ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
-
-owl:Class rdfs:label "Class" .
-
-owl:Restriction rdfs:label "Restriction" .
 

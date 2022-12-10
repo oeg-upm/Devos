@@ -17,6 +17,11 @@ dbr:r5 rdf:type dbo:basket.
 dbr:r6 rdf:type dbo:basket.
 dbr:r7 rdf:type dbo:golf.
 
+dbo:football a owl:Class.
+dbo:basket a owl:Class.
+dbo:foot a owl:Class.
+dbo:golf a owl:Class.
+
 
 dbr:O2 rdf:type owl:Ontology.
 dbr:O2 dcterms:title "foot ball is one of the terms".

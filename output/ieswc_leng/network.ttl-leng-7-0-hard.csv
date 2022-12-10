@@ -1,5 +1,7 @@
-http://www.w3.org/2002/07/owl#AnnotationProperty,2
-http://www.w3.org/2002/07/owl#ObjectProperty,2
-http://www.w3.org/2002/07/owl#DatatypeProperty,2
-http://www.w3.org/2002/07/owl#Class,1
-http://www.w3.org/2002/07/owl#Ontology,1
+http://w3id.org/devops-infra/network#DNSRecord,75
+http://w3id.org/devops-infra/network#PublicIPAddress,66
+http://w3id.org/devops-infra/network#IPNetwork,62
+http://w3id.org/devops-infra/network#PublicNATEntry,62
+http://w3id.org/devops-infra/network#IPAddress,41
+http://w3id.org/devops-infra/network#NetworkSegment,34
+http://w3id.org/devops-infra/network#VirtualFloatingIPAddress,31

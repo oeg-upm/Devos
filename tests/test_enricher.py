@@ -40,6 +40,10 @@ class TestEnricher(unittest.TestCase):
         label = "Us A"
         self.assertEqual(class_name_to_label(class_name), label)
 
+        class_name = "IPAddress"
+        label = "IP Address"
+        self.assertEqual(class_name_to_label(class_name), label)
+
 
 if __name__ == '__main__':
     unittest.main()

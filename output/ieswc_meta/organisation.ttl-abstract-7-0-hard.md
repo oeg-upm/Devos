@@ -2,14 +2,6 @@
 	classDiagram
 
     
-    class `Ontology` {
-    
-    }
-
-    class `Restriction` {
-    
-    }
-
 
 
 ```

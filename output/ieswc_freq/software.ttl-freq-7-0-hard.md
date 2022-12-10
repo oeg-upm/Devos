@@ -26,48 +26,48 @@
     
     }
 
-    class `n97632d6ed1cb4dfe9548a0b327125cadb1` {
+    class `n47d99d32f16f42fbbd132fb6e1747a42b1` {
     
     }
 
 
 
-`Software`  --> `File`   :released as file  
+`File`  --> `n47d99d32f16f42fbbd132fb6e1747a42b1`   :file type  
 
-`Software Directory`  --> `Software Directory`   :parent directory  
+`Service Module Version`  --> `Service Module`   :This property relates a Service Module Version with its corresponding Service Module  
+
+`Service Module`  --> `Service Module Version`   :has version  
+
+`Software`  --> `File`   :released as file  
 
 `Auto Install Package`  --> `Service Module Version`   :This property identifies the Service Module Version that an Auto Install Package installs  
 
-`File`  --> `n97632d6ed1cb4dfe9548a0b327125cadb1`   :file type  
+`Software Directory`  --> `Software Directory`   :parent directory  
 
 `File`  --> `Software Directory`   :in software directory  
 
 `Service Module Version`  --> `Service Module`   :This property relates a Service Module Version with its corresponding Service Module  
 
+`Service Module Version`  --> `Service Module`   :This property relates a Service Module Version with its corresponding Service Module  
+
+`Service Module`  --> `Service Module Version`   :has version  
+
 `Service Module`  --> `Service Module Version`   :has version  
 
 `Software`  --> `Software Directory`   :in software directory  
 
 `Software`  --> `Software Directory`   :in software directory  
 
-`Service Module`  --> `Service Module Version`   :has version  
-
 `Software`  --> `File`   :released as file  
 
 `Software`  --> `File`   :released as file  
+
+`Auto Install Package`  --> `Service Module Version`   :This property identifies the Service Module Version that an Auto Install Package installs  
 
 `Software Directory`  --> `Software Directory`   :parent directory  
 
 `Software Directory`  --> `Software Directory`   :parent directory  
 
 `Auto Install Package`  --> `Service Module Version`   :This property identifies the Service Module Version that an Auto Install Package installs  
-
-`Service Module Version`  --> `Service Module`   :This property relates a Service Module Version with its corresponding Service Module  
-
-`Auto Install Package`  --> `Service Module Version`   :This property identifies the Service Module Version that an Auto Install Package installs  
-
-`Service Module Version`  --> `Service Module`   :This property relates a Service Module Version with its corresponding Service Module  
-
-`Service Module`  --> `Service Module Version`   :has version  
 
 ```

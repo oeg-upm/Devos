@@ -351,18 +351,39 @@ geosparql:asWKT a owl:DatatypeProperty ;
     rdfs:domain ago:Geometry ;
     rdfs:range geosparql:wktLiteral .
 
-iospress-datatype:artifactId owl:equivalentClass [ a rdfs:Datatype ;
+<n1630c7e44cc04232a9a786792709302fb1> rdfs:label "n1630c7e44cc04232a9a786792709302fb1" .
+
+<n1630c7e44cc04232a9a786792709302fb18> rdfs:label "n1630c7e44cc04232a9a786792709302fb18" .
+
+<n1630c7e44cc04232a9a786792709302fb5> rdfs:label "n1630c7e44cc04232a9a786792709302fb5" .
+
+iospress-datatype:artifactId a owl:Class ;
+    rdfs:label "artifact Id" ;
+    owl:equivalentClass [ a rdfs:Datatype ;
             owl:onDatatype xsd:string ] .
 
-iospress-datatype:doi a rdfs:Datatype .
+iospress-datatype:doi a rdfs:Datatype,
+        owl:Class ;
+    rdfs:label "doi" .
 
-iospress-datatype:eIssn a rdfs:Datatype .
+iospress-datatype:eIssn a rdfs:Datatype,
+        owl:Class ;
+    rdfs:label "e Issn" .
 
-iospress-datatype:issn a rdfs:Datatype .
+iospress-datatype:isbn a owl:Class ;
+    rdfs:label "isbn" .
 
-iospress-datatype:pIssn a rdfs:Datatype .
+iospress-datatype:issn a rdfs:Datatype,
+        owl:Class ;
+    rdfs:label "issn" .
 
-iospress-datatype:yearOrYearMonth owl:equivalentClass [ a rdfs:Datatype ;
+iospress-datatype:pIssn a rdfs:Datatype,
+        owl:Class ;
+    rdfs:label "p Issn" .
+
+iospress-datatype:yearOrYearMonth a owl:Class ;
+    rdfs:label "year Or Year Month" ;
+    owl:equivalentClass [ a rdfs:Datatype ;
             owl:unionOf ( xsd:gYear xsd:gYearMonth ) ] .
 
 iospress:Accessibility.Open a iospress:Accessibility ;
@@ -372,6 +393,9 @@ iospress:Accessibility.Open a iospress:Accessibility ;
 iospress:Article a owl:Class ;
     rdfs:label "Article"@en ;
     rdfs:subClassOf iospress:Publication .
+
+iospress:Category a owl:Class ;
+    rdfs:label "Category" .
 
 iospress:Role.Author a iospress:Role ;
     rdfs:label "Author"@en ;
@@ -385,7 +409,8 @@ iospress:first a owl:ObjectProperty ;
     rdfs:domain iospress:List ;
     rdfs:range iospress:List .
 
-iospress:publisher a owl:DatatypeProperty,
+iospress:publisher a owl:Class,
+        owl:DatatypeProperty,
         owl:FunctionalProperty ;
     rdfs:label "Publisher"@en ;
     rdfs:domain iospress:Journal,
@@ -397,20 +422,33 @@ iospress:rest a owl:ObjectProperty ;
     rdfs:domain iospress:List ;
     rdfs:range iospress:List .
 
-owl:NamedIndividual rdfs:label "Named Individual" .
+geosparql:wktLiteral a owl:Class ;
+    rdfs:label "wkt Literal" .
 
-iospress-datatype:pageReference owl:equivalentClass [ a rdfs:Datatype ;
+ago:Geometry a owl:Class ;
+    rdfs:label "Geometry" .
+
+iospress-datatype:pageReference a owl:Class ;
+    rdfs:label "page Reference" ;
+    owl:equivalentClass [ a rdfs:Datatype ;
             owl:unionOf ( xsd:nonNegativeInteger xsd:string ) ] .
 
 iospress:Accessibility.Closed a iospress:Accessibility ;
     rdfs:label "Closed Access" .
 
-owl:Restriction rdfs:label "Restriction" .
+iospress:Isssue a owl:Class ;
+    rdfs:label "Isssue" .
 
-iospress-datatype:collectionNumber owl:equivalentClass [ a rdfs:Datatype ;
+iospress:Publisher a owl:Class ;
+    rdfs:label "Publisher" .
+
+iospress-datatype:collectionNumber a owl:Class ;
+    rdfs:label "collection Number" ;
+    owl:equivalentClass [ a rdfs:Datatype ;
             owl:unionOf ( xsd:nonNegativeInteger xsd:string ) ] .
 
-iospress:Accessibility rdfs:label "Accessibility"@en ;
+iospress:Accessibility a owl:Class ;
+    rdfs:label "Accessibility"@en ;
     owl:equivalentClass [ a owl:Class ;
             owl:oneOf ( iospress:Accessibility.Open iospress:Accessibility.Closed ) ] .
 
@@ -459,16 +497,9 @@ iospress:Journal a owl:Class ;
 iospress:Series a owl:Class ;
     rdfs:label "Series"@en .
 
-rdfs:Datatype rdfs:label "Datatype" .
-
-owl:Class rdfs:label "Class" .
-
-owl:FunctionalProperty rdfs:label "Functional Property" .
-
-owl:ObjectProperty rdfs:label "Object Property" .
+rdfs:Datatype a owl:Class ;
+    rdfs:label "Datatype" .
 
 iospress:Publication a owl:Class ;
     rdfs:label "Publication"@en .
-
-owl:DatatypeProperty rdfs:label "Datatype Property" .
 

@@ -2,34 +2,64 @@
 	classDiagram
 
     
-    class `Annotation Property` {
+    class `Product Offering` {
     
     }
 
-    class `Object Property` {
+    class `Microservice` {
     
     }
 
-    class `Named Individual` {
+    class `Business Product` {
     
     }
 
-    class `Concept Scheme` {
+    class `Service` {
     
     }
 
-    class `Datatype Property` {
+    class `Product Version` {
     
     }
 
-    class `Ontology` {
+    class `Service Cluster` {
     
     }
 
-    class `Class` {
+    class `Business Product Instance` {
     
     }
 
 
+
+`Product Offering`  --> `Product Version`   :has product version  
+
+`Business Product`  --> `Product Offering`   :A Business Product may have a number of commercial product offerings, which are usually made available in a product catalogue  
+
+`Microservice`  --> `Service Cluster`   :runs in service cluster  
+
+`Product Offering`  --> `Product Version`   :has product version  
+
+`Product Offering`  --> `Product Version`   :has product version  
+
+`Microservice`  --> `Service Cluster`   :runs in service cluster  
+
+`Microservice`  --> `Service Cluster`   :runs in service cluster  
+
+`Business Product`  --> `Product Offering`   :A Business Product may have a number of commercial product offerings, which are usually made available in a product catalogue  
+
+`Business Product`  --> `Product Offering`   :A Business Product may have a number of commercial product offerings, which are usually made available in a product catalogue  
+
+`Business Product Instance`  --> `Business Product`   :deployed instance of  
+
+`Business Product Instance`  --> `Business Product`   :deployed instance of  
+
+`Business Product`  --> `Service`   :uses  
+
+`Product Offering`  --> `Service`   :uses  
+
+`Product Offering`  --> `Service`   :uses  
+
+`Business Product`  --> `Service`   :uses  
 
 ```

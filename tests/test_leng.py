@@ -2,7 +2,7 @@ import unittest
 
 import rdflib
 import os
-from devos.gister import get_freq_classes, shorten_uris, get_leng_classes
+from devos.gister import get_freq_classes, shorten_uris, get_leng_classes, leng_workflow
 from devos.util import split_text_manual
 from devos.prefixes import DBO
 # from ogister.util import split_text
@@ -38,6 +38,11 @@ class TestGisterLeng(unittest.TestCase):
         self.assertEqual(1, len(classes))
         self.assertEqual(classes_dict[DBO+"basket"], 3)
         self.assertEqual(classes[0], DBO+"basket")
+
+    def test_leng_topn2(self):
+        ont_path = os.path.join("tests", "o3.ttl")
+        classes, relations, classes_len = leng_workflow(input_path=ont_path, out_path=None, topn=2, topr=0, soft=False)
+        self.assertEqual(2, len(classes))
 
 
 if __name__ == '__main__':

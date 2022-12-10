@@ -13,11 +13,47 @@ LABEL_PROPS = [
 ]
 
 
+def classes_with_instances(g):
+    """
+    Get all the classes that have instances
+    """
+    q = "select distinct ?class where { [] a ?class}"
+    results = g.query(q)
+    classes = []
+    for res in results:
+        l = res['class']
+        classes.append(l)
+    return classes
+
+
+def domains_and_ranges(g):
+    """
+    Get all classes that are either a domain or range for a relation
+    """
+    q = "select distinct ?class where{?p rdfs:domain ?class}"
+    results = g.query(q)
+    domains = []
+    for res in results:
+        l = res['class']
+        domains.append(l)
+
+    q = "select distinct ?class where{?p rdfs:range ?class}"
+    results = g.query(q)
+    ranges = []
+    for res in results:
+        l = res['class']
+        ranges.append(l)
+
+    return domains, ranges
+
+
 def get_all_classes(g):
     """
     To get the uri for all classes.
     """
-    q = "select distinct ?class where { [] a ?class}"
+    # q = "select distinct ?class where { [] a ?class}"
+    q = "select distinct ?class where {?class a owl:Class}"
+
     results = g.query(q)
     classes = []
     for res in results:
@@ -145,11 +181,13 @@ def get_class_leng(g):
 
     label_uris_sparql = ", ".join(label for label in label_uris_formatted)
     # q = "select ?class ?label where { [] a ?class. FILTER (?class IN ( %s )) }" % label_uris_sparql
-    q = "select ?class ?label where { [] a ?class. ?class ?p ?label. FILTER (?p IN ( %s )) }" % label_uris_sparql
-    # print("query: %s" % q)
+    # q = "select ?class ?label where { [] a ?class. ?class ?p ?label. FILTER (?p IN ( %s )) }" % label_uris_sparql
+    q = "select ?class ?label where { ?class a owl:Class. ?class ?p ?label. FILTER (?p IN ( %s )) }" % label_uris_sparql
+
     results = g.query(q)
     d = dict()
     for res in results:
+        print(res)
         class_uri = str(res["class"])
         num = len(res["label"].split(' '))
         if class_uri not in d:
@@ -168,15 +206,8 @@ def get_classes_with_keyword(g, keyword):
     :return:
     """
     props = LABEL_PROPS
-    # props = [
-    #     prefixes.RDFS+"label",
-    #     prefixes.SKOS+"prefLabel",
-    #     prefixes.OBO+"IAO_0000118"
-    # ]
 
-    t = "select ?class where {[] a ?class .  %s }"
-    # t = "select ?class where { ?class a owl:Class.  %s }"
-
+    t = "select ?class where { ?class a owl:Class.  %s }"
     label_query_template = "{?class <%s> ?label. FILTER CONTAINS(lcase(?label), \"%s\") }"
     label_query = ""
     for p in props[:-1]:
@@ -184,15 +215,11 @@ def get_classes_with_keyword(g, keyword):
         label_query += " UNION "
     label_query += label_query_template % (props[-1], keyword)
     q = t % label_query
-    # print("keyword: %s" % keyword)
-    # if DEBUG:
-    #     print(q)
+
     vals = []
     results = g.query(q)
-    # print("\n\n\n\n\n\n\n===============\n\n\n\n\n")
     for res in results:
         vals.append(str(res["class"]))
-        # print(res)
     return vals
 
 

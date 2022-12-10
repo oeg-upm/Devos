@@ -23,15 +23,15 @@ qkg:isMisattributed a owl:DatatypeProperty ;
 qkg:mentions a owl:ObjectProperty ;
     rdfs:domain qkg:Context .
 
-owl:Class rdfs:label "Class" .
-
-owl:DatatypeProperty rdfs:label "Datatype Property" .
+rdf:langString a owl:Class ;
+    rdfs:label "lang String" .
 
 qkg:Mention a owl:Class ;
     rdfs:label "quotation text"@en ;
     rdfs:comment "An occurrence of a quotation"@en .
 
-owl:ObjectProperty rdfs:label "Object Property" .
+<https://schema.org/Quotation> a owl:Class ;
+    rdfs:label "Quotation" .
 
 qkg:Context a owl:Class ;
     rdfs:label "context"@en ;

@@ -1,1 +1,1 @@
-{"classes": ["Annotation Property", "Datatype Property", "Object Property", "Named Individual", "Concept Scheme", "Ontology", "Datatype"], "relations": [], "meta": "leng"}
+{"classes": ["Database Scan Report", "Database Big Table", "Database Replica", "Concept Scheme", "Database Instance", "Server", "Datatype"], "relations": [["Database Instance", "hostedBy", "Server"], ["Database Instance", "hostedBy", "Server"]], "meta": "leng"}

@@ -1,7 +1,7 @@
 @prefix : <http://w3id.org/devops-infra/product#> .
 @prefix ns1: <http://purl.org/dc/elements/1.1/> .
-@prefix ns2: <http://purl.org/vocab/vann/> .
-@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://purl.org/vocab/vann/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -13,15 +13,15 @@ ns1:identifier a owl:AnnotationProperty .
 
 ns1:title a owl:AnnotationProperty .
 
-ns3:hasFormat a owl:AnnotationProperty .
+ns2:hasFormat a owl:AnnotationProperty .
 
-ns3:issued a owl:AnnotationProperty .
+ns2:issued a owl:AnnotationProperty .
 
-ns3:license a owl:AnnotationProperty .
+ns2:license a owl:AnnotationProperty .
 
-ns2:preferredNamespacePrefix a owl:AnnotationProperty .
+ns3:preferredNamespacePrefix a owl:AnnotationProperty .
 
-ns2:preferredNamespaceUri a owl:AnnotationProperty .
+ns3:preferredNamespaceUri a owl:AnnotationProperty .
 
 <http://w3id.org/devops-infra/product> a owl:Ontology ;
     ns1:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
@@ -36,20 +36,50 @@ ns2:preferredNamespaceUri a owl:AnnotationProperty .
         "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
     ns1:identifier "http://w3id.org/devops-infra/product" ;
     ns1:title "Ontology for the representation of the business offering of a company, including the services and microservices that are being used to provide such business offering"@en ;
-    ns3:hasFormat "http://w3id.org/devops-infra/product.owl" ;
-    ns3:issued "2021-04-16" ;
-    ns3:license "https://creativecommons.org/licenses/by/4.0" ;
-    ns2:preferredNamespacePrefix "devopsprod" ;
-    ns2:preferredNamespaceUri "http://w3id.org/devops-infra/product#" ;
+    ns2:hasFormat "http://w3id.org/devops-infra/product.owl" ;
+    ns2:issued "2021-04-16" ;
+    ns2:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns3:preferredNamespacePrefix "devopsprod" ;
+    ns3:preferredNamespaceUri "http://w3id.org/devops-infra/product#" ;
     rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
     owl:imports <http://w3id.org/devops-infra/core/1.0.0>,
         <http://www.w3.org/2004/02/skos/core> ;
     owl:versionIRI <http://w3id.org/devops-infra/product/1.0.0> ;
     owl:versionInfo "First official release"@en .
 
-<http://w3id.org/devops-infra/organisation#Site> a owl:Class .
+<n001ff2f003a2438e9536250e2d80e0cab1> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab1" .
 
-<http://w3id.org/devops-infra/organisation#Tenant> a owl:Class .
+<n001ff2f003a2438e9536250e2d80e0cab13> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab13" .
+
+<n001ff2f003a2438e9536250e2d80e0cab17> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab17" .
+
+<n001ff2f003a2438e9536250e2d80e0cab21> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab21" .
+
+<n001ff2f003a2438e9536250e2d80e0cab25> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab25" .
+
+<n001ff2f003a2438e9536250e2d80e0cab28> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab28" .
+
+<n001ff2f003a2438e9536250e2d80e0cab31> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab31" .
+
+<n001ff2f003a2438e9536250e2d80e0cab4> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab4" .
+
+<n001ff2f003a2438e9536250e2d80e0cab60> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab60" .
+
+<n001ff2f003a2438e9536250e2d80e0cab65> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab65" .
+
+<n001ff2f003a2438e9536250e2d80e0cab71> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab71" .
+
+<n001ff2f003a2438e9536250e2d80e0cab77> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab77" .
+
+<n001ff2f003a2438e9536250e2d80e0cab84> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab84" .
+
+<n001ff2f003a2438e9536250e2d80e0cab9> rdfs:label "n001ff2f003a2438e9536250e2d80e0cab9" .
+
+<http://w3id.org/devops-infra/organisation#Site> a owl:Class ;
+    rdfs:label "Site" .
+
+<http://w3id.org/devops-infra/organisation#Tenant> a owl:Class ;
+    rdfs:label "Tenant" .
 
 <http://w3id.org/devops-infra/organisation#scope> a owl:ObjectProperty .
 
@@ -117,9 +147,11 @@ ns2:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:domain :ProductVersion ;
     rdfs:range <http://w3id.org/devops-infra/software#ServiceModuleVersion> .
 
-<http://w3id.org/devops-infra/server#Server> a owl:Class .
+<http://w3id.org/devops-infra/server#Server> a owl:Class ;
+    rdfs:label "Server" .
 
-<http://w3id.org/devops-infra/server#ServerLoadBalancer> a owl:Class .
+<http://w3id.org/devops-infra/server#ServerLoadBalancer> a owl:Class ;
+    rdfs:label "Server Load Balancer" .
 
 <http://w3id.org/devops-infra/server#autoScalingHostConfig> a owl:ObjectProperty ;
     rdfs:label "autoscaling host config"@en ;
@@ -131,13 +163,13 @@ ns2:preferredNamespaceUri a owl:AnnotationProperty .
 
 <http://w3id.org/devops-infra/server#deployedInServer> a owl:ObjectProperty .
 
-<http://w3id.org/devops-infra/software#ServiceModuleVersion> a owl:Class .
-
-owl:Ontology rdfs:label "Ontology" .
+<http://w3id.org/devops-infra/software#ServiceModuleVersion> a owl:Class ;
+    rdfs:label "Service Module Version" .
 
 <http://w3id.org/devops-infra/core#dependsOn> a owl:ObjectProperty .
 
-<http://w3id.org/devops-infra/data-center#DataCenter> a owl:Class .
+<http://w3id.org/devops-infra/data-center#DataCenter> a owl:Class ;
+    rdfs:label "Data Center" .
 
 <http://w3id.org/devops-infra/data-center#hostedInDataCenter> a owl:ObjectProperty .
 
@@ -183,11 +215,11 @@ owl:Ontology rdfs:label "Ontology" .
             owl:unionOf ( :MicroService :Service ) ] ;
     rdfs:range <http://w3id.org/devops-infra/software#ServiceModule> .
 
-<http://w3id.org/devops-infra/server#AutoScalingHostConfig> a owl:Class .
+<http://w3id.org/devops-infra/server#AutoScalingHostConfig> a owl:Class ;
+    rdfs:label "Auto Scaling Host Config" .
 
-owl:NamedIndividual rdfs:label "Named Individual" .
-
-<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdfs:label "Concept Scheme" .
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> a owl:Class ;
+    rdfs:label "Concept Scheme" .
 
 :ProductOffering a owl:Class ;
     rdfs:label "Product Offering"@en ;
@@ -227,11 +259,11 @@ owl:NamedIndividual rdfs:label "Named Individual" .
     rdfs:range :Service ;
     rdfs:subPropertyOf <http://w3id.org/devops-infra/core#dependsOn> .
 
-<http://w3id.org/devops-infra/software#ServiceModule> a owl:Class .
+<http://w3id.org/devops-infra/software#ServiceModule> a owl:Class ;
+    rdfs:label "Service Module" .
 
-owl:DatatypeProperty rdfs:label "Datatype Property" .
-
-<http://w3id.org/devops-infra/organisation#Scope> a owl:Class .
+<http://w3id.org/devops-infra/organisation#Scope> a owl:Class ;
+    rdfs:label "Scope" .
 
 :BusinessProduct a owl:Class ;
     rdfs:label "Business Product"@en ;
@@ -361,9 +393,8 @@ owl:DatatypeProperty rdfs:label "Datatype Property" .
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         <http://w3id.org/devops-infra/core#Resource> .
 
-owl:AnnotationProperty rdfs:label "Annotation Property" .
-
-<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+<http://w3id.org/devops-infra/core#Resource> a owl:Class ;
+    rdfs:label "Resource" .
 
 :Service a owl:Class ;
     rdfs:label "Service"@en ;
@@ -389,10 +420,4 @@ owl:AnnotationProperty rdfs:label "Annotation Property" .
             owl:onProperty :isDeleted ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         <http://w3id.org/devops-infra/core#Resource> .
-
-owl:ObjectProperty rdfs:label "Object Property" .
-
-owl:Class rdfs:label "Class" .
-
-owl:Restriction rdfs:label "Restriction" .
 

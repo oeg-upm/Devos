@@ -85,7 +85,8 @@ def debug_classes(g):
     print("\nClasses Labels: %d" % len(classes))
     for c in classes:
         labels = fetcher.get_labels(g, c)
-        print(labels)
+        print("%s:\t%s" % (c, str(labels)))
+    print("\n\n")
 
 
 def clear_cache():
@@ -112,7 +113,6 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
     top_relations = []
 
     if len(classes) < topn or topn==0:
-        num_rem = topn - len(classes)
         classes_list = []
         for r in relations:
             if r[0] not in classes:
@@ -125,6 +125,7 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
                 if p not in classes:
                     classes.append(p)
         else:
+            num_rem = topn - len(classes)
             pairs = c.most_common(num_rem)
 
             print(pairs)
@@ -431,9 +432,9 @@ def get_label(g, uri, lang=None):
 
     if uri not in labels_cache:
         labels_cache[uri] = fetcher.get_print_label(g, uri, lang)
-        print("get_label> %s =>\t %s" % (uri, labels_cache[uri]))
-    else:
-        print("cached: %s =>\t %s" % (uri, labels_cache[uri]))
+        # print("get_label> %s =>\t %s" % (uri, labels_cache[uri]))
+    # else:
+    #     print("cached: %s =>\t %s" % (uri, labels_cache[uri]))
     return labels_cache[uri]
 
 
@@ -475,11 +476,6 @@ def meta_workflow(input_path, title, desc, abstract, only_object_property, out_p
     top_classes = label_uris(g, classes)
     top_relations = label_relations(g, top_relations)
 
-    # DEBUG2
-    print("\n\nTop relations 2: ")
-    for r in top_relations:
-        print(r)
-
     if out_path:
         draw_diagrams(classes=escape_spaces_in_classes(top_classes), relations=escape_spaces_in_relations(top_relations), out_path=out_path)
 
@@ -503,8 +499,8 @@ def get_freq_classes(g, topn, only_object_property):
         print("\nClasses Frequency")
         for p in freq_cls_pairs:
             print("%3d -- %s" % (p[0], p[1]))
-
-    freq_cls_pairs = freq_cls_pairs[:topn]
+    if topn > 0:
+        freq_cls_pairs = freq_cls_pairs[:topn]
     top_classes = [p[1] for p in freq_cls_pairs]
     if DEBUG:
         print(freq_cls_pairs)
@@ -513,12 +509,17 @@ def get_freq_classes(g, topn, only_object_property):
 
 def get_leng_classes(g, topn):
     d = fetcher.get_class_leng(g)
+
     freq_cls_pairs = []
     for k in d:
         p = (d[k], k)
         freq_cls_pairs.append(p)
+
     freq_cls_pairs.sort(reverse=True, key=itemgetter(0))
-    freq_cls_pairs = freq_cls_pairs[:topn]
+
+    if topn > 0:
+        freq_cls_pairs = freq_cls_pairs[:topn]
+
     top_classes = [p[1] for p in freq_cls_pairs]
 
     d_top_classes = dict()
@@ -576,6 +577,7 @@ def leng_workflow(input_path, out_path, topn, topr, soft=False):
     """
     g = parse_ontology(input_path)
     top_classes, class_leng_dict = get_leng_classes(g, topn=topn)
+
     class_relations = fetcher.get_relations(g, top_classes)
     class_relations = to_string_relations(class_relations)
     constraints = fetcher.get_classes_constraints(g, top_classes)

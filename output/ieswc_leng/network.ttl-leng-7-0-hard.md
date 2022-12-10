@@ -2,26 +2,40 @@
 	classDiagram
 
     
-    class `Annotation Property` {
+    class `DNS Record` {
     
     }
 
-    class `Object Property` {
+    class `Public IP Address` {
     
     }
 
-    class `Datatype Property` {
+    class `IP Network` {
     
     }
 
-    class `Class` {
+    class `Public NAT Entry` {
     
     }
 
-    class `Ontology` {
+    class `IP Address` {
+    
+    }
+
+    class `Network Segment` {
+    
+    }
+
+    class `Virtual Floating IP Address` {
     
     }
 
 
+
+`IP Address`  --> `IP Network`   :belongs to IP network  
+
+`Network Segment`  --> `IP Network`   :part of an IP network  
+
+`Public NAT Entry`  --> `Public IP Address`   :exposes IP Address  
 
 ```

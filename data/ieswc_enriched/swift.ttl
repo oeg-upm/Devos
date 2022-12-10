@@ -9,7 +9,7 @@
 <http://purl.org/lu/uni/alma/swift> a owl:Ontology ;
     dct:created "2020-04-27" ;
     dct:creator [ a foaf:Person ;
-            foaf:mbox <file:///Users/aalobaid/workspaces/Pyworkspace/OGister/data/ieswc/christian.grevisse@uni.lu> ;
+            foaf:mbox <file:///Users/aalobaid/workspaces/Pyworkspace/DeVos/data/ieswc/christian.grevisse@uni.lu> ;
             foaf:name "Christian GREVISSE" ] ;
     dct:description "This is an SKOS-based vocabulary about the Swift programming language." ;
     dct:license <https://creativecommons.org/licenses/by-sa/4.0/> ;
@@ -978,11 +978,11 @@ swift:nil a owl:NamedIndividual,
     skos:related dbr:Null_pointer,
         swift:Optional .
 
-owl:Ontology rdfs:label "Ontology" .
+skos:ConceptScheme a owl:Class ;
+    rdfs:label "Concept Scheme" .
 
-skos:ConceptScheme rdfs:label "Concept Scheme" .
-
-foaf:Person rdfs:label "Person" .
+foaf:Person a owl:Class ;
+    rdfs:label "Person" .
 
 swift:BaseClass a owl:NamedIndividual,
         skos:Concept ;
@@ -1409,7 +1409,6 @@ swift:Scheme a skos:ConceptScheme ;
         swift:WeakReference,
         swift:nil .
 
-owl:NamedIndividual rdfs:label "Named Individual" .
-
-skos:Concept rdfs:label "Concept" .
+skos:Concept a owl:Class ;
+    rdfs:label "Concept" .
 

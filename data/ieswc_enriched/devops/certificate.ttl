@@ -244,9 +244,8 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:range xsd:string ;
     rdfs:subPropertyOf owl:topDataProperty .
 
-rdfs:Datatype rdfs:label "Datatype" .
-
-owl:Ontology rdfs:label "Ontology" .
+rdfs:Datatype a owl:Class ;
+    rdfs:label "Datatype" .
 
 :domain a owl:DatatypeProperty ;
     rdfs:label "domain"@en ;
@@ -325,15 +324,10 @@ owl:Ontology rdfs:label "Ontology" .
             owl:onProperty :site ],
         <http://w3id.org/devops-infra/core#Resource> .
 
-<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+<http://w3id.org/devops-infra/core#Resource> a owl:Class ;
+    rdfs:label "Resource" .
 
 xsd:date a rdfs:Datatype .
-
-owl:ObjectProperty rdfs:label "Object Property" .
-
-owl:Class rdfs:label "Class" .
-
-owl:AnnotationProperty rdfs:label "Annotation Property" .
 
 :DigitalCertificate a owl:Class ;
     rdfs:label "Digital Certificate"@en ;
@@ -405,8 +399,4 @@ owl:AnnotationProperty rdfs:label "Annotation Property" .
             owl:allValuesFrom xsd:string ;
             owl:onProperty :vendor ],
         <http://w3id.org/devops-infra/core#Resource> .
-
-owl:DatatypeProperty rdfs:label "Datatype Property" .
-
-owl:Restriction rdfs:label "Restriction" .
 

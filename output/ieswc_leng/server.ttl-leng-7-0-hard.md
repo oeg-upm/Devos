@@ -2,34 +2,38 @@
 	classDiagram
 
     
-    class `Annotation Property` {
+    class `Bare-metal Server` {
     
     }
 
-    class `Object Property` {
+    class `Host Flavor` {
     
     }
 
-    class `Datatype Property` {
+    class `Server Load Balancer` {
     
     }
 
-    class `Named Individual` {
+    class `Auto Scaling Host Configuration` {
     
     }
 
-    class `Concept Scheme` {
+    class `Auto Expand Host Configuration` {
     
     }
 
-    class `Ontology` {
+    class `Host Configuration` {
     
     }
 
-    class `Class` {
+    class `Server` {
     
     }
 
 
+
+`Host Configuration`  --> `Host Flavor`   :flavor  
+
+`Host Configuration`  --> `Host Flavor`   :flavor  
 
 ```

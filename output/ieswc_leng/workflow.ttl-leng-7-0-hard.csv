@@ -1,7 +1,7 @@
-http://www.w3.org/2002/07/owl#AnnotationProperty,2
-http://www.w3.org/2002/07/owl#DatatypeProperty,2
-http://www.w3.org/2002/07/owl#ObjectProperty,2
-http://www.w3.org/2002/07/owl#NamedIndividual,2
-http://www.w3.org/2004/02/skos/core#ConceptScheme,2
-http://www.w3.org/2002/07/owl#Ontology,1
-http://www.w3.org/2002/07/owl#Class,1
+http://w3id.org/devops-infra/workflow#ReverseWorkflow,56
+http://w3id.org/devops-infra/workflow#DirectWorkflow,52
+http://w3id.org/devops-infra/workflow#Workflow,44
+http://w3id.org/devops-infra/workflow#Variable,42
+http://w3id.org/devops-infra/workflow#Task,24
+http://w3id.org/devops-infra/workflow#DirectWorkflowTask,24
+http://w3id.org/devops-infra/workflow#ReverseWorkflowTask,21

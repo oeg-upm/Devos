@@ -1,23 +1,23 @@
 @prefix : <http://w3id.org/devops-infra/software#> .
-@prefix ns1: <http://purl.org/dc/terms/> .
-@prefix ns2: <http://purl.org/dc/elements/1.1/> .
+@prefix ns1: <http://purl.org/dc/elements/1.1/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
 @prefix ns3: <http://purl.org/vocab/vann/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-ns2:creator a owl:AnnotationProperty .
+ns1:creator a owl:AnnotationProperty .
 
-ns2:identifier a owl:AnnotationProperty .
+ns1:identifier a owl:AnnotationProperty .
 
-ns2:title a owl:AnnotationProperty .
+ns1:title a owl:AnnotationProperty .
 
-ns1:hasFormat a owl:AnnotationProperty .
+ns2:hasFormat a owl:AnnotationProperty .
 
-ns1:issued a owl:AnnotationProperty .
+ns2:issued a owl:AnnotationProperty .
 
-ns1:license a owl:AnnotationProperty .
+ns2:license a owl:AnnotationProperty .
 
 ns3:preferredNamespacePrefix a owl:AnnotationProperty .
 
@@ -30,7 +30,7 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
 <http://w3id.org/devops-infra/core#version> a owl:DatatypeProperty .
 
 <http://w3id.org/devops-infra/software> a owl:Ontology ;
-    ns2:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
+    ns1:creator "David Chaves-Fraga (Ontology Engineering Group - Universidad Politécnica de Madrid)",
         "Hu Peng (Huawei Research Ireland)",
         "Jhon Toledo (Ontology Engineering Group - Universidad Politécnica de Madrid)",
         "José Mora (Huawei Research Ireland)",
@@ -40,11 +40,11 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
         "Oscar Corcho (Ontology Engineering Group - Universidad Politécnica de Madrid)",
         "Puchao Zhang (Huawei Research Ireland)",
         "Raúl Alcázar (Ontology Engineering Group - Universidad Politécnica de Madrid)" ;
-    ns2:identifier "http://w3id.org/devops-infra/software" ;
-    ns2:title "Ontology for the representation of the software infrastructure"@en ;
-    ns1:hasFormat "http://w3id.org/devops-infra/software.owl" ;
-    ns1:issued "2021-04-15" ;
-    ns1:license "https://creativecommons.org/licenses/by/4.0" ;
+    ns1:identifier "http://w3id.org/devops-infra/software" ;
+    ns1:title "Ontology for the representation of the software infrastructure"@en ;
+    ns2:hasFormat "http://w3id.org/devops-infra/software.owl" ;
+    ns2:issued "2021-04-15" ;
+    ns2:license "https://creativecommons.org/licenses/by/4.0" ;
     ns3:preferredNamespacePrefix "devopssw" ;
     ns3:preferredNamespaceUri "http://w3id.org/devops-infra/software#" ;
     rdfs:comment "This ontology has been created in the context of a collaboration between the Ontology Engineering Group and Huawei Research Ireland" ;
@@ -58,6 +58,14 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:comment "The version of a piece of software (e.g., used for Service Module Versions)"@en ;
     rdfs:domain :Software ;
     rdfs:range xsd:string .
+
+<n0515bc3c0beb4ae6a462f0eae9a574d4b1> rdfs:label "n0515bc3c0beb4ae6a462f0eae9a574d4b1" .
+
+<n0515bc3c0beb4ae6a462f0eae9a574d4b12> rdfs:label "n0515bc3c0beb4ae6a462f0eae9a574d4b12" .
+
+<n0515bc3c0beb4ae6a462f0eae9a574d4b23> rdfs:label "n0515bc3c0beb4ae6a462f0eae9a574d4b23" .
+
+<n0515bc3c0beb4ae6a462f0eae9a574d4b5> rdfs:label "n0515bc3c0beb4ae6a462f0eae9a574d4b5" .
 
 :fileType a owl:ObjectProperty ;
     rdfs:label "file type"@en ;
@@ -137,15 +145,14 @@ ns3:preferredNamespaceUri a owl:AnnotationProperty .
     rdfs:domain :ServiceModuleVersion ;
     rdfs:range :ServiceModule .
 
-owl:Ontology rdfs:label "Ontology" .
-
 <http://w3id.org/devops-infra/kos/file-type> a owl:NamedIndividual,
         <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
 
 <http://w3id.org/devops-infra/kos/software-type> a owl:NamedIndividual,
         <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
 
-<http://w3id.org/devops-infra/server#Server> a owl:Class .
+<http://w3id.org/devops-infra/server#Server> a owl:Class ;
+    rdfs:label "Server" .
 
 :AutoDeployPackage a owl:Class ;
     rdfs:label "Auto Deploy Package"@en ;
@@ -163,11 +170,11 @@ owl:Ontology rdfs:label "Ontology" .
             owl:onProperty :installsServiceModuleVersion ],
         :File .
 
-owl:NamedIndividual rdfs:label "Named Individual" .
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> a owl:Class ;
+    rdfs:label "Concept Scheme" .
 
-<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdfs:label "Concept Scheme" .
-
-<http://w3id.org/devops-infra/core#Resource> a owl:Class .
+<http://w3id.org/devops-infra/core#Resource> a owl:Class ;
+    rdfs:label "Resource" .
 
 :ServiceModule a owl:Class ;
     rdfs:label "Service Module"@en ;
@@ -192,8 +199,6 @@ owl:NamedIndividual rdfs:label "Named Individual" .
             owl:allValuesFrom :SoftwareDirectory ;
             owl:onProperty :parentDirectory ],
         <http://w3id.org/devops-infra/core#Resource> .
-
-owl:DatatypeProperty rdfs:label "Datatype Property" .
 
 :File a owl:Class ;
     rdfs:label "File"@en ;
@@ -232,12 +237,4 @@ TODO: it would be good to determine a good set of attributes that would characte
             owl:allValuesFrom xsd:string ;
             owl:onProperty :installPath ],
         <http://w3id.org/devops-infra/core#Resource> .
-
-owl:AnnotationProperty rdfs:label "Annotation Property" .
-
-owl:ObjectProperty rdfs:label "Object Property" .
-
-owl:Class rdfs:label "Class" .
-
-owl:Restriction rdfs:label "Restriction" .
 

@@ -1,7 +1,7 @@
-http://www.w3.org/2002/07/owl#AnnotationProperty,2
-http://www.w3.org/2002/07/owl#ObjectProperty,2
-http://www.w3.org/2002/07/owl#NamedIndividual,2
-http://www.w3.org/2004/02/skos/core#ConceptScheme,2
-http://www.w3.org/2002/07/owl#DatatypeProperty,2
-http://www.w3.org/2002/07/owl#Ontology,1
-http://www.w3.org/2002/07/owl#Class,1
+http://w3id.org/devops-infra/product#ProductOffering,64
+http://w3id.org/devops-infra/product#MicroService,28
+http://w3id.org/devops-infra/product#BusinessProduct,20
+http://w3id.org/devops-infra/product#Service,20
+http://w3id.org/devops-infra/product#ProductVersion,15
+http://w3id.org/devops-infra/product#ServiceCluster,15
+http://w3id.org/devops-infra/product#BusinessProductInstance,12

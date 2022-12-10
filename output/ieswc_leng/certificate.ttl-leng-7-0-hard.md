@@ -2,27 +2,27 @@
 	classDiagram
 
     
-    class `Annotation Property` {
+    class `Certificate Signing Request` {
     
     }
 
-    class `Object Property` {
+    class `SSL Certificate` {
     
     }
 
-    class `Datatype Property` {
+    class `Digital Certificate` {
     
     }
 
-    class `Ontology` {
+    class `CFCA (China Financial Certification Authority) Certificate` {
     
     }
 
-    class `Class` {
+    class `Digital Certificate Deployment` {
     
     }
 
-    class `Restriction` {
+    class `Digital Certificate Bundle` {
     
     }
 
@@ -31,5 +31,19 @@
     }
 
 
+
+`Digital Certificate`  --> `Certificate Signing Request`   :has certificate signing request  
+
+`Digital Certificate`  --> `Digital Certificate Deployment`   :has certificate deployment  
+
+`Digital Certificate Bundle`  --> `Digital Certificate`   :contains certificate  
+
+`Digital Certificate`  --> `Certificate Signing Request`   :has certificate signing request  
+
+`Digital Certificate Bundle`  --> `Digital Certificate`   :contains certificate  
+
+`Digital Certificate`  --> `Certificate Signing Request`   :has certificate signing request  
+
+`Digital Certificate Bundle`  --> `Digital Certificate`   :contains certificate  
 
 ```

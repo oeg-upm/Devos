@@ -127,26 +127,48 @@ dcterms:title a owl:DatatypeProperty .
     rdfs:range :Model ;
     rdfs:subPropertyOf :origin .
 
-:Concept a owl:Class .
+<n3c1ce030909d47dbb7324c4ce1755790b1> rdfs:label "n3c1ce030909d47dbb7324c4ce1755790b1" .
+
+<n3c1ce030909d47dbb7324c4ce1755790b13> rdfs:label "n3c1ce030909d47dbb7324c4ce1755790b13" .
+
+<n3c1ce030909d47dbb7324c4ce1755790b17> rdfs:label "n3c1ce030909d47dbb7324c4ce1755790b17" .
+
+<n3c1ce030909d47dbb7324c4ce1755790b5> rdfs:label "n3c1ce030909d47dbb7324c4ce1755790b5" .
+
+<n3c1ce030909d47dbb7324c4ce1755790b9> rdfs:label "n3c1ce030909d47dbb7324c4ce1755790b9" .
+
+:Concept a owl:Class ;
+    rdfs:label "Concept" .
 
 :DataSource a owl:Class ;
+    rdfs:label "Data Source" ;
     rdfs:comment "Data source refererce to the source from which a data is coming from, examples are: American Bureau of Statistics, Yahoo Finance, Wharton Research Data Services (WRDS), Thomson Reuters, etc."^^rdfs:Literal .
 
-owl:Ontology rdfs:label "Ontology" .
+rdf:XMLLiteral a owl:Class ;
+    rdfs:label "XML Literal" .
 
-fabio:ResearchPaper a owl:Class .
+fabio:ResearchPaper a owl:Class ;
+    rdfs:label "Research Paper" .
 
 :Dataset a owl:Class ;
+    rdfs:label "Dataset" ;
     rdfs:comment "Dataset refers to the data file provided by a data source which contain the data for one or multiple measures."^^rdfs:Literal .
 
-:ModelType a owl:Class .
+:ModelType a owl:Class ;
+    rdfs:label "Model Type" .
 
-<http://xmlns.com/foaf/0.1/Person> a owl:Class .
+rdfs:Literal a owl:Class ;
+    rdfs:label "Literal" .
+
+<http://xmlns.com/foaf/0.1/Person> a owl:Class ;
+    rdfs:label "Person" .
 
 :DatasetStructure a owl:Class ;
+    rdfs:label "Dataset Structure" ;
     rdfs:comment "Dataset structure refers to the meta data for a dataset such as what measures are captured, unit of measur."^^rdfs:Literal .
 
 :Measure a owl:Class ;
+    rdfs:label "Measure" ;
     rdfs:comment """Measures are the actual values for variables and are expected to have following features:
 · A unique identifier for each measure
 · Dataset structure for the measure"""^^rdfs:Literal .
@@ -169,32 +191,28 @@ fabio:ResearchPaper a owl:Class .
                                     rdf:first <http://xmlns.com/foaf/0.1/Person> ;
                                     rdf:rest () ] ] ] ] .
 
-owl:DatatypeProperty rdfs:label "Datatype Property" .
-
-owl:NamedIndividual rdfs:label "Named Individual" .
-
 :LinkType a owl:Class ;
     rdfs:label "Link Type" ;
     rdfs:comment "Link Type describes the type of link that exists between two or more variables."^^rdfs:Literal .
 
 :LinkedVariables a owl:Class ;
+    rdfs:label "Linked Variables" ;
     rdfs:comment "A link describes a connection between two variables, the nature of this connection and how this connection was established. When the link is directional, it is read to the direction of LinkType. e.g. - firstVariable causes  secondVariable, for Causal LinkType."^^rdfs:Literal .
 
 :Variable a owl:Class ;
+    rdfs:label "Variable" ;
     rdfs:comment """Variables exist as metrics to quantify concepts. Variables are required to have following features:
 · A unique identifier for each variable
 · The origin of the variables (references, people, etc.)
 · Concepts associated with a variable, and link to those concepts"""^^rdfs:Literal .
 
 :Model a owl:Class ;
+    rdfs:label "Model" ;
     rdfs:comment """Models refer to underlying technique(s) which establish the link between two variables. The model is required to have following specifications:
 · Class of model such as statistical or mathematical model
 · Type of model within a particular class
 · Additional features within each model type"""^^rdfs:Literal .
 
-rdf:List rdfs:label "List" .
-
-owl:Class rdfs:label "Class" .
-
-owl:ObjectProperty rdfs:label "Object Property" .
+rdf:List a owl:Class ;
+    rdfs:label "List" .
 

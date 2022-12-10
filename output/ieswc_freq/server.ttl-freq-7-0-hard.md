@@ -18,36 +18,36 @@
     
     }
 
-    class `DataCenter` {
+    class `Data Center` {
     
     }
 
-    class `NetworkCard` {
+    class `Network Card` {
     
     }
 
-    class `n6bfdaace5d3c4e43affca7e2dc19fa1db1` {
+    class `n89965ea65ed643b08a81f7932b462f4fb1` {
     
     }
 
 
-
-`VirtualServer`  --> `Physical Server`   :hosted In  
-
-`Server`  --> `n6bfdaace5d3c4e43affca7e2dc19fa1db1`   :assignment Status  
 
 `Physical Server`  --> `VirtualServer`   :hosts  
 
 `Account`  --> `Server`   :is Account Of  
 
-`Server`  --> `Account`   :has account  
+`VirtualServer`  --> `Physical Server`   :hosted In  
 
-`Physical Server`  --> `NetworkCard`   :networkCard  
-
-`Physical Server`  --> `NetworkCard`   :networkCard  
+`Server`  --> `n89965ea65ed643b08a81f7932b462f4fb1`   :assignment Status  
 
 `Server`  --> `Account`   :has account  
 
+`Physical Server`  --> `Network Card`   :networkCard  
+
 `Server`  --> `Account`   :has account  
+
+`Server`  --> `Account`   :has account  
+
+`Physical Server`  --> `Network Card`   :networkCard  
 
 ```
