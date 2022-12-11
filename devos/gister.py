@@ -82,7 +82,7 @@ def debug_classes(g):
     Print the labels for the classes
     """
     classes = fetcher.get_all_classes(g)
-    print("\nClasses Labels: %d" % len(classes))
+    print("\ndebug_classes> Classes Labels: %d" % len(classes))
     for c in classes:
         labels = fetcher.get_labels(g, c)
         print("%s:\t%s" % (c, str(labels)))
@@ -262,7 +262,7 @@ def get_meta_text(input_path, title, desc, abstract, lang=None, max_options=0):
             absts = absts[:max_options]
         meta += absts
         if DEBUG:
-            print("abstracts")
+            print("abstracts: ")
             print(absts)
     return meta, g
 
@@ -529,6 +529,12 @@ def get_leng_classes(g, topn):
     d_top_classes = dict()
     for c in top_classes:
         d_top_classes[c] = d[c]
+
+    if DEBUG:
+        print("get_leng_classes> ")
+        for c in d_top_classes:
+            print("%s: %d", (c, d_top_classes[c]))
+
 
     return top_classes, d_top_classes
 

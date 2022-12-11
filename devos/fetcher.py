@@ -152,7 +152,7 @@ def get_class_freq(g, only_object_property):
     results = g.query(q)
 
     if DEBUG:
-        print("\nget_class_freq> query domain")
+        print("\nget_class_freq> query range")
         print(q)
         for res in results:
             print(res)
@@ -184,10 +184,15 @@ def get_class_leng(g):
     # q = "select ?class ?label where { [] a ?class. ?class ?p ?label. FILTER (?p IN ( %s )) }" % label_uris_sparql
     q = "select ?class ?label where { ?class a owl:Class. ?class ?p ?label. FILTER (?p IN ( %s )) }" % label_uris_sparql
 
+    if DEBUG:
+        print("get_class_leng> ")
+        print(q)
+
     results = g.query(q)
     d = dict()
     for res in results:
-        print(res)
+        if DEBUG:
+            print(res)
         class_uri = str(res["class"])
         num = len(res["label"].split(' '))
         if class_uri not in d:
