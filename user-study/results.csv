@@ -1,0 +1,41 @@
+Timestamp,M,F,L,Which of the following is a better summarisation of this ontology? ,Comments?,Ontology
+12/15/2022 9:44:54,3,4,5,L,,software
+12/15/2022 11:02:58,1,3,4,L,,software
+12/15/2022 12:01:09,4,3,3,M,,software
+12/15/2022 14:54:17,3,4,4,L,,software
+12/15/2022 10:54:07,1,4,2,F,,seo
+12/15/2022 12:08:08,1,2,1,F,none of them are really good,seo
+12/15/2022 12:58:16,2,3,5,L,,seo
+12/15/2022 15:49:53,2,4,3,F,,seo
+12/15/2022 12:26:21,4,3,1,M,,product
+12/15/2022 12:37:58,3,1,4,L,,product
+12/15/2022 12:41:42,4,2,3,M,Property in between business product and product offering should include some line breaks since it crosses the arrows of the rest of the properties and difficults reading.,product
+12/15/2022 14:09:41,3,3,5,L,,product
+12/15/2022 12:20:36,2,3,2,F,,i40
+12/15/2022 12:43:39,1,4,1,F,,i40
+12/15/2022 13:11:25,2,3,2,F,"Above all the summarization F is the most complete since represents classes with object properties, however, I still find this representation a bit incomplete.",i40
+12/15/2022 18:32:57,1,3,1,F,"Having floating classes does not help understand what the ontology does, in my opinion. The F representation helps more than the others, but has a repeated edge and has floating classes with no clear relationship to the rest of the model. Had the duplicated edges been removed I would have raised my score. Had the floating classes been related to the rest, I would have raised my score",i40
+12/15/2022 12:07:42,3,4,3,F,,hardware
+12/15/2022 12:47:16,2,2,1,M,,hardware
+12/15/2022 13:19:32,3,5,2,F,,hardware
+12/15/2022 18:27:31,3,4,2,F,,hardware
+12/15/2022 10:03:12,4,5,3,F,,educor
+12/15/2022 11:43:56,4,4,2,M,,educor
+12/15/2022 14:57:21,4,5,4,F,,educor
+12/15/2022 18:12:13,3,4,2,F,,educor
+12/15/2022 10:00:19,4,3,4,L,"Even though I think L is the best, there is one class ''floating'' that does not seem connected to the rest of the diagram (Resource Group)",data-center
+12/15/2022 10:45:19,3,1,5,L,,data-center
+12/15/2022 14:56:20,4,4,5,L,,data-center
+12/15/2022 18:15:52,3,2,5,L,,data-center
+12/15/2022 10:22:07,5,2,5,M,,core
+12/15/2022 10:43:44,3,1,4,L," M seems to lack concepts in its summarization. F is very unclear with hash ids, and  L has more information on the concepts, the role of Concept and Concept Scheme in the summarization is not clear.",core
+12/15/2022 13:38:56,4,3,3,M,,core
+12/15/2022 16:28:49,4,1,2,M,,core
+12/15/2022 10:16:09,1,4,5,L,,certificate
+12/15/2022 10:39:24,4,5,3,F,"F is clear in the names of its terms, representing the main entities and relationships. L has a couple of isolated classes, specially the role of the class Datatype is not clear",certificate
+12/15/2022 12:27:14,2,3,5,L,"The summarization L is the most complete above all, since it represents all the classes and almost all the object properties. However, I don't understand the box called ""Datatype"" in that representation. ",certificate
+12/15/2022 10:07:51,1,4,1,F,,arco1.2
+12/15/2022 10:36:04,1,2,1,F,"Presents in a disorganized way (same term in different languages), entities and relationships.",arco1.2
+12/15/2022 13:34:16,4,4,5,L,,arco1.2
+12/15/2022 16:06:21,2,3,2,F,"Although for me the best summarisation is the F, because it also represents some object property, this one is also a bit difficult to understand. Maybe there is needed to represent also the subclasses. ",arco1.2
+12/15/2022 18:21:48,1,3,1,F,"All the serializations mix labels in multiple languages, which is inconsistent. Those labels are correct in both languages in the ontology. F at least captures relationships, but there are floating relationships",arco1.2

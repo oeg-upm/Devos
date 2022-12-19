@@ -565,7 +565,12 @@ def get_class_relation(g, class_uri):
       ?prop rdfs:domain <%s>.
       ?prop rdfs:range ?range
     }"""
-    results = g.query(class_as_domain % class_uri)
+    q = class_as_domain % class_uri
+    results = g.query(q)
+
+    if DEBUG:
+        print("get_class_relation> Domain %s" % q)
+
     for r in results:
         rel = (class_uri, str(r["prop"]), str(r["range"]))
         relations.append(rel)
@@ -575,10 +580,23 @@ def get_class_relation(g, class_uri):
       ?prop rdfs:domain ?domain.
       ?prop rdfs:range <%s>.
     }"""
-    results = g.query(class_as_range % class_uri)
+
+    q = class_as_range % class_uri
+    results = g.query(q)
+
+    if DEBUG:
+        print("get_class_relation> Range %s" % q)
+
+
     for r in results:
         rel = (str(r["domain"]), str(r["prop"]), class_uri)
         relations.append(rel)
+
+    if DEBUG:
+        print("get_class_relation> relations: ")
+        print(relations)
+        print("\n")
+
     return relations
 
 

@@ -1,0 +1,1 @@
+{"classes": ["Hardware Item", "Server Hardware", "Hardware Batch", "F5 Hardware", "Frame", "Network Card", "Concept"], "relations": [["Server Hardware", "hosted in frame", "Frame"], ["Hardware Item", "network card", "Network Card"], ["Server Hardware", "high availability status", "Concept"], ["Server Hardware", "batch", "Hardware Batch"]], "meta": "abstract"}

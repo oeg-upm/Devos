@@ -1,0 +1,1 @@
+{"classes": ["Evidence Based Explanation", "Case Based Explanation", "Static Explanation", "Everyday Explanation", "Explanation Type wrt Model and Interactivity", "Type - Static Explanation", "Interpretation and Explanation Task"], "relations": [["Static Explanation", "hasExplanationType", "Type - Static Explanation"]], "meta": "abstract"}

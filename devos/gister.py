@@ -111,7 +111,6 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
 
     relations = list(set(relations))
 
-    per_class = dict()
     top_relations = []
 
     if len(classes) < topn or topn==0:
@@ -129,20 +128,24 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
         else:
             num_rem = topn - len(classes)
             pairs = c.most_common(num_rem)
-
-            print(pairs)
+            if DEBUG:
+                print("pairs: ")
             for p in pairs:
-                print(p)
+                if DEBUG:
+                    print(p)
                 classes.append(p[0])
 
-    print("number of classes: %d" % len(classes))
+    if DEBUG:
+        print("number of classes: %d" % len(classes))
 
+    per_class = dict()
     for c in classes:
         per_class[c] = 0
 
     if topr > 0:
         rmax = math.ceil(topr/len(classes))
         for r in relations:
+
             if r[0] in per_class and r[2] in per_class:
                 if per_class[r[0]] < rmax and per_class[r[2]] < rmax:
                     per_class[r[0]] += 1
@@ -150,12 +153,33 @@ def get_top_relations_hard(classes, relations, topr, topn=0):
                     top_relations.append(r)
 
     else:
-        print(per_class)
+        if DEBUG:
+            print("\nXXXXXXXXXXXX important classes:\n")
+            for c in per_class:
+                print(c)
         for r in relations:
+
+            # DEBUG
+            if 'Agent' in r[0] or 'Agent' in r[2]:
+                print("Debugging Agent")
+                print(r[0])
+                print(r[2])
+
 
             if r[0] in per_class and r[2] in per_class:
                 top_relations.append(r)
+
+                # DEBUG
+                if 'Agent' in r[0] or 'Agent' in r[2]:
+                    print("\nYYYYYYYYYYYYY \nIncluding Agent Agent")
+
+
             else:
+
+                # DEBUG
+                if 'Agent' in r[0] or 'Agent' in r[2]:
+                    print("Removing Agent => WRONG")
+
                 if r[0] not in per_class:
                     sk = r[0]
                 elif r[2] not in per_class:
@@ -550,6 +574,10 @@ def freq_workflow(input_path, out_path, topn, only_object_property, topr=0, soft
     constraints = fetcher.get_classes_constraints(g, top_classes)
     constraints = to_string_relations(constraints)
     class_relations += constraints
+
+    if DEBUG:
+        print("Relations before selecting the top ones:")
+        print_relations(class_relations, short=True)
 
     if soft:
         top_relations = get_top_relations_soft(top_classes, class_relations, topr)

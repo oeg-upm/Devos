@@ -21,6 +21,8 @@ python -m devos.gister -i data/ieswc_enriched/explanation-ontology.owl  -t -d -a
 
 
 python -m devos.gister -i data/ieswc_enriched/devops/core.ttl   --freq --topn 7
+
+python -m devos.gister -i data/ieswc_enriched/devops/core.ttl   --freq --topn 7
 ```
 
 
@@ -63,9 +65,9 @@ python -m experiments.enrich -i data/ieswc/devops/* -o data/ieswc_enriched/devop
 
 
 
-### Run the experiment (NEW)
+### Run the experiment
 
-#### From Meta data
+#### From Ontology Meta data (OntMet)
 
 * To only use `owl:ObjectProperty` when getting the relevant properties to the given meta
 
