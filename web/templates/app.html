@@ -19,14 +19,21 @@
         <div class="mb-3">
             <label for="exampleFormControlInput3" class="form-label">Technique</label>
 
-            <select class="form-select" aria-label="Default select example" id="exampleFormControlInput3">
-                <option value="OntMet">OntMet (Ontology Metadata)</option>
-                <option value="ClaFreq">ClaFreq (Class Frequency)</option>
-                <option value="LabLen">LabLen (Labels Length)</option>
+            <select class="form-select" name="technique" aria-label="Default select example" id="exampleFormControlInput3">
+                {% for key, value in techniques.items() %}
+
+
+                <option value="{{ key }}">{{ value }}</option>
+
+                {%endfor%}
+<!--                <option value="OntMet">OntMet (Ontology Metadata)</option>-->
+<!--                <option value="ClaFreq">ClaFreq (Class Frequency)</option>-->
+<!--                <option value="LabLen">LabLen (Labels Length)</option>-->
             </select>
         </div>
+                <input type="submit" class="btn btn-dark fw-bold" value="Generate Summary"/>
 
-                <input type="submit" class="btn btn-light fw-bold border-white bg-white" value="Generate Summary"/>
+<!--                <input type="submit" class="btn btn-light fw-bold border-white bg-white" value="Generate Summary"/>-->
 
     </form>
 <!--    <p class="lead">-->

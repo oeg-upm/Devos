@@ -160,6 +160,8 @@ python -m unittest discover tests
 
 - [Ahmad Alobaid](https://github.com/ahmad88me) - (Ontology Engineering Group - UPM)
 - [Jhon Toledo](https://github.com/jatoledo) - (Ontology Engineering Group - UPM)
+- [María Poveda Villalón] - (Ontology Engineering Group - UPM)
+- [Oscar Corcho] - (Ontology Engineering Group - UPM)
 
 *[Ontology Engineering Group](https://oeg.fi.upm.es/)*, *[Universidad Politécnica de Madrid](https://www.upm.es/internacional)*.
 

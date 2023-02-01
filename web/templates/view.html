@@ -2,28 +2,51 @@
 
 {% block content %}
 <h2>viewer</h2>
+<p> {{time_txt}}</p>
+<!--  <script src='https://unpkg.com/mermaid@8.1.0/dist/mermaid.min.js'></script>-->
+  <script src='https://unpkg.com/mermaid@9.3.0/dist/mermaid.min.js'></script>
 
-  <script src='https://unpkg.com/mermaid@8.1.0/dist/mermaid.min.js'></script>
+
+<!--<div  style="height:50%;"  class='mermaid'>-->
+<!--	classDiagram-->
+
+<!--Agent  &ndash;&gt; Document   :interest-->
+
+<!--Person  &ndash;&gt; Document   :publications-->
+
+<!--Thing  &ndash;&gt; Document   :page-->
+
+
+<!--Agent  &ndash;&gt; Thing   :topic_interest-->
+
+<!--Thing  &ndash;&gt; Agent   :maker-->
+
+<!--Group  &ndash;&gt; Agent   :member-->
+
+<!--</div>-->
+
+
+
 <div  style="height:50%;"  class='mermaid'>
-	classDiagram
-
-Agent  --> Document   :interest
-
-Person  --> Document   :publications
-
-Thing  --> Document   :page
-
-
-Agent  --> Thing   :topic_interest
-
-Thing  --> Agent   :maker
-
-Group  --> Agent   :member
-
+{{diagram_txt|safe}}
 </div>
 
+<!--<div  style="height:50%;"  class='mermaid'>-->
+<!--	classDiagram-->
+
+<!--`Agent A`  &ndash;&gt; Document   :interest-->
+
+<!--Person  &ndash;&gt; Document   :publications-->
+
+<!--Thing  &ndash;&gt; Document   :page-->
 
 
+<!--Agent  &ndash;&gt; Thing   :topic_interest-->
 
+<!--Thing  &ndash;&gt; Agent   :maker-->
+
+<!--Group  &ndash;&gt; Agent   :member-->
+
+<!--</div>-->
 
 {% endblock %}

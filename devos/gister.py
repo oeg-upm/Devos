@@ -98,7 +98,22 @@ def parse_ontology(input_path):
     g = rdflib.Graph()
     if DEBUG:
         print("\n\n\t\t==============\n\t Parsing: %s (format: %s)" % (input_path, rdflib.util.guess_format(input_path)))
-    g.parse(input_path, format=rdflib.util.guess_format(input_path))
+    try:
+        g.parse(input_path, format=rdflib.util.guess_format(input_path))
+    except Exception as e:
+        print("\n\n\t\t==============\n\t Exception Parsing: %s (exception: %s)" % (input_path, str(e)))
+        parsed = False
+        for format in ["xml", "n3", "ttl", "nt", "trig", "trix", "json-ld"]:
+            try:
+                g.parse(input_path, format=format)
+                if DEBUG:
+                    print("\n\n\t\t==============\n\t Parsing: %s (format: %s)" % (input_path, format))
+                parsed = True
+                break
+            except Exception:
+                pass
+        if not parsed:
+            raise Exception("Unable to parse")
     return g
 
 
