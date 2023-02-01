@@ -1,7 +1,12 @@
 from flask import Flask
 from flask import render_template, request
+from werkzeug.utils import secure_filename
+import traceback
+import random
+import string
 import sys
 import os
+import requests
 
 UPLOAD_FOLDER = 'uploads'
 
@@ -15,7 +20,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 def get_random_text(n=4):
     return ''.join([random.choice(string.ascii_letters + string.digits) for _ in range(n)])
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def home():
     if request.method == 'GET':
         return render_template('app.html')
@@ -23,6 +28,7 @@ def home():
         # check if the post request has the file part
         dest = ""
         if 'file' in request.files:
+            print("\n\nfile is there")
             # return "Error, expected URL of the Ontology file"
             # flash('No file part')
             # return redirect(request.url)
@@ -33,27 +39,28 @@ def home():
                 dest = os.path.join(app.config['UPLOAD_FOLDER'], filename)
                 file.save(dest)
                 # return redirect(url_for('download_file', name=filename))
-        if 'url' in request.form:
+        elif 'url' in request.form:
+            print("\n\nurl is there")
             url = request.form['url'].strip()
             if url == "":
-                return "Error, expected URL of the Ontology file"
+                return "Error, expected URL of the Ontology file", 400
             else:
                 try:
-                    dest = os.path.join(app.config['UPLOAD_FOLDER'], get_random_text())
+                    fname = url.split('/')[-1] + "-" + get_random_text()
+                    dest = os.path.join(app.config['UPLOAD_FOLDER'], fname)
                     download_file(url, dest)
                 except Exception as e:
                     print("Exception: %s" % str(e))
                     traceback.print_exc()
-                    return "Internal Error"
+                    return "Internal Error", 500
         else:
-            return "Error, expected URL of the Ontology file"
+            return "Error, expected URL of the Ontology or the file itself", 400
 
-
+        return "Success"
 
 
 
 def download_file(url, dest):
-    # NOTE the stream=True parameter below
     with requests.get(url, stream=True) as r:
         r.raise_for_status()
         with open(dest, 'wb') as f:
