@@ -1,7 +1,29 @@
 {% extends "base.html" %}
-{% block content %}
 
-<h1> VIEWER</h1>
+{% block content %}
+<h2>viewer</h2>
+
+  <script src='https://unpkg.com/mermaid@8.1.0/dist/mermaid.min.js'></script>
+<div  style="height:50%;"  class='mermaid'>
+	classDiagram
+
+Agent  --> Document   :interest
+
+Person  --> Document   :publications
+
+Thing  --> Document   :page
+
+
+Agent  --> Thing   :topic_interest
+
+Thing  --> Agent   :maker
+
+Group  --> Agent   :member
+
+</div>
+
+
+
 
 
 {% endblock %}
