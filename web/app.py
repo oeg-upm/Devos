@@ -9,6 +9,10 @@ def home():
     return render_template('app.html')
     # return "<p>Hello, World!</p>"
 
+@app.route("/viewer")
+def view():
+    return render_template('view.html')
+
 
 
 if __name__ == '__main__':
