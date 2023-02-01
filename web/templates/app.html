@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <main class="px-3">
+    <h1>Add your ontology</h1>
+    <p class="lead">Generate a summary of the ontology</p>
+      <form>
+
+          <div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Ontology URL</label>
+  <input type="url" class="form-control" id="exampleFormControlInput1" placeholder="http://ontology.path">
+</div>
+
+                   <div class="mb-3">
+  <label for="exampleFormControlInput2" class="form-label">Ontology File</label>
+  <input type="file" class="form-control" id="exampleFormControlInput2">
+</div>
+
+      </form>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-light fw-bold border-white bg-white">Learn more</a>
+    </p>
+  </main>
+
+{% endblock %}
