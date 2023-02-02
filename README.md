@@ -1,7 +1,7 @@
 [![License](https://camo.githubusercontent.com/d6aa9e530d2e113934db4c4c984411041c92b3a120223790c67d37291d373822/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f6d6f7270682d6b67632e737667)](https://github.com/oeg-upm/morph-kgc/blob/main/LICENSE) [![DOI](https://camo.githubusercontent.com/cb4ada9b60b4ebbede3565b01c9b8aace5283e8fa6eda21d0d9c46abf4d53cc2/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f3331313935363236302e7376673f7374796c653d666c6174)](https://zenodo.org/record/7456085#.Y9vBhnZBzGI) 
 
 # DeVoS
-Depicting Vocabulary Summaries(**DeVoS**) is a tool that generates a visual summary from a given ontology. DeVoS is built on top of [Mermaid](https://mermaid.js.org/) syntax which is a Markdown-inspired tool that renders text in diagrams and it uses **[SPARQL](https://www.w3.org/TR/rdf-sparql-query/) Query Language** over the ontology for generating a visual summary. It's based on three approaches.
+Depicting Vocabulary Summaries(**DeVoS**) is a tool that generates a visual summary from a given ontology. DeVoS is built on top of [Mermaid](https://mermaid.js.org/) syntax which is a Markdown-inspired tool that renders text in diagrams and it uses **[SPARQL](https://www.w3.org/TR/rdf-sparql-query/) Query Language** over the ontology generating a visual summary. It's based on three approaches.
 
 1. Ontology Meta Data 
 2. Classes frequencies
