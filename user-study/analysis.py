@@ -77,11 +77,17 @@ def methods_comparison_mean(df):
         plt.show()
 
     plt.clf()
+    draw_mean(df)
+    return df_avg_per_ont
 
+def draw_mean(df):
+    """
+    Draw the mean for each technique
+    """
     fig, ax = plt.subplots(figsize=(5, 5))
     ax = sns.barplot(
         data=df,
-        x="Technique", y="Rating", #Shue="Technique",
+        y="Technique", x="Rating", #Shue="Technique",
         # palette="dark",
         # palette="mako",
         palette="mako",
@@ -89,7 +95,8 @@ def methods_comparison_mean(df):
         ax=ax,
         # pallette="Spectral"
     )
-    hatches = ["-", "\\", "+"]
+    # hatches = ["-", "\\", "+"]
+    hatches = ["--", "\\\\", "++"]
     # Loop over the bars
     for bars, hatch_ in zip(ax.containers, hatches):
         # Set a different hatch for each group of bars
@@ -107,7 +114,6 @@ def methods_comparison_mean(df):
     if SHOW_FIG:
         plt.show()
     plt.clf()
-    return df_avg_per_ont
 
 
 def methods_comparison_median(df):
@@ -329,9 +335,43 @@ def domain_range_corr(df):
     plt.clf()
 
 
+# def test():
+#     """
+#     This is used just used for testing how the figures are generated. This is not used for other purposes.
+#     """
+#     df = pd.DataFrame([["T1",4], ["T2",8], ["T3", 7]], columns=["Technique", "Rating"])
+#     fig, ax = plt.subplots(figsize=(5, 5))
+#     ax = sns.barplot(
+#         data=df,
+#         y="Technique", x="Rating",
+#         palette="mako",
+#         errorbar=None,
+#         ax=ax,
+#         # pallette="Spectral"
+#     )
+#     hatches = ["-", "\\", "+"]
+#     # Loop over the bars
+#     for bars, hatch_ in zip(ax.containers, hatches):
+#         # Set a different hatch for each group of bars
+#         for bar, hatch in zip(bars, hatches):
+#             bar.set_hatch(hatch)
+#             bar.set_edgecolor([1, 1, 1])
+#     plt.ylabel("Avg. Rating")
+#     fig.tight_layout()
+#     plt.legend(loc='lower left', handles=ax.containers[0], labels=["OntMet", "ClaFreq", "LabLen"])
+#
+#     ax.figure.savefig(os.path.join("user-study", "mean.svg"))
+#     ax.figure.savefig(os.path.join("user-study", "mean.eps"))
+#     # ax.figure.savefig("mean.svg")
+#     # ax.figure.savefig("mean.eps")
+#     if SHOW_FIG:
+#         plt.show()
+#     plt.clf()
+#     return df_avg_per_ont
+
 
 if __name__ == "__main__":
-    df = pd.read_csv(os.path.join("user-study","results.csv"))
+    df = pd.read_csv(os.path.join("user-study", "results.csv"))
     df = methods_comparison_mean(df)
     # leng_corr(df)
     # meta_corr(df)
