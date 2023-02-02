@@ -1,4 +1,4 @@
-[![License](https://camo.githubusercontent.com/d6aa9e530d2e113934db4c4c984411041c92b3a120223790c67d37291d373822/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f6d6f7270682d6b67632e737667)](https://github.com/oeg-upm/morph-kgc/blob/main/LICENSE) 
+[![License](https://camo.githubusercontent.com/d6aa9e530d2e113934db4c4c984411041c92b3a120223790c67d37291d373822/68747470733a2f2f696d672e736869656c64732e696f2f707970692f6c2f6d6f7270682d6b67632e737667)](https://github.com/oeg-upm/morph-kgc/blob/main/LICENSE) [![DOI](https://camo.githubusercontent.com/cb4ada9b60b4ebbede3565b01c9b8aace5283e8fa6eda21d0d9c46abf4d53cc2/68747470733a2f2f7a656e6f646f2e6f72672f62616467652f3331313935363236302e7376673f7374796c653d666c6174)](https://zenodo.org/record/7456085#.Y9vBhnZBzGI) 
 
 # DeVoS
 Depicting Vocabulary Summaries. It is a tool to generate a visual summary of the ontology. 
@@ -108,7 +108,7 @@ python -m experiments.enrich -i data/ieswc/devops/* -o data/ieswc_enriched/devop
 
 * Top 10 classes: ```python -m experiments.generate_diagrams -i data/ieswc_enriched/* -o output/ieswc_freq --object-property --freq --topn 10```
 
-[//]: # (* Top 10 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 10 --topr 10```)
+[//]: # "* Top 10 classes and 10 relations: ```python -m experiments.generate_diagrams -i data/ieswc/* -o output/ieswc_freq --object-property --freq --topn 10 --topr 10```"
 
 
 #### Label Length
@@ -131,23 +131,23 @@ About the number of classes properties to `stats.csv`
 python -m experiments.analytics
 ```
 
-[//]: # (#### Convert the md diagrams to pngs)
+[//]: # "#### Convert the md diagrams to pngs"
 
-[//]: # (##### Requirement)
+[//]: # "##### Requirement"
 
-[//]: # ()
-[//]: # ([mermaid-cli]&#40;https://github.com/mermaid-js/mermaid-cli&#41;)
+[//]: #
+[//]: # "[mermaid-cli]&#40;https://github.com/mermaid-js/mermaid-cli&#41;"
 
-[//]: # ()
-[//]: # (##### Generate the pngs)
+[//]: #
+[//]: # "##### Generate the pngs"
 
-[//]: # (```)
+[//]: # "```"
 
-[//]: # (python -m experiments.convert_diagrams -i output/Top_in_lov_freq_5/*.md)
+[//]: # "python -m experiments.convert_diagrams -i output/Top_in_lov_freq_5/*.md"
 
-[//]: # (```)
+[//]: # "```"
 
-[//]: # (*Note: the coverted does not look as good as the rendered mermaid diagrams*)
+[//]: # "*Note: the coverted does not look as good as the rendered mermaid diagrams*"
 
 
 ## Tests
