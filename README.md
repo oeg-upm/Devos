@@ -15,6 +15,13 @@ Depicting Vocabulary Summaries(**DeVoS**) is a tool that generates a visual summ
   * Allows the user to use the summarisation technique (e.g., using meta data, class frequency, or label length)
 * Enrich ontologies with labels for the classes that are missing them.
 
+## Dependencies
+* [owl2diagram](https://github.com/jatoledo/owl2diagram)
+* [requirements.txt](/requirements.txt)
+
+## Install
+```pip install devos-py```
+
 ## Tutorial
 
 1. Use meta data as the signal for importance
