@@ -13,7 +13,6 @@ from datetime import datetime
 from devos import fetcher
 from devos import util
 import nltk
-nltk.download('stopwords')
 from nltk.corpus import stopwords
 from string import punctuation
 
