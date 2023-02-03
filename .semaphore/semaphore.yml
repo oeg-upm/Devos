@@ -1,0 +1,26 @@
+version: v1.0
+name: Python
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Test
+    task:
+      jobs:
+        - name: Tests and Coverage
+          commands:
+            - sem-version python 3.9
+            - checkout
+            - python -m pip install --upgrade pip
+            - pip install -r requirements.txt
+            - pip install flake8
+            - 'flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics'
+            - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+            - pip install codecov
+            - 'pip install -e git+ssh://git@github.com/jatoledo/owl2diagram.git@ff25acf78755b06402bcdee8c44d30b0bb2baf66#egg=owl2diagram'
+            - coverage run -m unittest discover
+            - coverage report -m
+            - 'bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN'
+      secrets:
+        - name: Devos Secret
