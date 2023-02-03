@@ -19,6 +19,7 @@ blocks:
             - flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
             - pip install codecov
             - 'pip install -e git+ssh://git@github.com/jatoledo/owl2diagram.git@ff25acf78755b06402bcdee8c44d30b0bb2baf66#egg=owl2diagram'
+            - python -m nltk.downloader popular
             - coverage run -m unittest discover
             - coverage report -m
             - 'bash <(curl -s https://codecov.io/bash) -t $CODECOV_TOKEN'
