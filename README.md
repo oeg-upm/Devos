@@ -135,24 +135,6 @@ About the number of classes properties to `stats.csv`
 python -m experiments.analytics
 ```
 
-[//]: # "#### Convert the md diagrams to pngs"
-
-[//]: # "##### Requirement"
-
-[//]: #
-[//]: # "[mermaid-cli]&#40;https://github.com/mermaid-js/mermaid-cli&#41;"
-
-[//]: #
-[//]: # "##### Generate the pngs"
-
-[//]: # "```"
-
-[//]: # "python -m experiments.convert_diagrams -i output/Top_in_lov_freq_5/*.md"
-
-[//]: # "```"
-
-[//]: # "*Note: the coverted does not look as good as the rendered mermaid diagrams*"
-
 
 ## Tests
 To run unit tests
