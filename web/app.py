@@ -40,13 +40,15 @@ def home():
         if technique not in TECHNIQUES:
             return "Error, invalid technique", 400
 
-        if 'file' in request.files:
+        if 'file' in request.files and request.files['file'].filename:
+            print("\n\n******FILE\n\n")
             file = request.files['file']
-            if file and file.filename:
-                filename = secure_filename(file.filename)
-                dest = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-                file.save(dest)
+            filename = secure_filename(file.filename)
+            dest = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            print("in file and dest: %s" % dest)
+            file.save(dest)
         elif 'url' in request.form:
+            print("\n\n******URL\n\n")
             url = request.form['url'].strip()
             if url == "":
                 return "Error, expected URL of the Ontology file", 400
@@ -56,6 +58,7 @@ def home():
                     # fname = url.split('/')[-1]# + "-" + get_random_text()
                     # fname = fname + + "-" + get_random_text() + fname.split('.')[-1]
                     dest = os.path.join(app.config['UPLOAD_FOLDER'], fname)
+                    print("in url and dest: %s" % dest)
                     download_file(url, dest)
                 except Exception as e:
                     print("Exception: %s" % str(e))

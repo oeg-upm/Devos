@@ -111,7 +111,8 @@ def parse_ontology(input_path):
                     print("\n\n\t\t==============\n\t Parsing: %s (format: %s)" % (input_path, format))
                 parsed = True
                 break
-            except Exception:
+            except Exception as e:
+                print("Exception: %s" % str(e))
                 pass
         if not parsed:
             raise Exception("Unable to parse")
