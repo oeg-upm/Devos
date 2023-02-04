@@ -97,3 +97,11 @@ python -m unittest discover tests
 ## License
 
 DeVoS is available under the permissive **[Apache License 2.0](https://github.com/oeg-upm/Devos/blob/main/LICENSE)**.
+
+## PyPi
+```
+python -m build
+twine check dist/*
+twine upload dist/*
+```
+

@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "devos-py"
-version = "1.0.0"
+version = "1.0.1"
 description = "A tool to Depict Vocabulary Summaries"
 readme = "README.md"
 authors = [{ name = "Ahmad Alobaid", email = "aalobaid@fi.upm.es" }, { name = "Jhon Toledo"}, { name = "Oscar Corcho"}, { name = "María Poveda Villalón"}]
