@@ -35,25 +35,65 @@ The web application is built using Flask. To run it, you can use the following c
 
 
 ## CLI Tutorial
-1. Use meta data as the signal for importance
+
 ```
-python -m devos.gister -i data/ieswc/cocoon.ttl --freq
+usage: gister.py [-h] -i INPUT [-o OUTPUT] [-t] [-d] [-a] [-n TOPN] [-l LANG] [--object-property]
+                 [-m MAXOPTIONS] [-f] [-g] [-r TOPR] [--soft] [--debug]
+
+Get a Gist of the ontology
+
+options:
+  -h, --help            show this help message and exit
+  -i INPUT, --input INPUT
+                        Ontology file.
+  -o OUTPUT, --output OUTPUT
+                        Output file.
+  -t, --title           To look into titles.
+  -d, --description     To look into description.
+  -a, --abstract        To look into abstract.
+  -n TOPN, --topn TOPN  The maximum number of relevant classes.
+  -l LANG, --lang LANG  language tag. e.g., en
+  --object-property     Whether to only use object property for getting the relevant properties relenvant
+                        to the given meta
+  -m MAXOPTIONS, --maxoptions MAXOPTIONS
+                        Maximum number of meta literal for each meta type (e.g., title)
+  -f, --freq            Use frequency to fetch the most relevant classes and properties
+  -g, --leng            Use the length to fetch the most relevant classes and properties
+  -r TOPR, --topr TOPR  The maximum number of relations
+  --soft                Also include classes related to the important classes
+  --debug               To print debug information
+
+```
+
+There are three supported methods: OntMet, ClaFreq, and LabLen.
+
+1. Use the metadata of the ontology (**OntMet** method). Use the options `-t -d -a`, which stands for *title*, *description*, and *abstract*, respectively.  
+
+Examples:
+```
 python -m devos.gister -i data/ieswc_enriched/ck.ttl -t -d -a  
 
 
 python -m devos.gister -i data/ieswc_enriched/explanation-ontology.owl  -t -d -a --topn 7
+```
+2. To use the class frequency method (**ClaFreq**), include `--freq` option. 
 
-
+Examples:
+```
 python -m devos.gister -i data/ieswc_enriched/devops/core.ttl   --freq --topn 7
 
 python -m devos.gister -i data/ieswc_enriched/devops/core.ttl   --freq --topn 7
+
+python -m devos.gister -i data/ieswc/cocoon.ttl --freq
 ```
 
+3. To use the length of the class label, **LabLen**, include the option `--leng`. 
 
 
 
 
-**Example**:
+
+**Diagram Example**:
 
 
 ```mermaid
@@ -89,14 +129,14 @@ python -m unittest discover tests
 
 - [Ahmad Alobaid](https://github.com/ahmad88me) - (Ontology Engineering Group - UPM)
 - [Jhon Toledo](https://github.com/jatoledo) - (Ontology Engineering Group - UPM)
-- [María Poveda Villalón] - (Ontology Engineering Group - UPM)
-- [Oscar Corcho] - (Ontology Engineering Group - UPM)
+- [María Poveda Villalón](https://github.com/mariapoveda) - (Ontology Engineering Group - UPM)
+- [Oscar Corcho](https://github.com/ocorcho) - (Ontology Engineering Group - UPM)
 
 *[Ontology Engineering Group](https://oeg.fi.upm.es/)*, *[Universidad Politécnica de Madrid](https://www.upm.es/internacional)*.
 
 ## License
 
-DeVoS is available under the permissive **[Apache License 2.0](https://github.com/oeg-upm/Devos/blob/main/LICENSE)**.
+DevoS is available under the permissive **[Apache License 2.0](https://github.com/oeg-upm/Devos/blob/main/LICENSE)**.
 
 ## PyPi
 ```
