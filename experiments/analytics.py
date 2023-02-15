@@ -45,6 +45,7 @@ def save_aggregate_data(data, output_path):
 
 
 def stat_workflow(input_path, output_path):
+    print(input_path)
     data = get_data(input_path)
     save_aggregate_data(data, output_path)
 
