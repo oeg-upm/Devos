@@ -163,20 +163,13 @@ def draw_corr(data):
     df = pd.read_csv(os.path.join("userstudy", "results.csv"))
     rating_df = get_rating_df(df)
     class_df = get_df_from_data(data)
-    print(rating_df["Technique"])
-    print(class_df["Technique"])
-    df = rating_df.merge(class_df, left_on=["Ontology", "Technique"], right_on=["name", "Technique"])
-    # print(df)
 
+    df = rating_df.merge(class_df, left_on=["Ontology", "Technique"], right_on=["name", "Technique"])
     model_rating_atts(df)
 
     attr_corr(df, "num_classes")
     attr_corr(df, "num_relations")
     attr_corr(df, "num_blanknodes")
-    # num_class_corr(df)
-    # num_rel_corr(data)
-    # num_blank_corr(data)
-
 
 
 def stat_workflow(input_path, output_path):
@@ -186,8 +179,6 @@ def stat_workflow(input_path, output_path):
     data = get_data(input_path)
     save_aggregate_data(data, output_path)
     draw_corr(data)
-
-
 
 
 def main(input_path, output_path):
