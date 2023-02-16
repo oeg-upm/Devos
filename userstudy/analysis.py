@@ -14,7 +14,7 @@ SHOW_FIG = False
 # sns.set_theme(style="whitegrid", font_scale=1.2)
 
 
-def methods_comparison_mean(df):
+def get_rating_df(df):
     ontologies = list(set(df['Ontology']))
     df_balanced = pd.DataFrame(columns=['Ontology','M', 'F', 'L'])
     for ont in ontologies:
@@ -42,6 +42,10 @@ def methods_comparison_mean(df):
         df_row2 = pd.DataFrame([[row['Ontology'], 'ClaFreq' , row['F']]],columns=['Ontology', 'Technique', 'Rating'])
         df_row3 = pd.DataFrame([[row['Ontology'], 'LabLen' , row['L']]],columns=['Ontology', 'Technique', 'Rating'])
         df = pd.concat([df, df_row1, df_row2, df_row3], ignore_index=True)
+
+    return df
+
+def draw_per_ontology(df):
 
     fig, ax = plt.subplots(figsize=(10, 5))
     ax = sns.barplot(
@@ -371,8 +375,9 @@ def domain_range_corr(df):
 
 
 if __name__ == "__main__":
-    df = pd.read_csv(os.path.join("user-study", "results.csv"))
-    df = methods_comparison_mean(df)
-    # leng_corr(df)
-    # meta_corr(df)
+    df = pd.read_csv(os.path.join("userstudy", "results.csv"))
+    df = get_rating_df(df)
+    draw_per_ontology(df)
+    leng_corr(df)
+    meta_corr(df)
     domain_range_corr(df)

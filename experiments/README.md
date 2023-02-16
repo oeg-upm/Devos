@@ -76,8 +76,12 @@ Top 7 classes from devops: ```python -m experiments.generate_diagrams -i data/ie
 
 
 
-# Generate Statistics
-About the number of classes properties to `stats.csv`
-```
-python -m experiments.analytics
-```
+[//]: # (# Generate Statistics)
+
+[//]: # (About the number of classes properties to `stats.csv`)
+
+[//]: # (```)
+
+[//]: # (python -m experiments.analytics)
+
+[//]: # (```)
