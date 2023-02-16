@@ -1,6 +1,7 @@
 uploads
 .idea/
 .DS_Store
+*.eps
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
